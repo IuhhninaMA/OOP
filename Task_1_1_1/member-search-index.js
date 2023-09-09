@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"ru.nsu.Yukhnina","c":"Main","l":"Main()","url":"%3Cinit%3E()"},{"p":"ru.nsu.Yukhnina","c":"Main","l":"main(String[])","url":"main(java.lang.String[])"}]
+memberSearchIndex = [{"p":"ru.nsu.Yukhnina","c":"Main","l":"Main()","url":"%3Cinit%3E()"},{"p":"ru.nsu.Yukhnina","c":"Main","l":"sort(int[], int)","url":"sort(int[],int)"}]

@@ -1,7 +1,6 @@
 package ru.nsu.Yukhnina;
 
 public class Main {
-
     /**
      * @param arr это массив который нужно отсортировать
      * @param n это длинна сртируемого массива
@@ -23,8 +22,6 @@ public class Main {
         }
         return arr;
     }
-
-
     /**
      * @param arr массив на основе которого строится куча
      * Функция для преобразования в кучу
@@ -39,12 +36,10 @@ public class Main {
         {
             largest = l;
         }
-
         if (r < n && arr[r] > arr[largest])
         {
             largest = r;
         }
-
         if (largest != i)
         {
             int swap = arr[i];

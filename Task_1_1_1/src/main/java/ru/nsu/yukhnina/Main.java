@@ -2,13 +2,10 @@ package ru.nsu.yukhnina;
 
 /**Содержит основную функцию sort и вспомогательную heeapify.*/
 
-public class Main
-{
+public class Main{
     /**Постройте max-heap из входных данных.*/
-    public int[] sort(int arr[], int n)
-    {
-        for (int i = n / 2 - 1; i >= 0; i--)
-        {
+    public int[] sort(int arr[], int n){
+        for (int i = n / 2 - 1; i >= 0; i--){
             heapify(arr, n, i);
         }
         for (int i = n - 1; i >= 0; i--)

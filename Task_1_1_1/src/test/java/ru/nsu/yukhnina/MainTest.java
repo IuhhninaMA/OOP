@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class MainTest {
-    /**
-     * Простейший тест
+    /**Простейший тест
      */
     @Test
     void test1() {
@@ -16,8 +15,7 @@ class MainTest {
         int n = test1.length;
         assertArrayEquals(result1, ob.sort(test1, n));
     }
-    /**
-     * Тест с отрицательными элементами
+    /**Тест с отрицательными элементами
      */
     @Test
     void test2() {

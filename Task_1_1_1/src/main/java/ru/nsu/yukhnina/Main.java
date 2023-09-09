@@ -1,4 +1,4 @@
-package ru.nsu.Yukhnina;
+package ru.nsu.yukhnina;
 
 public class Main {
     /**
@@ -8,13 +8,11 @@ public class Main {
      * На данном этапе самый большой элемент хранится в корне кучи. Замените его на последний элемент кучи, а затем уменьшите ее размер на 1. Наконец, преобразуйте полученное дерево в max-heap с новым корнем.
      * Повторяйте вышеуказанные шаги, пока размер кучи больше 1.
      */
-    public int[] sort(int arr[], int n) {
-        for (int i = n / 2 - 1; i >= 0; i--)
-        {
+    public int[] sort(int arr[], int n){
+        for (int i = n / 2 - 1; i >= 0; i--){
             heapify(arr, n, i);
         }
-        for (int i = n - 1; i >= 0; i--)
-        {
+        for (int i = n - 1; i >= 0; i--){
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
@@ -22,26 +20,21 @@ public class Main {
         }
         return arr;
     }
-    /**
-     * @param arr массив на основе которого строится куча
+    /*** @param arr массив на основе которого строится куча
      * Функция для преобразования в кучу
      */
-    void heapify(int arr[], int n, int i)
-    {
+    void heapify(int arr[], int n, int i){
         int largest = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;
 
-        if (l < n && arr[l] > arr[largest])
-        {
+        if (l < n && arr[l] > arr[largest]){
             largest = l;
         }
-        if (r < n && arr[r] > arr[largest])
-        {
+        if (r < n && arr[r] > arr[largest]){
             largest = r;
         }
-        if (largest != i)
-        {
+        if (largest != i){
             int swap = arr[i];
             arr[i] = arr[largest];
             arr[largest] = swap;

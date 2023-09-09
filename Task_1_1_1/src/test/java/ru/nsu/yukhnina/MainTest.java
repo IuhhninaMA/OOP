@@ -1,4 +1,4 @@
-package ru.nsu.Yukhnina;
+package ru.nsu.yukhnina;
 
 import org.junit.jupiter.api.Test;
 

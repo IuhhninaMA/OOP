@@ -17,6 +17,7 @@ public class Main {
         }
         return arr;
     }
+
     /** Функция для преобразования в кучу.*/
     void heapify(int[] arr, int n, int i) {
         int largest = i;

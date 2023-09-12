@@ -35,14 +35,4 @@ public class Main {
             heapify(arr, n, largest);
         }
     }
-    /**
-     * Функция для проверки от семинаристки.
-     */
-    public static void main(String[] args) {
-        int[] arr = new int[] {3, 4, 5, 1, 2, 0};
-        var sortedarr = new Main().sort(arr);//сначала происходит сортировка arr,
-        // а потом уже отсортированный объект присваивается sorted_arr
-        System.out.println(arr[0]);//выводится не изначальный массив, а уже отсортированный
-        System.out.println(sortedarr[0]);
-    }
 }

@@ -17,7 +17,6 @@ public class Main {
         }
         return arr;
     }
-
     /** Функция для преобразования в кучу.*/
     void heapify(int[] arr, int n, int i) {
         int largest = i;
@@ -36,9 +35,8 @@ public class Main {
             heapify(arr, n, largest);
         }
     }
-
     /**
-     * Функция для проверки от семинаристки
+     * Функция для проверки от семинаристки.
      */
     public static void main(String[] args) {
         int[] arr = new int[] {3, 4, 5, 1, 2, 0};

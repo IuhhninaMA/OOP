@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class MainTest {
-    /**Простейший тест.
-    * u8h87
-     * */
+    /**Простейший тест.*/
     @Test
     void easytest() {
         Main ob = new Main();
@@ -24,7 +22,7 @@ class MainTest {
         assertArrayEquals(result2, ob.sort(test2));
     }
     /**
-     * Тест с пустым массивом
+     * Тест с пустым массивом.
      */
     @Test
     void emptyarraytest() {

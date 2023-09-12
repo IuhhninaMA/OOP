@@ -13,6 +13,7 @@ class MainTest {
         int[] result1 = {1, 2, 3, 4, 5, 6};
         assertArrayEquals(result1, ob.sort(test1));
     }
+
     /**Тест с отрицательными элементами.*/
     @Test
     void withnegativenumberstest() {
@@ -21,6 +22,7 @@ class MainTest {
         int[] result2 = {-2, -1, 3, 4, 5, 6};
         assertArrayEquals(result2, ob.sort(test2));
     }
+
     /**
      * Тест с пустым массивом.
      */
@@ -31,6 +33,7 @@ class MainTest {
         int[] result3 = {};
         assertArrayEquals(result3, ob.sort(test3));
     }
+
     @Test
     void evennumofelemtest() {
         Main ob = new Main();
@@ -38,6 +41,7 @@ class MainTest {
         int[] result4 = {Integer.MIN_VALUE, 0, 100, 132, 200, Integer.MAX_VALUE};
         assertArrayEquals(result4, ob.sort(test4));
     }
+
     @Test
     void oddnumofelemtest() {
         Main ob = new Main();
@@ -45,6 +49,7 @@ class MainTest {
         int[] result5 = {Integer.MIN_VALUE, 0, 100, 132, Integer.MAX_VALUE};
         assertArrayEquals(result5, ob.sort(test5));
     }
+
     @Test
     void oneelem() {
         Main ob = new Main();

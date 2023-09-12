@@ -4,7 +4,8 @@ package ru.nsu.yukhnina;
 
 public class Main {
     /**Постройте max-heap из входных данных.*/
-    public int[] sort(int arr[], int n) {
+    public int[] sort(int arr[]) {
+        int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(arr, n, i);
         }
@@ -35,5 +36,13 @@ public class Main {
             arr[largest] = swap;
             heapify(arr, n, largest);
         }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[] {3, 4, 5, 1, 2, 0};
+        var sorted_arr = new Main().sort(arr);//сначала происходит сортировка arr,
+        // а потом уже отсортированный объект присваивается sorted_arr
+        System.out.println(arr[0]);//выводится не изначальный массив, а уже отсортированный
+        System.out.println(sorted_arr[0]);
     }
 }

@@ -16,7 +16,7 @@ class MainTest {
 
     /**Тест с отрицательными элементами.*/
     @Test
-    void withnegativenumberstest() {
+    void withNegativeNumbersTest() {
         Main ob = new Main();
         int[] test2 = {-2, -1, 5, 6, 4, 3};
         int[] result2 = {-2, -1, 3, 4, 5, 6};
@@ -27,7 +27,7 @@ class MainTest {
      * Тест с пустым массивом.
      */
     @Test
-    void emptyarraytest() {
+    void emptyArrayTest() {
         Main ob = new Main();
         int[] test3 = {};
         int[] result3 = {};
@@ -35,7 +35,7 @@ class MainTest {
     }
 
     @Test
-    void evennumofelemtest() {
+    void evenNumOfElemTest() {
         Main ob = new Main();
         int[] test4 = {Integer.MAX_VALUE, Integer.MIN_VALUE, 0, 100, 200, 132};
         int[] result4 = {Integer.MIN_VALUE, 0, 100, 132, 200, Integer.MAX_VALUE};
@@ -43,7 +43,7 @@ class MainTest {
     }
 
     @Test
-    void oddnumofelemtest() {
+    void oddNumofElemEest() {
         Main ob = new Main();
         int[] test5 = {Integer.MAX_VALUE, Integer.MIN_VALUE, 0, 100, 132};
         int[] result5 = {Integer.MIN_VALUE, 0, 100, 132, Integer.MAX_VALUE};
@@ -51,7 +51,7 @@ class MainTest {
     }
 
     @Test
-    void oneelem() {
+    void oneElem() {
         Main ob = new Main();
         int[] test6 = {Integer.MAX_VALUE};
         int[] result6 = {Integer.MAX_VALUE};

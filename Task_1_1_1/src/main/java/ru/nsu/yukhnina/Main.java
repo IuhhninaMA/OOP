@@ -3,7 +3,10 @@ package ru.nsu.yukhnina;
 /**Содержит основную функцию sort и вспомогательную heeapify.*/
 
 public class Main {
-    /**Постройте max-heap из входных данных.*/
+    /**Постройте max-heap из входных данных.
+    * @param arr - массив который будет сортироваться.
+    * @return arr отстортированный массив
+    */
     public int[] sort(int[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -36,7 +39,12 @@ public class Main {
             heapify(arr, n, largest);
         }
     }
-    public static void main(String[] args){
+
+    /**
+    * Function for good work build.
+    *@param args - что-то.
+    */
+    public static void main(String[] args) {
         System.out.print("I work");
     }
 }

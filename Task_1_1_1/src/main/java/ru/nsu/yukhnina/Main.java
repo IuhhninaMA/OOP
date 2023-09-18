@@ -4,6 +4,7 @@ package ru.nsu.yukhnina;
 
 public class Main {
     /**Постройте max-heap из входных данных.
+    *
     * @param arr - массив который будет сортироваться.
     * @return arr отстортированный массив
     */
@@ -42,6 +43,7 @@ public class Main {
 
     /**
     * Function for good work build.
+    *
     *@param args - что-то.
     */
     public static void main(String[] args) {

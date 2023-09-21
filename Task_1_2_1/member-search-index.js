@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"main(String[])","url":"main(java.lang.String[])"}]

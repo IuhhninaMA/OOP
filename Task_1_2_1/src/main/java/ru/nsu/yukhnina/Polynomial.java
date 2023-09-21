@@ -10,36 +10,40 @@ import static java.lang.String.valueOf;
 public class Polynomial {
     float[] polynomIndexes;
     int maxIndex;
+
     Polynomial(float[] array) {
         polynomIndexes = array;
         maxIndex = array.length;
     }
 
     /**
-    * Функция для сложения двух многочленов
-    * @param p - второе слагаемое
+    * Функция для сложения двух многочленов.
+    * @param p - второе слагаемое.
     * @return результат сложения двух многочленов.
     */
     Polynomial addition(Polynomial p) {
         int minLenght = Math.min(maxIndex, p.maxIndex);
         int maxLenght = Math.max(maxIndex, p.maxIndex);
         Polynomial result = new Polynomial(new float[maxLenght]);
-        //перебираем всё до конца наименьшего массива
+        //перебираем всё до конца наименьшего массива.
         for (int i = 0; i < minLenght; i++) {
             result.polynomIndexes[i] = polynomIndexes[i] + p.polynomIndexes[i];
         }
-        //если массивы не равны по длинне, то должно ещё что-то остаться, добавляем
-        if (maxLenght - p.maxIndex >= 0)
-            System.arraycopy(polynomIndexes, minLenght + 0, result.polynomIndexes, minLenght + 0, maxLenght - p.maxIndex);
-        if (maxLenght - maxIndex >= 0)
-            System.arraycopy(p.polynomIndexes, minLenght + 0, result.polynomIndexes, minLenght + 0, maxLenght - maxIndex);
+        //если массивы не равны по длинне, то должно ещё что-то остаться, добавляем.
+        if (maxLenght - p.maxIndex >= 0) {
+            System.arraycopy(polynomIndexes, minLenght, result.polynomIndexes,
+                    minLenght, maxLenght - p.maxIndex);
+        }
+        if (maxLenght - maxIndex >= 0) {
+            System.arraycopy(p.polynomIndexes, minLenght, result.polynomIndexes,
+                    minLenght, maxLenght - maxIndex);
+        }
         return result;
     }
 
-
     /**
-    * Для нахождения разности между многочленами
-    * @param p - вычитаемое
+    *
+    * @param p - вычитаемое.
     * @return разность многочленов.
     */
     Polynomial difference(Polynomial p) {
@@ -52,44 +56,48 @@ public class Polynomial {
         }
         //если массивы не равны по длинне, то должно ещё что-то остаться, добавляем
         if (maxLenght - p.maxIndex >= 0)
-            System.arraycopy(polynomIndexes, minLenght + 0, result.polynomIndexes, minLenght + 0, maxLenght - p.maxIndex);
+            System.arraycopy(polynomIndexes, minLenght, result.polynomIndexes,
+                    minLenght, maxLenght - p.maxIndex);
         for (int i = 0; i < maxLenght - maxIndex; i++) {
-            result.polynomIndexes[minLenght+i] = -p.polynomIndexes[minLenght+i];
+            result.polynomIndexes[minLenght+i] = -p.polynomIndexes[minLenght + i];
         }
         return result;
     }
 
     /**
-    * @param p - второй множитель
+    * @param p - второй множитель.
     * @return произведение многочленов.
+    * получаем полином равный произведению двух полиномов.
     */
     Polynomial mult(Polynomial p) {
         int maxLenght = Math.max(maxIndex, p.maxIndex);
-        float[] result_array = new float[maxLenght*2] ;
-        Polynomial result = new Polynomial(result_array);
+        float[] resultArray = new float[maxLenght * 2];
+        Polynomial result = new Polynomial(resultArray);
         for (int i = 0; i < maxIndex; i++) {
-            for (int j = 0; j < p.maxIndex; j++){
-                result.polynomIndexes[i+j] += polynomIndexes[i]*p.polynomIndexes[j];
+            for (int j = 0; j < p.maxIndex; j++) {
+                result.polynomIndexes[i + j] += polynomIndexes[i] * p.polynomIndexes[j];
             }
         }
         return result;
     }
 
     /**
-    * @param x - точка,в которой нужно вычислить значение многочлена
-    * @return чему равен многочлен в точке x
+    * @param x - точка,в которой нужно вычислить значение многочлена.
+    * @return чему равен многочлен в точке x.
+    * вычисляет значение полинома в точке x.
     */
     float calculationAtPoint(float x) {
-        float helperX = 1, result = 0;
+        float helperX = 1;
+        float result = 0;
         for (int i = 0; i < maxIndex; i++){
-            result += helperX* polynomIndexes[i];
+            result += helperX * polynomIndexes[i];
             helperX *= x;
         }
         return result;
     }
 
     /**
-    * @param n - порядок производной
+    * @param n - порядок производной.
     * @return производная n-ной степени многочлена.
     */
     Polynomial differential(int n) {
@@ -106,7 +114,7 @@ public class Polynomial {
     }
 
     /**
-    * @param p - многочлен, с которым нужно сравнить
+    * @param p - многочлен, с которым нужно сравнить.
     * @return true or fale  или равны многочлены или нет.
     */
     boolean compare(Polynomial p) {
@@ -114,19 +122,19 @@ public class Polynomial {
             return false;
         }
         for (int i = 0; i < maxIndex; i++) {
-            if (polynomIndexes[i] != p.polynomIndexes[i]){
+            if (polynomIndexes[i] != p.polynomIndexes[i]) {
                 return false;
             }
         }
         return true;
     }
 
-    /** переводит полином из вида, удобного программе в человеческий вид
+    /** переводит полином из вида, удобного программе в человеческий вид.
     * @return многочлен в человеческом виде.
     */
     String printToString() {
         String result = new String();
-        boolean sign = false;//false  если ещё не выводились + или -
+        boolean sign = false;//false  если ещё не выводились + или -.
         if (polynomIndexes[0] != 0) {
             if (polynomIndexes[0] < 0){
                 result = result.concat("- ");
@@ -134,7 +142,7 @@ public class Polynomial {
             result = result.concat(valueOf(Math.abs(polynomIndexes[0])));
             sign = true;
         }
-        //первый случай я рассматриваю отдельно тк не x^k, а просто x
+        //первый случай я рассматриваю отдельно тк не x^k, а просто x.
         if (maxIndex > 0) {
             if (polynomIndexes[1] < 0){
                 result = result.concat(" - ");
@@ -162,7 +170,7 @@ public class Polynomial {
         return result;
     }
 
-    /** Ну main и main
+    /**
      * @param args
      */
     public static void main(String[] args) {

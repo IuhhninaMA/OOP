@@ -12,8 +12,9 @@ public class Polynomial {
     int maxIndex;
 
     Polynomial(float[] array) {
-        polynomIndexes = array;
         maxIndex = array.length;
+        polynomIndexes = new float[maxIndex];
+        System.arraycopy(array, 0, polynomIndexes, 0, maxIndex);
     }
 
     /**
@@ -59,7 +60,7 @@ public class Polynomial {
             System.arraycopy(polynomIndexes, minLenght, result.polynomIndexes,
                     minLenght, maxLenght - p.maxIndex);
         for (int i = 0; i < maxLenght - maxIndex; i++) {
-            result.polynomIndexes[minLenght+i] = -p.polynomIndexes[minLenght + i];
+            result.polynomIndexes[minLenght + i] = -p.polynomIndexes[minLenght + i];
         }
         return result;
     }
@@ -71,7 +72,7 @@ public class Polynomial {
     */
     Polynomial mult(Polynomial p) {
         int maxLenght = Math.max(maxIndex, p.maxIndex);
-        float[] resultArray = new float[maxLenght * 2];
+        float[] resultArray = new float[maxIndex + p.maxIndex + 1];
         Polynomial result = new Polynomial(resultArray);
         for (int i = 0; i < maxIndex; i++) {
             for (int j = 0; j < p.maxIndex; j++) {
@@ -116,8 +117,9 @@ public class Polynomial {
     /**
     * @param p - многочлен, с которым нужно сравнить.
     * @return true or fale  или равны многочлены или нет.
+    * Я не стала писать Override потому что он на него ругался и так работает.
     */
-    boolean compare(Polynomial p) {
+    public boolean equals(Polynomial p) {
         if (maxIndex != p.maxIndex) {
             return false;
         }
@@ -132,40 +134,45 @@ public class Polynomial {
     /** переводит полином из вида, удобного программе в человеческий вид.
     * @return многочлен в человеческом виде.
     */
-    String printToString() {
-        String result = new String();
-        boolean sign = false;//false  если ещё не выводились + или -.
-        if (polynomIndexes[0] != 0) {
-            if (polynomIndexes[0] < 0){
-                result = result.concat("- ");
+
+    public String toString() {
+        boolean sign = false;
+        String result = "";
+        for (int i = maxIndex - 1; i > 1; i--) {
+            if (polynomIndexes[i] > 0 && sign) {
+                result = result.concat(" + " + valueOf(polynomIndexes[i]) + "x^" + i);
             }
-            result = result.concat(valueOf(Math.abs(polynomIndexes[0])));
+            if (polynomIndexes[i] < 0) {
+                result = result.concat(" - " + valueOf(Math.abs(polynomIndexes[i])) + "x^" + i);
+                sign = true;
+            }
+            if (polynomIndexes[i] > 0 && !sign) {
+                result = result.concat(valueOf(polynomIndexes[i]) + "x^" + i);
+                sign = true;
+            }
+        }
+        //для x в первой степени
+        if (polynomIndexes[1] > 0 && sign) {
+            result = result.concat(" + " + valueOf(polynomIndexes[1]) + "x");
+        }
+        if (polynomIndexes[1] < 0) {
+            result =result.concat(" - " + valueOf(Math.abs(polynomIndexes[1])) + "x");
             sign = true;
         }
-        //первый случай я рассматриваю отдельно тк не x^k, а просто x.
-        if (maxIndex > 0) {
-            if (polynomIndexes[1] < 0){
-                result = result.concat(" - ");
-            } else if (sign) {
-                result = result.concat(" + ");
-            }
-            result = result.concat(valueOf(Math.abs(polynomIndexes[1]) + "x"));
+        if (polynomIndexes[1] > 0 && !sign) {
+            result = result.concat(valueOf(polynomIndexes[1]) + "x");
             sign = true;
-            }
-
-        for (int i = 2; i < maxIndex; i++){
-            if (polynomIndexes[i] < 0){
-                result = result.concat(" - ");
-                sign = true;
-            } else if (sign && polynomIndexes[i] != 0) {
-                result = result.concat(" + ");
-            }
-            if (polynomIndexes[i] != 0){
-                result = result.concat(valueOf(Math.abs(polynomIndexes[i]) + "x^" + i));
-                sign = true;
-            }
-
-
+        }
+        //для x в нулевой степени
+        if (polynomIndexes[0] > 0 && sign) {
+            result = result.concat(" + " + valueOf(polynomIndexes[0]));
+        }
+        if (polynomIndexes[0] < 0) {
+            result = result.concat(" - " + valueOf(Math.abs(polynomIndexes[0])));
+            sign = true;
+        }
+        if (polynomIndexes[0] >= 0 && !sign) {
+            result = result.concat(valueOf(polynomIndexes[0]));
         }
         return result;
     }
@@ -176,12 +183,12 @@ public class Polynomial {
     public static void main(String[] args) {
         Polynomial p1 = new Polynomial(new float[] {4, 3, 6, 7});
         Polynomial p2 = new Polynomial(new float[] {3, 2, 8});
-        System.out.println(p1.difference(p2).printToString());
+        System.out.println(p1.difference(p2).toString());
         Polynomial p3 = new Polynomial(new float[] {1, 0, 4, 5, 0, 0, 0, 1});
         Polynomial p4 = new Polynomial(new float[] {0, 3, 1});
-        System.out.println(p3.mult(p4).printToString());
+        System.out.println(p3.mult(p4).toString());
         float res = p3.calculationAtPoint(2);
         float res2 = p1.calculationAtPoint(2);
-        System.out.println(p3.differential(2).printToString());
+        System.out.println(p3.differential(2).toString());
     }
 }

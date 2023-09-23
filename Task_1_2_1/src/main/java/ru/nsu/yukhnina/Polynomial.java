@@ -19,6 +19,7 @@ public class Polynomial {
 
     /**
     * Функция для сложения двух многочленов.
+     *
     * @param p - второе слагаемое.
     * @return результат сложения двух многочленов.
     */
@@ -43,6 +44,7 @@ public class Polynomial {
     }
 
     /**
+    *Нахождение разности двух полиномов.
     *
     * @param p - вычитаемое.
     * @return разность многочленов.
@@ -56,9 +58,10 @@ public class Polynomial {
             result.polynomIndexes[i] = polynomIndexes[i] - p.polynomIndexes[i];
         }
         //если массивы не равны по длинне, то должно ещё что-то остаться, добавляем
-        if (maxLenght - p.maxIndex >= 0)
+        if (maxLenght - p.maxIndex >= 0) {
             System.arraycopy(polynomIndexes, minLenght, result.polynomIndexes,
                     minLenght, maxLenght - p.maxIndex);
+        }
         for (int i = 0; i < maxLenght - maxIndex; i++) {
             result.polynomIndexes[minLenght + i] = -p.polynomIndexes[minLenght + i];
         }
@@ -66,9 +69,10 @@ public class Polynomial {
     }
 
     /**
+    * Произведение двух полиномов.
+    *
     * @param p - второй множитель.
     * @return произведение многочленов.
-    * получаем полином равный произведению двух полиномов.
     */
     Polynomial mult(Polynomial p) {
         int maxLenght = Math.max(maxIndex, p.maxIndex);
@@ -83,14 +87,15 @@ public class Polynomial {
     }
 
     /**
+    * Вычисление значения полинома в точке x.
+    *
     * @param x - точка,в которой нужно вычислить значение многочлена.
     * @return чему равен многочлен в точке x.
-    * вычисляет значение полинома в точке x.
     */
     float calculationAtPoint(float x) {
         float helperX = 1;
         float result = 0;
-        for (int i = 0; i < maxIndex; i++){
+        for (int i = 0; i < maxIndex; i++) {
             result += helperX * polynomIndexes[i];
             helperX *= x;
         }
@@ -98,10 +103,16 @@ public class Polynomial {
     }
 
     /**
+    * Нахождение производной
+    *
     * @param n - порядок производной.
     * @return производная n-ной степени многочлена.
     */
     Polynomial differential(int n) {
+        //если степень дифииренцирования больше чем количество индексов
+        if (n > maxIndex) {
+            return new Polynomial(new float[] {0});
+        }
         Polynomial result = new Polynomial(polynomIndexes);
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < result.maxIndex; j++) {
@@ -115,6 +126,8 @@ public class Polynomial {
     }
 
     /**
+    * Сравнение полиномов.
+    *
     * @param p - многочлен, с которым нужно сравнить.
     * @return true or fale  или равны многочлены или нет.
     * Я не стала писать Override потому что он на него ругался и так работает.
@@ -132,10 +145,14 @@ public class Polynomial {
     }
 
     /** переводит полином из вида, удобного программе в человеческий вид.
+    *
     * @return многочлен в человеческом виде.
     */
 
     public String toString() {
+        if (maxIndex == 0){
+            return "0.0";
+        }
         boolean sign = false;
         String result = "";
         for (int i = maxIndex - 1; i > 1; i--) {
@@ -152,14 +169,14 @@ public class Polynomial {
             }
         }
         //для x в первой степени
-        if (polynomIndexes[1] > 0 && sign) {
+        if (maxIndex > 1 && polynomIndexes[1] > 0 && sign) {
             result = result.concat(" + " + valueOf(polynomIndexes[1]) + "x");
         }
-        if (polynomIndexes[1] < 0) {
+        if (maxIndex > 1 && polynomIndexes[1] < 0) {
             result =result.concat(" - " + valueOf(Math.abs(polynomIndexes[1])) + "x");
             sign = true;
         }
-        if (polynomIndexes[1] > 0 && !sign) {
+        if (maxIndex > 1 && polynomIndexes[1] > 0 && !sign) {
             result = result.concat(valueOf(polynomIndexes[1]) + "x");
             sign = true;
         }
@@ -181,14 +198,6 @@ public class Polynomial {
      * @param args
      */
     public static void main(String[] args) {
-        Polynomial p1 = new Polynomial(new float[] {4, 3, 6, 7});
-        Polynomial p2 = new Polynomial(new float[] {3, 2, 8});
-        System.out.println(p1.difference(p2).toString());
-        Polynomial p3 = new Polynomial(new float[] {1, 0, 4, 5, 0, 0, 0, 1});
-        Polynomial p4 = new Polynomial(new float[] {0, 3, 1});
-        System.out.println(p3.mult(p4).toString());
-        float res = p3.calculationAtPoint(2);
-        float res2 = p1.calculationAtPoint(2);
-        System.out.println(p3.differential(2).toString());
+
     }
 }

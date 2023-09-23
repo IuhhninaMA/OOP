@@ -1,7 +1,6 @@
 package ru.nsu.yukhnina;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -142,22 +141,27 @@ class PolynomialTest {
     @Test
     void differential1() {
         Polynomial p23 = new Polynomial(new float[] {112, 2, 3, 8, 9, 10, 12});
-        assertEquals("72.0x^5 + 50.0x^4 + 36.0x^3 + 24.0x^2 + 6.0x + 2.0", p23.differential(1).toString());
+        assertEquals("72.0x^5 + 50.0x^4 + 36.0x^3 + 24.0x^2 + 6.0x + 2.0",
+                p23.differential(1).toString());
     }
 
     @Test
     void differential2() {
         Polynomial p24 = new Polynomial(new float[] {112, 2, 3, 8, 9, 10, 12});
-        //2 дифференциал то же самое, что и продифиренцировать функцию один раз, а потом результат ещё раз
-        assertEquals(p24.differential(1).differential(1).toString(), p24.differential(2).toString());
+        //2 дифференциал то же самое, что и продифиренцировать функцию один раз,
+        // а потом результат ещё раз
+        assertEquals(p24.differential(1).differential(1).toString(),
+                p24.differential(2).toString());
         //ну и проверка что и то и то выводит что надо, а не одинаково косячат
-        assertEquals(p24.differential(2).toString(), "360.0x^4 + 200.0x^3 + 108.0x^2 + 48.0x + 6.0");
+        assertEquals("360.0x^4 + 200.0x^3 + 108.0x^2 + 48.0x + 6.0",
+                p24.differential(2).toString());
     }
 
     @Test
     void differential3() {
         Polynomial p24 = new Polynomial(new float[] {112, 2, 3, 8, 9, 10, 12});
-        assertEquals(p24.differential(3).toString(), "1440.0x^3 + 600.0x^2 + 216.0x + 48.0");
+        assertEquals("1440.0x^3 + 600.0x^2 + 216.0x + 48.0",
+                p24.differential(3).toString());
     }
 
     @Test
@@ -179,13 +183,13 @@ class PolynomialTest {
     }
 
     @Test
-    void differential7ANDEmptyPrint() {
+    void differential7AndEmptyPrint() {
         Polynomial p25 = new Polynomial(new float[] {112, 2, 3, 8, 9, 10, 12});
         assertEquals(p25.differential(7).toString(), "0.0");
     }
 
     @Test
-    void differential8ANDEmptyPrint() {
+    void differential8AndEmptyPrint() {
         Polynomial p25 = new Polynomial(new float[] {112, 2, 3, 8, 9, 10, 12});
         assertEquals(p25.differential(8).toString(), "0.0");
     }

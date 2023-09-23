@@ -103,7 +103,7 @@ public class Polynomial {
     }
 
     /**
-    * Нахождение производной
+    * Нахождение производной.
     *
     * @param n - порядок производной.
     * @return производная n-ной степени многочлена.
@@ -127,10 +127,10 @@ public class Polynomial {
 
     /**
     * Сравнение полиномов.
+    * Я не стала писать Override потому что он на него ругался и так работает.
     *
     * @param p - многочлен, с которым нужно сравнить.
     * @return true or fale  или равны многочлены или нет.
-    * Я не стала писать Override потому что он на него ругался и так работает.
     */
     public boolean equals(Polynomial p) {
         if (maxIndex != p.maxIndex) {
@@ -150,7 +150,7 @@ public class Polynomial {
     */
 
     public String toString() {
-        if (maxIndex == 0){
+        if (maxIndex == 0) {
             return "0.0";
         }
         boolean sign = false;
@@ -173,7 +173,7 @@ public class Polynomial {
             result = result.concat(" + " + valueOf(polynomIndexes[1]) + "x");
         }
         if (maxIndex > 1 && polynomIndexes[1] < 0) {
-            result =result.concat(" - " + valueOf(Math.abs(polynomIndexes[1])) + "x");
+            result = result.concat(" - " + valueOf(Math.abs(polynomIndexes[1])) + "x");
             sign = true;
         }
         if (maxIndex > 1 && polynomIndexes[1] > 0 && !sign) {
@@ -194,9 +194,6 @@ public class Polynomial {
         return result;
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
 
     }

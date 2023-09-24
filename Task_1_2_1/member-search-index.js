@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"equals(Polynomial)","url":"equals(ru.nsu.yukhnina.Polynomial)"},{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"main(String[])","url":"main(java.lang.String[])"},{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"toString()"}]
+memberSearchIndex = [{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"equals(Polynomial)","url":"equals(ru.nsu.yukhnina.Polynomial)"},{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"toString()"}]

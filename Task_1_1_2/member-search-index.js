@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"equals(Polynomial)","url":"equals(ru.nsu.yukhnina.Polynomial)"},{"p":"ru.nsu.yukhnina","c":"Polynomial","l":"toString()"}]

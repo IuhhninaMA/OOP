@@ -11,14 +11,14 @@ class PolynomialTest {
     void addWithDifLen() {
         Polynomial p1 = new Polynomial(new float[] {4, 3, 6, 7});
         Polynomial p2 = new Polynomial(new float[] {3, 2, 8});
-        assertEquals("7.0x^3 + 14.0x^2 + 5.0x + 7.0", p1.addition(p2).toString());
+        assertEquals("7.0x^3 + 14.0x^2 + 5.0x + 7.0", p1.add(p2).toString());
     }
 
     @Test
     void addFloatWithEqLen() {
         Polynomial p3 = new Polynomial(new float[] {4, 3.2F, 6, 7});
         Polynomial p4 = new Polynomial(new float[] {3, 2, 8, 10.5F});
-        assertEquals("17.5x^3 + 14.0x^2 + 5.2x + 7.0", p3.addition(p4).toString());
+        assertEquals("17.5x^3 + 14.0x^2 + 5.2x + 7.0", p3.add(p4).toString());
     }
 
     @Test
@@ -116,7 +116,7 @@ class PolynomialTest {
     void  testsFromTask() {
         Polynomial p26 = new Polynomial(new float[] {4, 3, 6, 7});
         Polynomial p27 = new Polynomial(new float[] {3, 2, 8});
-        assertEquals("7.0x^3 + 6.0x^2 + 19.0x + 6.0", p26.addition(p27.differential(1)).toString());
+        assertEquals("7.0x^3 + 6.0x^2 + 19.0x + 6.0", p26.add(p27.differential(1)).toString());
         assertEquals(3510, p26.mult(p27).calculationAtPoint(2));
     }
 
@@ -192,5 +192,13 @@ class PolynomialTest {
     void differential8AndEmptyPrint() {
         Polynomial p25 = new Polynomial(new float[] {112, 2, 3, 8, 9, 10, 12});
         assertEquals(p25.differential(8).toString(), "0.0");
+    }
+
+    @Test
+    void plusWithNegativeItself() {
+        Polynomial p1 = new Polynomial(new float[] {4, 3, 6, 7});
+        Polynomial p2 = new Polynomial(new float[] {-4, -3, -6, -7});
+
+        assertEquals("0.0", p1.add(p2).toString());
     }
 }

@@ -1,5 +1,7 @@
 package ru.nsu.yukhnina;
 
+import java.util.Arrays;
+
 import static java.lang.String.valueOf;
 
 
@@ -19,11 +21,11 @@ public class Polynomial {
 
     /**
     * Функция для сложения двух многочленов.
-     *
+    *
     * @param p - второе слагаемое.
     * @return результат сложения двух многочленов.
     */
-    Polynomial addition(Polynomial p) {
+    Polynomial add(Polynomial p) {
         int minLenght = Math.min(maxIndex, p.maxIndex);
         int maxLenght = Math.max(maxIndex, p.maxIndex);
         Polynomial result = new Polynomial(new float[maxLenght]);
@@ -77,6 +79,8 @@ public class Polynomial {
     Polynomial mult(Polynomial p) {
         int maxLenght = Math.max(maxIndex, p.maxIndex);
         float[] resultArray = new float[maxIndex + p.maxIndex + 1];
+        //на всякий случай заполняю нулями
+        Arrays.fill(resultArray, 0);
         Polynomial result = new Polynomial(resultArray);
         for (int i = 0; i < maxIndex; i++) {
             for (int j = 0; j < p.maxIndex; j++) {
@@ -127,7 +131,7 @@ public class Polynomial {
 
     /**
     * Сравнение полиномов.
-    * Я не стала писать Override потому что он на него ругался и так работает.
+    * Я не стала писать Override, потому что он на него ругался и так работает.
     *
     * @param p - многочлен, с которым нужно сравнить.
     * @return true or fale  или равны многочлены или нет.
@@ -157,44 +161,40 @@ public class Polynomial {
         String result = "";
         for (int i = maxIndex - 1; i > 1; i--) {
             if (polynomIndexes[i] > 0 && sign) {
-                result = result.concat(" + " + valueOf(polynomIndexes[i]) + "x^" + i);
+                result = result.concat(" + " + polynomIndexes[i] + "x^" + i);
             }
             if (polynomIndexes[i] < 0) {
-                result = result.concat(" - " + valueOf(Math.abs(polynomIndexes[i])) + "x^" + i);
+                result = result.concat(" - " + Math.abs(polynomIndexes[i]) + "x^" + i);
                 sign = true;
             }
             if (polynomIndexes[i] > 0 && !sign) {
-                result = result.concat(valueOf(polynomIndexes[i]) + "x^" + i);
+                result = result.concat(polynomIndexes[i] + "x^" + i);
                 sign = true;
             }
         }
         //для x в первой степени
         if (maxIndex > 1 && polynomIndexes[1] > 0 && sign) {
-            result = result.concat(" + " + valueOf(polynomIndexes[1]) + "x");
+            result = result.concat(" + " + polynomIndexes[1] + "x");
         }
         if (maxIndex > 1 && polynomIndexes[1] < 0) {
-            result = result.concat(" - " + valueOf(Math.abs(polynomIndexes[1])) + "x");
+            result = result.concat(" - " + Math.abs(polynomIndexes[1]) + "x");
             sign = true;
         }
         if (maxIndex > 1 && polynomIndexes[1] > 0 && !sign) {
-            result = result.concat(valueOf(polynomIndexes[1]) + "x");
+            result = result.concat(polynomIndexes[1] + "x");
             sign = true;
         }
         //для x в нулевой степени
         if (polynomIndexes[0] > 0 && sign) {
-            result = result.concat(" + " + valueOf(polynomIndexes[0]));
+            result = result.concat(" + " + polynomIndexes[0]);
         }
         if (polynomIndexes[0] < 0) {
-            result = result.concat(" - " + valueOf(Math.abs(polynomIndexes[0])));
+            result = result.concat(" - " + Math.abs(polynomIndexes[0]));
             sign = true;
         }
         if (polynomIndexes[0] >= 0 && !sign) {
             result = result.concat(valueOf(polynomIndexes[0]));
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

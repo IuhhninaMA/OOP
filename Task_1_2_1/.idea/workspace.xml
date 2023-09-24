@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="917e0929-c9ad-4822-b296-bcbd21e7f11d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Polynomial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Polynomial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/PolynomialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/PolynomialTest.java" afterDir="false" />
     </list>
@@ -122,7 +123,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Polynomial.java</url>
-          <line>155</line>
+          <line>158</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -1,8 +1,9 @@
 package ru.nsu.yukhnina;
 
-import java.util.Arrays;
-
 import static java.lang.String.valueOf;
+
+import java.util.Arrays;
+import java.util.Objects;
 
 
 /**
@@ -133,26 +134,39 @@ public class Polynomial {
      * Сравнение полиномов.
      * Я не стала писать Override, потому что он на него ругался и так работает.
      *
-     * @param p - многочлен, с которым нужно сравнить.
+     * @param o -объект, с которым нужно сравнить.
      * @return true or fale  или равны многочлены или нет.
      */
-    public boolean equals(Polynomial p) {
-        if (maxIndex != p.maxIndex) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Polynomial myPolinom = (Polynomial) o;
+        if (this.maxIndex != myPolinom.maxIndex) {
             return false;
         }
-        for (int i = 0; i < maxIndex; i++) {
-            if (polynomIndexes[i] != p.polynomIndexes[i]) {
+        for (int i = 0; i < this.maxIndex; i++) {
+            if (myPolinom.polynomIndexes[i] != this.polynomIndexes[i]) {
                 return false;
             }
         }
         return true;
     }
 
+    /**
+    * Переопределяем hash тк поменяли equials
+    *
+    * @return something i dont know
+    */
+    @Override
+    public int hashCode() {
+        return Objects.hash(maxIndex, Arrays.hashCode(polynomIndexes));
+    }
+
     /** переводит полином из вида, удобного программе в человеческий вид.
      *
      * @return многочлен в человеческом виде.
      */
-
     public String toString() {
         if (maxIndex == 0) {
             return "0.0";

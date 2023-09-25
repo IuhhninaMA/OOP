@@ -139,8 +139,12 @@ public class Polynomial {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Polynomial myPolinom = (Polynomial) o;
         if (this.maxIndex != myPolinom.maxIndex) {
             return false;
@@ -154,9 +158,9 @@ public class Polynomial {
     }
 
     /**
-    * Переопределяем hash тк поменяли equials
+    * Переопределяем hash тк поменяли equials.
     *
-    * @return something i dont know
+    * @return something i dont know.
     */
     @Override
     public int hashCode() {

@@ -146,7 +146,8 @@ public class Polynomial {
             return false;
         }
         Polynomial myPolinom = (Polynomial) o;
-        //прверяем, что все значения где общие индексы не пустые равны, дальше будем смотреть, что если у одного
+        //прверяем, что все значения где общие индексы не пустые равны, дальше будем смотреть,
+        // что если у одного
         // полинома на месте начиная с номера n  ничего нет, а у другого нули, то они эквивалентны
         int minIndex = Math.min(this.maxIndex, myPolinom.maxIndex);
         for (int i = 0; i < minIndex; i++) {

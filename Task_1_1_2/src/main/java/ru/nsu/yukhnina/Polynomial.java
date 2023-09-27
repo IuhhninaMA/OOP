@@ -183,47 +183,47 @@ public class Polynomial {
      * @return многочлен в человеческом виде.
      */
     public String toString() {
+        StringBuilder result = new StringBuilder("");
         if (maxIndex == 0) {
             return "0.0";
         }
         boolean sign = false;
-        String result = "";
         for (int i = maxIndex - 1; i > 1; i--) {
             if (polynomIndexes[i] > 0 && sign) {
-                result = result.concat(" + " + polynomIndexes[i] + "x^" + i);
+                result.append(" + " + polynomIndexes[i] + "x^" + i);
             }
             if (polynomIndexes[i] < 0) {
-                result = result.concat(" - " + Math.abs(polynomIndexes[i]) + "x^" + i);
+                result.append(" - " + Math.abs(polynomIndexes[i]) + "x^" + i);
                 sign = true;
             }
             if (polynomIndexes[i] > 0 && !sign) {
-                result = result.concat(polynomIndexes[i] + "x^" + i);
+                result.append(polynomIndexes[i] + "x^" + i);
                 sign = true;
             }
         }
         //для x в первой степени
         if (maxIndex > 1 && polynomIndexes[1] > 0 && sign) {
-            result = result.concat(" + " + polynomIndexes[1] + "x");
+            result.append(" + " + polynomIndexes[1] + "x");
         }
         if (maxIndex > 1 && polynomIndexes[1] < 0) {
-            result = result.concat(" - " + Math.abs(polynomIndexes[1]) + "x");
+            result.append(" - " + Math.abs(polynomIndexes[1]) + "x");
             sign = true;
         }
         if (maxIndex > 1 && polynomIndexes[1] > 0 && !sign) {
-            result = result.concat(polynomIndexes[1] + "x");
+            result.append(polynomIndexes[1] + "x");
             sign = true;
         }
         //для x в нулевой степени
         if (polynomIndexes[0] > 0 && sign) {
-            result = result.concat(" + " + polynomIndexes[0]);
+            result.append(" + " + polynomIndexes[0]);
         }
         if (polynomIndexes[0] < 0) {
-            result = result.concat(" - " + Math.abs(polynomIndexes[0]));
+            result.append(" - " + Math.abs(polynomIndexes[0]));
             sign = true;
         }
         if (polynomIndexes[0] >= 0 && !sign) {
-            result = result.concat(valueOf(polynomIndexes[0]));
+            result.append(valueOf(polynomIndexes[0]));
         }
-        return result;
+        return result.toString();
     }
 }

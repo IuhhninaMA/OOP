@@ -146,11 +146,21 @@ public class Polynomial {
             return false;
         }
         Polynomial myPolinom = (Polynomial) o;
-        if (this.maxIndex != myPolinom.maxIndex) {
-            return false;
-        }
-        for (int i = 0; i < this.maxIndex; i++) {
+        //прверяем, что все значения где общие индексы не пустые равны, дальше будем смотреть, что если у одного
+        // полинома на месте начиная с номера n  ничего нет, а у другого нули, то они эквивалентны
+        int minIndex = Math.min(this.maxIndex, myPolinom.maxIndex);
+        for (int i = 0; i < minIndex; i++) {
             if (myPolinom.polynomIndexes[i] != this.polynomIndexes[i]) {
+                return false;
+            }
+        }
+        for (int i = minIndex; i < this.maxIndex; i++) {
+            if (0 != this.polynomIndexes[i]) {
+                return false;
+            }
+        }
+        for (int i = minIndex; i < myPolinom.maxIndex; i++) {
+            if (0 != myPolinom.polynomIndexes[i]) {
                 return false;
             }
         }

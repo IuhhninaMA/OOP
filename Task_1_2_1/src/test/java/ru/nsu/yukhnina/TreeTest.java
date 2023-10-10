@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class TreeTest {
     @Test
     void test1() {
-
         Tree<String> tree = new Tree<>("R1");
         var a = tree.addChild("A");
         var b = a.addChild("B");
@@ -16,5 +15,13 @@ class TreeTest {
         subtree.addChild("D");
         tree.addChild(subtree);
         b.remove();
+        BFSIterator<String> IterableImpl = new BFSIterator(subtree);
+        for (var element : IterableImpl) {
+            System.out.println(element.getValue());
+        }
+        DFSIterator<String> IterableDfs = new DFSIterator(subtree);
+        for (var element : IterableDfs) {
+            System.out.println(element.getValue());
+        }
     }
 }

@@ -9,26 +9,11 @@ public class Tree<T> {
     private ArrayList<Tree<T>> children;
     private Tree<T> parent;
     private T value;
-    private int chCount;
 
     public Tree(T value){
         this.children = new ArrayList<Tree<T>>();
         this.value = value;
-        this.chCount = children.size();
-    }
-
-    public int getChCount() {
-        return chCount;
-    }
-
-    public void setChCount(int chCount) {
-        this.chCount = chCount;
-    }
-
-    public Tree(T value, Tree<T> parent){
-        ArrayList<Tree<T>> children = new ArrayList<Tree<T>>();
-        this.value = value;
-        this.parent = parent;
+        Tree<T> parent;
     }
 
     public ArrayList<Tree<T>> getChildren() {
@@ -59,12 +44,14 @@ public class Tree<T> {
     public Tree<T> addChild(T value){
         Tree<T> child = new Tree<T>(value);
         this.children.add(child);
+        child.parent = this;
         return child;
     }
 
     //add subtree
     public Tree<T> addChild(Tree<T> subtree){
         this.children.add(subtree);
+        subtree.parent = this;
         return subtree;
     }
 
@@ -72,7 +59,7 @@ public class Tree<T> {
         this.children.clear();
         if (this.parent != null) {
             //удаляем его из родителя, если родитель есть
-            for (int i = 0; i < this.parent.chCount; i++) {
+            for (int i = 0; i < this.parent.children.size(); i++) {
                 if (this.parent.children.get(i) == this) {
                     this.parent.children.remove(i);
                     return;

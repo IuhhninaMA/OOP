@@ -14,20 +14,23 @@ import java.util.Iterator;
         }
 
         private ArrayList<Tree<T>> bfs(Tree<T> node) {
-            findFather(node);
-            ArrayList<Tree<T>> queue = new ArrayList<Tree<T>>(node.getChildren());
+            Tree<T> root = findFather(node);
+            ArrayList<Tree<T>> array = new ArrayList<Tree<T>>();
+            array.add(root);
+            ArrayList<Tree<T>> queue = new ArrayList<Tree<T>>(root.getChildren());
             while (!queue.isEmpty()) {
-                arrayTree.addAll(queue.get(0).getChildren());
+                array.add(queue.get(0));
                 queue.addAll(queue.get(0).getChildren());
                 queue.remove(0);
             }
-            return arrayTree;
+            return array;
         }
 
-        private void findFather(Tree<T> node) {
+        private Tree<T> findFather(Tree<T> node) {
             while (node.getParent() != null) {
                 node = node.getParent();
             }
+            return node;
         }
 
         @Override

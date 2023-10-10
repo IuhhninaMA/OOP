@@ -14,23 +14,26 @@ public class DFSIterator<T> implements Iterable<Tree<T>> {
     }
 
     private ArrayList<Tree<T>> dfs(Tree<T> node) {
-        findFather(node);
-        ArrayList<Tree<T>> result = new ArrayList<Tree<T>>(node.getChildren());
-
+        Tree<T> root = findFather(node);
+        ArrayList<Tree<T>> result = new ArrayList<Tree<T>>();
+        arrayTree = dfsRecursive(result, root);
         return arrayTree;
     }
 
-    private void dfsRecursive(Tree<T> node) {
-        arrayTree.add(node);
-        for (int i = 0; i < node.getChCount() - 1; i++) {
-            dfsRecursive(node.getChildren().get(i));
+
+    private ArrayList<Tree<T>> dfsRecursive(ArrayList<Tree<T>> result, Tree<T> node) {
+        result.add(node);
+        for (int i = 0; i < node.getChildren().size(); i++) {
+            result = dfsRecursive(result, node.getChildren().get(i));
         }
+        return result;
     }
 
-    private void findFather(Tree<T> node) {
+    private Tree<T> findFather(Tree<T> node) {
         while (node.getParent() != null) {
             node = node.getParent();
         }
+        return node;
     }
 
     @Override

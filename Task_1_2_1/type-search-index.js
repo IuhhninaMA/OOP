@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.yukhnina","l":"Polynomial"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.yukhnina","l":"BFSIterator"},{"p":"ru.nsu.yukhnina","l":"DFSIterator"},{"p":"ru.nsu.yukhnina","l":"Tree"}]

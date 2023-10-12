@@ -33,7 +33,6 @@ public class Tree<T> {
 
     /**
     * get nodes parent for other classes.
-    *
     * @return node`s father.
     */
     public Tree<T> getParent() {
@@ -42,7 +41,6 @@ public class Tree<T> {
 
     /**
     * get nodes value in other classes.
-    *
     * @return node`s value.
     */
     public T getValue() {
@@ -51,9 +49,6 @@ public class Tree<T> {
 
     /**
     * Add leaf in tree.
-    *
-    * @param value
-    * @return new child`s link.
     */
     public Tree<T> addChild(T value) {
         Tree<T> child = new Tree<T>(value);
@@ -93,15 +88,13 @@ public class Tree<T> {
 
     /**
     * Compare 2 tree.
-    *
-    * @param obj
     */
     @Override
     public boolean equals(Object obj) {
         Iterator<Tree<T>> iterable1 = new BfsIterator(this).iterator();
-        Iterator<Tree<T>> iterable2 = new BfsIterator((Tree<T>)obj).iterator();
+        Iterator<Tree<T>> iterable2 = new BfsIterator((Tree<T>) obj).iterator();
         //сравниваю размеры коллекций, если они не равны, то и деревья не эквивалентны
-        if (new BfsIterator(this).len() != new BfsIterator((Tree<T>)obj).len()) {
+        if (new BfsIterator(this).len() != new BfsIterator((Tree<T>) obj).len()) {
             return false;
         }
         while (iterable1.hasNext() && iterable2.hasNext()) {

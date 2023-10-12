@@ -3,9 +3,9 @@ package ru.nsu.yukhnina;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-    /**
-    * Iterator based on deep-first search algorithm.
-    */
+/**
+* Iterator based on deep-first search algorithm.
+*/
 public class DfsIterator<T> implements Iterable<Tree<T>> {
 
     private ArrayList<Tree<T>> arrayTree;
@@ -52,25 +52,23 @@ public class DfsIterator<T> implements Iterable<Tree<T>> {
     }
 
     /**
-    * @return count of nodes in tree.
+    * Iterator I don`t know all.
     */
-    public int len() {
-            return arrayTree.size();
-        }
-
-        /**
-         * Iterator I don`t know all.
-         */
     @Override
     public Iterator<Tree<T>> iterator() {
         Iterator<Tree<T>> it = new Iterator<Tree<T>>() {
-
             private int currentIndex = 0;
+
+
+
 
             @Override
             public boolean hasNext() {
                 return currentIndex < currentSize && arrayTree.get(currentIndex) != null;
             }
+
+
+
 
             @Override
             public Tree<T> next() {

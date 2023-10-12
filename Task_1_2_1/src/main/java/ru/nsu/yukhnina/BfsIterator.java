@@ -3,6 +3,9 @@ package ru.nsu.yukhnina;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * Iterator based on breadth-first search algorithm.
+ */
 public class BfsIterator<T> implements Iterable<Tree<T>> {
     private ArrayList<Tree<T>> arrayTree;
     private int currentSize;
@@ -63,10 +66,16 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
 
             private int currentIndex = 0;
 
+
+
+
             @Override
             public boolean hasNext() {
                 return currentIndex < currentSize && arrayTree.get(currentIndex) != null;
             }
+
+
+
 
             @Override
             public Tree<T> next() {

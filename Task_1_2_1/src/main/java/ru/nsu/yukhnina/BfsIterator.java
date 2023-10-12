@@ -13,7 +13,7 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
     /**
      * called bfs function that create tree`s nodes array.
      *
-     * @param node
+     * @param node something node from iterable tree.
      */
     public BfsIterator(Tree<T> node) {
         this.arrayTree = bfs(node);
@@ -23,8 +23,8 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
     /**
      * The breadth-first search algorithm constructs an array of graph vertices.
      *
-     * @param node
-     * @return
+     * @param node something node from iterable tree.
+     * @return array consists of trees node.
      */
     private ArrayList<Tree<T>> bfs(Tree<T> node) {
 
@@ -43,8 +43,8 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
     /**
      * Find trees`s node.
      *
-     * @param node
-     * @return
+     * @param node its node from tree where we try to find root.
+     * @return this tree root.
      */
     private Tree<T> findFather(Tree<T> node) {
         while (node.getParent() != null) {
@@ -54,6 +54,8 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
     }
 
     /**
+     * This functions need in equals to compare trees.
+     *
      * @return count of nodes in tree.
      */
     public int len() {

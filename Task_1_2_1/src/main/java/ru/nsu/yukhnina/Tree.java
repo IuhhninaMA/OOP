@@ -33,6 +33,7 @@ public class Tree<T> {
 
     /**
     * get nodes parent for other classes.
+    *
     * @return node`s father.
     */
     public Tree<T> getParent() {
@@ -41,6 +42,7 @@ public class Tree<T> {
 
     /**
     * get nodes value in other classes.
+    *
     * @return node`s value.
     */
     public T getValue() {

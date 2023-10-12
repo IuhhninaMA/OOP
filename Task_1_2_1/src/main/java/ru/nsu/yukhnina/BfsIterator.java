@@ -3,7 +3,7 @@ package ru.nsu.yukhnina;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class BFSIterator<T> implements Iterable<Tree<T>> {
+public class BfsIterator<T> implements Iterable<Tree<T>> {
     private ArrayList<Tree<T>> arrayTree;
     private int currentSize;
 
@@ -12,7 +12,7 @@ public class BFSIterator<T> implements Iterable<Tree<T>> {
      *
      * @param node
      */
-    public BFSIterator(Tree<T> node) {
+    public BfsIterator(Tree<T> node) {
         this.arrayTree = bfs(node);
         this.currentSize = arrayTree.size();
     }

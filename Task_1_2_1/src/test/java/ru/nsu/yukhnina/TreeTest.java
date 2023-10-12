@@ -16,14 +16,14 @@ class TreeTest {
         subtree.addChild("C");
         subtree.addChild("D");
         tree.addChild(subtree);
-        BFSIterator<String> iterableImpl = new BFSIterator<>(tree);
+        BfsIterator<String> iterableImpl = new BfsIterator<>(tree);
         String[] result = {"R1", "A", "R2", "C", "D"};
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
         }
         i = 0;
-        DFSIterator<String> iterableDfs = new DFSIterator<>(subtree);
+        DfsIterator<String> iterableDfs = new DfsIterator<>(subtree);
         for (var element : iterableDfs) {
             assertEquals(result[i++], element.getValue());
         }
@@ -39,7 +39,7 @@ class TreeTest {
         var d = tree2.addChild("D");
         var e = d.addChild("E");
         String[] result = {"R1", "A", "B", "C", "D", "E"};
-        BFSIterator<String> iterableImpl = new BFSIterator<>(e);
+        BfsIterator<String> iterableImpl = new BfsIterator<>(e);
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
@@ -55,7 +55,7 @@ class TreeTest {
         tree2.addChild("B");
         tree2.addChild("C");
         String[] result = {"R1", "D", "E", "A", "B", "C"};
-        DFSIterator<String> iterableImpl = new DFSIterator<>(e);
+        DfsIterator<String> iterableImpl = new DfsIterator<>(e);
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
@@ -72,7 +72,7 @@ class TreeTest {
         tree3.addChild(5);
         tree3.addChild(6);
         Integer[] result = {1, 4, 5, 6};
-        DFSIterator<Integer> iterableImpl = new DFSIterator<Integer>(d);
+        DfsIterator<Integer> iterableImpl = new DfsIterator<Integer>(d);
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
@@ -83,11 +83,11 @@ class TreeTest {
     void testEqualsTreeFalse() {
         Tree<Integer> tree4 = new Tree<>(1);
         var d = tree4.addChild(2);
+        d.addChild(3);
+        d.remove();
         tree4.addChild(4);
         tree4.addChild(5);
         tree4.addChild(6);
-        d.addChild(3);
-        d.remove();
         Tree<Integer> tree41 = new Tree<>(1);
         tree41.addChild(4);
         tree41.addChild(155);

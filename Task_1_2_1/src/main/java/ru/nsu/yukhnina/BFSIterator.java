@@ -33,6 +33,10 @@ import java.util.Iterator;
             return node;
         }
 
+        public int len() {
+            return arrayTree.size();
+        }
+
         @Override
         public Iterator<Tree<T>> iterator() {
             Iterator<Tree<T>> it = new Iterator<Tree<T>>() {

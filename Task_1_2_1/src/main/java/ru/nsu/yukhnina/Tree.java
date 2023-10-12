@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
+    /**
+    * class for creating, compare and remove tree and leafs.
+    */
 public class Tree<T> {
-    public static boolean flagIterator = false;
+    public static boolean flagIterator = false;//флаг для выкидывания ошибки
     private ArrayList<Tree<T>> children;
     private Tree<T> parent;
     private T value;
@@ -16,31 +19,35 @@ public class Tree<T> {
         Tree<T> parent;
     }
 
+    /**
+    * because my fields is private I need get and set functions.
+    *
+    * @return node`s children.
+    */
     public ArrayList<Tree<T>> getChildren() {
         return children;
     }
 
-    public void setChildren(ArrayList<Tree<T>> children) {
-        this.children = children;
-    }
-
+    /**
+    * @return node`s father.
+    */
     public Tree<T> getParent() {
         return parent;
     }
 
-    public void setParent(Tree<T> parent) {
-        this.parent = parent;
-    }
-
+    /**
+    * @return node`s value.
+    */
     public T getValue() {
         return value;
     }
 
-    public void setValue(T value) {
-        this.value = value;
-    }
-
-    //add leaf
+    /**
+    * Add leaf in tree.
+    *
+    * @param value
+    * @return new child`s link.
+    */
     public Tree<T> addChild(T value) {
         Tree<T> child = new Tree<T>(value);
         this.children.add(child);
@@ -48,13 +55,22 @@ public class Tree<T> {
         return child;
     }
 
-    //add subtree
+    /**
+    * Add subtree in main tree.
+    *
+    * @param subtree
+    * @return
+    */
     public Tree<T> addChild(Tree<T> subtree) {
         this.children.add(subtree);
         subtree.parent = this;
         return subtree;
     }
 
+    /**
+    * method to remove leaf or subtree from main tree.
+    * if user trying to remove element for iterabling tree function throws exception.
+    */
     public void remove() {
         if (flagIterator) {
             throw new ConcurrentModificationException("Изменение дерева во время итерации");
@@ -69,9 +85,14 @@ public class Tree<T> {
                 }
             }
         }
-        //если я правтльно поняла, то дальше java сама всё подчистит
     }
 
+    /**
+    * Compare 2 tree.
+    *
+    * @param obj
+    * @return
+    */
     @Override
     public boolean equals(Object obj) {
         Iterator<Tree<T>> iterable1 = new BFSIterator(this).iterator();

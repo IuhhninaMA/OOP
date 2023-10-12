@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Tree&lt;T&gt;</span>
 extends java.lang.Object</pre>
+<div class="block">class for creating, compare and remove tree and leafs.</div>
 </li>
 </ul>
 </div>
@@ -199,22 +200,30 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addChild(ru.nsu.yukhnina.Tree)">addChild</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;subtree)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add subtree in main tree.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addChild(T)">addChild</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add leaf in tree.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;obj)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Compare 2 tree.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getChildren()">getChildren</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">because my fields is private I need get and set functions.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;</code></td>
@@ -229,22 +238,9 @@ extends java.lang.Object</pre>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#remove()">remove</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setChildren(java.util.ArrayList)">setChildren</a></span>&#8203;(java.util.ArrayList&lt;<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;&nbsp;children)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setParent(ru.nsu.yukhnina.Tree)">setParent</a></span>&#8203;(<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;parent)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setValue(T)">setValue</a></span>&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">method to remove leaf or subtree from main tree.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -317,15 +313,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getChildren</h4>
 <pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;&nbsp;getChildren()</pre>
-</li>
-</ul>
-<a id="setChildren(java.util.ArrayList)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setChildren</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setChildren&#8203;(java.util.ArrayList&lt;<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&gt;&nbsp;children)</pre>
+<div class="block">because my fields is private I need get and set functions.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>node`s children.</dd>
+</dl>
 </li>
 </ul>
 <a id="getParent()">
@@ -335,15 +327,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getParent</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;getParent()</pre>
-</li>
-</ul>
-<a id="setParent(ru.nsu.yukhnina.Tree)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setParent</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setParent&#8203;(<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;parent)</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>node`s father.</dd>
+</dl>
 </li>
 </ul>
 <a id="getValue()">
@@ -353,17 +340,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getValue</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;getValue()</pre>
-</li>
-</ul>
-<a id="setValue(java.lang.Object)">
-<!--   -->
-</a><a id="setValue(T)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setValue</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setValue&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value)</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>node`s value.</dd>
+</dl>
 </li>
 </ul>
 <a id="addChild(java.lang.Object)">
@@ -375,6 +355,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addChild</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;addChild&#8203;(<a href="Tree.html" title="type parameter in Tree">T</a>&nbsp;value)</pre>
+<div class="block">Add leaf in tree.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>value</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new child`s link.</dd>
+</dl>
 </li>
 </ul>
 <a id="addChild(ru.nsu.yukhnina.Tree)">
@@ -384,6 +371,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addChild</h4>
 <pre class="methodSignature">public&nbsp;<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;addChild&#8203;(<a href="Tree.html" title="class in ru.nsu.yukhnina">Tree</a>&lt;<a href="Tree.html" title="type parameter in Tree">T</a>&gt;&nbsp;subtree)</pre>
+<div class="block">Add subtree in main tree.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subtree</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+</dl>
 </li>
 </ul>
 <a id="remove()">
@@ -393,6 +386,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>remove</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;remove()</pre>
+<div class="block">method to remove leaf or subtree from main tree.
+ if user trying to remove element for iterabling tree function throws exception.</div>
 </li>
 </ul>
 <a id="equals(java.lang.Object)">
@@ -402,9 +397,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>equals</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;obj)</pre>
+<div class="block">Compare 2 tree.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>obj</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 </dl>
 </li>
 </ul>

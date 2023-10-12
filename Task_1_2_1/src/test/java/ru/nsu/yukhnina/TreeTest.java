@@ -1,8 +1,9 @@
 package ru.nsu.yukhnina;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class TreeTest {
     @Test
@@ -15,15 +16,15 @@ class TreeTest {
         subtree.addChild("C");
         subtree.addChild("D");
         tree.addChild(subtree);
-        BFSIterator<String> IterableImpl = new BFSIterator<>(tree);
+        BFSIterator<String> iterableImpl = new BFSIterator<>(tree);
         String[] result = {"R1", "A", "R2", "C", "D"};
         int i = 0;
-        for (var element : IterableImpl) {
+        for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
         }
         i = 0;
-        DFSIterator<String> IterableDfs = new DFSIterator<>(subtree);
-        for (var element : IterableDfs) {
+        DFSIterator<String> iterableDfs = new DFSIterator<>(subtree);
+        for (var element : iterableDfs) {
             assertEquals(result[i++], element.getValue());
         }
         assertEquals(subtree, subtree);
@@ -81,13 +82,13 @@ class TreeTest {
     @Test
     void testEqualsTreeFalse() {
         Tree<Integer> tree4 = new Tree<>(1);
-        Tree<Integer> tree41 = new Tree<>(1);
         var d = tree4.addChild(2);
-        d.addChild(3);
-        d.remove();
         tree4.addChild(4);
         tree4.addChild(5);
         tree4.addChild(6);
+        d.addChild(3);
+        d.remove();
+        Tree<Integer> tree41 = new Tree<>(1);
         tree41.addChild(4);
         tree41.addChild(155);
         tree41.addChild(166);
@@ -97,13 +98,13 @@ class TreeTest {
     @Test
     void testEqualsTreeTrue() {
         Tree<Character> tree5 = new Tree<>('p');
-        Tree<Character> tree51 = new Tree<>('p');
         var d = tree5.addChild('q');
         d.addChild('m');
         d.remove();
         tree5.addChild('u');
         tree5.addChild('w');
         tree5.addChild('z');
+        Tree<Character> tree51 = new Tree<>('p');
         tree51.addChild('u');
         tree51.addChild('w');
         tree51.addChild('z');

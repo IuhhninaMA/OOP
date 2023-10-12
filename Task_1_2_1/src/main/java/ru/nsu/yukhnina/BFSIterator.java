@@ -18,11 +18,11 @@ public class BFSIterator<T> implements Iterable<Tree<T>> {
     }
 
     /**
-    * The breadth-first search algorithm constructs an array of graph vertices.
-    *
-    * @param node
-    * @return
-    */
+     * The breadth-first search algorithm constructs an array of graph vertices.
+     *
+     * @param node
+     * @return
+     */
     private ArrayList<Tree<T>> bfs(Tree<T> node) {
 
         Tree<T> root = findFather(node);
@@ -51,8 +51,8 @@ public class BFSIterator<T> implements Iterable<Tree<T>> {
     }
 
     /**
-    * @return count of nodes in tree.
-    */
+     * @return count of nodes in tree.
+     */
     public int len() {
         return arrayTree.size();
     }

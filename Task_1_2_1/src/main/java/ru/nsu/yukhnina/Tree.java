@@ -56,11 +56,8 @@ public class Tree<T> {
     }
 
     /**
-    * Add subtree in main tree.
-    *
-    * @param subtree
-    * @return
-    */
+     * Add subtree in main tree.
+     */
     public Tree<T> addChild(Tree<T> subtree) {
         this.children.add(subtree);
         subtree.parent = this;
@@ -68,9 +65,9 @@ public class Tree<T> {
     }
 
     /**
-    * method to remove leaf or subtree from main tree.
-    * if user trying to remove element for iterabling tree function throws exception.
-    */
+     * method to remove leaf or subtree from main tree.
+     * if user trying to remove element for iterabling tree function throws exception.
+     */
     public void remove() {
         if (flagIterator) {
             throw new ConcurrentModificationException("Изменение дерева во время итерации");
@@ -88,11 +85,11 @@ public class Tree<T> {
     }
 
     /**
-    * Compare 2 tree.
-    *
-    * @param obj
-    * @return
-    */
+     * Compare 2 tree.
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         Iterator<Tree<T>> iterable1 = new BFSIterator(this).iterator();

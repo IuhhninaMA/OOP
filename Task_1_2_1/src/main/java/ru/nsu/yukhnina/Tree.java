@@ -1,17 +1,16 @@
 package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-import java.util.Stack;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Tree<T> {
+    public static boolean flagIterator = false;
     private ArrayList<Tree<T>> children;
     private Tree<T> parent;
     private T value;
 
-    public Tree(T value){
+    public Tree(T value) {
         this.children = new ArrayList<Tree<T>>();
         this.value = value;
         Tree<T> parent;
@@ -42,7 +41,7 @@ public class Tree<T> {
     }
 
     //add leaf
-    public Tree<T> addChild(T value){
+    public Tree<T> addChild(T value) {
         Tree<T> child = new Tree<T>(value);
         this.children.add(child);
         child.parent = this;
@@ -50,13 +49,16 @@ public class Tree<T> {
     }
 
     //add subtree
-    public Tree<T> addChild(Tree<T> subtree){
+    public Tree<T> addChild(Tree<T> subtree) {
         this.children.add(subtree);
         subtree.parent = this;
         return subtree;
     }
 
-    public void remove(){
+    public void remove() {
+        if (flagIterator) {
+            throw new ConcurrentModificationException("Изменение дерева во время итерации");
+        }
         this.children.clear();
         if (this.parent != null) {
             //удаляем его из родителя, если родитель есть

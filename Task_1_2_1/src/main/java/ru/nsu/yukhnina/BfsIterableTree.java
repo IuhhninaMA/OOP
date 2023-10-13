@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * Iterator based on breadth-first search algorithm.
  */
-public class BfsIterator<T> implements Iterable<Tree<T>> {
+public class BfsIterableTree<T> implements Iterable<Tree<T>> {
     private ArrayList<Tree<T>> arrayTree;
     private int currentSize;
 
@@ -15,7 +15,7 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
      *
      * @param node something node from iterable tree.
      */
-    public BfsIterator(Tree<T> node) {
+    public BfsIterableTree(Tree<T> node) {
         this.arrayTree = bfs(node);
         this.currentSize = arrayTree.size();
     }
@@ -27,8 +27,8 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
      * @return array consists of trees node.
      */
     private ArrayList<Tree<T>> bfs(Tree<T> node) {
-
         Tree<T> root = findFather(node);
+        root.setFlagIterator(true);
         ArrayList<Tree<T>> array = new ArrayList<Tree<T>>();
         array.add(root);
         ArrayList<Tree<T>> queue = new ArrayList<Tree<T>>(root.getChildren());
@@ -37,6 +37,7 @@ public class BfsIterator<T> implements Iterable<Tree<T>> {
             queue.addAll(queue.get(0).getChildren());
             queue.remove(0);
         }
+        root.setFlagIterator(false);
         return array;
     }
 

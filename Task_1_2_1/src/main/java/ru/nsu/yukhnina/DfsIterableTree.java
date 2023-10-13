@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
 * Iterator based on deep-first search algorithm.
 */
-public class DfsIterator<T> implements Iterable<Tree<T>> {
+public class DfsIterableTree<T> implements Iterable<Tree<T>> {
 
     private ArrayList<Tree<T>> arrayTree;
     private int currentSize;
@@ -14,7 +14,7 @@ public class DfsIterator<T> implements Iterable<Tree<T>> {
     /**
     * Called dfs function that create array list with tree nodes.
     */
-    public DfsIterator(Tree<T> node) {
+    public DfsIterableTree(Tree<T> node) {
         this.arrayTree = dfs(node);
         this.currentSize = arrayTree.size();
     }
@@ -24,8 +24,10 @@ public class DfsIterator<T> implements Iterable<Tree<T>> {
     */
     private ArrayList<Tree<T>> dfs(Tree<T> node) {
         Tree<T> root = findFather(node);
+        root.setFlagIterator(true);
         ArrayList<Tree<T>> result = new ArrayList<Tree<T>>();
         arrayTree = dfsRecursive(result, root);
+        root.setFlagIterator(false);
         return arrayTree;
     }
 

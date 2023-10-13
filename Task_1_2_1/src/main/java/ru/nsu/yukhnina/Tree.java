@@ -8,7 +8,7 @@ import java.util.Iterator;
 * class for creating, compare and remove tree and leafs.
 */
 public class Tree<T> {
-    public static boolean flagIterator = false;
+    private boolean flagIterator = false;
     private ArrayList<Tree<T>> children;
     private Tree<T> parent;
     private T value;
@@ -20,6 +20,10 @@ public class Tree<T> {
         this.children = new ArrayList<Tree<T>>();
         this.value = value;
         Tree<T> parent;
+    }
+
+    public void setFlagIterator(boolean flagIterator) {
+        this.flagIterator = flagIterator;
     }
 
     /**
@@ -93,10 +97,10 @@ public class Tree<T> {
     */
     @Override
     public boolean equals(Object obj) {
-        Iterator<Tree<T>> iterable1 = new BfsIterator(this).iterator();
-        Iterator<Tree<T>> iterable2 = new BfsIterator((Tree<T>) obj).iterator();
+        Iterator<Tree<T>> iterable1 = new BfsIterableTree(this).iterator();
+        Iterator<Tree<T>> iterable2 = new BfsIterableTree((Tree<T>) obj).iterator();
         //сравниваю размеры коллекций, если они не равны, то и деревья не эквивалентны
-        if (new BfsIterator(this).len() != new BfsIterator((Tree<T>) obj).len()) {
+        if (new BfsIterableTree(this).len() != new BfsIterableTree((Tree<T>) obj).len()) {
             return false;
         }
         while (iterable1.hasNext() && iterable2.hasNext()) {

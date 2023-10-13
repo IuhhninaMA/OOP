@@ -16,14 +16,14 @@ class TreeTest {
         subtree.addChild("C");
         subtree.addChild("D");
         tree.addChild(subtree);
-        BfsIterator<String> iterableImpl = new BfsIterator<>(tree);
+        BfsIterableTree<String> iterableImpl = new BfsIterableTree<>(tree);
         String[] result = {"R1", "A", "R2", "C", "D"};
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
         }
         i = 0;
-        DfsIterator<String> iterableDfs = new DfsIterator<>(subtree);
+        DfsIterableTree<String> iterableDfs = new DfsIterableTree<>(subtree);
         for (var element : iterableDfs) {
             assertEquals(result[i++], element.getValue());
         }
@@ -39,7 +39,7 @@ class TreeTest {
         var d = tree2.addChild("D");
         var e = d.addChild("E");
         String[] result = {"R1", "A", "B", "C", "D", "E"};
-        BfsIterator<String> iterableImpl = new BfsIterator<>(e);
+        BfsIterableTree<String> iterableImpl = new BfsIterableTree<>(e);
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
@@ -55,7 +55,7 @@ class TreeTest {
         tree2.addChild("B");
         tree2.addChild("C");
         String[] result = {"R1", "D", "E", "A", "B", "C"};
-        DfsIterator<String> iterableImpl = new DfsIterator<>(e);
+        DfsIterableTree<String> iterableImpl = new DfsIterableTree<>(e);
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());
@@ -72,7 +72,7 @@ class TreeTest {
         tree3.addChild(5);
         tree3.addChild(6);
         Integer[] result = {1, 4, 5, 6};
-        DfsIterator<Integer> iterableImpl = new DfsIterator<Integer>(d);
+        DfsIterableTree<Integer> iterableImpl = new DfsIterableTree<Integer>(d);
         int i = 0;
         for (var element : iterableImpl) {
             assertEquals(result[i++], element.getValue());

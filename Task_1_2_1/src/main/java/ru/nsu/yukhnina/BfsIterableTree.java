@@ -84,6 +84,13 @@ public class BfsIterableTree<T> implements Iterable<Tree<T>> {
             public Tree<T> next() {
                 return arrayTree.get(currentIndex++);
             }
+
+
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
         };
         return it;
     }

@@ -1,6 +1,7 @@
 package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 /**
@@ -75,6 +76,12 @@ public class DfsIterableTree<T> implements Iterable<Tree<T>> {
             @Override
             public Tree<T> next() {
                 return arrayTree.get(currentIndex++);
+            }
+
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
             }
         };
         return it;

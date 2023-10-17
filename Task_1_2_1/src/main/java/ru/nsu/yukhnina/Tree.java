@@ -3,6 +3,7 @@ package ru.nsu.yukhnina;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
 * class for creating, compare and remove tree and leafs.
@@ -22,7 +23,7 @@ public class Tree<T> {
         Tree<T> parent;
     }
 
-    public void setFlagIterator(boolean flagIterator) {
+    void setFlagIterator(boolean flagIterator) {
         this.flagIterator = flagIterator;
     }
 
@@ -109,6 +110,11 @@ public class Tree<T> {
             }
         }
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.value, this.children);
     }
 }
 

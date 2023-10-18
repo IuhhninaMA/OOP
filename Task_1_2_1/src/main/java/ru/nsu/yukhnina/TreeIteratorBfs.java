@@ -51,6 +51,7 @@ public class TreeIteratorBfs<T> implements Iterator<Tree<T>> {
         removeNode(current);
         current = null;
     }
+    
     private void removeNode(Tree<T> node) {
         ArrayList<Tree<T>> newBaby = new ArrayList<>();
         for (Tree<T> k : node.getChildren()) {

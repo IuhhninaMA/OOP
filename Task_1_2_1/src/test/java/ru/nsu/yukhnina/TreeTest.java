@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class TreeTest {
     @Test
-    void testFromTask() {
+    void testFromTaskAndRemoveDfs() {
         Tree<String> tree = new Tree<>("R1");
         var a = tree.addChild("A");
         var b = a.addChild("B");
@@ -16,28 +16,41 @@ class TreeTest {
         subtree.addChild("D");
         tree.addChild(subtree);
         TreeIteratorDfs iterator1 = new TreeIteratorDfs<>(tree);
-        String[] result = {"R1", "R2", "D", "C", "A"};
-        int i = 0;
+        String[] result = {"R1", "R2", "D", "A"};
+        Tree elem;
         while (iterator1.hasNext()) {
-            assertEquals(result[i++], iterator1.next().getValue());
+            elem = iterator1.next();
+            if (elem.getValue() == "C") {
+                iterator1.remove();
+            }
+        }
+        int i = 0;
+        TreeIteratorDfs iterator2 = new TreeIteratorDfs<>(tree);
+        while (iterator2.hasNext()) {
+            assertEquals(result[i++], iterator2.next().getValue());
         }
     }
 
 
     @Test
-    void testCallFromNotRootBfs() {
+    void testCallFromNotRootAndRemoveBfs() {
         Tree<String> tree2 = new Tree<>("R1");
+        var d = tree2.addChild("D");
+        d.addChild("E");
         tree2.addChild("A");
         tree2.addChild("B");
         tree2.addChild("C");
-        var d = tree2.addChild("D");
-        d.addChild("E");
-        String[] result = {"R1", "A", "B", "C", "D", "E"};
+        String[] result = {"R1", "A", "B", "C"};
         TreeIteratorBfs iterator = new TreeIteratorBfs<>(tree2);
         int i = 0;
         while (iterator.hasNext()) {
-            Tree element = iterator.next();
-            assertEquals(result[i++], element.getValue());
+            if (iterator.next().getValue() == "D") {
+                iterator.remove();
+            }
+        }
+        TreeIteratorBfs iterator2 = new TreeIteratorBfs<>(tree2);
+        while (iterator2.hasNext()) {
+            assertEquals(result[i++], iterator2.next().getValue());
         }
     }
 

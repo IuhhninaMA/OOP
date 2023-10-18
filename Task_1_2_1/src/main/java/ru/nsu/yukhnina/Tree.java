@@ -1,64 +1,69 @@
 package ru.nsu.yukhnina;
 
-import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 
 /**
-* class for creating, compare and remove tree and leafs.
-*/
+ * class for creating, compare and remove tree and leafs.
+ */
 public class Tree<T> {
     private boolean flagIterator = false;
     private ArrayList<Tree<T>> children;
     private Tree<T> parent;
-    private T value;
+    private final T value;
+
+    public void setChildren(ArrayList<Tree<T>> children) {
+        this.children = children;
+    }
 
     /**
      * Nodes have childs array, parent and itsel value.
      */
     public Tree(T value) {
-        this.children = new ArrayList<Tree<T>>();
+        this.children = new ArrayList<>();
         this.value = value;
         Tree<T> parent;
     }
 
-    void setFlagIterator(boolean flagIterator) {
-        this.flagIterator = flagIterator;
+    public void setParent(Tree<T> parent) {
+        this.parent = parent;
+    }
+
+    void setFlagIterator() {
+        this.flagIterator = true;
     }
 
     /**
-    * because my fields is private I need get and set functions.
-    *
-    * @return node`s children.
-    */
+     * because my fields is private I need get and set functions.
+     *
+     * @return node`s children.
+     */
     public ArrayList<Tree<T>> getChildren() {
         return children;
     }
 
     /**
-    * get nodes parent for other classes.
-    *
-    * @return node`s father.
-    */
+     * get nodes parent for other classes.
+     *
+     * @return node`s father.
+     */
     public Tree<T> getParent() {
         return parent;
     }
 
     /**
-    * get nodes value in other classes.
-    *
-    * @return node`s value.
-    */
+     * get nodes value in other classes.
+     *
+     * @return node`s value.
+     */
     public T getValue() {
         return value;
     }
 
     /**
-    * Add leaf in tree.
-    */
+     * Add leaf in tree.
+     */
     public Tree<T> addChild(T value) {
-        Tree<T> child = new Tree<T>(value);
+        Tree<T> child = new Tree<>(value);
         this.children.add(child);
         child.parent = this;
         return child;
@@ -94,27 +99,22 @@ public class Tree<T> {
     }
 
     /**
-    * Compare 2 tree.
-    */
+     * Compare 2 tree.
+     */
     @Override
     public boolean equals(Object obj) {
-        Iterator<Tree<T>> iterable1 = new BfsIterableTree(this).iterator();
-        Iterator<Tree<T>> iterable2 = new BfsIterableTree((Tree<T>) obj).iterator();
-        //сравниваю размеры коллекций, если они не равны, то и деревья не эквивалентны
-        if (new BfsIterableTree(this).len() != new BfsIterableTree((Tree<T>) obj).len()) {
+        if (obj == null || obj.getClass() != this.getClass()) {
             return false;
         }
+        Iterator<Tree<T>> iterable1 = new TreeIteratorDfs<>(this);
+        Iterator<Tree<T>> iterable2 = new TreeIteratorDfs<>((Tree<T>) obj);
+        //сравниваю размеры коллекций, если они не равны, то и деревья не эквивалентны
         while (iterable1.hasNext() && iterable2.hasNext()) {
             if (iterable1.next().value != iterable2.next().value) {
                 return false;
             }
         }
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.value, this.children);
     }
 }
 

@@ -14,8 +14,7 @@ class TreeIteratorDfs<T> implements Iterator<Tree<T>> {
     TreeIteratorDfs(Tree<T> root) {
         stack = new Stack<>();
         current = findRoot(root);
-
-        root.setFlagIterator();
+        findRoot(current).setFlagIterator(true);
         if (current != null) {
             stack.push(current);
         }
@@ -23,6 +22,9 @@ class TreeIteratorDfs<T> implements Iterator<Tree<T>> {
 
     @Override
     public boolean hasNext() {
+        if (stack.isEmpty()) {
+            findRoot(current).setFlagIterator(false);
+        }
         return !stack.isEmpty();
     }
 
@@ -32,6 +34,7 @@ class TreeIteratorDfs<T> implements Iterator<Tree<T>> {
             throw new IllegalStateException("No more elements");
         }
         current = stack.pop();
+        findRoot(current).setFlagIterator(true);
         for (Tree<T> i : current.getChildren()) {
             stack.push(i);
         }

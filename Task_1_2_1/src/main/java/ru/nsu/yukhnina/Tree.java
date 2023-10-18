@@ -1,6 +1,8 @@
 package ru.nsu.yukhnina;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
 
 /**
  * class for creating, compare and remove tree and leafs.
@@ -28,8 +30,8 @@ public class Tree<T> {
         this.parent = parent;
     }
 
-    void setFlagIterator() {
-        this.flagIterator = true;
+    void setFlagIterator(boolean value) {
+        this.flagIterator = value;
     }
 
     /**

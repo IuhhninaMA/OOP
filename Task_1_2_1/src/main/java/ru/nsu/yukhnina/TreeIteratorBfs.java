@@ -1,5 +1,6 @@
 package ru.nsu.yukhnina;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,7 +15,7 @@ public class TreeIteratorBfs<T> implements Iterator<Tree<T>> {
     TreeIteratorBfs(Tree<T> root) {
         queue = new LinkedList<>();
         current = findRoot(root);
-        root.setFlagIterator();
+        root.setFlagIterator(true);
         if (current != null) {
             queue.offer(current);
         }
@@ -22,6 +23,9 @@ public class TreeIteratorBfs<T> implements Iterator<Tree<T>> {
 
     @Override
     public boolean hasNext() {
+        if (queue.isEmpty()) {
+            findRoot(current).setFlagIterator(false);
+        }
         return !queue.isEmpty();
     }
 
@@ -43,20 +47,22 @@ public class TreeIteratorBfs<T> implements Iterator<Tree<T>> {
         if (current == null) {
             throw new IllegalStateException("No element to remove");
         }
-
         // Remove the current node from the tree
         removeNode(current);
         current = null;
     }
-
     private void removeNode(Tree<T> node) {
-        //удаляем ссылку на узел у всех детей
+        ArrayList<Tree<T>> newBaby = new ArrayList<>();
         for (Tree<T> k : node.getChildren()) {
             k.setParent(null);
         }
-        //удаляем ссылку у родителей
         Tree<T> father = node.getParent();
-        father.getChildren().remove(node);
+        for (Tree<T> c : father.getChildren()) {
+            if (c != node) {
+                newBaby.add(c);
+            }
+        }
+        father.setChildren(newBaby);
     }
 
     private Tree<T> findRoot(Tree<T> node) {

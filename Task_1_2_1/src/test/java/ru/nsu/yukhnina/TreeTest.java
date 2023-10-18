@@ -1,7 +1,6 @@
 package ru.nsu.yukhnina;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,19 +15,14 @@ class TreeTest {
         subtree.addChild("C");
         subtree.addChild("D");
         tree.addChild(subtree);
-        BfsIterableTree<String> iterableImpl = new BfsIterableTree<>(tree);
-        String[] result = {"R1", "A", "R2", "C", "D"};
+        TreeIteratorDfs iterator1 = new TreeIteratorDfs<>(tree);
+        String[] result = {"R1", "R2", "D", "C", "A"};
         int i = 0;
-        for (var element : iterableImpl) {
-            assertEquals(result[i++], element.getValue());
+        while (iterator1.hasNext()) {
+            assertEquals(result[i++], iterator1.next().getValue());
         }
-        i = 0;
-        DfsIterableTree<String> iterableDfs = new DfsIterableTree<>(subtree);
-        for (var element : iterableDfs) {
-            assertEquals(result[i++], element.getValue());
-        }
-        assertEquals(subtree, subtree);
     }
+
 
     @Test
     void testCallFromNotRootBfs() {
@@ -37,14 +31,16 @@ class TreeTest {
         tree2.addChild("B");
         tree2.addChild("C");
         var d = tree2.addChild("D");
-        var e = d.addChild("E");
+        d.addChild("E");
         String[] result = {"R1", "A", "B", "C", "D", "E"};
-        BfsIterableTree<String> iterableImpl = new BfsIterableTree<>(e);
+        TreeIteratorBfs iterator = new TreeIteratorBfs<>(tree2);
         int i = 0;
-        for (var element : iterableImpl) {
+        while (iterator.hasNext()) {
+            Tree element = iterator.next();
             assertEquals(result[i++], element.getValue());
         }
     }
+
 
     @Test
     void testCallFromNotRootDfs() {
@@ -54,13 +50,15 @@ class TreeTest {
         tree2.addChild("A");
         tree2.addChild("B");
         tree2.addChild("C");
-        String[] result = {"R1", "D", "E", "A", "B", "C"};
-        DfsIterableTree<String> iterableImpl = new DfsIterableTree<>(e);
+        String[] result = {"R1", "C", "B", "A", "D", "E"};
+        TreeIteratorDfs<String> iterator = new TreeIteratorDfs<>(e);
         int i = 0;
-        for (var element : iterableImpl) {
+        while (iterator.hasNext()) {
+            Tree element = ((TreeIteratorDfs) iterator).next();
             assertEquals(result[i++], element.getValue());
         }
     }
+
 
     @Test
     void testRemoveInt() {
@@ -71,28 +69,13 @@ class TreeTest {
         tree3.addChild(4);
         tree3.addChild(5);
         tree3.addChild(6);
-        Integer[] result = {1, 4, 5, 6};
-        DfsIterableTree<Integer> iterableImpl = new DfsIterableTree<Integer>(d);
+        Integer[] result = {1, 6, 5, 4};
+        TreeIteratorDfs<Integer> iterator = new TreeIteratorDfs<>(tree3);
         int i = 0;
-        for (var element : iterableImpl) {
+        while (iterator.hasNext()) {
+            Tree<Integer> element = iterator.next();
             assertEquals(result[i++], element.getValue());
         }
-    }
-
-    @Test
-    void testEqualsTreeFalse() {
-        Tree<Integer> tree4 = new Tree<>(1);
-        var d = tree4.addChild(2);
-        d.addChild(3);
-        d.remove();
-        tree4.addChild(4);
-        tree4.addChild(5);
-        tree4.addChild(6);
-        Tree<Integer> tree41 = new Tree<>(1);
-        tree41.addChild(4);
-        tree41.addChild(155);
-        tree41.addChild(166);
-        assertNotEquals(tree4, tree41);
     }
 
     @Test

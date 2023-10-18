@@ -85,7 +85,7 @@ public class Tree<T> {
      * if user trying to remove element for iterabling tree function throws exception.
      */
     public void remove() {
-        if (flagIterator) {
+        if (findRoot(this).flagIterator) {
             throw new ConcurrentModificationException("Изменение дерева во время итерации");
         }
         this.children.clear();
@@ -117,6 +117,14 @@ public class Tree<T> {
             }
         }
         return true;
+    }
+
+    private Tree<T> findRoot(Tree<T> node) {
+        Tree<T> root = node;
+        while (root.getParent() != null) {
+            root = root.getParent();
+        }
+        return root;
     }
 }
 

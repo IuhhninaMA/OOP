@@ -10,12 +10,18 @@ public class AdjacencyLists<G> implements Graph<G> {
     int vertexCount;
     ArrayList<Vertex<G>> vertices;
 
+    /**
+     * Object contains matrix edges, matrix nameVert to find vert index and count vert.
+     */
     public AdjacencyLists() {
         edgesName = new ArrayList<ArrayList<Edge<G>>>();
         vertexCount = 0;
         vertices = new ArrayList<Vertex<G>>();
     }
 
+    /**
+     * Add new vert in graph.
+     */
     public void addVert(G newVert) {
         //добавили новую вершину в массив вершин, увеличили количество,
         vertices.add(new Vertex<G>(newVert));
@@ -23,7 +29,10 @@ public class AdjacencyLists<G> implements Graph<G> {
         edgesName.add(new ArrayList<Edge<G>>());
     }
 
-    public Vertex<G> getVert(G vert){
+    /**
+     * Get vertices object.
+     */
+    public Vertex<G> getVert(G vert) {
         for (int i = 0; i < vertexCount; i++) {
             if (vert.equals(this.vertices.get(i).vert)) {
                 return this.vertices.get(i);
@@ -33,7 +42,10 @@ public class AdjacencyLists<G> implements Graph<G> {
         return null;
     }
 
-    public void setVert(G oldVert, G newVert){
+    /**
+     * Change vertice name.
+     */
+    public void setVert(G oldVert, G newVert) {
         for (int i = 0; i < vertexCount; i++) {
             if (oldVert.equals(this.vertices.get(i).vert)) {
                 this.vertices.get(i).vert = newVert;
@@ -41,6 +53,9 @@ public class AdjacencyLists<G> implements Graph<G> {
         }
     }
 
+    /**
+     * If we know vert nameб delite it in graph.
+     */
     public void deleteVert(G vert) {
         //ищу индекс вершины
         int indexVert = -1;
@@ -60,6 +75,9 @@ public class AdjacencyLists<G> implements Graph<G> {
         this.vertexCount--;
     }
 
+    /**
+     * Add edge in graph.
+     */
     public void addEdge(G vert1, G vert2, G newEdge) {
         int indexVert1 = -1;
         for (int i = 0; i < vertexCount; i++) {
@@ -75,8 +93,12 @@ public class AdjacencyLists<G> implements Graph<G> {
         //попроавить удаление вершины!!!!!!!!!!!!!!! сломаться ничего не должно, но всё же
     }
 
-    public Edge<G> getEdge(G vert1, G vert2){
-        int indexVert1 = -1, indexVert2 = -1;
+    /**
+     * Получение объекта ребра.
+     */
+    public Edge<G> getEdge(G vert1, G vert2) {
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < vertexCount; i++) {
             if (vert1.equals(this.vertices.get(i).vert)) {
                 indexVert1 = i;
@@ -91,7 +113,7 @@ public class AdjacencyLists<G> implements Graph<G> {
         if (indexVert2 == - 1) {
             return null;
         }
-        for (Edge<G> edge: edgesName.get(indexVert1)) {
+        for (Edge<G> edge : edgesName.get(indexVert1)) {
             if (edge.vertFrom.equals(vert1) & edge.vertTo.equals(vert2)) {
                 return edge;
             }
@@ -99,8 +121,12 @@ public class AdjacencyLists<G> implements Graph<G> {
         return null;
     }
 
+    /**
+     * Method for change edges weight.
+     */
     public void setEdge(G vert1, G vert2, G newEdge) {
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < vertexCount; i++) {
             if (vert1.equals(this.vertices.get(i).vert)) {
                 indexVert1 = i;
@@ -118,7 +144,7 @@ public class AdjacencyLists<G> implements Graph<G> {
             indexVert2 = this.vertexCount;
         }
         //если всё таки нашли это ребро
-        for (Edge<G> edge: edgesName.get(indexVert1)) {
+        for (Edge<G> edge : edgesName.get(indexVert1)) {
             if (edge.vertFrom.equals(vert1) & edge.vertTo.equals(vert2)) {
                 edge.weight = newEdge;
                 return;
@@ -128,8 +154,12 @@ public class AdjacencyLists<G> implements Graph<G> {
         addEdge(vert1, vert2, newEdge);
     }
 
+    /**
+     * Метод для удаления ребра из графа.
+     */
     public void deleteEdge(G vert1, G vert2) {
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < vertexCount; i++) {
             if (vert1.equals(this.vertices.get(i))) {
                 indexVert1 = i;
@@ -144,7 +174,7 @@ public class AdjacencyLists<G> implements Graph<G> {
         if (indexVert2 == - 1) {
             return;
         }
-        for (Edge<G> edge: edgesName.get(indexVert1)) {
+        for (Edge<G> edge : edgesName.get(indexVert1)) {
             if (edge.vertFrom.equals(vert1) & edge.vertTo.equals(vert2)) {
                 edgesName.get(indexVert1).remove(edge);
                 return;

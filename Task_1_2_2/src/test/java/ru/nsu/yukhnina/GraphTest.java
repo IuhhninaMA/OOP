@@ -146,6 +146,13 @@ class GraphTest {
     }
 
     @Test
+    void setNullEdgeAdl() {
+        AdjacencyLists<String> adM = new AdjacencyLists<String>();
+        adM.setEdge("dormitoty", "NSU", "Wuhu Java");
+        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").weight);
+    }
+
+    @Test
     void deleteVertAdl() {
         AdjacencyLists<Integer> adM = new AdjacencyLists<Integer>();
         adM.addVert(1);

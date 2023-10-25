@@ -229,6 +229,13 @@ class GraphTest {
     }
 
     @Test
+    void setNullIdm() {
+        IncidentMatrix<String> adM = new IncidentMatrix<String>();
+        adM.setEdge("dormitoty", "NSU", "grust'");
+        assertEquals("grust'", adM.getEdge("dormitoty", "NSU").weight);
+    }
+
+    @Test
     void deleteVertIdm() {
         IncidentMatrix<Integer> adM = new IncidentMatrix<Integer>();
         adM.addVert(1);

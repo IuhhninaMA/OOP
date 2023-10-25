@@ -141,13 +141,13 @@ public class IncidentMatrix<G> implements Graph<G> {
         //сделаю сее, который если нет ребра создаёт новое
         if (indexVert1 == - 1) {
             addVert(vert1);
-            indexVert1 = this.countVert;
+            indexVert1 = this.countVert-1;
         }
         if (indexVert2 == -1) {
             addVert(vert2);
-            indexVert2 = this.countVert;
+            indexVert2 = this.countVert-1;
         }
-        if (matrix.get(indexVert1).get(indexVert2) == null) {
+        if (matrix.get(indexVert1).get(indexVert2) == 0) {
             addEdge(vert1, vert2, newEdge);
             return;
         }

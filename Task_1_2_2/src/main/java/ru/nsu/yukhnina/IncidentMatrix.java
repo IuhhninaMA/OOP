@@ -27,7 +27,7 @@ public class IncidentMatrix<G> implements Graph<G> {
         //заполняю новую строку матрицы нулевыми значениями
         this.countVert++;
         for (int i = 0; i < this.countVert; i++) {
-            this.matrix.get(countVert-1).add(0);
+            this.matrix.get(countVert - 1).add(0);
             this.matrix.get(i).add(0);
         }
     }

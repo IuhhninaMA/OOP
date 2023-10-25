@@ -27,7 +27,7 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         this.verticesName.add(new Vertex<>(vert1));
         matrix.add(new ArrayList<Edge<G>>());
         //заполняю матрицу нулевыми значениями, чтобы ыбло к чему обращаться
-        for (int i = 0; i < this.countVert+1; i++) {
+        for (int i = 0; i < this.countVert + 1; i++) {
             this.matrix.get(i).add(new Edge<>());
             this.matrix.get(countVert).add(new Edge<>());
         }
@@ -45,9 +45,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
             }
         }
         //удаляю у всех вершин информацию об удаляемой
-        for(int i = 0; i < countVert; i++) {
+        for (int i = 0; i < countVert; i++)
             matrix.get(i).remove(indexVert1);
-        }
         //удаляю вершину
         matrix.remove(indexVert1);
         verticesName.remove(indexVert1);
@@ -60,7 +59,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
      */
     //возможно edge нужно будет поменять на инт
     public void addEdge(G vert1, G vert2, G newEdge) {
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(this.verticesName.get(i).vert)) {
                 indexVert1 = i;
@@ -71,11 +71,11 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         }
         if (indexVert1 == - 1) {
             addVert(vert1);
-            indexVert1 = this.countVert-1;
+            indexVert1 = this.countVert - 1;
         }
         if (indexVert2 == -1) {
             addVert(vert2);
-            indexVert2 = this.countVert-1;
+            indexVert2 = this.countVert - 1;
         }
         matrix.get(indexVert1).set(indexVert2, new Edge<G>(vert1, vert2, newEdge));
     }
@@ -111,7 +111,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
     //буду искать в матрице это ребро и потом возвращать его
     public Edge<G> getEdge(G vert1, G vert2) {
         //вынести поиск индекса в отдельную функцию, но к жёсткому дедлайну
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = - 1;
+        int indexVert2 = - 1;
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(this.verticesName.get(i).vert)) {
                 indexVert1 = i;
@@ -131,9 +132,7 @@ public class AdjacencyMatrix<G> implements Graph<G> {
     }
 
     /**
-     * @param vert1
-     * @param vert2
-     * @param newEdge
+     * Зная вершины соединяющие ребро, изменяем его вес.
      */
     //считаю, что изменение ребра это изменение его значения
     public void setEdge(G vert1, G vert2, G newEdge) {
@@ -151,6 +150,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         return null;
     }
 
+    /**
+     * Изменение названия вершины.
+     */
     //считаю, что изменение вершины это изменение её имени
     public void setVert(G oldVert, G newVert) {
         for (int i = 0; i < countVert; i++) {
@@ -160,6 +162,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         }
     }
 
+    /**
+     * Алгоритм нахождения кратчайшего пути между вершинами.
+     */
     //пока реализую только для интеджеров
     public Integer warshall(G vert1, G vert2) {
         for (int k = 0; k < countVert; k++) {
@@ -174,7 +179,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         for (int k = 0; k < countVert; k++) {
             for (int i = 0; i < countVert; i++) {
                 for (int j = 0; j < countVert; j++) {
-                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j)) & (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
+                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j)) &
+                            (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
                         warshall.get(i).set(j, warshall.get(i).get(k) + warshall.get(k).get(j));
                     }
                 }

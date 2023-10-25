@@ -3,6 +3,9 @@ package ru.nsu.yukhnina;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Представление графа в виде матрицы смежности.
+ */
 public class AdjacencyMatrix<G> implements Graph<G> {
     List<ArrayList<Edge<G>>> matrix;
     List<ArrayList<Integer>> warshall;
@@ -16,6 +19,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         warshall = new ArrayList<ArrayList<Integer>>();
     }
 
+    /**
+     * Метод для добавления вершины в граф.
+     */
     //увеличиваем количество вершин на 1, закидываем её в массив вершин
     public void addVert(G vert1) {
         this.verticesName.add(new Vertex<>(vert1));
@@ -28,6 +34,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         countVert++;
     }
 
+    /**
+     * Метод для удаления вершины из графа.
+     */
     public void deleteVert(G vert1) {
         int indexVert1 = 0;
         for (int i = 0; i < countVert; i++) {
@@ -46,6 +55,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         countVert--;
     }
 
+    /**
+     * Метод для добавления ребра в граф.
+     */
     //возможно edge нужно будет поменять на инт
     public void addEdge(G vert1, G vert2, G newEdge) {
         int indexVert1 = -1, indexVert2 = -1;
@@ -68,6 +80,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         matrix.get(indexVert1).set(indexVert2, new Edge<G>(vert1, vert2, newEdge));
     }
 
+    /**
+     * Метод для удаления ребра.
+     */
     public void deleteEdge(G vert1, G vert2) {
         //удалить ребро из каждой вершины
         int indexVert1 = -1, indexVert2 = -1;
@@ -90,6 +105,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         matrix.get(indexVert1).set(indexVert2, null);
     }
 
+    /**
+     * Метод для получения объекта ребра.
+     */
     //буду искать в матрице это ребро и потом возвращать его
     public Edge<G> getEdge(G vert1, G vert2) {
         //вынести поиск индекса в отдельную функцию, но к жёсткому дедлайну
@@ -112,6 +130,11 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         return matrix.get(indexVert1).get(indexVert2);
     }
 
+    /**
+     * @param vert1
+     * @param vert2
+     * @param newEdge
+     */
     //считаю, что изменение ребра это изменение его значения
     public void setEdge(G vert1, G vert2, G newEdge) {
         addEdge(vert1, vert2, newEdge);

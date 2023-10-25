@@ -5,6 +5,7 @@ import java.util.List;
 
 public class AdjacencyMatrix<G> implements Graph<G> {
     List<ArrayList<Edge<G>>> matrix;
+    List<ArrayList<Integer>> warshall;
     ArrayList<Vertex<G>> verticesName;
     int countVert;
 
@@ -12,6 +13,7 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         matrix = new ArrayList<ArrayList<Edge<G>>>();
         verticesName = new ArrayList<Vertex<G>>();
         countVert = 0;
+        warshall = new ArrayList<ArrayList<Integer>>();
     }
 
     //увеличиваем количество вершин на 1, закидываем её в массив вершин
@@ -133,5 +135,37 @@ public class AdjacencyMatrix<G> implements Graph<G> {
                 this.verticesName.get(i).vert = newVert;
             }
         }
+    }
+
+    //пока реализую только для интеджеров
+    public Integer warshall(G vert1, G vert2) {
+        for (int k = 0; k < countVert; k++) {
+            warshall.add(new ArrayList<Integer>());
+            for (int i = 0; i < countVert; i++) {
+                warshall.get(k).add(0);
+                if (matrix.get(k).get(i).weight != null) {
+                    warshall.get(k).set(i, (Integer) matrix.get(k).get(i).weight);
+                }
+            }
+        }
+        for (int k = 0; k < countVert; k++) {
+            for (int i = 0; i < countVert; i++) {
+                for (int j = 0; j < countVert; j++) {
+                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j)) & (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
+                        warshall.get(i).set(j, warshall.get(i).get(k) + warshall.get(k).get(j));
+                    }
+                }
+            }
+        }
+        int indexVert1 = -1, indexVert2 = -1;
+        for (int i = 0; i < countVert; i++) {
+            if (vert1.equals(this.verticesName.get(i).vert)) {
+                indexVert1 = i;
+            }
+            if (vert2.equals(this.verticesName.get(i).vert)) {
+                indexVert2 = i;
+            }
+        }
+        return warshall.get(indexVert1).get(indexVert2);
     }
 }

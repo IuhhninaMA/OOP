@@ -41,21 +41,21 @@ public class IncidentMatrix<G> implements Graph<G> {
         return null;
     }
 
-//    public void deleteVert(G newVert) {
-//        //jgверить, что нигде не остаётся информации об этой вершине
-//        for (int i = 0; i < countVert; i++) {
-//            if (newVert.equals(verticesName.get(i).vert)) {
-//                verticesName.remove(i);
-//                for (int j = 0; j < countVert; j++) {
-//                    matrix.get(j).set(i, 0);
-//                    matrix.get(i).set(j, 0);
-//                }
-//                matrix.remove(i);
-//                return;
-//            }
-//        }
-//        countVert--;
-//    }
+    public void deleteVert(G newVert) {
+        //jgверить, что нигде не остаётся информации об этой вершине
+        for (int i = 0; i < countVert; i++) {
+            if (newVert.equals(verticesName.get(i).vert)) {
+                verticesName.remove(i);
+                for (int j = 0; j < countVert; j++) {
+                    matrix.get(j).set(i, 0);
+                    matrix.get(i).set(j, 0);
+                }
+                matrix.remove(i);
+                return;
+            }
+        }
+        countVert--;
+    }
 
     public void setVert(G oldVert, G newVert) {
         for (int i = 0; i < countVert; i++) {

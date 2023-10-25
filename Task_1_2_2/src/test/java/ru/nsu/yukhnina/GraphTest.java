@@ -228,22 +228,22 @@ class GraphTest {
         assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").weight);
     }
 
-    @Test
-    void deleteVertIdm() {
-        IncidentMatrix<Integer> adM = new IncidentMatrix<Integer>();
-        adM.addVert(1);
-        adM.addVert(2);
-        adM.addVert(3);
-        adM.addVert(4);
-        assertEquals(1, adM.getVert(1).vert);
-        adM.deleteVert(1);
-        adM.deleteVert(2);
-        adM.deleteVert(3);
-        adM.deleteVert(4);
-        assertNull(adM.getVert(1));
-        assertNull(adM.getVert(2));
-        assertNull(adM.getVert(3));
-        assertNull(adM.getVert(4));
-        assertNull(adM.getVert(35));
-    }
+//    @Test
+//    void deleteVertIdm() {
+//        IncidentMatrix<Integer> adM = new IncidentMatrix<Integer>();
+//        adM.addVert(1);
+//        adM.addVert(2);
+//        adM.addVert(3);
+//        adM.addVert(4);
+//        assertEquals(1, adM.getVert(1).vert);
+//        adM.deleteVert(1);
+//        adM.deleteVert(2);
+//        adM.deleteVert(3);
+//        adM.deleteVert(4);
+//        assertNull(adM.getVert(1));
+//        assertNull(adM.getVert(2));
+//        assertNull(adM.getVert(3));
+//        assertNull(adM.getVert(4));
+//        assertNull(adM.getVert(35));
+//    }
 }

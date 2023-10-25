@@ -67,7 +67,8 @@ public class IncidentMatrix<G> implements Graph<G> {
     }
 
     public void addEdge(G vert1, G vert2, G newEdge) {
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(this.verticesName.get(i).vert)) {
                 indexVert1 = i;
@@ -98,7 +99,8 @@ public class IncidentMatrix<G> implements Graph<G> {
             }
         }
         //удалить ребро из каждой вершины
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(this.verticesName.get(i).vert)) {
                 indexVert1 = i;
@@ -118,7 +120,7 @@ public class IncidentMatrix<G> implements Graph<G> {
         matrix.get(indexVert2).set(indexVert1, 0);
     }
 
-    public Edge getEdge(G vert1, G vert2){
+    public Edge getEdge(G vert1, G vert2) {
         for (Edge<G> edge : edgesName) {
             if (vert1.equals(edge.vertFrom) & vert2.equals(edge.vertTo)) {
                 return edge;
@@ -141,11 +143,11 @@ public class IncidentMatrix<G> implements Graph<G> {
         //сделаю сее, который если нет ребра создаёт новое
         if (indexVert1 == - 1) {
             addVert(vert1);
-            indexVert1 = this.countVert-1;
+            indexVert1 = this.countVert - 1;
         }
         if (indexVert2 == -1) {
             addVert(vert2);
-            indexVert2 = this.countVert-1;
+            indexVert2 = this.countVert - 1;
         }
         if (matrix.get(indexVert1).get(indexVert2) == 0) {
             addEdge(vert1, vert2, newEdge);

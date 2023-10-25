@@ -1,5 +1,9 @@
 package ru.nsu.yukhnina;
 
+/**
+ * у ребра есть информация о вершинах которые оно соединяет и вес, пока вес
+ * Jeneric, потом наверное стоит поменять на Integer.
+ */
 public class Edge <G> {
     public G vertFrom;
     public G vertTo;
@@ -10,6 +14,7 @@ public class Edge <G> {
         vertTo = vert2;
         weight = edge;
     }
+
     public Edge() {
         vertFrom = null;
         vertTo = null;

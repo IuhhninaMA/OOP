@@ -63,7 +63,7 @@ public class AdjacencyLists<G> implements Graph<G> {
     public void addEdge(G vert1, G vert2, G newEdge) {
         int indexVert1 = -1;
         for (int i = 0; i < vertexCount; i++) {
-            if (vert1.equals(this.vertices.get(i))) {
+            if (vert1.equals(this.vertices.get(i).vert)) {
                 indexVert1 = i;
             }
         }
@@ -78,10 +78,10 @@ public class AdjacencyLists<G> implements Graph<G> {
     public Edge<G> getEdge(G vert1, G vert2){
         int indexVert1 = -1, indexVert2 = -1;
         for (int i = 0; i < vertexCount; i++) {
-            if (vert1.equals(this.vertices.get(i))) {
+            if (vert1.equals(this.vertices.get(i).vert)) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.vertices.get(i))) {
+            if (vert2.equals(this.vertices.get(i).vert)) {
                 indexVert2 = i;
             }
         }
@@ -102,10 +102,10 @@ public class AdjacencyLists<G> implements Graph<G> {
     public void setEdge(G vert1, G vert2, G newEdge) {
         int indexVert1 = -1, indexVert2 = -1;
         for (int i = 0; i < vertexCount; i++) {
-            if (vert1.equals(this.vertices.get(i))) {
+            if (vert1.equals(this.vertices.get(i).vert)) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.vertices.get(i))) {
+            if (vert2.equals(this.vertices.get(i).vert)) {
                 indexVert2 = i;
             }
         }

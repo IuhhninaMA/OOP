@@ -137,6 +137,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">AdjacencyMatrix&lt;G&gt;</span>
 extends java.lang.Object
 implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;G&gt;</pre>
+<div class="block">Представление графа в виде матрицы смежности.</div>
 </li>
 </ul>
 </div>
@@ -183,32 +184,42 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEdge(G,G,G)">addEdge</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
        <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2,
        <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;newEdge)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Метод для добавления ребра в граф.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addVert(G)">addVert</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Метод для добавления вершины в граф.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteEdge(G,G)">deleteEdge</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
           <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Метод для удаления ребра.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteVert(G)">deleteVert</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Метод для удаления вершины из графа.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>ru.nsu.yukhnina.Edge&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></td>
+<td class="colFirst"><code><a href="Edge.html" title="class in ru.nsu.yukhnina">Edge</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdge(G,G)">getEdge</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
        <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Метод для получения объекта ребра.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>ru.nsu.yukhnina.Vertex&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></td>
+<td class="colFirst"><code><a href="Vertex.html" title="class in ru.nsu.yukhnina">Vertex</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVert(G)">getVert</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -283,6 +294,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <li class="blockList">
 <h4>addVert</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addVert&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1)</pre>
+<div class="block">Метод для добавления вершины в граф.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#addVert(G)">addVert</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
@@ -298,6 +310,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <li class="blockList">
 <h4>deleteVert</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deleteVert&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1)</pre>
+<div class="block">Метод для удаления вершины из графа.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#deleteVert(G)">deleteVert</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
@@ -315,6 +328,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <pre class="methodSignature">public&nbsp;void&nbsp;addEdge&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
                     <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2,
                     <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;newEdge)</pre>
+<div class="block">Метод для добавления ребра в граф.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#addEdge(G,G,G)">addEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
@@ -331,6 +345,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <h4>deleteEdge</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deleteEdge&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
                        <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2)</pre>
+<div class="block">Метод для удаления ребра.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#deleteEdge(G,G)">deleteEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
@@ -345,8 +360,9 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <ul class="blockList">
 <li class="blockList">
 <h4>getEdge</h4>
-<pre class="methodSignature">public&nbsp;ru.nsu.yukhnina.Edge&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;&nbsp;getEdge&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
-                                       <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2)</pre>
+<pre class="methodSignature">public&nbsp;<a href="Edge.html" title="class in ru.nsu.yukhnina">Edge</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;&nbsp;getEdge&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
+                       <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2)</pre>
+<div class="block">Метод для получения объекта ребра.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getEdge(G,G)">getEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
@@ -367,6 +383,10 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#setEdge(G,G,G)">setEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>vert1</code> - </dd>
+<dd><code>vert2</code> - </dd>
+<dd><code>newEdge</code> - </dd>
 </dl>
 </li>
 </ul>
@@ -378,7 +398,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <ul class="blockList">
 <li class="blockList">
 <h4>getVert</h4>
-<pre class="methodSignature">public&nbsp;ru.nsu.yukhnina.Vertex&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;&nbsp;getVert&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert)</pre>
+<pre class="methodSignature">public&nbsp;<a href="Vertex.html" title="class in ru.nsu.yukhnina">Vertex</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;&nbsp;getVert&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getVert(G)">getVert</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>

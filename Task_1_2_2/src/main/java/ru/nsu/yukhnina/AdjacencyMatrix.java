@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdjacencyMatrix<G> implements Graph<G> {
-    private ArrayList<ArrayList<Edge<G>>> matrix;
-    private  ArrayList<Vertex<G>> verticesName;
-    private int countVert;
+    List<ArrayList<Edge<G>>> matrix;
+    ArrayList<Vertex<G>> verticesName;
+    int countVert;
 
     public AdjacencyMatrix() {
         matrix = new ArrayList<ArrayList<Edge<G>>>();
         verticesName = new ArrayList<Vertex<G>>();
-        int countVert = 0;
+        countVert = 0;
     }
 
     //увеличиваем количество вершин на 1, закидываем её в массив вершин
@@ -19,11 +19,11 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         this.verticesName.add(new Vertex<>(vert1));
         matrix.add(new ArrayList<Edge<G>>());
         //заполняю матрицу нулевыми значениями, чтобы ыбло к чему обращаться
-        for (int i = 0; i < this.countVert; i++) {
-            this.matrix.get(i).add(null);
-            this.matrix.get(countVert).add(null);
+        for (int i = 0; i < this.countVert+1; i++) {
+            this.matrix.get(i).add(new Edge<>());
+            this.matrix.get(countVert).add(new Edge<>());
         }
-        this.countVert++;
+        countVert++;
     }
 
     public void deleteVert(G vert1) {
@@ -57,13 +57,13 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         }
         if (indexVert1 == - 1) {
             addVert(vert1);
-            indexVert1 = this.countVert;
+            indexVert1 = this.countVert-1;
         }
         if (indexVert2 == -1) {
             addVert(vert2);
-            indexVert2 = this.countVert;
+            indexVert2 = this.countVert-1;
         }
-        matrix.get(indexVert1).set(indexVert2, new Edge<>(vert1, vert2, newEdge));
+        matrix.get(indexVert1).set(indexVert2, new Edge<G>(vert1, vert2, newEdge));
     }
 
     public void deleteEdge(G vert1, G vert2) {
@@ -93,10 +93,10 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         //вынести поиск индекса в отдельную функцию, но к жёсткому дедлайну
         int indexVert1 = -1, indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i))) {
+            if (vert1.equals(this.verticesName.get(i).vert)) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i))) {
+            if (vert2.equals(this.verticesName.get(i).vert)) {
                 indexVert2 = i;
             }
         }

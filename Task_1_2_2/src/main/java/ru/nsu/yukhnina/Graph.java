@@ -28,7 +28,12 @@ class Edge<G>{
 
     public Edge(G vert1, G vert2, G edge) {
         vertFrom = vert1;
-        G vertTo = vert2;
-        G weight = edge;
+        vertTo = vert2;
+        weight = edge;
+    }
+    public Edge() {
+        vertFrom = null;
+        vertTo = null;
+        weight = null;
     }
 }

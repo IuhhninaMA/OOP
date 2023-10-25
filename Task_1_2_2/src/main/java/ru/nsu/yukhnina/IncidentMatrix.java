@@ -51,10 +51,11 @@ public class IncidentMatrix<G> implements Graph<G> {
                     matrix.get(i).set(j, 0);
                 }
                 matrix.remove(i);
+                countVert--;
                 return;
             }
         }
-        countVert--;
+
     }
 
     public void setVert(G oldVert, G newVert) {
@@ -113,8 +114,8 @@ public class IncidentMatrix<G> implements Graph<G> {
         if (indexVert2 == -1) {
             return;
         }
-        matrix.get(indexVert1).set(indexVert2, null);
-        matrix.get(indexVert2).set(indexVert1, null);
+        matrix.get(indexVert1).set(indexVert2, 0);
+        matrix.get(indexVert2).set(indexVert1, 0);
     }
 
     public Edge getEdge(G vert1, G vert2){

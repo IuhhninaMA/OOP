@@ -158,7 +158,14 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">IncidentMatrix</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">у этого класса есть матрица, хранящая на месте (вершина исходяща, вершина входа)
+ 1 если ребро есть,
+ 0 если ребра нет,
+ -1 на месте (вершина входа, вершина исхода),
+ массив имён вершин для поиска индекса матрицы по мнему,
+ количество вершин и рёбер.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -183,47 +190,63 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEdge(G,G,G)">addEdge</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newEdge)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add edge in graph.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addVert(G)">addVert</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newVert)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add vertices in graph.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteEdge(G,G)">deleteEdge</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
           <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Remove vertice from graph.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteVert(G)">deleteVert</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newVert)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Delete vert from graph.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="Edge.html" title="class in ru.nsu.yukhnina">Edge</a></code></td>
+<td class="colFirst"><code>ru.nsu.yukhnina.Edge</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdge(G,G)">getEdge</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Get edge object if we know vertices from adn to.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="Vertex.html" title="class in ru.nsu.yukhnina">Vertex</a></code></td>
+<td class="colFirst"><code>ru.nsu.yukhnina.Vertex</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVert(G)">getVert</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Get verisces obgect if we know name.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEdge(G,G,G)">setEdge</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newEdge)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Change edge name.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVert(G,G)">setVert</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;oldVert,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newVert)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">chande vert name.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -256,6 +279,12 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <li class="blockList">
 <h4>IncidentMatrix</h4>
 <pre>public&nbsp;IncidentMatrix()</pre>
+<div class="block">у этого класса есть матрица, хранящая на месте (вершина исходяща, вершина входа)
+ 1 если ребро есть,
+ 0 если ребра нет,
+ -1 на месте (вершина входа, вершина исхода),
+ массив имён вершин для поиска индекса матрицы по мнему,
+ количество вершин и рёбер.</div>
 </li>
 </ul>
 </li>
@@ -277,6 +306,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <li class="blockList">
 <h4>addVert</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addVert&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newVert)</pre>
+<div class="block">Add vertices in graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#addVert(G)">addVert</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
@@ -291,7 +321,8 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <ul class="blockList">
 <li class="blockList">
 <h4>getVert</h4>
-<pre class="methodSignature">public&nbsp;<a href="Vertex.html" title="class in ru.nsu.yukhnina">Vertex</a>&nbsp;getVert&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1)</pre>
+<pre class="methodSignature">public&nbsp;ru.nsu.yukhnina.Vertex&nbsp;getVert&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1)</pre>
+<div class="block">Get verisces obgect if we know name.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getVert(G)">getVert</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
@@ -307,6 +338,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <li class="blockList">
 <h4>deleteVert</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deleteVert&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newVert)</pre>
+<div class="block">Delete vert from graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#deleteVert(G)">deleteVert</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
@@ -323,6 +355,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <h4>setVert</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setVert&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;oldVert,
                     <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newVert)</pre>
+<div class="block">chande vert name.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#setVert(G,G)">setVert</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
@@ -340,6 +373,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <pre class="methodSignature">public&nbsp;void&nbsp;addEdge&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
                     <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2,
                     <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newEdge)</pre>
+<div class="block">Add edge in graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#addEdge(G,G,G)">addEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
@@ -356,6 +390,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <h4>deleteEdge</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deleteEdge&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
                        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2)</pre>
+<div class="block">Remove vertice from graph.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#deleteEdge(G,G)">deleteEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
@@ -370,8 +405,9 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <ul class="blockList">
 <li class="blockList">
 <h4>getEdge</h4>
-<pre class="methodSignature">public&nbsp;<a href="Edge.html" title="class in ru.nsu.yukhnina">Edge</a>&nbsp;getEdge&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
-                    <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2)</pre>
+<pre class="methodSignature">public&nbsp;ru.nsu.yukhnina.Edge&nbsp;getEdge&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
+                                    <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2)</pre>
+<div class="block">Get edge object if we know vertices from adn to.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getEdge(G,G)">getEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
@@ -389,6 +425,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <pre class="methodSignature">public&nbsp;void&nbsp;setEdge&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
                     <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2,
                     <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newEdge)</pre>
+<div class="block">Change edge name.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#setEdge(G,G,G)">setEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>

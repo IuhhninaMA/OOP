@@ -128,14 +128,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/AdjacencyLists.html#%3Cinit%3E()">AdjacencyLists()</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/AdjacencyLists.html" title="class in ru.nsu.yukhnina">AdjacencyLists</a></dt>
 <dd>
-<div class="block">Object contains matrix edges, matrix nameVert to find vert index and count vert.</div>
+<div class="block">Список смежности, где по индексу вершины лежит array list смежных ей вершин.</div>
 </dd>
 <dt><a href="ru/nsu/yukhnina/AdjacencyMatrix.html" title="class in ru.nsu.yukhnina"><span class="typeNameLink">AdjacencyMatrix</span></a>&lt;<a href="ru/nsu/yukhnina/AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt; - Class in <a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a></dt>
 <dd>
 <div class="block">Представление графа в виде матрицы смежности.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/AdjacencyMatrix.html#%3Cinit%3E()">AdjacencyMatrix()</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/AdjacencyMatrix.html" title="class in ru.nsu.yukhnina">AdjacencyMatrix</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">On MATRIX(i, j) фыves null or object edge.</div>
+</dd>
 </dl>
 <a id="I:D">
 <!--   -->
@@ -195,7 +197,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Get vertices object.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/AdjacencyMatrix.html#getVert(G)">getVert(G)</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/AdjacencyMatrix.html" title="class in ru.nsu.yukhnina">AdjacencyMatrix</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Get vertice object if vertice not null.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Graph.html#getVert(G)">getVert(G)</a></span> - Method in interface ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Graph.html" title="interface in ru.nsu.yukhnina">Graph</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/IncidentMatrix.html#getVert(G)">getVert(G)</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/IncidentMatrix.html" title="class in ru.nsu.yukhnina">IncidentMatrix</a></dt>
@@ -213,7 +217,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">I</h2>
 <dl>
 <dt><a href="ru/nsu/yukhnina/IncidentMatrix.html" title="class in ru.nsu.yukhnina"><span class="typeNameLink">IncidentMatrix</span></a>&lt;<a href="ru/nsu/yukhnina/IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt; - Class in <a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Одно из представлений графа - матрица инцедентности, хранит 1, 0, -1,
+ массив рёбе, массив вершин, количество вершин и рёбер.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/IncidentMatrix.html#%3Cinit%3E()">IncidentMatrix()</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/IncidentMatrix.html" title="class in ru.nsu.yukhnina">IncidentMatrix</a></dt>
 <dd>
 <div class="block">у этого класса есть матрица, хранящая на месте (вершина исходяща, вершина входа)

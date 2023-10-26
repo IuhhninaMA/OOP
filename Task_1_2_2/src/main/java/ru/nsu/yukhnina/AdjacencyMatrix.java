@@ -12,6 +12,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
     ArrayList<Vertex<G>> verticesName;
     int countVert;
 
+    /**
+     * On MATRIX(i, j) фыves null or object edge.
+     */
     public AdjacencyMatrix() {
         matrix = new ArrayList<ArrayList<Edge<G>>>();
         verticesName = new ArrayList<Vertex<G>>();
@@ -45,8 +48,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
             }
         }
         //удаляю у всех вершин информацию об удаляемой
-        for (int i = 0; i < countVert; i++)
+        for (int i = 0; i < countVert; i++) {
             matrix.get(i).remove(indexVert1);
+        }
         //удаляю вершину
         matrix.remove(indexVert1);
         verticesName.remove(indexVert1);
@@ -139,7 +143,12 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         addEdge(vert1, vert2, newEdge);
     }
 
+    /**
+     * Get vertice object if vertice not null.
+     */
     //получаю имя вершины, вывожу все инцедентные рёбра и и нцедентные вершины
+    //можно чтобы в тестах не сравнивать с налом весь объект создать
+    // где-нибудь вершину с нулевыми полями
     public Vertex<G> getVert(G vert) {
         for (int i = 0; i < countVert; i++) {
             if (vert.equals(this.verticesName.get(i).vert)) {
@@ -179,8 +188,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         for (int k = 0; k < countVert; k++) {
             for (int i = 0; i < countVert; i++) {
                 for (int j = 0; j < countVert; j++) {
-                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j)) &
-                            (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
+                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j))
+                            & (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
                         warshall.get(i).set(j, warshall.get(i).get(k) + warshall.get(k).get(j));
                     }
                 }

@@ -4,6 +4,10 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
+/**
+ * Одно из представлений графа - матрица инцедентности, хранит 1, 0, -1,
+ * массив рёбе, массив вершин, количество вершин и рёбер.
+ */
 public class IncidentMatrix<G> implements Graph<G> {
     ArrayList<ArrayList<Integer>> matrix;
     ArrayList<G> edges;
@@ -46,7 +50,7 @@ public class IncidentMatrix<G> implements Graph<G> {
     /**
      * Get verisces obgect if we know name.
      */
-    public Vertex getVert(G vert1){
+    public Vertex getVert(G vert1) {
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(verticesName.get(i).vert)) {
                 return verticesName.get(i);
@@ -163,7 +167,8 @@ public class IncidentMatrix<G> implements Graph<G> {
      * Change edge name.
      */
     public void setEdge(G vert1, G vert2, G newEdge) {
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(this.verticesName.get(i).vert)) {
                 indexVert1 = i;

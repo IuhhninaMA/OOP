@@ -11,7 +11,7 @@ public class AdjacencyLists<G> implements Graph<G> {
     ArrayList<Vertex<G>> vertices;
 
     /**
-     * Object contains matrix edges, matrix nameVert to find vert index and count vert.
+     * Список смежности, где по индексу вершины лежит array list смежных ей вершин.
      */
     public AdjacencyLists() {
         edgesName = new ArrayList<ArrayList<Edge<G>>>();

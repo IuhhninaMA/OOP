@@ -264,6 +264,7 @@ class GraphTest {
         adM.deleteVert(2);
         adM.deleteVert(3);
         adM.deleteVert(4);
+        adM.deleteVert(17);
         assertNull(adM.getVert(1));
         assertNull(adM.getVert(2));
         assertNull(adM.getVert(3));

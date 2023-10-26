@@ -91,6 +91,22 @@ class GraphTest {
     }
 
     @Test
+    void vertexNullEdgeAdm() {
+        AdjacencyMatrix<Integer> adM = new AdjacencyMatrix<Integer>();
+        adM.addVert(1);
+        adM.addVert(2);
+        adM.addVert(3);
+        adM.addVert(4);
+        adM.deleteEdge(1, 5);
+        assertNull(adM.getEdge(1, 5));
+        assertNotEquals(null, adM.getVert(2));
+        assertEquals(2, adM.getVert(2).vert);
+        adM.setVert(4, 5);
+        assertEquals(5, adM.getVert(5).vert);
+        assertNull(adM.getVert(4));
+    }
+
+    @Test
     void vertexNotInGraphAdl() {
         AdjacencyLists<Integer> adL = new AdjacencyLists<>();
         adL.addVert(1);
@@ -254,6 +270,7 @@ class GraphTest {
         assertNull(adM.getVert(4));
         assertNull(adM.getVert(35));
     }
+
 
     @Test
     void warshall() {

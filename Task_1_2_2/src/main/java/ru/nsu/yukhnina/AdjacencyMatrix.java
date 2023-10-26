@@ -186,7 +186,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
                 }
             }
         }
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(this.verticesName.get(i).vert)) {
                 indexVert1 = i;

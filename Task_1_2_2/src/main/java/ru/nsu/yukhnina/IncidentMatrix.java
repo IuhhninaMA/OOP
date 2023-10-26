@@ -12,6 +12,14 @@ public class IncidentMatrix<G> implements Graph<G> {
     int countVert;
     int countEdge;
 
+    /**
+     * у этого класса есть матрица, хранящая на месте (вершина исходяща, вершина входа)
+     * 1 если ребро есть,
+     * 0 если ребра нет,
+     * -1 на месте (вершина входа, вершина исхода),
+     * массив имён вершин для поиска индекса матрицы по мнему,
+     * количество вершин и рёбер.
+     */
     public IncidentMatrix() {
         matrix = new ArrayList<ArrayList<Integer>>();
         verticesName = new ArrayList<Vertex<G>>();
@@ -20,6 +28,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         countEdge = 0;
     }
 
+    /**
+     * Add vertices in graph.
+     */
     public void addVert(G newVert) {
         Vertex<G> newVertex = new Vertex<G>(newVert);
         this.verticesName.add(newVertex);
@@ -32,6 +43,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         }
     }
 
+    /**
+     * Get verisces obgect if we know name.
+     */
     public Vertex getVert(G vert1){
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(verticesName.get(i).vert)) {
@@ -41,6 +55,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         return null;
     }
 
+    /**
+     * Delete vert from graph.
+     */
     public void deleteVert(G newVert) {
         //jgверить, что нигде не остаётся информации об этой вершине
         for (int i = 0; i < countVert; i++) {
@@ -58,6 +75,9 @@ public class IncidentMatrix<G> implements Graph<G> {
 
     }
 
+    /**
+     * chande vert name.
+     */
     public void setVert(G oldVert, G newVert) {
         for (int i = 0; i < countVert; i++) {
             if (oldVert.equals(verticesName.get(i).vert)) {
@@ -66,6 +86,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         }
     }
 
+    /**
+     * Add edge in graph.
+     */
     public void addEdge(G vert1, G vert2, G newEdge) {
         int indexVert1 = -1;
         int indexVert2 = -1;
@@ -91,6 +114,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         this.countEdge++;
     }
 
+    /**
+     * Remove vertice from graph.
+     */
     public void deleteEdge(G vert1, G vert2) {
         //удаляем ребро из массива рёбер
         for (int i = 0; i < this.countEdge; i++) {
@@ -120,6 +146,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         matrix.get(indexVert2).set(indexVert1, 0);
     }
 
+    /**
+     * Get edge object if we know vertices from adn to.
+     */
     public Edge getEdge(G vert1, G vert2) {
         for (Edge<G> edge : edgesName) {
             if (vert1.equals(edge.vertFrom) & vert2.equals(edge.vertTo)) {
@@ -130,6 +159,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         return null;
     }
 
+    /**
+     * Change edge name.
+     */
     public void setEdge(G vert1, G vert2, G newEdge) {
         int indexVert1 = -1, indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
@@ -141,7 +173,7 @@ public class IncidentMatrix<G> implements Graph<G> {
             }
         }
         //сделаю сее, который если нет ребра создаёт новое
-        if (indexVert1 == - 1) {
+        if (indexVert1 == -1) {
             addVert(vert1);
             indexVert1 = this.countVert - 1;
         }

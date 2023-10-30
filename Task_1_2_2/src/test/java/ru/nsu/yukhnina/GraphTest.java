@@ -25,11 +25,11 @@ class GraphTest {
         adM.addVert(2);
         adM.addVert(3);
         adM.addVert(4);
-        assertEquals(1, adM.getVert(1).vert);
+        assertEquals(1, adM.getVert(1).getVert());
         assertNotEquals(null, adM.getVert(2));
-        assertEquals(2, adM.getVert(2).vert);
+        assertEquals(2, adM.getVert(2).getVert());
         adM.setVert(4, 5);
-        assertEquals(5, adM.getVert(5).vert);
+        assertEquals(5, adM.getVert(5).getVert());
         assertNull(adM.getVert(4));
     }
 
@@ -51,7 +51,7 @@ class GraphTest {
         adM.addVert("dormitoty");
         adM.addVert("NSU");
         adM.addEdge("dormitoty", "NSU", "grust'");
-        assertEquals("grust'", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("grust'", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
@@ -61,14 +61,14 @@ class GraphTest {
         adM.addVert("NSU");
         adM.addEdge("dormitoty", "NSU", "grust'");
         adM.setEdge("dormitoty", "NSU", "Wuhu Java");
-        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
     void setEdgeWithoutVertAdm() {
         AdjacencyMatrix<String> adM = new AdjacencyMatrix<String>();
         adM.setEdge("dormitoty", "NSU", "Wuhu Java");
-        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
@@ -78,7 +78,7 @@ class GraphTest {
         adM.addVert(2);
         adM.addVert(3);
         adM.addVert(4);
-        assertEquals(1, adM.getVert(1).vert);
+        assertEquals(1, adM.getVert(1).getVert());
         adM.deleteVert(1);
         adM.deleteVert(2);
         adM.deleteVert(3);
@@ -100,10 +100,25 @@ class GraphTest {
         adM.deleteEdge(1, 5);
         assertNull(adM.getEdge(1, 5));
         assertNotEquals(null, adM.getVert(2));
-        assertEquals(2, adM.getVert(2).vert);
+        assertEquals(2, adM.getVert(2).getVert());
         adM.setVert(4, 5);
-        assertEquals(5, adM.getVert(5).vert);
+        assertEquals(5, adM.getVert(5).getVert());
         assertNull(adM.getVert(4));
+    }
+
+    @Test
+    void notNullEdgeAdm() {
+        AdjacencyMatrix<Integer> adM = new AdjacencyMatrix<Integer>();
+        adM.addVert(1);
+        adM.addVert(2);
+        adM.addVert(3);
+        adM.addVert(4);
+        adM.addEdge(1, 2, 4);
+        adM.addEdge(2, 7, 15);
+        assertNotEquals(null, adM.getEdge(1, 2));
+        adM.deleteEdge(1, 2);
+        assertEquals(15, adM.getEdge(2, 7).getWeight());
+        assertNull(adM.getEdge(1, 2));
     }
 
     @Test
@@ -123,11 +138,11 @@ class GraphTest {
         adM.addVert(2);
         adM.addVert(3);
         adM.addVert(4);
-        assertEquals(1, adM.getVert(1).vert);
+        assertEquals(1, adM.getVert(1).getVert());
         assertNotEquals(null, adM.getVert(2));
-        assertEquals(2, adM.getVert(2).vert);
+        assertEquals(2, adM.getVert(2).getVert());
         adM.setVert(4, 5);
-        assertEquals(5, adM.getVert(5).vert);
+        assertEquals(5, adM.getVert(5).getVert());
         assertNull(adM.getVert(4));
     }
 
@@ -149,7 +164,7 @@ class GraphTest {
         adL.addVert("dormitoty");
         adL.addVert("NSU");
         adL.addEdge("dormitoty", "NSU", "grust'");
-        assertEquals("grust'", adL.getEdge("dormitoty", "NSU").weight);
+        assertEquals("grust'", adL.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
@@ -159,14 +174,14 @@ class GraphTest {
         adM.addVert("NSU");
         adM.addEdge("dormitoty", "NSU", "grust'");
         adM.setEdge("dormitoty", "NSU", "Wuhu Java");
-        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
     void setNullEdgeAdl() {
         AdjacencyLists<String> adM = new AdjacencyLists<String>();
         adM.setEdge("dormitoty", "NSU", "Wuhu Java");
-        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
@@ -176,7 +191,7 @@ class GraphTest {
         adM.addVert(2);
         adM.addVert(3);
         adM.addVert(4);
-        assertEquals(1, adM.getVert(1).vert);
+        assertEquals(1, adM.getVert(1).getVert());
         adM.deleteVert(1);
         adM.deleteVert(2);
         adM.deleteVert(3);
@@ -206,11 +221,11 @@ class GraphTest {
         adM.addVert(2);
         adM.addVert(3);
         adM.addVert(4);
-        assertEquals(1, adM.getVert(1).vert);
+        assertEquals(1, adM.getVert(1).getVert());
         assertNotEquals(null, adM.getVert(2));
-        assertEquals(2, adM.getVert(2).vert);
+        assertEquals(2, adM.getVert(2).getVert());
         adM.setVert(4, 5);
-        assertEquals(5, adM.getVert(5).vert);
+        assertEquals(5, adM.getVert(5).getVert());
         assertNull(adM.getVert(4));
     }
 
@@ -232,7 +247,7 @@ class GraphTest {
         adM.addVert("dormitoty");
         adM.addVert("NSU");
         adM.addEdge("dormitoty", "NSU", "grust'");
-        assertEquals("grust'", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("grust'", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
@@ -242,14 +257,14 @@ class GraphTest {
         adM.addVert("NSU");
         adM.addEdge("dormitoty", "NSU", "grust'");
         adM.setEdge("dormitoty", "NSU", "Wuhu Java");
-        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("Wuhu Java", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
     void setNullIdm() {
         IncidentMatrix<String> adM = new IncidentMatrix<String>();
         adM.setEdge("dormitoty", "NSU", "grust'");
-        assertEquals("grust'", adM.getEdge("dormitoty", "NSU").weight);
+        assertEquals("grust'", adM.getEdge("dormitoty", "NSU").getWeight());
     }
 
     @Test
@@ -259,7 +274,7 @@ class GraphTest {
         adM.addVert(2);
         adM.addVert(3);
         adM.addVert(4);
-        assertEquals(1, adM.getVert(1).vert);
+        assertEquals(1, adM.getVert(1).getVert());
         adM.deleteVert(1);
         adM.deleteVert(2);
         adM.deleteVert(3);

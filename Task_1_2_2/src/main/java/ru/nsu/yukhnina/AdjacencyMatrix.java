@@ -7,10 +7,10 @@ import java.util.List;
  * Представление графа в виде матрицы смежности.
  */
 public class AdjacencyMatrix<G> implements Graph<G> {
-    List<ArrayList<Edge<G>>> matrix;
-    List<ArrayList<Integer>> warshall;
-    ArrayList<Vertex<G>> verticesName;
-    int countVert;
+    private List<ArrayList<Edge<G>>> matrix;
+    private List<ArrayList<Integer>> warshall;
+    private ArrayList<Vertex<G>> verticesName;
+    private int countVert;
 
     /**
      * On MATRIX(i, j) фыves null or object edge.
@@ -43,7 +43,7 @@ public class AdjacencyMatrix<G> implements Graph<G> {
     public void deleteVert(G vert1) {
         int indexVert1 = 0;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(verticesName.get(i).vert)) {
+            if (vert1.equals(verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
         }
@@ -66,10 +66,10 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         int indexVert1 = -1;
         int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i).vert)) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i).vert)) {
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
                 indexVert2 = i;
             }
         }
@@ -91,10 +91,10 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         //удалить ребро из каждой вершины
         int indexVert1 = -1, indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i))) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i))) {
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
                 indexVert2 = i;
             }
         }
@@ -118,10 +118,10 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         int indexVert1 = - 1;
         int indexVert2 = - 1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i).vert)) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i).vert)) {
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
                 indexVert2 = i;
             }
         }
@@ -151,7 +151,7 @@ public class AdjacencyMatrix<G> implements Graph<G> {
     // где-нибудь вершину с нулевыми полями
     public Vertex<G> getVert(G vert) {
         for (int i = 0; i < countVert; i++) {
-            if (vert.equals(this.verticesName.get(i).vert)) {
+            if (vert.equals(this.verticesName.get(i).getVert())) {
                 return this.verticesName.get(i);
             }
         }
@@ -165,8 +165,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
     //считаю, что изменение вершины это изменение её имени
     public void setVert(G oldVert, G newVert) {
         for (int i = 0; i < countVert; i++) {
-            if (oldVert.equals(this.verticesName.get(i).vert)) {
-                this.verticesName.get(i).vert = newVert;
+            if (oldVert.equals(this.verticesName.get(i).getVert())) {
+                this.verticesName.get(i).setVert(newVert);
             }
         }
     }
@@ -180,8 +180,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
             warshall.add(new ArrayList<Integer>());
             for (int i = 0; i < countVert; i++) {
                 warshall.get(k).add(0);
-                if (matrix.get(k).get(i).weight != null) {
-                    warshall.get(k).set(i, (Integer) matrix.get(k).get(i).weight);
+                if (matrix.get(k).get(i).getWeight() != null) {
+                    warshall.get(k).set(i, (Integer) matrix.get(k).get(i).getWeight());
                 }
             }
         }
@@ -198,10 +198,10 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         int indexVert1 = -1;
         int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i).vert)) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i).vert)) {
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
                 indexVert2 = i;
             }
         }

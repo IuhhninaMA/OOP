@@ -5,9 +5,17 @@ package ru.nsu.yukhnina;
  * количество исходящих и входящих рёбер, но они бесполезны.
  */
 class Vertex<G> {
-    public G vert;
+    private G vert;
 
     public Vertex(G vertNew) {
         vert = vertNew;
+    }
+
+    public G getVert() {
+        return vert;
+    }
+
+    public void setVert(G vert) {
+        this.vert = vert;
     }
 }

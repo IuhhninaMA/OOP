@@ -9,12 +9,12 @@ import java.util.ArrayList;
  * массив рёбе, массив вершин, количество вершин и рёбер.
  */
 public class IncidentMatrix<G> implements Graph<G> {
-    ArrayList<ArrayList<Integer>> matrix;
-    ArrayList<G> edges;
-    ArrayList<Vertex<G>> verticesName;
-    ArrayList<Edge<G>> edgesName;
-    int countVert;
-    int countEdge;
+    private ArrayList<ArrayList<Integer>> matrix;
+    private ArrayList<G> edges;
+    private ArrayList<Vertex<G>> verticesName;
+    private ArrayList<Edge<G>> edgesName;
+    private int countVert;
+    private int countEdge;
 
     /**
      * у этого класса есть матрица, хранящая на месте (вершина исходяща, вершина входа)
@@ -52,7 +52,7 @@ public class IncidentMatrix<G> implements Graph<G> {
      */
     public Vertex getVert(G vert1) {
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(verticesName.get(i).vert)) {
+            if (vert1.equals(verticesName.get(i).getVert())) {
                 return verticesName.get(i);
             }
         }
@@ -65,7 +65,7 @@ public class IncidentMatrix<G> implements Graph<G> {
     public void deleteVert(G newVert) {
         //jgверить, что нигде не остаётся информации об этой вершине
         for (int i = 0; i < countVert; i++) {
-            if (newVert.equals(verticesName.get(i).vert)) {
+            if (newVert.equals(verticesName.get(i).getVert())) {
                 verticesName.remove(i);
                 for (int j = 0; j < countVert; j++) {
                     matrix.get(j).set(i, 0);
@@ -84,8 +84,8 @@ public class IncidentMatrix<G> implements Graph<G> {
      */
     public void setVert(G oldVert, G newVert) {
         for (int i = 0; i < countVert; i++) {
-            if (oldVert.equals(verticesName.get(i).vert)) {
-                verticesName.get(i).vert = newVert;
+            if (oldVert.equals(verticesName.get(i).getVert())) {
+                verticesName.get(i).setVert(newVert);
             }
         }
     }
@@ -97,10 +97,10 @@ public class IncidentMatrix<G> implements Graph<G> {
         int indexVert1 = -1;
         int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i).vert)) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i).vert)) {
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
                 indexVert2 = i;
             }
         }
@@ -124,7 +124,7 @@ public class IncidentMatrix<G> implements Graph<G> {
     public void deleteEdge(G vert1, G vert2) {
         //удаляем ребро из массива рёбер
         for (int i = 0; i < this.countEdge; i++) {
-            if (vert1.equals(edgesName.get(i).vertFrom) & vert2.equals(edgesName.get(i).vertTo)) {
+            if (vert1.equals(edgesName.get(i).getVertFrom()) & vert2.equals(edgesName.get(i).getVertTo())) {
                 edgesName.remove(i);
             }
         }
@@ -132,10 +132,10 @@ public class IncidentMatrix<G> implements Graph<G> {
         int indexVert1 = -1;
         int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i).vert)) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i).vert)) {
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
                 indexVert2 = i;
             }
         }
@@ -155,7 +155,7 @@ public class IncidentMatrix<G> implements Graph<G> {
      */
     public Edge getEdge(G vert1, G vert2) {
         for (Edge<G> edge : edgesName) {
-            if (vert1.equals(edge.vertFrom) & vert2.equals(edge.vertTo)) {
+            if (vert1.equals(edge.getVertFrom()) & vert2.equals(edge.getVertTo())) {
                 return edge;
             }
         }
@@ -170,10 +170,10 @@ public class IncidentMatrix<G> implements Graph<G> {
         int indexVert1 = -1;
         int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i).vert)) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
             }
-            if (vert2.equals(this.verticesName.get(i).vert)) {
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
                 indexVert2 = i;
             }
         }
@@ -192,8 +192,8 @@ public class IncidentMatrix<G> implements Graph<G> {
         }
         //если такое ребро уже есть, нахожу его и изменяю
         for (int i = 0; i < countEdge; i++) {
-            if (vert1.equals(edgesName.get(i).vertFrom) & vert2.equals(edgesName.get(i).vertTo)) {
-                edgesName.get(i).weight = newEdge;
+            if (vert1.equals(edgesName.get(i).getVertFrom()) & vert2.equals(edgesName.get(i).getVertTo())) {
+                edgesName.get(i).setWeight(newEdge);
             }
         }
     }

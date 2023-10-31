@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -143,6 +143,29 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.util.ArrayList&lt;java.util.ArrayList&lt;java.lang.Integer&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#warshall">warshall</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section>
 <ul class="blockList">
@@ -227,6 +250,11 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;java.util.ArrayList&lt;java.lang.Integer&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#prepareToSort()">prepareToSort</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEdge(G,G,G)">setEdge</a></span>&#8203;(<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;vert1,
        <a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;vert2,
@@ -235,13 +263,19 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="block">Method for change edges weight.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVert(G,G)">setVert</a></span>&#8203;(<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;oldVert,
        <a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;newVert)</code></th>
 <td class="colLast">
 <div class="block">Change vertice name.</div>
 </td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#warshall(G,G)">warshall</a></span>&#8203;(<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;vert1,
+        <a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;vert2)</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -260,6 +294,25 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="warshall">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>warshall</h4>
+<pre>public&nbsp;java.util.ArrayList&lt;java.util.ArrayList&lt;java.lang.Integer&gt;&gt; warshall</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section>
 <ul class="blockList">
@@ -410,7 +463,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 </a><a id="deleteEdge(G,G)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>deleteEdge</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;deleteEdge&#8203;(<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;vert1,
@@ -419,6 +472,35 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#deleteEdge(G,G)">deleteEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="prepareToSort()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>prepareToSort</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;java.util.ArrayList&lt;java.lang.Integer&gt;&gt;&nbsp;prepareToSort()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Graph.html#prepareToSort()">prepareToSort</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="warshall(java.lang.Object,java.lang.Object)">
+<!--   -->
+</a><a id="warshall(G,G)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>warshall</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;warshall&#8203;(<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;vert1,
+                                  <a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&nbsp;vert2)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Graph.html#warshall(G,G)">warshall</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyLists.html" title="type parameter in AdjacencyLists">G</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -473,13 +555,13 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

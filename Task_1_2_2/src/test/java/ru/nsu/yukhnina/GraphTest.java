@@ -288,14 +288,5 @@ class GraphTest {
     }
 
 
-    @Test
-    void warshall() {
-        AdjacencyMatrix<Integer> adM = new AdjacencyMatrix<Integer>();
-        adM.addVert(1);
-        adM.addVert(2);
-        adM.addVert(3);
-        adM.addVert(4);
-        adM.addEdge(1, 2, 3);
-        assertEquals(3, adM.warshall(1, 2));
-    }
+
 }

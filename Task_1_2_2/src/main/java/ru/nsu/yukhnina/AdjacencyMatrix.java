@@ -22,6 +22,10 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         warshall = new ArrayList<ArrayList<Integer>>();
     }
 
+    public int getCountVert() {
+        return countVert;
+    }
+
     /**
      * Метод для добавления вершины в граф.
      */
@@ -175,16 +179,20 @@ public class AdjacencyMatrix<G> implements Graph<G> {
      * Алгоритм нахождения кратчайшего пути между вершинами.
      */
     //пока реализую только для интеджеров
-    public Integer warshall(G vert1, G vert2) {
+    public List<ArrayList<Integer>> prepareToSort() {
         for (int k = 0; k < countVert; k++) {
             warshall.add(new ArrayList<Integer>());
             for (int i = 0; i < countVert; i++) {
-                warshall.get(k).add(0);
+                warshall.get(k).add(10000);
                 if (matrix.get(k).get(i).getWeight() != null) {
                     warshall.get(k).set(i, (Integer) matrix.get(k).get(i).getWeight());
                 }
             }
         }
+        return warshall;
+    }
+
+    public Integer warshall(G vert1, G vert2) {
         for (int k = 0; k < countVert; k++) {
             for (int i = 0; i < countVert; i++) {
                 for (int j = 0; j < countVert; j++) {
@@ -208,3 +216,4 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         return warshall.get(indexVert1).get(indexVert2);
     }
 }
+

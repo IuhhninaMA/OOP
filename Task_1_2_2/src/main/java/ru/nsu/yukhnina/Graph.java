@@ -1,6 +1,7 @@
 package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Интерфейс со всеми реализоваными методами для работы с графафми.
@@ -21,6 +22,10 @@ public interface Graph<G> {
     Vertex<G> getVert(G vert);
 
     void setVert(G oldVert, G newVert);
+
+    List<ArrayList<Integer>> prepareToSort();
+
+    Integer warshall(G vert1, G vert2);
 }
 
 

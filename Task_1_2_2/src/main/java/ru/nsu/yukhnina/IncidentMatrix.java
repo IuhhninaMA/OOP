@@ -1,7 +1,7 @@
 package ru.nsu.yukhnina;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -15,6 +15,7 @@ public class IncidentMatrix<G> implements Graph<G> {
     private ArrayList<Edge<G>> edgesName;
     private int countVert;
     private int countEdge;
+    private List<ArrayList<Integer>> warshall;
 
     /**
      * у этого класса есть матрица, хранящая на месте (вершина исходяща, вершина входа)
@@ -28,6 +29,7 @@ public class IncidentMatrix<G> implements Graph<G> {
         matrix = new ArrayList<ArrayList<Integer>>();
         verticesName = new ArrayList<Vertex<G>>();
         edgesName = new ArrayList<Edge<G>>();
+        warshall = new ArrayList<ArrayList<Integer>>();
         countVert = 0;
         countEdge = 0;
     }
@@ -50,7 +52,7 @@ public class IncidentMatrix<G> implements Graph<G> {
     /**
      * Get verisces obgect if we know name.
      */
-    public Vertex getVert(G vert1) {
+    public Vertex<G> getVert(G vert1) {
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(verticesName.get(i).getVert())) {
                 return verticesName.get(i);
@@ -153,7 +155,7 @@ public class IncidentMatrix<G> implements Graph<G> {
     /**
      * Get edge object if we know vertices from adn to.
      */
-    public Edge getEdge(G vert1, G vert2) {
+    public Edge<G> getEdge(G vert1, G vert2) {
         for (Edge<G> edge : edgesName) {
             if (vert1.equals(edge.getVertFrom()) & vert2.equals(edge.getVertTo())) {
                 return edge;
@@ -196,5 +198,58 @@ public class IncidentMatrix<G> implements Graph<G> {
                 edgesName.get(i).setWeight(newEdge);
             }
         }
+    }
+
+    public List<ArrayList<Integer>> prepareToSort() {
+        //задание начальных значений матрицы
+        for (int k = 0; k < countVert; k++) {
+            warshall.add(new ArrayList<Integer>());
+            for (int i = 0; i < countVert; i++) {
+                warshall.get(k).add(10000);
+            }
+            //перебираем все рёбра, прверяем что вторая вершина не была удалена, добавляем ребро в матрицу
+            int indexVert1 = -1;
+            int indexVert2 = -1;
+            for (int i = 0; i < countEdge; i++) {
+                indexVert1 = -1;
+                indexVert2 = -1;
+                for (int j = 0; j < countVert; j++) {
+                    if (edgesName.get(i).getVertFrom().equals(this.verticesName.get(i).getVert())) {
+                        indexVert1 = i;
+                    }
+                    if (edgesName.get(i).getVertTo().equals(this.verticesName.get(i).getVert())) {
+                        indexVert2 = i;
+                    }
+                }
+                if (matrix.get(indexVert1).get(indexVert2) == 1 && matrix.get(indexVert2).get(indexVert1) == -1) {
+                    warshall.get(indexVert1).set(indexVert2, (Integer) edgesName.get(i).getWeight());
+                }
+            }
+        }
+        return warshall;
+    }
+
+    public Integer warshall(G vert1, G vert2) {
+        for (int k = 0; k < countVert; k++) {
+            for (int i = 0; i < countVert; i++) {
+                for (int j = 0; j < countVert; j++) {
+                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j))
+                            & (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
+                        warshall.get(i).set(j, warshall.get(i).get(k) + warshall.get(k).get(j));
+                    }
+                }
+            }
+        }
+        int indexVert1 = -1;
+        int indexVert2 = -1;
+        for (int i = 0; i < countVert; i++) {
+            if (vert1.equals(this.verticesName.get(i).getVert())) {
+                indexVert1 = i;
+            }
+            if (vert2.equals(this.verticesName.get(i).getVert())) {
+                indexVert2 = i;
+            }
+        }
+        return warshall.get(indexVert1).get(indexVert2);
     }
 }

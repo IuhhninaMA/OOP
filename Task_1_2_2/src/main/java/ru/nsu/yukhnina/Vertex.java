@@ -11,11 +11,25 @@ class Vertex<G> {
         vert = vertNew;
     }
 
+    /**
+     * Return vert name.
+     */
     public G getVert() {
         return vert;
     }
 
+    /**
+     * Change vert name.
+     */
     public void setVert(G vert) {
         this.vert = vert;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this.vert.equals(((Vertex<G>) obj).vert)) {
+            return true;
+        }
+        return false;
     }
 }

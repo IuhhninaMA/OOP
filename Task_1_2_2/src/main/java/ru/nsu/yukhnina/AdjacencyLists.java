@@ -1,6 +1,7 @@
 package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdjacencyLists<G> implements Graph<G> {
     //будем считать , что список смежности это список рёбер для каждой вершиныб
@@ -10,6 +11,8 @@ public class AdjacencyLists<G> implements Graph<G> {
     private int vertexCount;
     private ArrayList<Vertex<G>> vertices;
 
+    public ArrayList<ArrayList<Integer>> warshall;
+
     /**
      * Список смежности, где по индексу вершины лежит array list смежных ей вершин.
      */
@@ -17,6 +20,7 @@ public class AdjacencyLists<G> implements Graph<G> {
         edgesName = new ArrayList<ArrayList<Edge<G>>>();
         vertexCount = 0;
         vertices = new ArrayList<Vertex<G>>();
+        warshall = new ArrayList<ArrayList<Integer>>();
     }
 
     /**
@@ -186,5 +190,58 @@ public class AdjacencyLists<G> implements Graph<G> {
                 return;
             }
         }
+    }
+
+    public List<ArrayList<Integer>> prepareToSort(){
+        //создаём матрицу
+        for (int i = 0; i < vertexCount; i++) {
+            warshall.add(new ArrayList<Integer>());
+            for (int j = 0; j < vertexCount; j++) {
+                warshall.get(i).add(10000);
+            }
+        }
+        for (ArrayList<Edge<G>> array : edgesName) {
+            for (Edge<G> edge : array) {
+                int indexVert1 = -1;
+                int indexVert2 = -1;
+                // находим индексы и проверяем что не удаляли раньше вторую вершину
+                for (int i = 0; i < vertexCount; i++) {
+                    if (edge.getVertFrom().equals(this.vertices.get(i))) {
+                        indexVert1 = i;
+                    }
+                    if (edge.getVertTo().equals(this.vertices.get(i))) {
+                        indexVert2 = i;
+                    }
+                }
+                if (indexVert2 != - 1) {
+                    warshall.get(indexVert1).set(indexVert2, (Integer) edge.getWeight());
+                }
+            }
+        }
+        return warshall;
+    }
+
+    public Integer warshall(G vert1, G vert2) {
+        for (int k = 0; k < vertexCount; k++) {
+            for (int i = 0; i < vertexCount; i++) {
+                for (int j = 0; j < vertexCount; j++) {
+                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j))
+                            & (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
+                        warshall.get(i).set(j, warshall.get(i).get(k) + warshall.get(k).get(j));
+                    }
+                }
+            }
+        }
+        int indexVert1 = -1;
+        int indexVert2 = -1;
+        for (int i = 0; i < vertexCount; i++) {
+            if (vert1.equals(this.vertices.get(i).getVert())) {
+                indexVert1 = i;
+            }
+            if (vert2.equals(this.vertices.get(i).getVert())) {
+                indexVert2 = i;
+            }
+        }
+        return warshall.get(indexVert1).get(indexVert2);
     }
 }

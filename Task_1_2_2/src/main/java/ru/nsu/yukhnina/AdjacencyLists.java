@@ -244,4 +244,13 @@ public class AdjacencyLists<G> implements Graph<G> {
         }
         return warshall.get(indexVert1).get(indexVert2);
     }
+
+    public Integer findId(G vert){
+        for (int i = 0; i < vertexCount; i++) {
+            if (vert.equals(this.vertices.get(i).getVert())) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

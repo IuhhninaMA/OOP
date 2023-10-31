@@ -26,6 +26,8 @@ public interface Graph<G> {
     List<ArrayList<Integer>> prepareToSort();
 
     Integer warshall(G vert1, G vert2);
+
+    Integer findId(G vert);
 }
 
 

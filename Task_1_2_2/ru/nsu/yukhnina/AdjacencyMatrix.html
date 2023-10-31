@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -213,11 +213,16 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>java.lang.Integer</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findId(G)">findId</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCountVert()">getCountVert</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>ru.nsu.yukhnina.Edge&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdge(G,G)">getEdge</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
        <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2)</code></th>
@@ -225,21 +230,21 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="block">Метод для получения объекта ребра.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>ru.nsu.yukhnina.Vertex&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVert(G)">getVert</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert)</code></th>
 <td class="colLast">
 <div class="block">Get vertice object if vertice not null.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;java.util.ArrayList&lt;java.lang.Integer&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#prepareToSort()">prepareToSort</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Алгоритм нахождения кратчайшего пути между вершинами.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEdge(G,G,G)">setEdge</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
        <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2,
@@ -248,7 +253,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="block">Зная вершины соединяющие ребро, изменяем его вес.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVert(G,G)">setVert</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;oldVert,
        <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;newVert)</code></th>
@@ -256,7 +261,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="block">Изменение названия вершины.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#warshall(G,G)">warshall</a></span>&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
         <a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert2)</code></th>
@@ -469,7 +474,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 </a><a id="warshall(G,G)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>warshall</h4>
 <pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;warshall&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert1,
@@ -477,6 +482,21 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#warshall(G,G)">warshall</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="findId(java.lang.Object)">
+<!--   -->
+</a><a id="findId(G)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>findId</h4>
+<pre class="methodSignature">public&nbsp;java.lang.Integer&nbsp;findId&#8203;(<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&nbsp;vert)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Graph.html#findId(G)">findId</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="AdjacencyMatrix.html" title="type parameter in AdjacencyMatrix">G</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>

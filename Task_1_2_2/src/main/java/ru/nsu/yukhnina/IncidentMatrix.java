@@ -106,11 +106,11 @@ public class IncidentMatrix<G> implements Graph<G> {
         }
         if (indexVert1 == - 1) {
             addVert(vert1);
-            indexVert1 = this.countVert;
+            indexVert1 = this.countVert - 1;
         }
         if (indexVert2 == -1) {
             addVert(vert2);
-            indexVert2 = this.countVert;
+            indexVert2 = this.countVert - 1;
         }
         edgesName.add(new Edge<>(vert1, vert2, newEdge));
         matrix.get(indexVert1).set(indexVert2, 1);

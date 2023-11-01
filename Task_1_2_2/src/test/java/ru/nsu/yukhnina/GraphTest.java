@@ -6,6 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.String;
+
 class GraphTest {
 
     @Test
@@ -298,7 +303,7 @@ class GraphTest {
     }
 
     @Test
-    void findWay2() {
+    void findWay2(){
         IncidentMatrix<Integer> adL = new IncidentMatrix<>();
         adL.addEdge(1, 2, 3);
         adL.addEdge(2, 3, 4);
@@ -307,6 +312,15 @@ class GraphTest {
         assertEquals(7, sort.getWay(adL, 3));
     }
 
+    @Test
+    void findWay3() {
+        AdjacencyMatrix<Integer> adL = new AdjacencyMatrix<>();
+        adL.addEdge(1, 2, 3);
+        adL.addEdge(2, 3, 4);
+        adL.addEdge(1, 3, 10);
+        FindWay<Integer> sort = new FindWay<>(1, adL);
+        assertEquals(7, sort.getWay(adL, 3));
+    }
 
 
 }

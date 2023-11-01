@@ -35,8 +35,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         matrix.add(new ArrayList<Edge<G>>());
         //заполняю матрицу нулевыми значениями, чтобы ыбло к чему обращаться
         for (int i = 0; i < this.countVert + 1; i++) {
-            this.matrix.get(i).add(new Edge<>());
-            this.matrix.get(countVert).add(new Edge<>());
+            this.matrix.get(i).add(null);
+            this.matrix.get(countVert).add(null);
         }
         countVert++;
     }

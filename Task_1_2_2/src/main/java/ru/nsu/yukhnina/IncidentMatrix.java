@@ -30,6 +30,11 @@ public class IncidentMatrix<G> implements Graph<G> {
         countEdge = 0;
     }
 
+    /**
+     * New matrix view. EDGEFROOm - tdge starts in this vert,
+     * EDGETO - edge final in this vert
+     * NO_EDGE - vert i and vert j havent edge.
+     */
     public enum Edges {
         EDGEFROM,
         EDGETO,

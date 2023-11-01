@@ -15,7 +15,6 @@ public class IncidentMatrix<G> implements Graph<G> {
     private ArrayList<Edge<G>> edgesName;
     private int countVert;
     private int countEdge;
-    private List<ArrayList<Integer>> warshall;
 
     /**
      * у этого класса есть матрица, хранящая на месте (вершина исходяща, вершина входа)
@@ -29,7 +28,6 @@ public class IncidentMatrix<G> implements Graph<G> {
         matrix = new ArrayList<ArrayList<Integer>>();
         verticesName = new ArrayList<Vertex<G>>();
         edgesName = new ArrayList<Edge<G>>();
-        warshall = new ArrayList<ArrayList<Integer>>();
         countVert = 0;
         countEdge = 0;
     }
@@ -198,35 +196,6 @@ public class IncidentMatrix<G> implements Graph<G> {
                 edgesName.get(i).setWeight(newEdge);
             }
         }
-    }
-
-    public List<ArrayList<Integer>> prepareToSort() {
-        //задание начальных значений матрицы
-        for (int k = 0; k < countVert; k++) {
-            warshall.add(new ArrayList<Integer>());
-            for (int i = 0; i < countVert; i++) {
-                warshall.get(k).add(10000);
-            }
-            //перебираем все рёбра, прверяем что вторая вершина не была удалена, добавляем ребро в матрицу
-            int indexVert1 = -1;
-            int indexVert2 = -1;
-            for (int i = 0; i < countEdge; i++) {
-                indexVert1 = -1;
-                indexVert2 = -1;
-                for (int j = 0; j < countVert; j++) {
-                    if (edgesName.get(i).getVertFrom().equals(this.verticesName.get(i).getVert())) {
-                        indexVert1 = i;
-                    }
-                    if (edgesName.get(i).getVertTo().equals(this.verticesName.get(i).getVert())) {
-                        indexVert2 = i;
-                    }
-                }
-                if (matrix.get(indexVert1).get(indexVert2) == 1 && matrix.get(indexVert2).get(indexVert1) == -1) {
-                    warshall.get(indexVert1).set(indexVert2, (Integer) edgesName.get(i).getWeight());
-                }
-            }
-        }
-        return warshall;
     }
 
     public Integer findId(G vert){

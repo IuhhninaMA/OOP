@@ -175,23 +175,6 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         }
     }
 
-    /**
-     * Алгоритм нахождения кратчайшего пути между вершинами.
-     */
-    //пока реализую только для интеджеров
-    public List<ArrayList<Integer>> prepareToSort() {
-        for (int k = 0; k < countVert; k++) {
-            warshall.add(new ArrayList<Integer>());
-            for (int i = 0; i < countVert; i++) {
-                warshall.get(k).add(10000);
-                if (matrix.get(k).get(i).getWeight() != null) {
-                    warshall.get(k).set(i, (Integer) matrix.get(k).get(i).getWeight());
-                }
-            }
-        }
-        return warshall;
-    }
-
     public Integer findId(G vert) {
         for (int i = 0; i < countVert; i++) {
             if (vert.equals(this.verticesName.get(i).getVert())) {

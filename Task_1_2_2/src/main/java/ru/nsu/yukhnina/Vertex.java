@@ -25,11 +25,4 @@ class Vertex<G> {
         this.vert = vert;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this.vert.equals(((Vertex<G>) obj).vert)) {
-            return true;
-        }
-        return false;
-    }
 }

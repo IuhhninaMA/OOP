@@ -191,35 +191,6 @@ public class AdjacencyLists<G> implements Graph<G> {
         }
     }
 
-    public List<ArrayList<Integer>> prepareToSort(){
-        //создаём матрицу
-        for (int i = 0; i < vertexCount; i++) {
-            warshall.add(new ArrayList<Integer>());
-            for (int j = 0; j < vertexCount; j++) {
-                warshall.get(i).add(10000);
-            }
-        }
-        for (ArrayList<Edge<G>> array : edgesName) {
-            for (Edge<G> edge : array) {
-                int indexVert1 = -1;
-                int indexVert2 = -1;
-                // находим индексы и проверяем что не удаляли раньше вторую вершину
-                for (int i = 0; i < vertexCount; i++) {
-                    if (edge.getVertFrom().equals(this.vertices.get(i))) {
-                        indexVert1 = i;
-                    }
-                    if (edge.getVertTo().equals(this.vertices.get(i))) {
-                        indexVert2 = i;
-                    }
-                }
-                if (indexVert2 != - 1) {
-                    warshall.get(indexVert1).set(indexVert2, (Integer) edge.getWeight());
-                }
-            }
-        }
-        return warshall;
-    }
-
     public Integer findId(G vert){
         for (int i = 0; i < vertexCount; i++) {
             if (vert.equals(this.vertices.get(i).getVert())) {

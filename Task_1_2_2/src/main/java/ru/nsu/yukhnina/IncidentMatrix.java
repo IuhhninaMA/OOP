@@ -1,7 +1,6 @@
 package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -9,8 +8,7 @@ import java.util.List;
  * массив рёбе, массив вершин, количество вершин и рёбер.
  */
 public class IncidentMatrix<G> implements Graph<G> {
-    private ArrayList<ArrayList<Integer>> matrix;
-    private ArrayList<G> edges;
+    private ArrayList<ArrayList<Edges>> matrix;
     private ArrayList<Vertex<G>> verticesName;
     private ArrayList<Edge<G>> edgesName;
     private int countVert;
@@ -25,11 +23,17 @@ public class IncidentMatrix<G> implements Graph<G> {
      * количество вершин и рёбер.
      */
     public IncidentMatrix() {
-        matrix = new ArrayList<ArrayList<Integer>>();
+        matrix = new ArrayList<ArrayList<Edges>>();
         verticesName = new ArrayList<Vertex<G>>();
         edgesName = new ArrayList<Edge<G>>();
         countVert = 0;
         countEdge = 0;
+    }
+
+    public enum Edges {
+        EDGEFROM,
+        EDGETO,
+        NO_EDGE;
     }
 
     /**
@@ -38,12 +42,12 @@ public class IncidentMatrix<G> implements Graph<G> {
     public void addVert(G newVert) {
         Vertex<G> newVertex = new Vertex<G>(newVert);
         this.verticesName.add(newVertex);
-        matrix.add(new ArrayList<Integer>());
+        matrix.add(new ArrayList<Edges>());
         //заполняю новую строку матрицы нулевыми значениями
         this.countVert++;
         for (int i = 0; i < this.countVert; i++) {
-            this.matrix.get(countVert - 1).add(0);
-            this.matrix.get(i).add(0);
+            this.matrix.get(countVert - 1).add(Edges.NO_EDGE);
+            this.matrix.get(i).add(Edges.NO_EDGE);
         }
     }
 
@@ -68,8 +72,8 @@ public class IncidentMatrix<G> implements Graph<G> {
             if (newVert.equals(verticesName.get(i).getVert())) {
                 verticesName.remove(i);
                 for (int j = 0; j < countVert; j++) {
-                    matrix.get(j).set(i, 0);
-                    matrix.get(i).set(j, 0);
+                    matrix.get(j).set(i, Edges.NO_EDGE);
+                    matrix.get(i).set(j, Edges.NO_EDGE);
                 }
                 matrix.remove(i);
                 countVert--;
@@ -113,8 +117,8 @@ public class IncidentMatrix<G> implements Graph<G> {
             indexVert2 = this.countVert - 1;
         }
         edgesName.add(new Edge<>(vert1, vert2, newEdge));
-        matrix.get(indexVert1).set(indexVert2, 1);
-        matrix.get(indexVert2).set(indexVert1, -1);
+        matrix.get(indexVert1).set(indexVert2, Edges.EDGEFROM);
+        matrix.get(indexVert2).set(indexVert1, Edges.EDGETO);
         this.countEdge++;
     }
 
@@ -147,8 +151,8 @@ public class IncidentMatrix<G> implements Graph<G> {
         if (indexVert2 == -1) {
             return;
         }
-        matrix.get(indexVert1).set(indexVert2, 0);
-        matrix.get(indexVert2).set(indexVert1, 0);
+        matrix.get(indexVert1).set(indexVert2, Edges.NO_EDGE);
+        matrix.get(indexVert2).set(indexVert1, Edges.NO_EDGE);
     }
 
     /**
@@ -187,7 +191,7 @@ public class IncidentMatrix<G> implements Graph<G> {
             addVert(vert2);
             indexVert2 = this.countVert - 1;
         }
-        if (matrix.get(indexVert1).get(indexVert2) == 0) {
+        if (matrix.get(indexVert1).get(indexVert2) == Edges.NO_EDGE) {
             addEdge(vert1, vert2, newEdge);
             return;
         }

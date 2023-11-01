@@ -6,6 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.*;
+import java.lang.String;
+import java.util.Scanner;
+
 class GraphTest {
 
     @Test
@@ -300,11 +304,25 @@ class GraphTest {
     @Test
     void findWay2() {
         IncidentMatrix<Integer> adL = new IncidentMatrix<>();
-        adL.addEdge(1, 2, 3);
-        adL.addEdge(2, 3, 4);
-        adL.addEdge(1, 3, 10);
-        FindWay<Integer> sort = new FindWay<>(1, adL);
-        assertEquals(7, sort.getWay(adL, 3));
+        try {
+            File file = new File("src/test/java/ru/nsu/yukhnina/input.txt");
+            Scanner scanner = new Scanner(file);
+            int vert1;
+            int vert2;
+            int weight;
+            int number1 = scanner.nextInt();
+            for (int i = 0; i < number1; i++) {
+                vert1 = scanner.nextInt();
+                vert2 = scanner.nextInt();
+                weight = scanner.nextInt();
+                adL.addEdge(vert1, vert2, weight);
+            }
+
+            FindWay<Integer> sort = new FindWay<>(1, adL);
+            assertEquals(7, sort.getWay(adL, 3));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test

@@ -14,8 +14,6 @@ public class AdjacencyLists<G> implements Graph<G> {
     private int vertexCount;
     private ArrayList<Vertex<G>> vertices;
 
-    public ArrayList<ArrayList<Integer>> warshall;
-
     /**
      * Список смежности, где по индексу вершины лежит array list смежных ей вершин.
      */
@@ -23,7 +21,6 @@ public class AdjacencyLists<G> implements Graph<G> {
         edgesName = new ArrayList<ArrayList<Edge<G>>>();
         vertexCount = 0;
         vertices = new ArrayList<Vertex<G>>();
-        warshall = new ArrayList<ArrayList<Integer>>();
     }
 
     /**

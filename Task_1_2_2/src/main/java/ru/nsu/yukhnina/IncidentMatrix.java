@@ -229,30 +229,6 @@ public class IncidentMatrix<G> implements Graph<G> {
         return warshall;
     }
 
-    public Integer warshall(G vert1, G vert2) {
-        for (int k = 0; k < countVert; k++) {
-            for (int i = 0; i < countVert; i++) {
-                for (int j = 0; j < countVert; j++) {
-                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j))
-                            & (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
-                        warshall.get(i).set(j, warshall.get(i).get(k) + warshall.get(k).get(j));
-                    }
-                }
-            }
-        }
-        int indexVert1 = -1;
-        int indexVert2 = -1;
-        for (int i = 0; i < countVert; i++) {
-            if (vert1.equals(this.verticesName.get(i).getVert())) {
-                indexVert1 = i;
-            }
-            if (vert2.equals(this.verticesName.get(i).getVert())) {
-                indexVert2 = i;
-            }
-        }
-        return warshall.get(indexVert1).get(indexVert2);
-    }
-
     public Integer findId(G vert){
         for (int i = 0; i < countVert; i++) {
             if (vert.equals(this.verticesName.get(i).getVert())) {
@@ -260,5 +236,9 @@ public class IncidentMatrix<G> implements Graph<G> {
             }
         }
         return -1;
+    }
+
+    public ArrayList<Vertex<G>> getVertices() {
+        return verticesName;
     }
 }

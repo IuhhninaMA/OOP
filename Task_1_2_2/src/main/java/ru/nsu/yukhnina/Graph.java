@@ -23,9 +23,7 @@ public interface Graph<G> {
 
     void setVert(G oldVert, G newVert);
 
-    List<ArrayList<Integer>> prepareToSort();
-
-    Integer warshall(G vert1, G vert2);
+    ArrayList<Vertex<G>> getVertices();
 
     Integer findId(G vert);
 }

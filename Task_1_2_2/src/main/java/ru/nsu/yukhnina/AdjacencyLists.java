@@ -95,13 +95,12 @@ public class AdjacencyLists<G> implements Graph<G> {
         }
         if (indexVert1 == - 1) {
             addVert(vert1);
-            indexVert1 = this.vertexCount;
+            indexVert1 = this.vertexCount - 1;
         }
+        edgesName.get(indexVert1).add(new Edge<>(vert1, vert2, newEdge));
         if (indexVert2 == - 1) {
             addVert(vert2);
         }
-        edgesName.get(indexVert1).add(new Edge<>(vert1, vert2, newEdge));
-        //попроавить удаление вершины!!!!!!!!!!!!!!! сломаться ничего не должно, но всё же
     }
 
     /**
@@ -221,30 +220,6 @@ public class AdjacencyLists<G> implements Graph<G> {
         return warshall;
     }
 
-    public Integer warshall(G vert1, G vert2) {
-        for (int k = 0; k < vertexCount; k++) {
-            for (int i = 0; i < vertexCount; i++) {
-                for (int j = 0; j < vertexCount; j++) {
-                    if ((warshall.get(i).get(j) > warshall.get(i).get(k) + warshall.get(k).get(j))
-                            & (warshall.get(i).get(k) + warshall.get(k).get(j) > 0)) {
-                        warshall.get(i).set(j, warshall.get(i).get(k) + warshall.get(k).get(j));
-                    }
-                }
-            }
-        }
-        int indexVert1 = -1;
-        int indexVert2 = -1;
-        for (int i = 0; i < vertexCount; i++) {
-            if (vert1.equals(this.vertices.get(i).getVert())) {
-                indexVert1 = i;
-            }
-            if (vert2.equals(this.vertices.get(i).getVert())) {
-                indexVert2 = i;
-            }
-        }
-        return warshall.get(indexVert1).get(indexVert2);
-    }
-
     public Integer findId(G vert){
         for (int i = 0; i < vertexCount; i++) {
             if (vert.equals(this.vertices.get(i).getVert())) {
@@ -252,5 +227,9 @@ public class AdjacencyLists<G> implements Graph<G> {
             }
         }
         return -1;
+    }
+
+    public ArrayList<Vertex<G>> getVertices() {
+        return vertices;
     }
 }

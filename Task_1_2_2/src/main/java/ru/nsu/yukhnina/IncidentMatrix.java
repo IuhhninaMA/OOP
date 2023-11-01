@@ -124,7 +124,8 @@ public class IncidentMatrix<G> implements Graph<G> {
     public void deleteEdge(G vert1, G vert2) {
         //удаляем ребро из массива рёбер
         for (int i = 0; i < this.countEdge; i++) {
-            if (vert1.equals(edgesName.get(i).getVertFrom()) & vert2.equals(edgesName.get(i).getVertTo())) {
+            if (vert1.equals(edgesName.get(i).getVertFrom())
+                    & vert2.equals(edgesName.get(i).getVertTo())) {
                 edgesName.remove(i);
             }
         }
@@ -192,13 +193,17 @@ public class IncidentMatrix<G> implements Graph<G> {
         }
         //если такое ребро уже есть, нахожу его и изменяю
         for (int i = 0; i < countEdge; i++) {
-            if (vert1.equals(edgesName.get(i).getVertFrom()) & vert2.equals(edgesName.get(i).getVertTo())) {
+            if (vert1.equals(edgesName.get(i).getVertFrom())
+                    & vert2.equals(edgesName.get(i).getVertTo())) {
                 edgesName.get(i).setWeight(newEdge);
             }
         }
     }
 
-    public Integer findId(G vert){
+    /**
+     * Найти индекс вершины.
+     */
+    public Integer findId(G vert) {
         for (int i = 0; i < countVert; i++) {
             if (vert.equals(this.verticesName.get(i).getVert())) {
                 return i;
@@ -207,6 +212,9 @@ public class IncidentMatrix<G> implements Graph<G> {
         return -1;
     }
 
+    /**
+     * Вернуть список вершин.
+     */
     public ArrayList<Vertex<G>> getVertices() {
         return verticesName;
     }

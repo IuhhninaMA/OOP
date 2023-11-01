@@ -3,6 +3,9 @@ package ru.nsu.yukhnina;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Представление графа в виде списка смежности.
+ */
 public class AdjacencyLists<G> implements Graph<G> {
     //будем считать , что список смежности это список рёбер для каждой вершиныб
     //буду хранить массив вершин, чтобы по ним получать индекс необходимого подмассива
@@ -191,7 +194,10 @@ public class AdjacencyLists<G> implements Graph<G> {
         }
     }
 
-    public Integer findId(G vert){
+    /**
+     * Find vert index in list.
+     */
+    public Integer findId(G vert) {
         for (int i = 0; i < vertexCount; i++) {
             if (vert.equals(this.vertices.get(i).getVert())) {
                 return i;
@@ -200,6 +206,9 @@ public class AdjacencyLists<G> implements Graph<G> {
         return -1;
     }
 
+    /**
+     * Return all graph veretices list.
+     */
     public ArrayList<Vertex<G>> getVertices() {
         return vertices;
     }

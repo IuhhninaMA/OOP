@@ -2,10 +2,18 @@ package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
 
+/**
+ * класс, использующий граф для поиска путей между вершинами.
+ */
 public class FindWay<G> {
     ArrayList<Integer> ways;
     ArrayList<Integer> used;
 
+    /**
+     * Создаю список кратчайших расстояний до вершин от необходимой,
+     * расстояние до начальной вершины 0,
+     * и список флагов использовалась ли вершина ранее.
+     */
     public FindWay(G vert, Graph<G> graph) {
         ways = new ArrayList<>();
         used = new ArrayList<>();
@@ -16,10 +24,13 @@ public class FindWay<G> {
         }
 
         ways.set(graph.findId(vert), 0);
-        Dijkstra(graph);
+        dijkstra(graph);
     }
 
-    private void Dijkstra(Graph<G> graph) {
+    /**
+     * сам алгоритм Дейкстры.
+     */
+    private void dijkstra(Graph<G> graph) {
         Integer v;
 
         for (int i = 0; i < graph.getVertices().size(); i++) {
@@ -37,11 +48,13 @@ public class FindWay<G> {
 
             used.set(v, 1);
             Vertex<G> vert = graph.getVertices().get(v);
-            for (Vertex<G> curr_vert : graph.getVertices()) {
-                Edge<G> edge = graph.getEdge(vert.getVert(), curr_vert.getVert());
+            for (Vertex<G> currVert : graph.getVertices()) {
+                Edge<G> edge = graph.getEdge(vert.getVert(), currVert.getVert());
 
-                if (edge != null && ways.get(v) + (Integer) edge.getWeight() < ways.get(graph.findId(curr_vert.getVert()))) {
-                    ways.set(graph.findId(curr_vert.getVert()), ways.get(v) + (Integer) edge.getWeight());
+                if (edge != null && ways.get(v)
+                        + (Integer) edge.getWeight() < ways.get(graph.findId(currVert.getVert()))) {
+                    ways.set(graph.findId(currVert.getVert()), ways.get(v)
+                            + (Integer) edge.getWeight());
                 }
             }
         }

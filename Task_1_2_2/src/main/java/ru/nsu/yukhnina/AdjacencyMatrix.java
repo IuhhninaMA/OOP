@@ -93,7 +93,8 @@ public class AdjacencyMatrix<G> implements Graph<G> {
      */
     public void deleteEdge(G vert1, G vert2) {
         //удалить ребро из каждой вершины
-        int indexVert1 = -1, indexVert2 = -1;
+        int indexVert1 = -1;
+        int indexVert2 = -1;
         for (int i = 0; i < countVert; i++) {
             if (vert1.equals(this.verticesName.get(i).getVert())) {
                 indexVert1 = i;
@@ -175,6 +176,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         }
     }
 
+    /**
+     * Find by name index vert in list.
+     */
     public Integer findId(G vert) {
         for (int i = 0; i < countVert; i++) {
             if (vert.equals(this.verticesName.get(i).getVert())) {
@@ -184,6 +188,9 @@ public class AdjacencyMatrix<G> implements Graph<G> {
         return -1;
     }
 
+    /**
+     * Return lists contains all graph vertices.
+     */
     public ArrayList<Vertex<G>> getVertices() {
         return verticesName;
     }

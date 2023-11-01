@@ -293,7 +293,7 @@ class GraphTest {
         adL.addEdge(1, 2, 3);
         adL.addEdge(2, 3, 4);
         adL.addEdge(1, 3, 10);
-        FindWay<Integer> sort = new FindWay<>(1, adL);
+        FindWayAdL<Integer> sort = new FindWayAdL<>(1, adL);
         assertEquals(7, sort.getWay(adL, 3));
     }
 

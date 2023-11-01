@@ -2,11 +2,11 @@ package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
 
-public class FindWay<G> {
+public class FindWayAdL<G> {
     ArrayList<Integer> ways;
     ArrayList<Integer> used;
 
-    public FindWay(G vert, AdjacencyLists<G> adL) {
+    public FindWayAdL(G vert, AdjacencyLists<G> adL) {
         ways = new ArrayList<>();
         used = new ArrayList<>();
 

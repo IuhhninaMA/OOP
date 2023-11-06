@@ -181,9 +181,7 @@ extends java.lang.Object</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find(java.lang.String,java.lang.String)">find</a></span>&#8203;(java.lang.String&nbsp;filename,
     java.lang.String&nbsp;toFind)</code></th>
 <td class="colLast">
-<div class="block">функция побайтово считывает файл
- (если на вход пришёл ресурс, то обрабатываю по-одному, если файл не в ресурсной папке по-другому),
- реализует на данных алгоритм Рабина-Карпа, получаем индексы вхождений.</div>
+<div class="block">функция побайтово считывает файл.</div>
 </td>
 </tr>
 </table>
@@ -238,12 +236,14 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public static&nbsp;java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;find&#8203;(java.lang.String&nbsp;filename,
                                                           java.lang.String&nbsp;toFind)
                                                    throws java.lang.Exception</pre>
-<div class="block">функция побайтово считывает файл
- (если на вход пришёл ресурс, то обрабатываю по-одному, если файл не в ресурсной папке по-другому),
+<div class="block">функция побайтово считывает файл.
+ (если на вход пришёл ресурс, то обрабатываю по-одному,
+ если файл не в ресурсной папке по-другому),
  реализует на данных алгоритм Рабина-Карпа, получаем индексы вхождений.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>filename</code> - - путь к файлу или ресурсу в котором нужно найти подстроку.</dd>
+<dd><code>filename</code> - - путь к файлу или ресурсу,
+                в котором нужно найти подстроку.</dd>
 <dd><code>toFind</code> - - подстрока, вхождения которой нужно найти.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>массив индексов вхождений подстроки.</dd>

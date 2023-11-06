@@ -42,7 +42,7 @@ class RabinKarpAlgorithmTest {
     void bigFile() throws Exception {
         String fffile = "src/test/java/ru/nsu/yukhnina/testBigFile.txt";
         RandomAccessFile f = new RandomAccessFile(fffile, "rw");
-        f.setLength(1024 * 1024 * 1024);
+        f.setLength(15L * 1024 * 1024 * 1024);
         try(FileWriter writer = new FileWriter(fffile, false))
         {
             writer.write("text");

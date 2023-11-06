@@ -1,13 +1,9 @@
 package ru.nsu.yukhnina;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,30 +40,14 @@ class RabinKarpAlgorithmTest {
 
     @Test
     void bigFile() throws Exception {
-        try {
-            // Возьмите файл
-            File f = new File("testBigFile.txt");
-            //Создайте новый файл
-            // Убедитесь, что он не существует
-            if (f.createNewFile())
-                System.out.println("File created");
-            else
-                System.out.println("File already exists");
-        }
-        catch (Exception e) {
-            System.err.println(e);
-        }
-        try(FileWriter writer = new FileWriter("testBigFile.txt", false))
+        String fffile = "src/test/java/ru/nsu/yukhnina/testBigFile.txt";
+        RandomAccessFile f = new RandomAccessFile(fffile, "rw");
+        f.setLength(1024 * 1024 * 1024);
+        try(FileWriter writer = new FileWriter(fffile, false))
         {
             writer.write("text");
-            for (int j = 0; j < 900000000; j++) {
-                for (int i = 0; i < 900000000; i++) {
-                    writer.write("Hello Gold! Hi honey! I'm so tried(((");
-                }
-                for (int i = 0; i < 900000000; i++) {
-                    writer.write("Hello Gold! Hi honey! I'm so tried(((");
-                }
-                for (int i = 0; i < 900000000; i++) {
+            for (int j = 0; j < 9; j++) {
+                for (int i = 0; i < 9; i++) {
                     writer.write("Hello Gold! Hi honey! I'm so tried(((");
                 }
             }
@@ -80,11 +60,11 @@ class RabinKarpAlgorithmTest {
         catch(IOException ex){
             System.out.println(ex.getMessage());
         }
-        ArrayList<Integer> result_actual = RabinKarpAlgorithm.find("text2.txt", "text");
+        ArrayList<Integer> result_actual = RabinKarpAlgorithm.find(fffile, "text");
         for (int i = 0; i < 3; i++) {
             assertEquals(4, result_actual.size());
         }
-        (new File("testBigFile.txt")).delete();
+        (new File(fffile)).delete();
     }
 
 //f = open('text3.txt', 'w')

@@ -6,8 +6,21 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Properties;
 
+/**
+ * Реализует метод Рабина-Карпа для поиска всех
+ * вхождений подстроки в строку, используя побайтовое
+ * считывание из файла
+ */
 public class RabinKarpAlgorithm {
 
+    /**
+     * функция побайтово считывает файл
+     * (если на вход пришёл ресурс, то обрабатываю по-одному, если файл не в ресурсной папке по-другому),
+     * реализует на данных алгоритм Рабина-Карпа, получаем индексы вхождений.
+     * @param filename - путь к файлу или ресурсу в котором нужно найти подстроку.
+     * @param toFind - подстрока, вхождения которой нужно найти.
+     * @return массив индексов вхождений подстроки.
+     */
     public static ArrayList<Integer> find(String filename, String toFind) throws Exception {
         InputStream inputStream;
         final int primeNum = 17;
@@ -25,7 +38,8 @@ public class RabinKarpAlgorithm {
             } else {
                 inputStream = new FileInputStream(filename);
             }
-            InputStreamReader fileReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            InputStreamReader fileReader =
+                    new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             CharBuffer charBuffer = CharBuffer.allocate(1);
             StringBuilder substring = new StringBuilder();
             int charsRead;
@@ -44,7 +58,6 @@ public class RabinKarpAlgorithm {
             pow /= primeNum;
             int j;
             int k = 0;//счётчик считанных символов
-
             //начинаю считывать весь оставшийся файл до конца
             while ((charsRead = fileReader.read(charBuffer)) != -1) {
                 k++;
@@ -81,8 +94,9 @@ public class RabinKarpAlgorithm {
 
                 //если дошли до конца в проверке, значит строки равны,
                 // тогда выводим индекс, завершаем программу
-                if (j == strLen)
+                if (j == strLen) {
                     result.add(k + 1);
+                }
             }
             fileReader.close();
         } catch (IOException e) {

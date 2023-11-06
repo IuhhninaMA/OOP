@@ -2,9 +2,10 @@ package ru.nsu.yukhnina;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import java.io.*;
-import java.util.ArrayList;
+
 
 class RabinKarpAlgorithmTest {
 
@@ -19,15 +20,15 @@ class RabinKarpAlgorithmTest {
 
 
 
-/*    Тест задан такими данными:
-    f = open('text.txt', 'w')
-    f.write("find")
-    for i in range(10000):
-       f.write('aaaaaa')
-    f.write("find")
-    for i in range(10000):
-       f.write('aaaaaa')
-    f.write("find")*/
+    //Тест задан такими данными:
+    //    f = open('text.txt', 'w')
+    //    f.write("find")
+    //    for i in range(10000):
+    //       f.write('aaaaaa')
+    //    f.write("find")
+    //    for i in range(10000):
+    //       f.write('aaaaaa')
+    //    f.write("find")
     @Test
     void mediumFile() throws Exception {
         ArrayList<Integer> resultActual = RabinKarpAlgorithm.find("text.txt", "find");

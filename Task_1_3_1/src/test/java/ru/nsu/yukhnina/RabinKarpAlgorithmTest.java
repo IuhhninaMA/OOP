@@ -3,6 +3,9 @@ package ru.nsu.yukhnina;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -39,27 +42,50 @@ class RabinKarpAlgorithmTest {
         }
     }
 
+    @Test
+    void bigFile() throws Exception {
+        try {
+            // Возьмите файл
+            File f = new File("testBigFile.txt");
+            //Создайте новый файл
+            // Убедитесь, что он не существует
+            if (f.createNewFile())
+                System.out.println("File created");
+            else
+                System.out.println("File already exists");
+        }
+        catch (Exception e) {
+            System.err.println(e);
+        }
+        try(FileWriter writer = new FileWriter("testBigFile.txt", false))
+        {
+            writer.write("text");
+            for (int j = 0; j < 900000000; j++) {
+                for (int i = 0; i < 900000000; i++) {
+                    writer.write("Hello Gold! Hi honey! I'm so tried(((");
+                }
+                for (int i = 0; i < 900000000; i++) {
+                    writer.write("Hello Gold! Hi honey! I'm so tried(((");
+                }
+                for (int i = 0; i < 900000000; i++) {
+                    writer.write("Hello Gold! Hi honey! I'm so tried(((");
+                }
+            }
+            writer.write("text");
+            writer.write("text");
+            writer.write("text");
+            writer.flush();
 
-
-//f = open('text2.txt', 'w')
-//f.write("text")
-//for i in range(10000):
-//    f.write('ffffielrkgnlekrngrtgn4gorlknglekdmfer;gprotgnpotrgnirtd')
-//f.write("text")
-//for i in range(10000):
-//    f.write('ddddohdeoihdoehfioheerkgnlern')
-//f.write("text")
-//f.close()
-// Он работает, но входняе данные больше 800 кб и ппокажу на паре если нужно
-//    @Test
-//    void bigFile() throws Exception {
-//        ArrayList<Integer> result_actual = RabinKarpAlgorithm.find("text2.txt", "text");
-//        int[] result_exception = {1, 550005, 840009};
-//        for (int i = 0; i < 3; i++) {
-//            assertEquals(result_exception[i], result_actual.get(i));
-//        }
-//
-//    }
+        }
+        catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+        ArrayList<Integer> result_actual = RabinKarpAlgorithm.find("text2.txt", "text");
+        for (int i = 0; i < 3; i++) {
+            assertEquals(4, result_actual.size());
+        }
+        (new File("testBigFile.txt")).delete();
+    }
 
 //f = open('text3.txt', 'w')
 //for i in range(100): f.write("repeat")

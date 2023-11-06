@@ -9,6 +9,8 @@ import java.util.Properties;
 public class RabinKarpAlgorithm {
 
     public static ArrayList<Integer> find(String filename, String toFind) throws Exception {
+        InputStream inputStream;
+        final int primeNum = 17;
         int strLen = toFind.length();
         Properties prop = new Properties();
         ArrayList<Integer> result = new ArrayList<Integer>();
@@ -16,7 +18,14 @@ public class RabinKarpAlgorithm {
         int hashToFind = 0;
         int hashInput = 0;
         try {
-            InputStream inputStream = RabinKarpAlgorithm.class.getClassLoader().getResourceAsStream(filename);
+            //если в строке не нашлось / значит файл ресурс
+            if (filename.indexOf('/') == -1) {
+                inputStream = RabinKarpAlgorithm.class.getClassLoader().getResourceAsStream(filename);
+            }
+            //иначе читаю как обычный файл
+            else {
+                inputStream = new FileInputStream(filename);
+            }
             InputStreamReader fileReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             CharBuffer charBuffer = CharBuffer.allocate(1);
             StringBuilder substring = new StringBuilder();
@@ -32,9 +41,9 @@ public class RabinKarpAlgorithm {
                 charBuffer.clear(); // Очищаем буфер для следующего чтения
                 hashToFind += toFind.charAt(i)*pow;
                 hashInput += substring.charAt(i)*pow;
-                pow *= 17;
+                pow *= primeNum;
             }
-            pow /= 17;
+            pow /= primeNum;
             int j;
             int k = 0;//счётчик считанных символов
 
@@ -57,7 +66,7 @@ public class RabinKarpAlgorithm {
                 charBuffer.clear(); // Очищаем буфер для следующего чтения
 
                 //Пересчитываю хэш
-                hashInput = (hashInput - substring.charAt(0)) / 17 + substring.charAt(strLen)*pow;
+                hashInput = (hashInput - substring.charAt(0)) / primeNum + substring.charAt(strLen)*pow;
                 substring.deleteCharAt(0);
             }
             //сравнение последнего пересчитанного хэша

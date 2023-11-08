@@ -1,6 +1,10 @@
 package ru.nsu.yukhnina;
 
-import java.io.*;
+//import java.io.;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.CharBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -27,7 +31,6 @@ public class RabinKarpAlgorithm {
         InputStream inputStream;
         final int primeNum = 17;
         int strLen = toFind.length();
-        Properties prop = new Properties();
         ArrayList<Integer> result = new ArrayList<Integer>();
         int pow = 1;
         int hashToFind = 0;

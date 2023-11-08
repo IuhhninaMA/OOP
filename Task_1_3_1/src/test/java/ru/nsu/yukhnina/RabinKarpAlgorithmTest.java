@@ -2,7 +2,10 @@ package ru.nsu.yukhnina;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 

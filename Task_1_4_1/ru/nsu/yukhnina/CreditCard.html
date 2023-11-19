@@ -132,6 +132,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">CreditCard</span>
 extends java.lang.Object</pre>
+<div class="block">Record book class. Find avg mark,
+ check opportunity red diploma,
+ check opportunity scholarship.</div>
 </li>
 </ul>
 </div>
@@ -155,7 +158,9 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="CreditCard.Mark.html" title="enum in ru.nsu.yukhnina">CreditCard.Mark</a></span></code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Marks we can have.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -176,7 +181,11 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">CreditCard</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">finalMark contains subjects final marks without all current,
+ marks it's all marks,
+ now we think that semestr is 0 and we havent marks.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -199,29 +208,39 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAvgMark()">getAvgMark</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Calculate average mark.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScholarship(int)">getScholarship</a></span>&#8203;(int&nbsp;semestrnum)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Find can student live in this semestr.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#redDiplom()">redDiplom</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Calculate opportunity have red diploma.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCvalificationMark(ru.nsu.yukhnina.CreditCard.Mark)">setCvalificationMark</a></span>&#8203;(<a href="CreditCard.Mark.html" title="enum in ru.nsu.yukhnina">CreditCard.Mark</a>&nbsp;mark)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Sset cvalification mark.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMark(int,java.lang.String,ru.nsu.yukhnina.CreditCard.Mark)">setMark</a></span>&#8203;(int&nbsp;newSemestr,
        java.lang.String&nbsp;subject,
        <a href="CreditCard.Mark.html" title="enum in ru.nsu.yukhnina">CreditCard.Mark</a>&nbsp;mark)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add new mark if I know semesrt numberб subjects name and mark.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -254,6 +273,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>CreditCard</h4>
 <pre>public&nbsp;CreditCard()</pre>
+<div class="block">finalMark contains subjects final marks without all current,
+ marks it's all marks,
+ now we think that semestr is 0 and we havent marks.
+ It's for calculate first stipa.
+ And enums its marks we can have.</div>
 </li>
 </ul>
 </li>
@@ -273,6 +297,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setCvalificationMark</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setCvalificationMark&#8203;(<a href="CreditCard.Mark.html" title="enum in ru.nsu.yukhnina">CreditCard.Mark</a>&nbsp;mark)</pre>
+<div class="block">Sset cvalification mark.
+ Default it's EXCELLENT to find opportunity red diplom.</div>
 </li>
 </ul>
 <a id="setMark(int,java.lang.String,ru.nsu.yukhnina.CreditCard.Mark)">
@@ -284,6 +310,7 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;setMark&#8203;(int&nbsp;newSemestr,
                     java.lang.String&nbsp;subject,
                     <a href="CreditCard.Mark.html" title="enum in ru.nsu.yukhnina">CreditCard.Mark</a>&nbsp;mark)</pre>
+<div class="block">Add new mark if I know semesrt numberб subjects name and mark.</div>
 </li>
 </ul>
 <a id="getAvgMark()">
@@ -293,6 +320,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAvgMark</h4>
 <pre class="methodSignature">public&nbsp;double&nbsp;getAvgMark()</pre>
+<div class="block">Calculate average mark.</div>
 </li>
 </ul>
 <a id="redDiplom()">
@@ -302,6 +330,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>redDiplom</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;redDiplom()</pre>
+<div class="block">Calculate opportunity have red diploma.</div>
 </li>
 </ul>
 <a id="getScholarship(int)">
@@ -311,6 +340,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getScholarship</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;getScholarship&#8203;(int&nbsp;semestrnum)</pre>
+<div class="block">Find can student live in this semestr.</div>
 </li>
 </ul>
 </li>

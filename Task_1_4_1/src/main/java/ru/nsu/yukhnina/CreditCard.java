@@ -3,36 +3,60 @@ package ru.nsu.yukhnina;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Record book class. Find avg mark,
+ * check opportunity red diploma,
+ * check opportunity scholarship.
+ */
 public class CreditCard {
     //один и тот же предмет может повторяться несколько семестров,
     // но на оценку диплома влияет только посленяя, которая и будет храниться тут
-    private HashMap<String, Mark> final_mark;
+    private HashMap<String, Mark> finalMark;
     private ArrayList<HashMap<String, Mark>> marks;
     private int semestr;
     private Mark cvalification;
+
+    /**
+     * finalMark contains subjects final marks without all current,
+     * marks it's all marks,
+     * now we think that semestr is 0 and we havent marks.
+     * It's for calculate first stipa.
+     * And enums its marks we can have.
+     */
     public CreditCard() {
-        final_mark = new HashMap<>();
+        finalMark = new HashMap<>();
         marks = new ArrayList<HashMap<String, Mark>>();
         marks.add(new HashMap<String, Mark>()); //добавляю значения для расчёта стипы за 1 семестр
         semestr = 0;
         cvalification = Mark.EXCELLENT;
     }
 
+    /**
+     * Marks we can have.
+     */
     public enum Mark {
         EXCELLENT(5),
         GOOD(4),
         SATISFACTORY(3),
         UNSATISFACTORY(2);
         private final int value;
+
         Mark(int mark) {
             this.value = mark;
         }
     }
 
+    /**
+     * Sset cvalification mark.
+     * Default it's EXCELLENT to find opportunity red diplom.
+     */
     public void setCvalificationMark(Mark mark) {
         cvalification = mark;
     }
 
+    /**
+     * Add new mark if I know semesrt numberб subjects name and mark.
+     */
     public void setMark(int newSemestr, String subject, Mark mark) {
         // прверяем, что если данных по этому семестру ещё не было,
         // то array list там null, нужно инициализироавть.
@@ -47,6 +71,9 @@ public class CreditCard {
         marks.get(newSemestr).put(subject, mark);
     }
 
+    /**
+     * Calculate average mark.
+     */
     public double getAvgMark() {
         int avgMark = 0;
         int marksCount = 0;
@@ -56,9 +83,12 @@ public class CreditCard {
                 marksCount++;
             }
         }
-        return (double)avgMark/(double) marksCount;
+        return (double) avgMark / (double) marksCount;
     }
 
+    /**
+     * Calculate opportunity have red diploma.
+     */
     public boolean redDiplom() {
         //если квалификационная оценка не 5, т смысла проверять дальше нет
         if (cvalification != Mark.EXCELLENT) {
@@ -70,7 +100,7 @@ public class CreditCard {
         //последняя оценка, котрая была записана по имени предмета - итоговая в диплом
         for (int i = 0; i < this.semestr; i++) {
             for (String subject : marks.get(i).keySet()) {
-                final_mark.put(subject, marks.get(i).get(subject));
+                finalMark.put(subject, marks.get(i).get(subject));
                 if (marks.get(i).get(subject) == Mark.UNSATISFACTORY
                         || marks.get(i).get(subject) == Mark.SATISFACTORY) {
                     return false;
@@ -80,31 +110,33 @@ public class CreditCard {
         int countExc = 0;
         int marksCount = 0;
         //считаю сумму итгоовых оценок
-        for (String subject : final_mark.keySet()) {
-            if (final_mark.get(subject) == Mark.EXCELLENT) {
+        for (String subject : finalMark.keySet()) {
+            if (finalMark.get(subject) == Mark.EXCELLENT) {
                 countExc++;
             }
-            if (final_mark.get(subject) == Mark.UNSATISFACTORY) {
+            if (finalMark.get(subject) == Mark.UNSATISFACTORY) {
                 System.out.println("Ну отчислен...");
                 return false;
             }
-            if (final_mark.get(subject) == Mark.SATISFACTORY) {
+            if (finalMark.get(subject) == Mark.SATISFACTORY) {
                 System.out.println("Хороший подстаканник");
                 return false;
             }
-            marksCount ++;
+            marksCount++;
         }
-        if ((double)countExc / (double)marksCount >= 0.75) {
+        if ((double) countExc / (double) marksCount >= 0.75) {
             System.out.println("Ну может и красный");
             return true;
-        }
-        else {
+        } else {
             System.out.println("Хороший подстаканник");
             return false;
         }
     }
 
-    public boolean getScholarship (int semestrnum) {
+    /**
+     * Find can student live in this semestr.
+     */
+    public boolean getScholarship(int semestrnum) {
         //раситываем semestrnum -1 так как считаем балл за прошлый семестр,
         // чтобы получить стипу за этот
         for (String subject : marks.get(semestrnum - 1).keySet()) {

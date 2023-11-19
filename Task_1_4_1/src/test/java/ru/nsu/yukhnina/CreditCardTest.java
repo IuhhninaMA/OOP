@@ -1,8 +1,8 @@
 package ru.nsu.yukhnina;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class CreditCardTest {
     @Test
@@ -13,7 +13,7 @@ class CreditCardTest {
         testAdd.setMark(3, "B", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(4, "B", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(5, "C", CreditCard.Mark.EXCELLENT);
-        assertEquals(4.8, testAdd.getAvgMark() );
+        assertEquals(4.8, testAdd.getAvgMark());
     }
 
     @Test

@@ -1,6 +1,8 @@
 package ru.nsu.yukhnina;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +26,7 @@ class CreditCardTest {
         testAdd.setMark(3, "B", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(4, "B", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(5, "C", CreditCard.Mark.EXCELLENT);
-        assertEquals(true, testAdd.redDiplom());
+        assertTrue(testAdd.redDiplom());
     }
 
     @Test
@@ -36,7 +38,7 @@ class CreditCardTest {
         testAdd.setMark(4, "B", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(5, "C", CreditCard.Mark.EXCELLENT);
         testAdd.setCvalificationMark(CreditCard.Mark.EXCELLENT);
-        assertEquals(true, testAdd.redDiplom());
+        assertTrue(testAdd.redDiplom());
     }
 
     @Test
@@ -48,7 +50,7 @@ class CreditCardTest {
         testAdd.setMark(4, "B", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(5, "C", CreditCard.Mark.EXCELLENT);
         testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
-        assertEquals(false, testAdd.redDiplom());
+        assertFalse(testAdd.redDiplom());
     }
 
     @Test
@@ -60,7 +62,7 @@ class CreditCardTest {
         testAdd.setMark(4, "GYM", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(5, "Art", CreditCard.Mark.EXCELLENT);
         testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
-        assertEquals(false, testAdd.redDiplom());
+        assertFalse(testAdd.redDiplom());
     }
 
     @Test
@@ -71,7 +73,7 @@ class CreditCardTest {
         testAdd.setMark(4, "GYM", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(5, "Art", CreditCard.Mark.EXCELLENT);
         testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
-        assertEquals(false, testAdd.redDiplom());
+        assertFalse(testAdd.redDiplom());
     }
 
     @Test
@@ -84,7 +86,7 @@ class CreditCardTest {
         testAdd.setMark(4, "GYM", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(5, "Art", CreditCard.Mark.EXCELLENT);
         testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
-        assertEquals(false, testAdd.redDiplom());
+        assertFalse(testAdd.redDiplom());
     }
 
     @Test
@@ -96,7 +98,7 @@ class CreditCardTest {
         testAdd.setMark(5, "Art", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(3, "B", CreditCard.Mark.SATISFACTORY);
         testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
-        assertEquals(false, testAdd.redDiplom());
+        assertFalse(testAdd.redDiplom());
     }
 
     @Test
@@ -108,7 +110,7 @@ class CreditCardTest {
         testAdd.setMark(5, "Art", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(4, "B", CreditCard.Mark.SATISFACTORY);
         testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
-        assertEquals(false, testAdd.redDiplom());
+        assertFalse(testAdd.redDiplom());
     }
 
     @Test
@@ -124,11 +126,11 @@ class CreditCardTest {
         testAdd.setMark(3, "C", CreditCard.Mark.EXCELLENT);
         testAdd.setMark(3, "D", CreditCard.Mark.GOOD);
         testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
-        assertEquals(true, testAdd.getScholarship(1));
-        assertEquals(true, testAdd.getScholarship(2));
-        assertEquals(false, testAdd.getScholarship(3));
-        assertEquals(false, testAdd.getScholarship(4));
-        assertEquals(true, testAdd.getScholarship(5));
-        assertEquals(true, testAdd.getScholarship(6));
+        assertTrue(testAdd.getScholarship(1));
+        assertTrue(testAdd.getScholarship(2));
+        assertFalse(testAdd.getScholarship(3));
+        assertFalse(testAdd.getScholarship(4));
+        assertTrue(testAdd.getScholarship(5));
+        assertTrue(testAdd.getScholarship(6));
     }
 }

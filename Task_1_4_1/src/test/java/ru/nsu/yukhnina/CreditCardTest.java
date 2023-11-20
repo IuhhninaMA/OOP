@@ -100,6 +100,18 @@ class CreditCardTest {
     }
 
     @Test
+    void testStupidUser() {
+        CreditCard testAdd = new CreditCard();
+        testAdd.setMark(6, "A", CreditCard.Mark.UNSATISFACTORY);
+        testAdd.setMark(4, "GYM", CreditCard.Mark.EXCELLENT);
+        testAdd.setMark(2, "A", CreditCard.Mark.UNSATISFACTORY);
+        testAdd.setMark(5, "Art", CreditCard.Mark.EXCELLENT);
+        testAdd.setMark(4, "B", CreditCard.Mark.SATISFACTORY);
+        testAdd.setCvalificationMark(CreditCard.Mark.GOOD);
+        assertEquals(false, testAdd.redDiplom());
+    }
+
+    @Test
     void testGetStipa() {
         //стипа на текущий семестр расчитывается на основе данных о прошлом
         CreditCard testAdd = new CreditCard();

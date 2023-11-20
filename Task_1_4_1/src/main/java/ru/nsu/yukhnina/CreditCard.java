@@ -11,7 +11,6 @@ import java.util.HashMap;
 public class CreditCard {
     //один и тот же предмет может повторяться несколько семестров,
     // но на оценку диплома влияет только посленяя, которая и будет храниться тут
-    private HashMap<String, Mark> finalMark;
     private ArrayList<HashMap<String, Mark>> marks;
     private int semestr;
     private Mark cvalification;
@@ -24,7 +23,6 @@ public class CreditCard {
      * And enums its marks we can have.
      */
     public CreditCard() {
-        finalMark = new HashMap<>();
         marks = new ArrayList<HashMap<String, Mark>>();
         marks.add(new HashMap<String, Mark>()); //добавляю значения для расчёта стипы за 1 семестр
         semestr = 0;
@@ -90,9 +88,9 @@ public class CreditCard {
      * Calculate opportunity have red diploma.
      */
     public boolean redDiplom() {
+        HashMap<String, Mark> finalMark = new HashMap<>();
         //если квалификационная оценка не 5, т смысла проверять дальше нет
         if (cvalification != Mark.EXCELLENT) {
-            System.out.println("Хороший подстаканник");
             return false;
         }
         //прохожусь по всем предметам - оценкам,
@@ -115,20 +113,16 @@ public class CreditCard {
                 countExc++;
             }
             if (finalMark.get(subject) == Mark.UNSATISFACTORY) {
-                System.out.println("Ну отчислен...");
                 return false;
             }
             if (finalMark.get(subject) == Mark.SATISFACTORY) {
-                System.out.println("Хороший подстаканник");
                 return false;
             }
             marksCount++;
         }
         if ((double) countExc / (double) marksCount >= 0.75) {
-            System.out.println("Ну может и красный");
             return true;
         } else {
-            System.out.println("Хороший подстаканник");
             return false;
         }
     }
@@ -141,19 +135,15 @@ public class CreditCard {
         // чтобы получить стипу за этот
         for (String subject : marks.get(semestrnum - 1).keySet()) {
             if (marks.get(semestrnum - 1).get(subject) == Mark.SATISFACTORY) {
-                System.out.println("Ну пролетел ты со стипой совсем, даже 3500 не увидишь");
                 return false;
             }
             if (marks.get(semestrnum - 1).get(subject) == Mark.UNSATISFACTORY) {
-                System.out.println("Ну пролетел ты со стипой, так ещё и на пересдачу отправился");
                 return false;
             }
             if (marks.get(semestrnum - 1).get(subject) == Mark.GOOD) {
-                System.out.println("Ну молодец 3500");
                 return false;
             }
         }
-        System.out.println("О, ну даже 5000, а нервы остались?");
         return true;
     }
 }

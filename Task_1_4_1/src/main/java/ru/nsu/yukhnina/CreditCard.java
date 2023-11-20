@@ -2,6 +2,8 @@ package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.stream.IntStream;
 
 /**
  * Record book class. Find avg mark,
@@ -96,15 +98,19 @@ public class CreditCard {
         //прохожусь по всем предметам - оценкам,
         //записываю их в хэшмапку,
         //последняя оценка, котрая была записана по имени предмета - итоговая в диплом
-        for (int i = 0; i < this.semestr; i++) {
-            for (String subject : marks.get(i).keySet()) {
-                finalMark.put(subject, marks.get(i).get(subject));
-                if (marks.get(i).get(subject) == Mark.UNSATISFACTORY
-                        || marks.get(i).get(subject) == Mark.SATISFACTORY) {
-                    return false;
-                }
-            }
-        }
+//        for (int i = 0; i < this.semestr; i++) {
+//            for (String subject : marks.get(i).keySet()) {
+//                finalMark.put(subject, marks.get(i).get(subject));
+//                if (marks.get(i).get(subject) == Mark.UNSATISFACTORY
+//                        || marks.get(i).get(subject) == Mark.SATISFACTORY) {
+//                    return false;
+//                }
+//            }
+//        }
+        IntStream.range(0, this.semestr)
+                .forEach(i -> marks.get(i).forEach((subject, mark) -> {
+                    finalMark.put(subject, mark);
+                }));
         int countExc = 0;
         int marksCount = 0;
         //считаю сумму итгоовых оценок
@@ -112,13 +118,12 @@ public class CreditCard {
             if (finalMark.get(subject) == Mark.EXCELLENT) {
                 countExc++;
             }
-            if (finalMark.get(subject) == Mark.UNSATISFACTORY) {
+            if (finalMark.get(subject) == Mark.SATISFACTORY) {
                 return false;
             }
             if (finalMark.get(subject) == Mark.SATISFACTORY) {
                 return false;
             }
-            marksCount++;
         }
         if ((double) countExc / (double) marksCount >= 0.75) {
             return true;
@@ -146,4 +151,14 @@ public class CreditCard {
         }
         return true;
     }
+
+//    public static void main(String[] args) {
+//        CreditCard testAdd = new CreditCard();
+//        testAdd.setMark(1, "A", CreditCard.Mark.GOOD);
+//        testAdd.setMark(2, "A", CreditCard.Mark.EXCELLENT);
+//        testAdd.setMark(3, "B", CreditCard.Mark.EXCELLENT);
+//        testAdd.setMark(4, "B", CreditCard.Mark.EXCELLENT);
+//        testAdd.setMark(5, "C", CreditCard.Mark.EXCELLENT);
+//        testAdd.redDiplom();
+//    }
 }

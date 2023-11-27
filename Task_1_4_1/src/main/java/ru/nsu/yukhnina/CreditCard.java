@@ -2,7 +2,8 @@ package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -75,57 +76,44 @@ public class CreditCard {
      * Calculate average mark.
      */
     public double getAvgMark() {
-        int avgMark = 0;
-        int marksCount = 0;
-        for (int i = 0; i <= this.semestr; i++) {
-            for (String subject : marks.get(i).keySet()) {
-                avgMark += marks.get(i).get(subject).value;
-                marksCount++;
-            }
-        }
-        return (double) avgMark / (double) marksCount;
+        double avgMark = marks.stream() // stream over each map in the list
+                .flatMap(map -> map.values().stream()) // flatten the values of each map into a single stream
+                .mapToInt(p -> p.value)
+                .average()
+                .orElse(0);
+
+        return avgMark;
     }
 
     /**
      * Calculate opportunity have red diploma.
      */
     public boolean redDiplom() {
-        HashMap<String, Mark> finalMark = new HashMap<>();
         //если квалификационная оценка не 5, т смысла проверять дальше нет
         if (cvalification != Mark.EXCELLENT) {
             return false;
         }
-        //прохожусь по всем предметам - оценкам,
-        //записываю их в хэшмапку,
-        //последняя оценка, котрая была записана по имени предмета - итоговая в диплом
-//        for (int i = 0; i < this.semestr; i++) {
-//            for (String subject : marks.get(i).keySet()) {
-//                finalMark.put(subject, marks.get(i).get(subject));
-//                if (marks.get(i).get(subject) == Mark.UNSATISFACTORY
-//                        || marks.get(i).get(subject) == Mark.SATISFACTORY) {
-//                    return false;
-//                }
-//            }
-//        }
-        IntStream.range(0, this.semestr)
-                .forEach(i -> marks.get(i).forEach((subject, mark) -> {
-                    finalMark.put(subject, mark);
-                }));
+        Map<String, Mark> finalMark = marks.stream()
+                .flatMap (map -> map.entrySet().stream())
+                .collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue(),
+                        (sem_grade1, sem_grade2) -> sem_grade2));
         int countExc = 0;
         int marksCount = 0;
         //считаю сумму итгоовых оценок
-        for (String subject : finalMark.keySet()) {
-            if (finalMark.get(subject) == Mark.EXCELLENT) {
-                countExc++;
-            }
-            if (finalMark.get(subject) == Mark.SATISFACTORY) {
-                return false;
-            }
-            if (finalMark.get(subject) == Mark.SATISFACTORY) {
-                return false;
-            }
+
+        if (finalMark.values()
+                .stream()
+                .filter(p -> p.value <= Mark.SATISFACTORY.value)
+                .count() > 0) {
+            return false;
         }
-        if ((double) countExc / (double) marksCount >= 0.75) {
+        if ((double) finalMark.values()
+                .stream()
+                .filter(p -> p == Mark.EXCELLENT)
+                .count() / (double) finalMark.values()
+                .stream()
+                .count()
+                  >= 0.75) {
             return true;
         } else {
             return false;
@@ -136,29 +124,15 @@ public class CreditCard {
      * Find can student live in this semestr.
      */
     public boolean getScholarship(int semestrnum) {
-        //раситываем semestrnum -1 так как считаем балл за прошлый семестр,
-        // чтобы получить стипу за этот
-        for (String subject : marks.get(semestrnum - 1).keySet()) {
-            if (marks.get(semestrnum - 1).get(subject) == Mark.SATISFACTORY) {
-                return false;
-            }
-            if (marks.get(semestrnum - 1).get(subject) == Mark.UNSATISFACTORY) {
-                return false;
-            }
-            if (marks.get(semestrnum - 1).get(subject) == Mark.GOOD) {
-                return false;
-            }
+        if (marks
+                .get(semestrnum - 1)
+                .values()
+                .stream()
+                .filter(p -> p.value <= Mark.SATISFACTORY.value)
+                .count() > 0) {
+            return false;
         }
         return true;
     }
 
-//    public static void main(String[] args) {
-//        CreditCard testAdd = new CreditCard();
-//        testAdd.setMark(1, "A", CreditCard.Mark.GOOD);
-//        testAdd.setMark(2, "A", CreditCard.Mark.EXCELLENT);
-//        testAdd.setMark(3, "B", CreditCard.Mark.EXCELLENT);
-//        testAdd.setMark(4, "B", CreditCard.Mark.EXCELLENT);
-//        testAdd.setMark(5, "C", CreditCard.Mark.EXCELLENT);
-//        testAdd.redDiplom();
-//    }
 }

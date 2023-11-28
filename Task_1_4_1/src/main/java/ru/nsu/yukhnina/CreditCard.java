@@ -76,8 +76,8 @@ public class CreditCard {
      * Calculate average mark.
      */
     public double getAvgMark() {
-        double avgMark = marks.stream() // stream over each map in the list
-                .flatMap(map -> map.values().stream()) // flatten the values of each map into a single stream
+        double avgMark = marks.stream()
+                .flatMap(map -> map.values().stream())
                 .mapToInt(p -> p.value)
                 .average()
                 .orElse(0);
@@ -94,9 +94,9 @@ public class CreditCard {
             return false;
         }
         Map<String, Mark> finalMark = marks.stream()
-                .flatMap (map -> map.entrySet().stream())
+                .flatMap(map -> map.entrySet().stream())
                 .collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue(),
-                        (sem_grade1, sem_grade2) -> sem_grade2));
+                        (semGrade1, semGrade2) -> semGrade2));
         int countExc = 0;
         int marksCount = 0;
         //считаю сумму итгоовых оценок

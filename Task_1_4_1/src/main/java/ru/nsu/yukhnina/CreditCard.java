@@ -97,9 +97,6 @@ public class CreditCard {
                 .flatMap(map -> map.entrySet().stream())
                 .collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue(),
                         (semGrade1, semGrade2) -> semGrade2));
-        int countExc = 0;
-        int marksCount = 0;
-        //считаю сумму итгоовых оценок
 
         if (finalMark.values()
                 .stream()

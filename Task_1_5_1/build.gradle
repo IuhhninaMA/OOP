@@ -1,8 +1,9 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
-group = 'ru.nsu.yukhnina'
+group = 'ru.nsu.Yukhnina'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -14,12 +15,18 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+
+javadoc {
+    destinationDir = file("${buildDir}/docs/javadoc")
+}
+
+
 test {
     useJUnitPlatform()
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+jacocoTestReport {
+    reports {
+        xml.required = true
     }
 }

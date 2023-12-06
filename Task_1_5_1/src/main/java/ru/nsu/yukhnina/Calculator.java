@@ -37,26 +37,26 @@ public class Calculator {
             while (!bulbulyator.operations.isEmpty()) {
                 switch (bulbulyator.operations.peek()) {
                     case ("+"): {
-                        bulbulyator.currNum.push
-                                (Plus.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                        bulbulyator.currNum
+                                .push(Plus.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }
                     case ("-"): {
-                        bulbulyator.currNum.push
-                                (Minus.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                        bulbulyator.currNum
+                                .push(Minus.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }
                     case ("*"): {
-                        bulbulyator.currNum.push
-                                (Mult.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                        bulbulyator.currNum
+                                .push(Mult.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }
                     case ("/"): {
-                        bulbulyator.currNum.push
-                                (Div.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                        bulbulyator.currNum
+                                .push(Div.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }
@@ -76,7 +76,8 @@ public class Calculator {
                         break;
                     }
                     case ("pow"): {
-                        bulbulyator.currNum.push(Pow.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                        bulbulyator.currNum
+                                .push(Pow.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }

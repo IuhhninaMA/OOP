@@ -30,7 +30,7 @@ public class Calculator {
         Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         while (!str.equals("stop")) {
-            String[] expression = str.split("\s", 0);
+            String[] expression = str.split(" ", 0);
             for (String s : expression) {
                 bulbulyator.operations.push(s);
             }

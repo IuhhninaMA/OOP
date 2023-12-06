@@ -1,16 +1,16 @@
 package ru.nsu.yukhnina;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
     OutputStream output = new ByteArrayOutputStream();
+
     @Test
     void testPlus() {
         System.setOut(new PrintStream(output));

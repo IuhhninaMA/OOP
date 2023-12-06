@@ -38,25 +38,29 @@ public class Calculator {
                 switch (bulbulyator.operations.peek()) {
                     case ("+"): {
                         bulbulyator.currNum
-                                .push(Plus.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                                .push(Plus.calc(bulbulyator.currNum.pop()
+                                        , bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }
                     case ("-"): {
                         bulbulyator.currNum
-                                .push(Minus.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                                .push(Minus.calc(bulbulyator.currNum.pop()
+                                        , bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }
                     case ("*"): {
                         bulbulyator.currNum
-                                .push(Mult.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                                .push(Mult.calc(bulbulyator.currNum.pop()
+                                        , bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }
                     case ("/"): {
                         bulbulyator.currNum
-                                .push(Div.calc(bulbulyator.currNum.pop(), bulbulyator.currNum.pop()));
+                                .push(Div.calc(bulbulyator.currNum.pop()
+                                        , bulbulyator.currNum.pop()));
                         bulbulyator.operations.pop();
                         break;
                     }

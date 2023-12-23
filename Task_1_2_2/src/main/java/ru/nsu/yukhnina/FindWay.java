@@ -1,6 +1,7 @@
 package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * класс, использующий граф для поиска путей между вершинами.
@@ -58,6 +59,36 @@ public class FindWay<G> {
                 }
             }
         }
+    }
+
+
+    public int bellmanFord(Graph<G> graph, G vert, G vert2) {
+        int src = graph.findId(vert);
+        int V = graph.getVertices().size();
+        int[] dist = new int[V];
+
+        // Step 1: Initialize distances from src to all
+        // other vertices as INFINITE
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[src] = 0;
+
+        // Step 2: Relax all edges |V| - 1 times. A simple
+        // shortest path from src to any other vertex can
+        // have at-most |V| - 1 edges
+        int weight ;
+        for (int i = 1; i < V; ++i) {
+            for (int j = 0; j < V; ++j) {
+                for (int k = 0; k < V; k++) {
+                    Edge<G> edge = graph.getEdge(graph.getVertices().get(j).getVert(), graph.getVertices().get(k).getVert());
+                    if (edge != null) {
+                        weight = (int) edge.getWeight();
+                        if (dist[j] != Integer.MAX_VALUE && dist[j] + weight < dist[k])
+                            dist[k] = dist[j] + weight;
+                    }
+                }
+            }
+        }
+        return dist[graph.findId(vert2)];
     }
 
     public Integer getWay(Graph<G> g, G vert2) {

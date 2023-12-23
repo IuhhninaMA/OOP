@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -251,6 +251,11 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 </td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCountEdge()">getCountEdge</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>ru.nsu.yukhnina.Edge&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdge(G,G)">getEdge</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2)</code></th>
@@ -258,21 +263,21 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="block">Get edge object if we know vertices from adn to.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>ru.nsu.yukhnina.Vertex&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVert(G)">getVert</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1)</code></th>
 <td class="colLast">
 <div class="block">Get verisces obgect if we know name.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;ru.nsu.yukhnina.Vertex&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getVertices()">getVertices</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Вернуть список вершин.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEdge(G,G,G)">setEdge</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert1,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;vert2,
@@ -281,7 +286,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <div class="block">Change edge name.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVert(G,G)">setVert</a></span>&#8203;(<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;oldVert,
        <a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&nbsp;newVert)</code></th>
@@ -492,7 +497,7 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <a id="getVertices()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getVertices</h4>
 <pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;ru.nsu.yukhnina.Vertex&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;&gt;&nbsp;getVertices()</pre>
@@ -500,6 +505,19 @@ implements <a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&l
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Graph.html#getVertices()">getVertices</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="getCountEdge()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getCountEdge</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getCountEdge()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="Graph.html#getCountEdge()">getCountEdge</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in ru.nsu.yukhnina">Graph</a>&lt;<a href="IncidentMatrix.html" title="type parameter in IncidentMatrix">G</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>

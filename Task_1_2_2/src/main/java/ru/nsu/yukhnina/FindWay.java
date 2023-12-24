@@ -75,7 +75,7 @@ public class FindWay<G> {
         // Step 2: Relax all edges |V| - 1 times. A simple
         // shortest path from src to any other vertex can
         // have at-most |V| - 1 edges
-        int weight ;
+        int weight;
         for (int i = 1; i < V; ++i) {
             for (int j = 0; j < V; ++j) {
                 for (int k = 0; k < V; k++) {
@@ -88,6 +88,20 @@ public class FindWay<G> {
                 }
             }
         }
+
+        for (int j = 0; j < V; j++) {
+            for (int k = 0; k < V; k++) {
+                Edge<G> edge = graph.getEdge(graph.getVertices().get(j).getVert(), graph.getVertices().get(k).getVert());
+                if (edge != null) {
+                    weight = (int) edge.getWeight();
+                    if (dist[j] != Integer.MAX_VALUE && dist[j] + weight < dist[k]) {
+                        dist[k] = dist[j] + weight;
+                        System.out.println("negative cycle");
+                        return -1;
+                    }
+                }
+            }
+            }
         return dist[graph.findId(vert2)];
     }
 

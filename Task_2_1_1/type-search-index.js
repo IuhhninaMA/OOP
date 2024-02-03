@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.yukhnina","l":"OneStream"},{"p":"ru.nsu.yukhnina","l":"PrimeNumParallel"},{"p":"ru.nsu.yukhnina","l":"PrimeNumSequent"},{"p":"ru.nsu.yukhnina","l":"PrimeNuSterams"}]

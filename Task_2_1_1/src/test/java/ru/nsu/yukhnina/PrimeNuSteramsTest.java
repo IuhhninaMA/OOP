@@ -8,40 +8,40 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PrimeNuSteramsTest {
     @Test
-    void easyTest() {
+    void easyTest() throws InterruptedException {
         ArrayList<Integer> testList = new ArrayList<>();
         testList.add(7);
         testList.add(2);
         testList.add(3);
         testList.add(5);
-        PrimeNuSterams test = new PrimeNuSterams(testList, 2);
+        PrimeNumThread test = new PrimeNumThread(testList, 2);
         assertFalse(test.checkStreams());
     }
 
     @Test
-    void easyTest2() {
+    void easyTest2() throws InterruptedException {
         ArrayList<Integer> testList = new ArrayList<>();
         testList.add(2);
         testList.add(3);
         testList.add(5);
         testList.add(8);
-        PrimeNuSterams test = new PrimeNuSterams(testList, 10);
+        PrimeNumThread test = new PrimeNumThread(testList, 10);
         assertTrue(test.checkStreams());
     }
 
     @Test
-    void easyTest3() {
+    void easyTest3() throws InterruptedException {
         ArrayList<Integer> testList = new ArrayList<>();
         testList.add(2);
         testList.add(3);
         testList.add(5);
         testList.add(10);
-        PrimeNuSterams test = new PrimeNuSterams(testList, 2);
+        PrimeNumThread test = new PrimeNumThread(testList, 2);
         assertTrue(test.checkStreams());
     }
 
     @Test
-    void testFromTask() {
+    void testFromTask() throws InterruptedException {
         //[6, 8, 7, 13, 5, 9, 4]
         ArrayList<Integer> testList = new ArrayList<>();
         testList.add(6);
@@ -51,12 +51,12 @@ class PrimeNuSteramsTest {
         testList.add(5);
         testList.add(9);
         testList.add(4);
-        PrimeNuSterams test = new PrimeNuSterams(testList, 2);
+        PrimeNumThread test = new PrimeNumThread(testList, 2);
         assertTrue(test.checkStreams());
     }
 
     @Test
-    void testFromTask2() {
+    void testFromTask2() throws InterruptedException {
         //[20319251, 6997901, 6997927, 6997937, 17858849, 6997967,
         //6998009, 6998029, 6998039, 20165149, 6998051, 6998053]
         ArrayList<Integer> testList = new ArrayList<>();
@@ -72,7 +72,7 @@ class PrimeNuSteramsTest {
         testList.add(20165149);
         testList.add(6998051);
         testList.add(6998053);
-        PrimeNuSterams test = new PrimeNuSterams(testList, 2);
+        PrimeNumThread test = new PrimeNumThread(testList, 2);
         assertFalse(test.checkStreams());
     }
 }

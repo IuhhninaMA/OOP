@@ -14,7 +14,7 @@ class PrimeNumParallelTest {
         testList.add(2);
         testList.add(3);
         testList.add(5);
-        PrimeNumParallel test = new PrimeNumParallel(testList);
+        PrimeNumParallelStream test = new PrimeNumParallelStream(testList);
         assertFalse(test.checkParallel());
     }
 
@@ -25,7 +25,7 @@ class PrimeNumParallelTest {
         testList.add(3);
         testList.add(5);
         testList.add(8);
-        PrimeNumParallel test = new PrimeNumParallel(testList);
+        PrimeNumParallelStream test = new PrimeNumParallelStream(testList);
         assertTrue(test.checkParallel());
     }
 
@@ -36,7 +36,7 @@ class PrimeNumParallelTest {
         testList.add(3);
         testList.add(5);
         testList.add(10);
-        PrimeNumParallel test = new PrimeNumParallel(testList);
+        PrimeNumParallelStream test = new PrimeNumParallelStream(testList);
         assertTrue(test.checkParallel());
     }
 
@@ -51,7 +51,7 @@ class PrimeNumParallelTest {
         testList.add(5);
         testList.add(9);
         testList.add(4);
-        PrimeNumParallel test = new PrimeNumParallel(testList);
+        PrimeNumParallelStream test = new PrimeNumParallelStream(testList);
         assertTrue(test.checkParallel());
     }
 
@@ -72,7 +72,7 @@ class PrimeNumParallelTest {
         testList.add(20165149);
         testList.add(6998051);
         testList.add(6998053);
-        PrimeNumParallel test = new PrimeNumParallel(testList);
+        PrimeNumParallelStream test = new PrimeNumParallelStream(testList);
         assertFalse(test.checkParallel());
     }
 }

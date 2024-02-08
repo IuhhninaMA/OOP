@@ -14,6 +14,7 @@ public class PrimeNumSequent {
     public PrimeNumSequent(ArrayList<Integer> numbers) {
         this.numbers = numbers;
     }
+
     /**
      * Проверяем все делители до квадрата числа,
      * если таких не найдено - число простое.

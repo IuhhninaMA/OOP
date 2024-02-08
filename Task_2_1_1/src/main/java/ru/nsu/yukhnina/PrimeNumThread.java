@@ -34,11 +34,12 @@ public class PrimeNumThread {
      * обраьатываю в один поток.
      */
     public boolean checkStreams() throws InterruptedException {
-        int ArrayLen = numbers.size() / streamsCount;
+        int arrayLen = numbers.size() / streamsCount;
         int countTail = numbers.size() % streamsCount;
         int currStart = 0;
-        //костыль, когда пытаются запросить больше потоков чем чисел в массиве, обраьатываю в один поток
-        if (ArrayLen < streamsCount) {
+        //костыль, когда пытаются запросить больше потоков чем чисел в массиве,
+        // обраьатываю в один поток
+        if (arrayLen < streamsCount) {
             OneThread newThread = new OneThread(numbers, 0, numbers.size());
             threadsArrays.add(newThread);
             Thread childThread = new Thread(newThread);
@@ -46,23 +47,23 @@ public class PrimeNumThread {
             childThread.start();
         }
 
-        //запускаю первые кусочки массива длины ArrayLen+1.
-        for (int i = 0; i < countTail; i++) {
-            OneThread newThread = new OneThread(numbers, currStart, ArrayLen+1);
+        //запускаю первые кусочки массива длины arrayLen+1.
+        for (int i = 0; i < countTail; i ++) {
+            OneThread newThread = new OneThread(numbers, currStart, arrayLen+1);
             threadsArrays.add(newThread);
             Thread childThread = new Thread(newThread);
             threads[i] = childThread;
             childThread.start();
-            currStart += ArrayLen + 1;
+            currStart += arrayLen + 1;
         }
 
-        for (int i = countTail; i < streamsCount; i++) {
-            OneThread newThread = new OneThread(numbers, currStart, ArrayLen);
+        for (int i = countTail; i < streamsCount; i ++) {
+            OneThread newThread = new OneThread(numbers, currStart, arrayLen);
             threadsArrays.add(newThread);
             Thread childThread = new Thread(newThread);
             threads[i] = childThread;
             childThread.start();
-            currStart += ArrayLen;
+            currStart += arrayLen;
         }
 
         for (int i = 0; i < streamsCount; i++) {

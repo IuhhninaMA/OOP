@@ -37,8 +37,8 @@ public class OneThread implements Runnable {
 
     @Override
     public void run() {
-        for (int i = start; i < start+len; i++) {
-            if (isPrime.isPrime(numbers.get(i))) {
+        for (int i = start; i < start + len; i ++) {
+            if (IsPrime.isPrimeMethod(numbers.get(i))) {
                 isPrimeArray = false;
                 break;
             }

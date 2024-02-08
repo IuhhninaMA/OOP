@@ -21,7 +21,7 @@ public class PrimeNumParallelStream {
      * овзвращаю true, если есть хотя бы одно не простое число, иначе false.
      */
     public boolean checkParallel() {
-        return (numbers.parallelStream().anyMatch(isPrime::isPrime));
+        return (numbers.parallelStream().anyMatch(IsPrime::isPrimeMethod));
     }
 
 }

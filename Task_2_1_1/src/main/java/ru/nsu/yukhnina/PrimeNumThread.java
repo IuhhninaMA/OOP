@@ -48,8 +48,8 @@ public class PrimeNumThread {
         }
 
         //запускаю первые кусочки массива длины arrayLen+1.
-        for (int i = 0; i < countTail; i ++) {
-            OneThread newThread = new OneThread(numbers, currStart, arrayLen+1);
+        for (int i = 0; i < countTail; i++) {
+            OneThread newThread = new OneThread(numbers, currStart, arrayLen + 1);
             threadsArrays.add(newThread);
             Thread childThread = new Thread(newThread);
             threads[i] = childThread;
@@ -57,7 +57,7 @@ public class PrimeNumThread {
             currStart += arrayLen + 1;
         }
 
-        for (int i = countTail; i < streamsCount; i ++) {
+        for (int i = countTail; i < streamsCount; i++) {
             OneThread newThread = new OneThread(numbers, currStart, arrayLen);
             threadsArrays.add(newThread);
             Thread childThread = new Thread(newThread);

@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Тут даже пояснять не надо.
  */
 public class PrimeNumSequent {
+
     private ArrayList<Integer> numbers;
     /**
      * numbers - обрабатываемы массив.

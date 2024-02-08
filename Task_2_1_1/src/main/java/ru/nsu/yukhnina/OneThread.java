@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class OneThread implements Runnable {
 
     //я не сильно поняла зачем volatite, но пусть будет.
-    private volatile boolean isPrime;
+    private volatile boolean isPrimeArray;
     private final int start;
     private final int len;
     private final ArrayList<Integer> numbers;
@@ -22,7 +22,7 @@ public class OneThread implements Runnable {
      * результат вычислений.
      */
     public OneThread(ArrayList<Integer> numbers, int start, int len) {
-        isPrime = true; //true - все простые.
+        isPrimeArray = true; //true - все простые.
         this.start = start;
         this.len = len;
         this.numbers = numbers;
@@ -32,17 +32,15 @@ public class OneThread implements Runnable {
      * возвращает результат вычислений.
      */
     public boolean isAllNumbersPrime() {
-        return isPrime;
+        return isPrimeArray;
     }
 
     @Override
     public void run() {
         for (int i = start; i < start+len; i++) {
-            for (int j = 2; j <= (((int) Math.sqrt(numbers.get(i))) + 1); j++) {
-                if (numbers.get(i) % j == 0 && j != numbers.get(i)) {
-                    isPrime = false;
-                    break;
-                }
+            if (isPrime.isPrime(numbers.get(i))) {
+                isPrimeArray = false;
+                break;
             }
         }
     }

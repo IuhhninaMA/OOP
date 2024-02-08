@@ -21,11 +21,9 @@ public class PrimeNumSequent{
      */
     public boolean check() {
         for (int i = 0; i < numbers.size(); i++) {
-            for (int j = 2; j <= (((int) Math.sqrt(numbers.get(i))) + 1); j++) {
-                if (numbers.get(i) % j == 0 && j != numbers.get(i)) {
-                    return true;
-                }
-            }
+           if (isPrime.isPrime(numbers.get(i))) {
+               return true;
+           }
         }
         return false;
     }

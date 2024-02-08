@@ -30,10 +30,12 @@ public class PrimeNumThread {
      * По кусочкам делим массив, сначала закидываем кусочки подлиннее,
      * потом покороче, отдельно проверяем если потоков больше чем чисел,
      * обрабатываем отдельно.
+     * *когда пытаются запросить больше потоков чем чисел в массиве,
+     * обраьатываю в один поток.
      */
     public boolean checkStreams() throws InterruptedException {
         int ArrayLen = numbers.size() / streamsCount;
-        int countTail = ArrayLen % streamsCount;
+        int countTail = numbers.size() % streamsCount;
         int currStart = 0;
         //костыль, когда пытаются запросить больше потоков чем чисел в массиве, обраьатываю в один поток
         if (ArrayLen < streamsCount) {
@@ -66,6 +68,11 @@ public class PrimeNumThread {
         for (int i = 0; i < streamsCount; i++) {
             threads[i].join();
             if (!threadsArrays.get(i).isAllNumbersPrime()) {
+                //если нашёлся кусочек, где есть непростое число,
+                //то сразу прерываем все остальные процессы.
+                for (int j = i; j < streamsCount; j++) {
+                    threads[i].interrupt();
+                }
                 return true;
             }
         }

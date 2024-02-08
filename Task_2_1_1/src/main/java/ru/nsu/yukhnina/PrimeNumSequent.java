@@ -11,6 +11,7 @@ public class PrimeNumSequent {
     /**
      * numbers - обрабатываемы массив.
      */
+
     public PrimeNumSequent(ArrayList<Integer> numbers) {
         this.numbers = numbers;
     }

@@ -66,16 +66,20 @@ public class PrimeNumThread {
             currStart += arrayLen;
         }
 
-        for (int i = 0; i < streamsCount; i++) {
-            threads[i].join();
-            if (!threadsArrays.get(i).isAllNumbersPrime()) {
-                //если нашёлся кусочек, где есть непростое число,
-                //то сразу прерываем все остальные процессы.
-                for (int j = i; j < streamsCount; j++) {
-                    threads[i].interrupt();
+        try {
+            for (int i = 0; i < streamsCount; i++) {
+                threads[i].join();
+                if (!threadsArrays.get(i).isAllNumbersPrime()) {
+                    //если нашёлся кусочек, где есть непростое число,
+                    //то сразу прерываем все остальные процессы.
+                    for (int j = i; j < streamsCount; j++) {
+                        threads[i].interrupt();
+                    }
+                    return true;
                 }
-                return true;
             }
+        } catch (InterruptedException e) {
+            System.out.println("Ой ой");
         }
         return false;
     }

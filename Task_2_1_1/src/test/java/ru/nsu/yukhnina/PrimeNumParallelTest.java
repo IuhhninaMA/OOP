@@ -83,4 +83,121 @@ class PrimeNumParallelTest {
         PrimeNumThread test = new PrimeNumThread(testList, 10);
         assertTrue(test.checkStreams());
     }
+
+    @Test
+    void testForGraph2() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 2);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph3() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 3);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph4() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 4);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph5() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 5);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph6() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 6);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph7() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 7);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph8() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 8);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph10() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 10);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
+
+    @Test
+    void testForGraph15() throws InterruptedException {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumThread test = new PrimeNumThread(testArrayList, 15);
+        assertFalse(test.checkStreams());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
 }

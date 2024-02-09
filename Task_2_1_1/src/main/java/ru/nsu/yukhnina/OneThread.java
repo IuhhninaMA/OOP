@@ -37,11 +37,11 @@ public class OneThread implements Runnable {
 
     @Override
     public void run() {
-        for (int i = start; i < start + len; i++) {
-            if (IsPrime.isPrimeMethod(numbers.get(i))) {
-                isPrimeArray = false;
-                break;
+            for (int i = start; i < start + len && !Thread.currentThread().isInterrupted(); i++) {
+                if (IsPrime.isPrimeMethod(numbers.get(i))) {
+                    isPrimeArray = false;
+                    break;
+                }
             }
-        }
     }
 }

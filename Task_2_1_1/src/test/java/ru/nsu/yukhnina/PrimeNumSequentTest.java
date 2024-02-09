@@ -84,4 +84,17 @@ class PrimeNumSequentTest {
         PrimeNumSequent test = new PrimeNumSequent(testList);
         assertTrue(test.check());
     }
+
+    @Test
+    void testForGraph() {
+        long startTime = System.currentTimeMillis();
+        Integer[] testList = new Integer[20_000_000];
+        Arrays.fill(testList, 165523);
+        ArrayList<Integer> testArrayList = new ArrayList<>(Arrays.asList(testList));
+        PrimeNumSequent test = new PrimeNumSequent(testArrayList);
+        assertFalse(test.check());
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println(timeElapsed);
+    }
 }

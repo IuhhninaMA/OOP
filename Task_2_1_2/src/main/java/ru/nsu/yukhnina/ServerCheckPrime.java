@@ -4,12 +4,23 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
+/**
+ * Checking part of array is it contain only prime numbers.
+ */
 public class ServerCheckPrime {
 
     static int portId;
+
+    /**
+     * Save only port id.
+     */
     public ServerCheckPrime(int socketPort) {
         portId = socketPort;
     }
+
+    /**
+     * Start server and count data.
+     */
     public void runServer() {
         try {
             ServerSocket serverSocket = new ServerSocket(portId);
@@ -47,6 +58,9 @@ public class ServerCheckPrime {
         }
     }
 
+    /**
+     * Check array part.
+     */
     private static boolean isPrimeArray(ArrayList<Integer>numbers, int start, int end) {
         for (int i = start; i < end; i++) {
             if (isPrimeNum(numbers.get(i))) {
@@ -56,6 +70,9 @@ public class ServerCheckPrime {
         return true;
     }
 
+    /**
+     * Check one num.
+     */
     public static boolean isPrimeNum(int n) {
         int maxPossibleDivider = (((int) Math.sqrt(n) + 1));
         for (int j = 2; j <= maxPossibleDivider; j++) {

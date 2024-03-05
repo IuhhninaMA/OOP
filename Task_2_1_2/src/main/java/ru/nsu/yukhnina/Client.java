@@ -4,6 +4,10 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
+/**
+ * Main function, start servers,
+ * send data to servers and return result.
+ */
 public class Client {
 
     ArrayList<Integer> numbers;
@@ -13,6 +17,16 @@ public class Client {
     int serversCount;
     int minPortId;
     boolean isPrime;
+
+    /**
+     * Class constructor,
+     * contains array to check,
+     * all opened sockets,
+     * count servers,
+     * start port Id,
+     * next ports has Id start+i,
+     * in and out - streams.
+     */
     public Client (ArrayList<Integer> num, int serversCount) {
         numbers = num;
         sockets = new ArrayList<>();
@@ -20,8 +34,15 @@ public class Client {
         int minPortId = 12345;
         isPrime = true;
         in = new ArrayList<>();
+        out = new ArrayList<>();
     }
 
+    /**
+     * Main function that start servers,
+     * create sockets,
+     * send data,
+     * rewad and print and return result to user.
+     */
     public boolean check() {
         try {
             runServers();
@@ -41,6 +62,9 @@ public class Client {
         ArrayList<Integer> k = new ArrayList<>();
     }
 
+    /**
+     * Send data on machine.
+     */
     private void writeData() throws IOException {
         //пока так добавить разделение данных
         for (int i = 0; i < serversCount; i++) {
@@ -58,12 +82,18 @@ public class Client {
         }
     }
 
+    /**
+     * Create sockets.
+     */
     private void createSockets() throws IOException {
         for (int i = 0; i < serversCount; i++) {
             sockets.add(new Socket("localhost", minPortId+i));
         }
     }
 
+    /**
+     * Read data from sockets.
+     */
     private void readData() throws IOException, ClassNotFoundException {
         for (int i = 0; i < serversCount; i++) {
             InputStream inputStream = sockets.get(i).getInputStream();
@@ -75,12 +105,18 @@ public class Client {
         }
     }
 
+    /**
+     * At the end close all sockets.
+     */
     private void closeSockets() throws IOException {
         for (Socket i : sockets) {
             i.close();
         }
     }
 
+    /**
+     * Start machine.
+     */
     private void runServers() {
         for (int i = 0; i < serversCount; i++) {
             ServerCheckPrime s = new ServerCheckPrime(minPortId+i);

@@ -21,9 +21,9 @@ public class ServerCheckPrime {
     /**
      * Start server and count data.
      */
-    public void runServer() {
+    public static void main(String[] arg) {
         try {
-            ServerSocket serverSocket = new ServerSocket(portId);
+            ServerSocket serverSocket = new ServerSocket(12345);
             System.out.println("Сервер запущен. Ожидание подключения...");
 
             Socket clientSocket = serverSocket.accept();

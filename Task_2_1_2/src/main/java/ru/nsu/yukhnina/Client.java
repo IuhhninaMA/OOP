@@ -31,7 +31,7 @@ public class Client {
         numbers = num;
         sockets = new ArrayList<>();
         this.serversCount = serversCount;
-        int minPortId = 12345;
+        minPortId = 12345;
         isPrime = true;
         in = new ArrayList<>();
         out = new ArrayList<>();
@@ -45,7 +45,7 @@ public class Client {
      */
     public boolean check() {
         try {
-            runServers();
+//            runServers();
             createSockets();
             writeData();
             readData();
@@ -117,10 +117,10 @@ public class Client {
     /**
      * Start machine.
      */
-    private void runServers() {
-        for (int i = 0; i < serversCount; i++) {
-            ServerCheckPrime s = new ServerCheckPrime(minPortId+i);
-            s.runServer();
-        }
-    }
+//    private void runServers() {
+//        for (int i = 0; i < serversCount; i++) {
+//            ServerCheckPrime s = new ServerCheckPrime(minPortId+i);
+//            s.runServer();
+//        }
+//    }
 }

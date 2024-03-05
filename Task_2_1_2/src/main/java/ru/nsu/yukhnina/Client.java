@@ -7,59 +7,30 @@ import java.util.ArrayList;
 public class Client {
 
     ArrayList<Integer> numbers;
-    public Client (ArrayList<Integer> num) {
+    ArrayList<Socket> sockets;
+    ArrayList<ObjectOutputStream> out;
+    ArrayList<ObjectInputStream> in;
+    int serversCount;
+    int minPortId;
+    boolean isPrime;
+    public Client (ArrayList<Integer> num, int serversCount) {
         numbers = num;
+        sockets = new ArrayList<>();
+        this.serversCount = serversCount;
+        int minPortId = 12345;
+        isPrime = true;
+        in = new ArrayList<>();
     }
 
     public boolean check() {
         try {
-
-            Socket socket1 = new Socket("localhost", 12345);
-            Socket socket2 = new Socket("localhost", 12346);
-            Socket socket3 = new Socket("localhost", 12347);
-            Socket[] socketsArray = {socket1, socket2, socket3};
-
-            OutputStream outputStream1 = socket1.getOutputStream();
-            ObjectOutputStream out1 = new ObjectOutputStream(outputStream1);
-            OutputStream outputStream2 = socket2.getOutputStream();
-            ObjectOutputStream out2 = new ObjectOutputStream(outputStream2);
-            OutputStream outputStream3 = socket3.getOutputStream();
-            ObjectOutputStream out3 = new ObjectOutputStream(outputStream3);
-            OutputStream[] outStreamsArray = {out1, out2, out3};
-
-            //передаю масив
-            out1.writeObject(numbers);
-            //передаю начало куска который нужно проверить
-            out1.writeObject(1);
-            //передаю конец куска для проверки на этом сервере
-            out1.writeObject(2);
-            //передаю хэш переданного массива для проверки целостности
-            out1.writeObject(numbers.hashCode());
-
-            out2.writeObject(numbers);
-            out2.writeObject(1);
-            out2.writeObject(2);
-            out2.writeObject(numbers.hashCode());
-
-            out3.writeObject(numbers);
-            out3.writeObject(1);
-            out3.writeObject(2);
-            out3.writeObject(numbers.hashCode());
-
-            InputStream inputStream1 = socket1.getInputStream();
-            ObjectInputStream in1 = new ObjectInputStream(inputStream1);
-            boolean isprime = (boolean) in1.readObject();
-            InputStream inputStream2 = socket2.getInputStream();
-            ObjectInputStream in2 = new ObjectInputStream(inputStream2);
-            InputStream inputStream3 = socket3.getInputStream();
-            ObjectInputStream in3 = new ObjectInputStream(inputStream3);
-            InputStream[] inputStreamsArray = {in1, in2, in3};
-
-            System.out.println("Массив состоит из простых чисел: " + isprime);
-            socket1.close();
-            socket2.close();
-            socket3.close();
-            return isprime;
+            runServers();
+            createSockets();
+            writeData();
+            readData();
+            closeSockets();
+            System.out.println("Массив состоит из простых чисел: " + isPrime);
+            return isPrime;
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -68,9 +39,52 @@ public class Client {
     }
     public static void main(String[] args) {
         ArrayList<Integer> k = new ArrayList<>();
-        k.add(1);
-        k.add(4);
-        Client c = new Client(k);
-        c.check();
+    }
+
+    private void writeData() throws IOException {
+        //пока так добавить разделение данных
+        for (int i = 0; i < serversCount; i++) {
+            OutputStream outputStream = sockets.get(i).getOutputStream();
+            out.add(new ObjectOutputStream(outputStream));
+            //передаю масив
+            out.get(i).writeObject(numbers);
+            //передаю начало куска который нужно проверить
+            out.get(i).writeObject(1);
+            //передаю конец куска для проверки на этом сервере
+            out.get(i).writeObject(2);
+            //передаю хэш переданного массива для проверки целостности
+            //УДАЛИТЬ
+            out.get(i).writeObject(numbers.hashCode());
+        }
+    }
+
+    private void createSockets() throws IOException {
+        for (int i = 0; i < serversCount; i++) {
+            sockets.add(new Socket("localhost", minPortId+i));
+        }
+    }
+
+    private void readData() throws IOException, ClassNotFoundException {
+        for (int i = 0; i < serversCount; i++) {
+            InputStream inputStream = sockets.get(i).getInputStream();
+            in.add(new ObjectInputStream(inputStream));
+            if (!((boolean) in.get(i).readObject())) {
+                isPrime = false;
+                return;
+            }
+        }
+    }
+
+    private void closeSockets() throws IOException {
+        for (Socket i : sockets) {
+            i.close();
+        }
+    }
+
+    private void runServers() {
+        for (int i = 0; i < serversCount; i++) {
+            ServerCheckPrime s = new ServerCheckPrime(minPortId+i);
+            s.runServer();
+        }
     }
 }

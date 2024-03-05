@@ -13,7 +13,7 @@ class ClientTest {
         ArrayList<Integer> k = new ArrayList<>();
         k.add(1);
         k.add(4);
-        Client c = new Client(k);
+        Client c = new Client(k, 3);
         assertFalse(c.check());
     }
 
@@ -24,7 +24,7 @@ class ClientTest {
         k.add(3);
         k.add(5);
         k.add(7);
-        Client c = new Client(k);
+        Client c = new Client(k, 2);
         assertTrue(c.check());
     }
 

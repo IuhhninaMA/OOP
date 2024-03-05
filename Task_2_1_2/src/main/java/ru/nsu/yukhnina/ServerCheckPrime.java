@@ -4,10 +4,15 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
-public class Server {
-    public static void main(String[] args) {
+public class ServerCheckPrime {
+
+    static int portId;
+    public ServerCheckPrime(int socketPort) {
+        portId = socketPort;
+    }
+    public void runServer() {
         try {
-            ServerSocket serverSocket = new ServerSocket(12345);
+            ServerSocket serverSocket = new ServerSocket(portId);
             System.out.println("Сервер запущен. Ожидание подключения...");
 
             Socket clientSocket = serverSocket.accept();

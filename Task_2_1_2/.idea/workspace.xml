@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3f1686d-b37d-4c1d-ae03-a4bda3d070a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCheckPrime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCheckPrime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/ClientTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="0f3851c8-1ec4-4d8b-b2ae-5b0130b87347" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,62 +21,55 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2cynlzfr6SSSeG6Cv6CIxYa5Agi" />
+  <component name="ProjectId" id="2dYCMrz96VbHYRSwtFzLdiSA8UG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.ClientTest.executor": "Run",
-    "Gradle.ClientTest.test1.executor": "Debug",
-    "Gradle.ClientTest.test2.executor": "Run",
-    "Gradle.Task_2_1_2 [:Client.main()].executor": "Run",
-    "Gradle.Task_2_1_2 [:Server.main()].executor": "Run",
-    "Gradle.Task_2_1_2 [:Server2.main()].executor": "Run",
-    "Gradle.Task_2_1_2 [:Server3.main()].executor": "Run",
-    "Gradle.Task_2_1_2 [:ServerCheckPrime.main()].executor": "Run",
+    "Gradle.IsPrimeTest.check.executor": "Debug",
+    "Gradle.IsPrimeTest.check2.executor": "Debug",
+    "Gradle.IsPrimeTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Task__2__1__2",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/maryayukhnina/OOP/Task_2_1_2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/maryayukhnina/OOP/Task_2_1_2/src/main/java/ru/nsu/yukhnina/Main.java",
+    "onboarding.tips.debug.path": "/Users/maryayukhnina/Task_new_version/src/main/java/ru/nsu/yukhnina/Main.java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.ClientTest.test2">
-    <configuration name="ClientTest.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.nsu.yukhnina" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="IsPrimeTest.check" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -94,7 +82,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.nsu.yukhnina.ClientTest.test1&quot;" />
+            <option value="&quot;ru.nsu.yukhnina.IsPrimeTest.check&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -105,7 +93,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ClientTest.test2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="IsPrimeTest.check2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -118,7 +106,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.nsu.yukhnina.ClientTest.test2&quot;" />
+            <option value="&quot;ru.nsu.yukhnina.IsPrimeTest.check2&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -128,33 +116,38 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>true</RunAsTest>
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Task_2_1_2_" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Task_2_1_2_" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ClientTest.test2" />
-        <item itemvalue="Gradle.ClientTest.test1" />
+        <item itemvalue="Gradle.IsPrimeTest.check2" />
+        <item itemvalue="Gradle.IsPrimeTest.check" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d3f1686d-b37d-4c1d-ae03-a4bda3d070a0" name="Changes" comment="" />
-      <created>1709092842463</created>
+      <changelist id="0f3851c8-1ec4-4d8b-b2ae-5b0130b87347" name="Changes" comment="" />
+      <created>1710175581885</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709092842463</updated>
-      <workItem from="1709092843521" duration="3852000" />
-      <workItem from="1709100496478" duration="10394000" />
-      <workItem from="1709526643720" duration="2412000" />
-      <workItem from="1709639375697" duration="5945000" />
+      <updated>1710175581885</updated>
+      <workItem from="1710175582921" duration="5315000" />
+      <workItem from="1710186749991" duration="633000" />
+      <workItem from="1710189568589" duration="1170000" />
     </task>
     <servers />
   </component>
@@ -165,39 +158,44 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCheckPrime.java</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCount.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/IsPrimeTest.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java</url>
+          <line>30</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Client.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Client.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Client.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/ClientTest.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/ClientTest.java</url>
-          <line>11</line>
-          <properties class="ru.nsu.yukhnina.ClientTest" method="test1">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
+          <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/IsPrimeTest.java</url>
+          <line>29</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="6" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

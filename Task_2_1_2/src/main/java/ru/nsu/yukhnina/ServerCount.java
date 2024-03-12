@@ -23,9 +23,9 @@ public class ServerCount {
             System.out.println("Клиент подключился");
             InputStream inputStream = clientSocket.getInputStream();
             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-            ArrayList<Integer> numbers = (ArrayList<Integer>) objectInputStream.readObject();
             int start = (int) objectInputStream.readObject();
             int end = (int) objectInputStream.readObject();
+            ArrayList<Integer> numbers = (ArrayList<Integer>) objectInputStream.readObject();
             for (int i = start; i < end; i++) {
                 int maxPossibleDivider = (((int) Math.sqrt(numbers.get(i)) + 1));
                 for (int j = 2; j <= maxPossibleDivider; j++) {
@@ -46,6 +46,7 @@ public class ServerCount {
             clientSocket.close();
             serverSocket.close();
         } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
             System.out.println("Ghjernkt");
             throw new RuntimeException(e);
         }

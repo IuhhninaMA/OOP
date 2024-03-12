@@ -19,7 +19,7 @@ class IsPrimeTest {
     void check() {
         try {
             IsPrime test = new IsPrime(testList, 2);
-            assertTrue(test.main());
+            assertTrue(test.check());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -27,7 +27,7 @@ class IsPrimeTest {
 
     @Test
     void check2() throws InterruptedException {
-        IsPrime test = new IsPrime(testList2, 2);
-        assertFalse(test.main());
+        IsPrime test = new IsPrime(testList2, 1);
+        assertFalse(test.check());
     }
 }

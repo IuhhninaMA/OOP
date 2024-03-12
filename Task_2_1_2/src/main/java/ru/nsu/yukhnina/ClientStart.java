@@ -21,13 +21,15 @@ public class ClientStart implements Runnable {
         isPrimeArrayPart = true;
     }
 
+    public boolean result() {
+        return isPrimeArrayPart;
+    }
+
     @Override
     public void run() {
         try {
             Socket socket;
-            System.out.println("клиент шуршит");
             socket = new Socket("localhost", portId);
-            System.out.println("Сокет шуршит");
             OutputStream outputStream = socket.getOutputStream();
             ObjectOutputStream out = new ObjectOutputStream(outputStream);
             out.writeObject(start);
@@ -35,10 +37,13 @@ public class ClientStart implements Runnable {
             out.writeObject(numbers);
             InputStream inputStream = socket.getInputStream();
             ObjectInputStream in = new ObjectInputStream(inputStream);
-            isPrimeArrayPart = in.readBoolean();
+            isPrimeArrayPart = (boolean) in.readObject();
             socket.close();
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("Проблемки с клиентом");
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

@@ -8,23 +8,21 @@ public class IsPrime {
     volatile boolean isArrayPrime;
     private Thread[] threads;
     ArrayList<ServerStart> servers;
+    ArrayList<ClientStart> clients;
     public IsPrime(ArrayList<Integer> inputNum, int inputServersCount) {
         this.serversCount = inputServersCount;
         this.numbers = inputNum;
         servers = new ArrayList<>();
         threads = new Thread[inputServersCount];
+        clients = new ArrayList<>();
     }
 
-    public boolean main() throws InterruptedException {
+    public boolean check() throws InterruptedException {
         int arrayLen = numbers.size() / serversCount;
         int countTail = numbers.size() % serversCount;
         int currStart = 0;
-        int minPortId = 80000;
+        int minPortId = 10000;
 
-        //если количество запрашиваемых серверов больше массива считается всё на одном.
-        if (numbers.size() < serversCount) {
-            serversCount = 1;
-        }
         //запускаю первые кусочки массива длины arrayLen+1.
         for (int i = 0; i < countTail; i++) {
             ServerStart newThread = new ServerStart(minPortId+i);
@@ -34,8 +32,8 @@ public class IsPrime {
             Thread childThreadC = new Thread(newThreadC);
             threads[i] = childThread;
             childThread.start();
-            wait(1000);
             childThreadC.start();
+            clients.add(newThreadC);
             currStart += arrayLen + 1;
         }
 
@@ -47,14 +45,14 @@ public class IsPrime {
             Thread childThreadC = new Thread(newThreadC);
             threads[i] = childThread;
             childThread.start();
-            wait(1000);
             childThreadC.start();
             currStart += arrayLen;
+            clients.add(newThreadC);
         }
 
         for (int i = 0; i < serversCount; i++) {
             threads[i].join();
-            if (!servers.get(i).getResult()) {
+            if (!clients.get(i).result()) {
                 //если нашёлся кусочек, где есть непростое число,
                 //то сразу прерываем все остальные процессы.
                 for (int j = i; j < serversCount; j++) {

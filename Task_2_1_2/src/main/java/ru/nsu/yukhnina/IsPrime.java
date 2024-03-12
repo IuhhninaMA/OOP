@@ -2,6 +2,8 @@ package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 public class IsPrime {
     ArrayList<Integer> numbers ;
     int serversCount;
@@ -32,6 +34,7 @@ public class IsPrime {
             Thread childThreadC = new Thread(newThreadC);
             threads[i] = childThread;
             childThread.start();
+            sleep(1000);
             childThreadC.start();
             clients.add(newThreadC);
             currStart += arrayLen + 1;
@@ -45,6 +48,7 @@ public class IsPrime {
             Thread childThreadC = new Thread(newThreadC);
             threads[i] = childThread;
             childThread.start();
+            sleep(1000);
             childThreadC.start();
             currStart += arrayLen;
             clients.add(newThreadC);

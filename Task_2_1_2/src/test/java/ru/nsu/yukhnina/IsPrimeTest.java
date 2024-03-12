@@ -15,6 +15,9 @@ class IsPrimeTest {
     ArrayList<Integer> testList2 =
             new ArrayList<>(Arrays.asList(7, 2, 3, 5, 8));
 
+    ArrayList<Integer> testList3 =
+            new ArrayList<>(Arrays.asList(7, 2, 3, 5, 8, 16, 30, 6, 7,
+                    9, 10, 15, 100, 777, 90));
     @Test
     void check() {
         try {
@@ -27,7 +30,8 @@ class IsPrimeTest {
 
     @Test
     void check2() throws InterruptedException {
-        IsPrime test = new IsPrime(testList2, 1);
+        IsPrime test = new IsPrime(testList3, 2);
         assertFalse(test.check());
     }
+
 }

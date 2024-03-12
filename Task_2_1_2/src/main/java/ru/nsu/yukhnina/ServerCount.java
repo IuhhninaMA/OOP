@@ -15,7 +15,6 @@ public class ServerCount {
     public void checkIsItPrimeOnServer() {
         System.out.println("Сервер работает");
         ServerSocket serverSocket = null;
-
         try {
             serverSocket = new ServerSocket(portId);
             System.out.println("Сокет сервера включён");

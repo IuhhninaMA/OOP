@@ -13,7 +13,6 @@ public class ServerCount {
     }
 
     public void checkIsItPrimeOnServer() throws IOException, ClassNotFoundException {
-        System.out.println("fjbvkjdfbj");
         ServerSocket serverSocket = new ServerSocket(portId);
         Socket clientSocket = serverSocket.accept();
         InputStream inputStream = clientSocket.getInputStream();

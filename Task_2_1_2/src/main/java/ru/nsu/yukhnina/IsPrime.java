@@ -15,7 +15,7 @@ public class IsPrime {
         threads = new Thread[inputServersCount];
     }
 
-    public boolean check() throws InterruptedException {
+    public boolean main() throws InterruptedException {
         int arrayLen = numbers.size() / serversCount;
         int countTail = numbers.size() % serversCount;
         int currStart = 0;
@@ -27,20 +27,26 @@ public class IsPrime {
         }
         //запускаю первые кусочки массива длины arrayLen+1.
         for (int i = 0; i < countTail; i++) {
-            ServerStart newThread = new ServerStart(minPortId+i, currStart, currStart+arrayLen+1, numbers);
+            ServerStart newThread = new ServerStart(i);
+            ClientStart newThreadC = new ClientStart(minPortId+i, currStart, currStart+arrayLen+1, numbers);
             servers.add(newThread);
             Thread childThread = new Thread(newThread);
+            Thread childThreadC = new Thread(newThreadC);
             threads[i] = childThread;
             childThread.start();
+            childThreadC.start();
             currStart += arrayLen + 1;
         }
 
         for (int i = countTail; i < serversCount; i++) {
-            ServerStart newThread = new ServerStart(i, currStart, currStart+arrayLen, numbers);
+            ServerStart newThread = new ServerStart(i);
+            ClientStart newThreadC = new ClientStart(minPortId+i, currStart, currStart+arrayLen, numbers);
             servers.add(newThread);
             Thread childThread = new Thread(newThread);
+            Thread childThreadC = new Thread(newThreadC);
             threads[i] = childThread;
             childThread.start();
+            childThreadC.start();
             currStart += arrayLen;
         }
 

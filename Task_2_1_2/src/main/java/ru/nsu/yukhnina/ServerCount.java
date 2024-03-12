@@ -12,32 +12,43 @@ public class ServerCount {
         this.portId = portId;
     }
 
-    public void checkIsItPrimeOnServer() throws IOException, ClassNotFoundException {
-        ServerSocket serverSocket = new ServerSocket(portId);
-        Socket clientSocket = serverSocket.accept();
-        InputStream inputStream = clientSocket.getInputStream();
-        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        ArrayList<Integer> numbers = (ArrayList<Integer>) objectInputStream.readObject();
-        int start = (int) objectInputStream.readObject();
-        int end = (int) objectInputStream.readObject();
-        for (int i = start; i < end; i++) {
-            int maxPossibleDivider = (((int) Math.sqrt(numbers.get(i)) + 1));
-            for (int j = 2; j <= maxPossibleDivider; j++) {
-                if (numbers.get(i) % j == 0 && j != numbers.get(i)) {
-                    OutputStream outputStream = clientSocket.getOutputStream();
-                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-                    objectOutputStream.writeObject(false);
-                    clientSocket.close();
-                    serverSocket.close();
-                    return;
+    public void checkIsItPrimeOnServer() {
+        System.out.println("Сервер работает");
+        ServerSocket serverSocket = null;
+
+        try {
+            serverSocket = new ServerSocket(portId);
+            System.out.println("Сокет сервера включён");
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("Клиент подключился");
+            InputStream inputStream = clientSocket.getInputStream();
+            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+            ArrayList<Integer> numbers = (ArrayList<Integer>) objectInputStream.readObject();
+            int start = (int) objectInputStream.readObject();
+            int end = (int) objectInputStream.readObject();
+            for (int i = start; i < end; i++) {
+                int maxPossibleDivider = (((int) Math.sqrt(numbers.get(i)) + 1));
+                for (int j = 2; j <= maxPossibleDivider; j++) {
+                    if (numbers.get(i) % j == 0 && j != numbers.get(i)) {
+                        OutputStream outputStream = clientSocket.getOutputStream();
+                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+                        objectOutputStream.writeObject(false);
+                        clientSocket.close();
+                        serverSocket.close();
+                        return;
+                    }
                 }
             }
-        }
-        OutputStream outputStream = clientSocket.getOutputStream();
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-        objectOutputStream.writeObject(true);
+            OutputStream outputStream = clientSocket.getOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(true);
 
-        clientSocket.close();
-        serverSocket.close();
+            clientSocket.close();
+            serverSocket.close();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Ghjernkt");
+            throw new RuntimeException(e);
+        }
+
     }
 }

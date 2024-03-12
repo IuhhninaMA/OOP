@@ -10,7 +10,6 @@ public class ClientStart implements Runnable {
     private final int start;
     private final int end;
     private final ArrayList<Integer> numbers;
-    public Socket socket;
     public boolean isPrimeArrayPart;
 
     public ClientStart(int portId, int start, int end,
@@ -19,14 +18,16 @@ public class ClientStart implements Runnable {
         this.end = end;
         this.start = start;
         this.numbers = numbers;
-        socket = null;
         isPrimeArrayPart = true;
     }
 
     @Override
     public void run() {
         try {
-            this.socket = new Socket("localhost", portId);
+            Socket socket;
+            System.out.println("клиент шуршит");
+            socket = new Socket("localhost", portId);
+            System.out.println("Сокет шуршит");
             OutputStream outputStream = socket.getOutputStream();
             ObjectOutputStream out = new ObjectOutputStream(outputStream);
             out.writeObject(start);
@@ -37,6 +38,7 @@ public class ClientStart implements Runnable {
             isPrimeArrayPart = in.readBoolean();
             socket.close();
         } catch (IOException e) {
+            System.out.println("Проблемки с клиентом");
             throw new RuntimeException(e);
         }
     }

@@ -22,11 +22,9 @@ public class ServerStart implements Runnable {
 
     @Override
     public void run() {
-        try {
-            ServerCount server = new ServerCount(portId);
-            server.checkIsItPrimeOnServer();
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        ServerCount server = new ServerCount(portId);
+        System.out.println("Сервер пашет");
+        server.checkIsItPrimeOnServer();
+
     }
 }

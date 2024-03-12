@@ -6,25 +6,21 @@ import java.util.ArrayList;
 
 public class ClientStart implements Runnable {
 
-    private int portId;
-    private int start;
-    private int end;
-    private boolean isPrimeArrayPart;
-    private ArrayList<Integer> numbers;
+    private final int portId;
+    private final int start;
+    private final int end;
+    private final ArrayList<Integer> numbers;
     public Socket socket;
+    public boolean isPrimeArrayPart;
 
     public ClientStart(int portId, int start, int end,
                        ArrayList<Integer> numbers) {
-        isPrimeArrayPart = true;
         this.portId = portId;
         this.end = end;
         this.start = start;
         this.numbers = numbers;
         socket = null;
-    }
-
-    public boolean getResult() {
-        return isPrimeArrayPart;
+        isPrimeArrayPart = true;
     }
 
     @Override

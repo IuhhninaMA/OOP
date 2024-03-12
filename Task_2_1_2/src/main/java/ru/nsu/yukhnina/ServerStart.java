@@ -23,10 +23,8 @@ public class ServerStart implements Runnable {
     @Override
     public void run() {
         try {
-            this.socket = new Socket("localhost", portId);
             ServerCount server = new ServerCount(portId);
             server.checkIsItPrimeOnServer();
-            socket.close();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

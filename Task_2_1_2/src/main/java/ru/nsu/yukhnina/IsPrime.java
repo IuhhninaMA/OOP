@@ -4,13 +4,24 @@ import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
 
+/**
+ * Главный класс.
+ * Запускает попарно нить-сервер, нить-клиент,
+ * Клиент будет отправлять данные на сервер,
+ * Запускает serversCount серверов.
+ */
 public class IsPrime {
     ArrayList<Integer> numbers ;
     int serversCount;
-    volatile boolean isArrayPrime;
     private Thread[] threads;
     ArrayList<ServerStart> servers;
     ArrayList<ClientStart> clients;
+
+    /**
+     * Чтобы класс нормально работал нужно знать количество серверов, на которых будет обрабатываться массив,
+     * сам массив, ну и храню все зпущенные нити.
+     * !!!!!Разбить на функции поменьше.
+     */
     public IsPrime(ArrayList<Integer> inputNum, int inputServersCount) {
         this.serversCount = inputServersCount;
         this.numbers = inputNum;
@@ -19,6 +30,9 @@ public class IsPrime {
         clients = new ArrayList<>();
     }
 
+    /**
+     * Основная функция, которая запускает все нити и передаёт на них данные.
+     */
     public boolean check() throws InterruptedException {
         int arrayLen = numbers.size() / serversCount;
         int countTail = numbers.size() % serversCount;

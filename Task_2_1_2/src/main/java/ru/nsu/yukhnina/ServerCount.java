@@ -5,21 +5,29 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/**
+ * Реализация всех вычислений.
+ */
 public class ServerCount {
     int portId;
 
+    /**
+     * Пока тут только PortId,
+     * потом добавлю start end numbers.
+     */
     public ServerCount(int portId) {
         this.portId = portId;
     }
 
+    /**
+     * Основная функция, всё принимает, вычисляет и отправляет,
+     * выглядит громоздко, нужно менять.
+     */
     public void checkIsItPrimeOnServer() {
-        System.out.println("Сервер работает");
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(portId);
-            System.out.println("Сокет сервера включён");
             Socket clientSocket = serverSocket.accept();
-            System.out.println("Клиент подключился");
             InputStream inputStream = clientSocket.getInputStream();
             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
             int start = (int) objectInputStream.readObject();
@@ -45,10 +53,8 @@ public class ServerCount {
             clientSocket.close();
             serverSocket.close();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("Ghjernkt");
             throw new RuntimeException(e);
         }
-
     }
+
 }

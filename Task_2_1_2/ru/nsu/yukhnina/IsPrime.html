@@ -132,6 +132,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">IsPrime</span>
 extends java.lang.Object</pre>
+<div class="block">Главный класс.
+ Запускает попарно нить-сервер, нить-клиент,
+ Клиент будет отправлять данные на сервер,
+ Запускает serversCount серверов.</div>
 </li>
 </ul>
 </div>
@@ -154,7 +158,10 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.ArrayList,int)">IsPrime</a></span>&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;inputNum,
        int&nbsp;inputServersCount)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Чтобы класс нормально работал нужно знать количество серверов, на которых будет обрабатываться массив,
+ сам массив, ну и храню все зпущенные нити.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -177,7 +184,9 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#check()">check</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Основная функция, которая запускает все нити и передаёт на них данные.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -211,6 +220,9 @@ extends java.lang.Object</pre>
 <h4>IsPrime</h4>
 <pre>public&nbsp;IsPrime&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;inputNum,
                int&nbsp;inputServersCount)</pre>
+<div class="block">Чтобы класс нормально работал нужно знать количество серверов, на которых будет обрабатываться массив,
+ сам массив, ну и храню все зпущенные нити.
+ !!!!!Разбить на функции поменьше.</div>
 </li>
 </ul>
 </li>
@@ -231,6 +243,7 @@ extends java.lang.Object</pre>
 <h4>check</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;check()
               throws java.lang.InterruptedException</pre>
+<div class="block">Основная функция, которая запускает все нити и передаёт на них данные.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.InterruptedException</code></dd>

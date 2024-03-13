@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -137,35 +137,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">ServerStart</span>
 extends java.lang.Object
 implements java.lang.Runnable</pre>
+<div class="block">Нить запускает сервер.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<section>
-<ul class="blockList">
-<li class="blockList"><a id="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>java.net.Socket</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#socket">socket</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section>
 <ul class="blockList">
@@ -181,7 +159,10 @@ implements java.lang.Runnable</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int)">ServerStart</a></span>&#8203;(int&nbsp;portId)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">У каждого сервера уникальный номер порта,
+ соответствующий номеру подключаемого клиента.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -204,7 +185,9 @@ implements java.lang.Runnable</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Создание нового сервера и запуск.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -223,25 +206,6 @@ implements java.lang.Runnable</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<section>
-<ul class="blockList">
-<li class="blockList"><a id="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a id="socket">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>socket</h4>
-<pre>public&nbsp;java.net.Socket socket</pre>
-</li>
-</ul>
-</li>
-</ul>
-</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section>
 <ul class="blockList">
@@ -256,6 +220,8 @@ implements java.lang.Runnable</pre>
 <li class="blockList">
 <h4>ServerStart</h4>
 <pre>public&nbsp;ServerStart&#8203;(int&nbsp;portId)</pre>
+<div class="block">У каждого сервера уникальный номер порта,
+ соответствующий номеру подключаемого клиента.</div>
 </li>
 </ul>
 </li>
@@ -275,6 +241,7 @@ implements java.lang.Runnable</pre>
 <li class="blockList">
 <h4>run</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;run()</pre>
+<div class="block">Создание нового сервера и запуск.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>run</code>&nbsp;in interface&nbsp;<code>java.lang.Runnable</code></dd>
@@ -332,13 +299,13 @@ implements java.lang.Runnable</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

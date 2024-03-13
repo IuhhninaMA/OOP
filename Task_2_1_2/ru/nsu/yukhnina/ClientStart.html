@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -137,35 +137,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">ClientStart</span>
 extends java.lang.Object
 implements java.lang.Runnable</pre>
+<div class="block">Нить клиента, запускается только после включения соответствующего сервера,
+ отправляет на сервер массивв, начало и конец обрабатываемого кусочка,
+ а потом считывает результат обработки.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<section>
-<ul class="blockList">
-<li class="blockList"><a id="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colSecond" scope="col">Field</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isPrimeArrayPart">isPrimeArrayPart</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section>
 <ul class="blockList">
@@ -207,12 +187,18 @@ implements java.lang.Runnable</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#result()">result</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">getter для получения результата вычисления этой нити.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Запуск сокета,
+ подключение к серверу,
+ отправка данных туда и получение результата.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -231,25 +217,6 @@ implements java.lang.Runnable</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<section>
-<ul class="blockList">
-<li class="blockList"><a id="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a id="isPrimeArrayPart">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>isPrimeArrayPart</h4>
-<pre>public&nbsp;boolean isPrimeArrayPart</pre>
-</li>
-</ul>
-</li>
-</ul>
-</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section>
 <ul class="blockList">
@@ -267,6 +234,13 @@ implements java.lang.Runnable</pre>
                    int&nbsp;start,
                    int&nbsp;end,
                    java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;numbers)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>portId</code> - - номн=ер порта по которому сервер соединяется с сокетом,</dd>
+<dd><code>start</code> - - индекс первого элемента который нужно проверить на простоту,</dd>
+<dd><code>end</code> - - индекс последнего элемента который нужно проверить,</dd>
+<dd><code>numbers</code> - - весь массив, кусок которого проверяет эта нить.</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -286,6 +260,7 @@ implements java.lang.Runnable</pre>
 <li class="blockList">
 <h4>result</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;result()</pre>
+<div class="block">getter для получения результата вычисления этой нити.</div>
 </li>
 </ul>
 <a id="run()">
@@ -295,6 +270,9 @@ implements java.lang.Runnable</pre>
 <li class="blockList">
 <h4>run</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;run()</pre>
+<div class="block">Запуск сокета,
+ подключение к серверу,
+ отправка данных туда и получение результата.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>run</code>&nbsp;in interface&nbsp;<code>java.lang.Runnable</code></dd>
@@ -352,13 +330,13 @@ implements java.lang.Runnable</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

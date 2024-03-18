@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f3851c8-1ec4-4d8b-b2ae-5b0130b87347" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReciver2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/MainClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/DataSend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ClientStart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerStart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/IsPrimeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReciver2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReciver2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ClientHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/MainClient.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +68,7 @@
     "Gradle.IsPrimeTest.check2.executor": "Debug",
     "Gradle.IsPrimeTest.executor": "Run",
     "Gradle.Task_2_1_2 [:BroadcastReceiver.main()].executor": "Run",
+    "Gradle.Task_2_1_2 [:BroadcastReciver2.main()].executor": "Run",
     "Gradle.Task_2_1_2 [:BroadcastSender.main()].executor": "Run",
     "Gradle.Task_2_1_2 [:BroadcastingClient.main()].executor": "Run",
     "Gradle.Task_2_1_2 [:MainClient.main()].executor": "Run",
@@ -159,7 +155,7 @@
       <workItem from="1710189568589" duration="1170000" />
       <workItem from="1710224735321" duration="445000" />
       <workItem from="1710248721570" duration="9692000" />
-      <workItem from="1710676694219" duration="11207000" />
+      <workItem from="1710676694219" duration="22065000" />
     </task>
     <servers />
   </component>

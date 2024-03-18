@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f3851c8-1ec4-4d8b-b2ae-5b0130b87347" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReciver2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/MainClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ClientStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ClientStart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ClientStart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerCount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/ServerStart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/IsPrimeTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +72,11 @@
     "Gradle.IsPrimeTest.check.executor": "Run",
     "Gradle.IsPrimeTest.check2.executor": "Debug",
     "Gradle.IsPrimeTest.executor": "Run",
+    "Gradle.Task_2_1_2 [:BroadcastReceiver.main()].executor": "Run",
+    "Gradle.Task_2_1_2 [:BroadcastSender.main()].executor": "Run",
+    "Gradle.Task_2_1_2 [:BroadcastingClient.main()].executor": "Run",
+    "Gradle.Task_2_1_2 [:MainClient.main()].executor": "Run",
+    "Gradle.Task_2_1_2 [:MainServer.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -72,7 +84,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "Task__2__1__2",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/maryayukhnina/OOP/Task_2_1_2",
+    "last_opened_file_path": "/Users/maryayukhnina/study/OOP/Task_2_1_2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -147,6 +159,7 @@
       <workItem from="1710189568589" duration="1170000" />
       <workItem from="1710224735321" duration="445000" />
       <workItem from="1710248721570" duration="9692000" />
+      <workItem from="1710676694219" duration="11207000" />
     </task>
     <servers />
   </component>
@@ -156,11 +169,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/IsPrime.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.RuntimeException" package="java.lang" />
           <option name="timeStamp" value="6" />

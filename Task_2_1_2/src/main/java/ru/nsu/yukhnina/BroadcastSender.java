@@ -19,13 +19,13 @@ public class BroadcastSender {
         }
 
         try {
-            ServerSocket serverSocket = new ServerSocket(12347, 50, InetAddress.getByName("192.168.1.255"));
+            ServerSocket serverSocket = new ServerSocket(12347, 50, InetAddress.getByName("230.0.0.1"));
             DatagramSocket socket = new DatagramSocket();
             socket.setBroadcast(true);
             byte[] sendDataPort = "12347".getBytes();
             //общага 192.168.1.255
 //            DatagramPacket packet = new DatagramPacket(sendDataPort, sendDataPort.length, InetAddress.getByName("10.9.55.255"), 8888);
-            DatagramPacket packet = new DatagramPacket(sendDataPort, sendDataPort.length, InetAddress.getByName("192.168.1.255"), 8888);
+            DatagramPacket packet = new DatagramPacket(sendDataPort, sendDataPort.length, InetAddress.getByName("230.0.0.1"), 8888);
 
             socket.send(packet);
             socket.close();

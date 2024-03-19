@@ -14,13 +14,13 @@ public class BroadcastReciver2 {
             byte[] receiveData = new byte[1024];
             //общага 192.168.1.255
 //            DatagramPacket packet = new DatagramPacket(receiveData, receiveData.length, InetAddress.getByName("10.9.63.255"), 8888);
-            DatagramPacket packet = new DatagramPacket(receiveData, receiveData.length, InetAddress.getByName("192.168.1.255"), 8888);
+            DatagramPacket packet = new DatagramPacket(receiveData, receiveData.length, InetAddress.getByName("230.0.0.1"), 8888);
             datagramSocket.receive(packet);
 
             String message = new String(packet.getData(), 0, packet.getLength());
             System.out.println("PortId: " + message);
 
-            Socket socket = new Socket(InetAddress.getByName("192.168.1.255"), Integer.parseInt(message));
+            Socket socket = new Socket(InetAddress.getByName("230.0.0.1"), Integer.parseInt(message));
             while (true) {
                 InputStream inputStream = socket.getInputStream();
                 ObjectInputStream in = new ObjectInputStream(inputStream);

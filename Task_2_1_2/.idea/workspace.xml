@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f3851c8-1ec4-4d8b-b2ae-5b0130b87347" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Planer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/QueueElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Reciver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReciver2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastReciver2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/BroadcastSender.java" afterDir="false" />
-    </list>
+    <list default="true" id="0f3851c8-1ec4-4d8b-b2ae-5b0130b87347" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +124,7 @@
       <workItem from="1710823854116" duration="2208000" />
       <workItem from="1710857510927" duration="1807000" />
       <workItem from="1710987555401" duration="1859000" />
-      <workItem from="1711041185499" duration="8613000" />
+      <workItem from="1711041185499" duration="9140000" />
     </task>
     <servers />
   </component>
@@ -175,6 +167,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Planer.java</url>
           <line>27</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Reciver.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Planer.java</url>

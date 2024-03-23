@@ -30,7 +30,7 @@ public class Planer extends Thread {
                 QueueElement currentTask = tasksQueue.poll();
                 OutputStream outputStream = acceptSocket.getOutputStream();
                 ObjectOutputStream out = new ObjectOutputStream(outputStream);
-                out.writeObject(currentTask.numbers);
+                out.writeObject(currentTask.getArray());
                 InputStream inputStream = acceptSocket.getInputStream();
                 ObjectInputStream in = new ObjectInputStream(inputStream);
                 result = (boolean) in.readObject();

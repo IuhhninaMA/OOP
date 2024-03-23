@@ -4,11 +4,24 @@ import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Sender {
-    public static void main(String[] args) throws IOException {
+    private ArrayList<Integer> numbers;
+    private int SERVER_SOCKET_PORT;
+    private int DATAGRAMM_SOCKET_PORT;
+    private boolean isPrime;
+    public Sender(ArrayList<Integer> numbers, int SERVER_SOCKET_PORT, int DATAGRAMM_SOCKET_PORT) {
+        this.numbers = numbers;
+        this.isPrime = true;
+        this.SERVER_SOCKET_PORT = SERVER_SOCKET_PORT;
+        this.DATAGRAMM_SOCKET_PORT = DATAGRAMM_SOCKET_PORT;
+        check();
+    }
+    public boolean isArrayPrime() {
+        return isPrime;
+    }
+    public void check() {
         final int SERVER_SOCKET_PORT = 8888;
         final int DATAGRAMM_SOCKET_PORT = 1234;
         final int STEP = 5;
@@ -19,7 +32,7 @@ public class Sender {
             serverSocket = new ServerSocket(SERVER_SOCKET_PORT, 50, InetAddress.getByName("localhost"));
             DatagramSocket datagramSocket = new DatagramSocket(DATAGRAMM_SOCKET_PORT);
             byte[] sendDataPort = "8888".getBytes();
-            DatagramPacket packet = new DatagramPacket(sendDataPort, sendDataPort.length, InetAddress.getByName("localhost"), 8888);
+            DatagramPacket packet = new DatagramPacket(sendDataPort, sendDataPort.length, InetAddress.getByName("230.0.0.0"), 12345);
             datagramSocket.send(packet);
             datagramSocket.close();
             ConcurrentLinkedQueue<QueueElement> taskQueue = new ConcurrentLinkedQueue<>();
@@ -36,9 +49,14 @@ public class Sender {
                 threads.add(new Planer(taskQueue, serverSocket, acceptSocket));
             }
         } catch (IOException e) {
-            serverSocket.close();
+            try {
+                serverSocket.close();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             for (Planer thread : threads) {
                 if (!thread.getResult()) {
+                    isPrime = false;
                     System.out.println("Массив содержит не простое число");
                     return;
                 }

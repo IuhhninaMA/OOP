@@ -14,14 +14,14 @@ public class Receiver {
         startWork();
     }
 
-    //    public static void main(String[] args) {
+//        public static void main(String[] args) {
     public void startWork() {
 //        int port = 12345;
 //        String host = "230.0.0.0";
         Socket socket = null;
         try (MulticastSocket datagrammSocket = new MulticastSocket(port)) {
             NetworkInterface netIf = NetworkInterface.getByName("bge0");
-            datagrammSocket.joinGroup(new InetSocketAddress(InetAddress.getByName("228.5.6.7"), 0), netIf);
+            datagrammSocket.joinGroup(new InetSocketAddress(InetAddress.getByName(host), 0), netIf);
 
             byte[] receiveBuffer = new byte[1024];
             DatagramPacket receivePacket = new DatagramPacket(receiveBuffer, receiveBuffer.length);
@@ -33,7 +33,7 @@ public class Receiver {
             while (true) {
                 InputStream inputStream = socket.getInputStream();
                 ObjectInputStream in = new ObjectInputStream(inputStream);
-                Object numbers = in.readObject();
+                ArrayList<Integer> numbers = (ArrayList<Integer>) in.readObject();
                 OutputStream outputStream = socket.getOutputStream();
                 ObjectOutputStream out = new ObjectOutputStream(outputStream);
                 out.writeObject(new Counter(numbers).countPrime());
@@ -49,7 +49,7 @@ public class Receiver {
                 System.out.println();
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("Не могу прочитать массив");
+            throw new RuntimeException(e);
         }
     }
 }

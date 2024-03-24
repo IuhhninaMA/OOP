@@ -8,7 +8,7 @@ public class QueueElement {
         this.numbers = numbers;
     }
 
-    public ArrayList<Integer> getArray() {
+    public ArrayList<Integer> getArrayList() {
         return numbers;
     }
 }

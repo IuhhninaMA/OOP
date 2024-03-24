@@ -3,6 +3,7 @@ package ru.nsu.yukhnina;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Queue;
 
 public class Planer extends Thread {
@@ -30,7 +31,8 @@ public class Planer extends Thread {
                 QueueElement currentTask = tasksQueue.poll();
                 OutputStream outputStream = acceptSocket.getOutputStream();
                 ObjectOutputStream out = new ObjectOutputStream(outputStream);
-                out.writeObject(currentTask.getArray());
+                ArrayList<Integer> numbers = currentTask.getArrayList();
+                out.writeObject(numbers);
                 InputStream inputStream = acceptSocket.getInputStream();
                 ObjectInputStream in = new ObjectInputStream(inputStream);
                 result = (boolean) in.readObject();

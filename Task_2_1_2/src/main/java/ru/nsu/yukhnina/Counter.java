@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Counter {
     private ArrayList<Integer> numbers;
     private boolean isPrime;
-    public Counter(Object numbers) {
+    public Counter(ArrayList<Integer> numbers) {
         isPrime = true;
-        this.numbers = (ArrayList<Integer>)numbers;
+        this.numbers =  numbers;
     }
 
     public boolean countPrime() {

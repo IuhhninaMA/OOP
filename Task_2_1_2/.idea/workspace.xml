@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f3851c8-1ec4-4d8b-b2ae-5b0130b87347" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Counter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/SenderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Planer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Planer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/QueueElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/QueueElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Reciver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Sender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +87,10 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/maryayukhnina/Task_new_version/src/main/java/ru/nsu/yukhnina/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -165,7 +164,7 @@
       <workItem from="1710857510927" duration="1807000" />
       <workItem from="1710987555401" duration="1859000" />
       <workItem from="1711041185499" duration="9856000" />
-      <workItem from="1711114412891" duration="8354000" />
+      <workItem from="1711114412891" duration="8981000" />
     </task>
     <servers />
   </component>
@@ -213,11 +212,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/SenderTest.java</url>
           <line>14</line>
           <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/nsu/yukhnina/SenderTest.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/yukhnina/Planer.java</url>

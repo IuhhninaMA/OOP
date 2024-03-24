@@ -16,12 +16,14 @@ public class Sender {
         this.isPrime = true;
         this.SERVER_SOCKET_PORT = SERVER_SOCKET_PORT;
         this.DATAGRAMM_SOCKET_PORT = DATAGRAMM_SOCKET_PORT;
-        check();
+        startWorkSender();
     }
     public boolean isArrayPrime() {
         return isPrime;
     }
-    public void check() {
+
+//    public static void main(String args[]) {
+    public void startWorkSender() {
         final int SERVER_SOCKET_PORT = 8888;
         final int DATAGRAMM_SOCKET_PORT = 1234;
         final int STEP = 5;
@@ -50,13 +52,14 @@ public class Sender {
             }
         } catch (IOException e) {
             try {
+                assert serverSocket != null;
                 serverSocket.close();
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                System.out.println();
             }
             for (Planer thread : threads) {
                 if (!thread.getResult()) {
-                    isPrime = false;
+                    boolean isPrime = false;
                     System.out.println("Массив содержит не простое число");
                     return;
                 }

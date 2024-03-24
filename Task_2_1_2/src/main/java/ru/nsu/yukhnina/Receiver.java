@@ -14,8 +14,8 @@ public class Receiver {
         startWork();
     }
 
-//        public static void main(String[] args) {
-    public void startWork() {
+        public void startWork(){
+//    public static void main(String args[]) {
 //        int port = 12345;
 //        String host = "230.0.0.0";
         Socket socket = null;
@@ -49,7 +49,7 @@ public class Receiver {
                 System.out.println();
             }
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println();
         }
     }
 }

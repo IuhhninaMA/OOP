@@ -42,16 +42,13 @@ public class Planer extends Thread {
                 }
             } catch (IOException e) {
                 System.out.println("Не получилось отправить данные");
-                throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
                 System.out.println("Не могу получить данные");
-                throw new RuntimeException(e);
             }
         }
         try {
             serverSocket.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

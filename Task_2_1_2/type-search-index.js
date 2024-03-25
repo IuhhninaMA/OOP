@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.yukhnina","l":"ClientStart"},{"p":"ru.nsu.yukhnina","l":"IsPrime"},{"p":"ru.nsu.yukhnina","l":"ServerCount"},{"p":"ru.nsu.yukhnina","l":"ServerStart"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.yukhnina","l":"Counter"},{"p":"ru.nsu.yukhnina","l":"Planer"},{"p":"ru.nsu.yukhnina","l":"QueueElement"},{"p":"ru.nsu.yukhnina","l":"Receiver"},{"p":"ru.nsu.yukhnina","l":"Sender"}]

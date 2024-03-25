@@ -1,5 +1,7 @@
 package ru.nsu.yukhnina;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
@@ -16,8 +18,8 @@ public class Receiver {
 
         public void startWork(){
 //    public static void main(String args[]) {
-//        int port = 12345;
-//        String host = "230.0.0.0";
+        int port = 12345;
+        String host = "230.0.0.0";
         Socket socket = null;
         try (MulticastSocket datagrammSocket = new MulticastSocket(port)) {
             NetworkInterface netIf = NetworkInterface.getByName("bge0");
@@ -33,10 +35,13 @@ public class Receiver {
             while (true) {
                 InputStream inputStream = socket.getInputStream();
                 ObjectInputStream in = new ObjectInputStream(inputStream);
-                ArrayList<Integer> numbers = (ArrayList<Integer>) in.readObject();
+                Object numbers = in.readObject();
+                ObjectMapper objectMapper = new ObjectMapper();
+                ArrayList<Integer> list = objectMapper.readValue(numbers.toString(), ArrayList.class);
+                System.out.println(list);
                 OutputStream outputStream = socket.getOutputStream();
                 ObjectOutputStream out = new ObjectOutputStream(outputStream);
-                out.writeObject(new Counter(numbers).countPrime());
+                out.writeObject(new Counter(list).countPrime());
                 System.out.println("я посчитал");
             }
         } catch (SocketException e) {

@@ -1,5 +1,7 @@
 package ru.nsu.yukhnina;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -32,7 +34,8 @@ public class Planer extends Thread {
                 OutputStream outputStream = acceptSocket.getOutputStream();
                 ObjectOutputStream out = new ObjectOutputStream(outputStream);
                 ArrayList<Integer> numbers = currentTask.getArrayList();
-                out.writeObject(numbers);
+                ObjectMapper objectMapper = new ObjectMapper();
+                out.writeObject(objectMapper.writeValueAsString(numbers));
                 InputStream inputStream = acceptSocket.getInputStream();
                 ObjectInputStream in = new ObjectInputStream(inputStream);
                 result = (boolean) in.readObject();

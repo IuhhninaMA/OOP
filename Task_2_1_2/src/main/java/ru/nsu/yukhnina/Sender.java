@@ -22,8 +22,9 @@ public class Sender {
         return isPrime;
     }
 
-//    public static void main(String args[]) {
     public void startWorkSender() {
+//    public static void main(String args[]) {
+
         final int SERVER_SOCKET_PORT = 8888;
         final int DATAGRAMM_SOCKET_PORT = 1234;
         final int STEP = 5;

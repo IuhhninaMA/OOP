@@ -24,10 +24,6 @@ public class Sender {
     }
 
     public void startWorkSender() {
-//    public static void main(String args[]) {
-
-        final int SERVER_SOCKET_PORT = 8888;
-        final int DATAGRAMM_SOCKET_PORT = 1234;
         final int STEP = 5;
         final ArrayList<Integer> numbers = new ArrayList<>(List.of(1, 3, 5, 7, 8));
         ServerSocket serverSocket = null;

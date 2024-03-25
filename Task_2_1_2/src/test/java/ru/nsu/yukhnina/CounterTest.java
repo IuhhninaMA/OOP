@@ -15,8 +15,8 @@ class CounterTest {
             Receiver r = new Receiver(12345, "230.0.0.0");
         });
         thread.start();
-        Thread.sleep(1000);
-        Sender s = new Sender(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 55, 8889898, 3, 2, 1, 3, 4, 1)), 8888, 12345);
+        Thread.sleep(3000);
+        Sender s = new Sender(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 55, 8889898, 3, 2, 1, 3, 4, 1)), 8888, 1234);
         thread.join();
         assertFalse(s.isArrayPrime());
     }

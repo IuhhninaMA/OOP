@@ -19,9 +19,7 @@ public class Receiver {
     }
 
         public void startWork(){
-//    public static void main(String args[]) {
-//        int port = 12345;
-//        String host = "230.0.0.0";
+
         Socket socket = null;
         try (MulticastSocket datagrammSocket = new MulticastSocket(port)) {
             NetworkInterface netIf = NetworkInterface.getByName("bge0");

@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CounterTest {
+class ReceiverTest {
 
     @Test
     void countPrime() throws InterruptedException {

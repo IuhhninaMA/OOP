@@ -25,7 +25,6 @@ public class Sender {
 
     public void startWorkSender() {
         final int STEP = 5;
-        final ArrayList<Integer> numbers = new ArrayList<>(List.of(1, 3, 5, 7, 8));
         ServerSocket serverSocket = null;
         ArrayList<Planer> threads = new ArrayList<>();
         try {

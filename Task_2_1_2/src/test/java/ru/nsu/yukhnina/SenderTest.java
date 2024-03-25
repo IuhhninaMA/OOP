@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@SuppressWarnings("ALL")
 class SenderTest {
 
     @Test

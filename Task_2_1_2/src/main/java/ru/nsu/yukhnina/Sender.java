@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+
+@SuppressWarnings("ALL")
 public class Sender {
     private ArrayList<Integer> numbers;
     private int SERVER_SOCKET_PORT;

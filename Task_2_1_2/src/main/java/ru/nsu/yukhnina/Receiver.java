@@ -1,10 +1,12 @@
 package ru.nsu.yukhnina;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Receiver {
     private final int port;
@@ -18,8 +20,8 @@ public class Receiver {
 
         public void startWork(){
 //    public static void main(String args[]) {
-        int port = 12345;
-        String host = "230.0.0.0";
+//        int port = 12345;
+//        String host = "230.0.0.0";
         Socket socket = null;
         try (MulticastSocket datagrammSocket = new MulticastSocket(port)) {
             NetworkInterface netIf = NetworkInterface.getByName("bge0");
@@ -33,16 +35,15 @@ public class Receiver {
             System.out.println("Received message: " + receivedMessage);
             socket = new Socket(InetAddress.getByName("localhost"), Integer.parseInt(receivedMessage));
             while (true) {
-                InputStream inputStream = socket.getInputStream();
-                ObjectInputStream in = new ObjectInputStream(inputStream);
-                Object numbers = in.readObject();
-                ObjectMapper objectMapper = new ObjectMapper();
-                ArrayList<Integer> list = objectMapper.readValue(numbers.toString(), ArrayList.class);
-                System.out.println(list);
-                OutputStream outputStream = socket.getOutputStream();
-                ObjectOutputStream out = new ObjectOutputStream(outputStream);
-                out.writeObject(new Counter(list).countPrime());
-                System.out.println("я посчитал");
+
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                String message = in.readLine();
+                Gson gson = new Gson();
+                var numbers = gson.fromJson(message, ArrayList.class);
+                out.write(new Counter(gson.fromJson(message, ArrayList.class)).toString());
+                out.flush();
+                break;
             }
         } catch (SocketException e) {
             System.out.println("Не могу создать датаграмм сокет");
@@ -53,8 +54,6 @@ public class Receiver {
             } catch (IOException ex) {
                 System.out.println();
             }
-        } catch (ClassNotFoundException e) {
-            System.out.println();
         }
     }
 }

@@ -105,11 +105,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><a href="ru/nsu/yukhnina/Counter.html" title="class in ru.nsu.yukhnina">Counter</a></td>
-<th class="colLast" scope="row">&nbsp;</th>
+<th class="colLast" scope="row">
+<div class="block">считает массивчик все ли числа в нъм простые.</div>
+</th>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><a href="ru/nsu/yukhnina/Planer.html" title="class in ru.nsu.yukhnina">Planer</a></td>
-<th class="colLast" scope="row">&nbsp;</th>
+<th class="colLast" scope="row">
+<div class="block">Планер нить получает соединённый с сервером сокет,
+ отправляет задачу на Reciver.</div>
+</th>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><a href="ru/nsu/yukhnina/QueueElement.html" title="class in ru.nsu.yukhnina">QueueElement</a></td>
@@ -117,11 +122,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><a href="ru/nsu/yukhnina/Receiver.html" title="class in ru.nsu.yukhnina">Receiver</a></td>
-<th class="colLast" scope="row">&nbsp;</th>
+<th class="colLast" scope="row">
+<div class="block">получает сообщение из sendera,
+ соединяется с ним,
+ считает свою таску, отправляет ответ.</div>
+</th>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><a href="ru/nsu/yukhnina/Sender.html" title="class in ru.nsu.yukhnina">Sender</a></td>
-<th class="colLast" scope="row">&nbsp;</th>
+<th class="colLast" scope="row">
+<div class="block">Создаёт задачки,
+ отправляет широковещательный запрос на соединение,
+ ждёт соединившихся и для каждого запускает нить для подсчётов.</div>
+</th>
 </tr>
 </table>
 </li>

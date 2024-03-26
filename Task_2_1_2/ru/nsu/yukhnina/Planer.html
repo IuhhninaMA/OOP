@@ -141,6 +141,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Planer</span>
 extends java.lang.Thread</pre>
+<div class="block">Планер нить получает соединённый с сервером сокет,
+ отправляет задачу на Reciver.
+ Ждёт ответ и если очередь не пустая даёт подключённому ресиверу задачу.</div>
 </li>
 </ul>
 </div>
@@ -198,7 +201,11 @@ extends java.lang.Thread</pre>
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.Queue,java.net.ServerSocket,java.net.Socket)">Planer</a></span>&#8203;(java.util.Queue&lt;<a href="QueueElement.html" title="class in ru.nsu.yukhnina">QueueElement</a>&gt;&nbsp;tasksQueue,
       java.net.ServerSocket&nbsp;serverSocket,
       java.net.Socket&nbsp;acceptSocket)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Хранит 2 сокета, accept чтобы отправлять данные,
+ сервер чтобы закрыть при косяках с подключением;
+ или когда все таски посчитались.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -221,12 +228,16 @@ extends java.lang.Thread</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResult()">getResult</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Если хотя бы один раз сервер выдал false, он выдаст false.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Отправляет на сервер данные которые нужно посчитать и ждёт ответ.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -268,6 +279,9 @@ extends java.lang.Thread</pre>
 <pre>public&nbsp;Planer&#8203;(java.util.Queue&lt;<a href="QueueElement.html" title="class in ru.nsu.yukhnina">QueueElement</a>&gt;&nbsp;tasksQueue,
               java.net.ServerSocket&nbsp;serverSocket,
               java.net.Socket&nbsp;acceptSocket)</pre>
+<div class="block">Хранит 2 сокета, accept чтобы отправлять данные,
+ сервер чтобы закрыть при косяках с подключением;
+ или когда все таски посчитались.</div>
 </li>
 </ul>
 </li>
@@ -287,6 +301,7 @@ extends java.lang.Thread</pre>
 <li class="blockList">
 <h4>getResult</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;getResult()</pre>
+<div class="block">Если хотя бы один раз сервер выдал false, он выдаст false.</div>
 </li>
 </ul>
 <a id="run()">
@@ -296,6 +311,7 @@ extends java.lang.Thread</pre>
 <li class="blockList">
 <h4>run</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;run()</pre>
+<div class="block">Отправляет на сервер данные которые нужно посчитать и ждёт ответ.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>run</code>&nbsp;in interface&nbsp;<code>java.lang.Runnable</code></dd>

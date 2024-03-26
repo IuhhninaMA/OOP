@@ -132,6 +132,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Receiver</span>
 extends java.lang.Object</pre>
+<div class="block">получает сообщение из sendera,
+ соединяется с ним,
+ считает свою таску, отправляет ответ.</div>
 </li>
 </ul>
 </div>
@@ -154,7 +157,9 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int,java.lang.String)">Receiver</a></span>&#8203;(int&nbsp;port,
         java.lang.String&nbsp;host)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Хранит порты для подключения и начинает работу.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -177,7 +182,12 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startWork()">startWork</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">получает сообщение для соединеия,
+ соединяется,
+ ждёт таску для подсчёта,
+ считается.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -211,6 +221,7 @@ extends java.lang.Object</pre>
 <h4>Receiver</h4>
 <pre>public&nbsp;Receiver&#8203;(int&nbsp;port,
                 java.lang.String&nbsp;host)</pre>
+<div class="block">Хранит порты для подключения и начинает работу.</div>
 </li>
 </ul>
 </li>
@@ -230,6 +241,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>startWork</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;startWork()</pre>
+<div class="block">получает сообщение для соединеия,
+ соединяется,
+ ждёт таску для подсчёта,
+ считается.
+ Заканчивает работу когда планер закрывает соединение.</div>
 </li>
 </ul>
 </li>

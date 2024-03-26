@@ -97,11 +97,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">C</h2>
 <dl>
 <dt><a href="ru/nsu/yukhnina/Counter.html" title="class in ru.nsu.yukhnina"><span class="typeNameLink">Counter</span></a> - Class in <a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">считает массивчик все ли числа в нъм простые.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Counter.html#%3Cinit%3E(java.util.ArrayList)">Counter(ArrayList&lt;Integer&gt;)</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Counter.html" title="class in ru.nsu.yukhnina">Counter</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Хранит один массивчик.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Counter.html#countPrime()">countPrime()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Counter.html" title="class in ru.nsu.yukhnina">Counter</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Считает массивчик.</div>
+</dd>
 </dl>
 <a id="I:G">
 <!--   -->
@@ -111,7 +117,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/QueueElement.html#getArrayList()">getArrayList()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/QueueElement.html" title="class in ru.nsu.yukhnina">QueueElement</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Planer.html#getResult()">getResult()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Planer.html" title="class in ru.nsu.yukhnina">Planer</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Если хотя бы один раз сервер выдал false, он выдаст false.</div>
+</dd>
 </dl>
 <a id="I:I">
 <!--   -->
@@ -127,9 +135,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">P</h2>
 <dl>
 <dt><a href="ru/nsu/yukhnina/Planer.html" title="class in ru.nsu.yukhnina"><span class="typeNameLink">Planer</span></a> - Class in <a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Планер нить получает соединённый с сервером сокет,
+ отправляет задачу на Reciver.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Planer.html#%3Cinit%3E(java.util.Queue,java.net.ServerSocket,java.net.Socket)">Planer(Queue&lt;QueueElement&gt;, ServerSocket, Socket)</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Planer.html" title="class in ru.nsu.yukhnina">Planer</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Хранит 2 сокета, accept чтобы отправлять данные,
+ сервер чтобы закрыть при косяках с подключением;
+ или когда все таски посчитались.</div>
+</dd>
 </dl>
 <a id="I:Q">
 <!--   -->
@@ -147,13 +162,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">R</h2>
 <dl>
 <dt><a href="ru/nsu/yukhnina/Receiver.html" title="class in ru.nsu.yukhnina"><span class="typeNameLink">Receiver</span></a> - Class in <a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">получает сообщение из sendera,
+ соединяется с ним,
+ считает свою таску, отправляет ответ.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Receiver.html#%3Cinit%3E(int,java.lang.String)">Receiver(int, String)</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Receiver.html" title="class in ru.nsu.yukhnina">Receiver</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Хранит порты для подключения и начинает работу.</div>
+</dd>
 <dt><a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a> - package ru.nsu.yukhnina</dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Planer.html#run()">run()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Planer.html" title="class in ru.nsu.yukhnina">Planer</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Отправляет на сервер данные которые нужно посчитать и ждёт ответ.</div>
+</dd>
 </dl>
 <a id="I:S">
 <!--   -->
@@ -161,11 +184,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">S</h2>
 <dl>
 <dt><a href="ru/nsu/yukhnina/Sender.html" title="class in ru.nsu.yukhnina"><span class="typeNameLink">Sender</span></a> - Class in <a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Создаёт задачки,
+ отправляет широковещательный запрос на соединение,
+ ждёт соединившихся и для каждого запускает нить для подсчётов.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Sender.html#%3Cinit%3E(java.util.ArrayList,int,int)">Sender(ArrayList&lt;Integer&gt;, int, int)</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Sender.html" title="class in ru.nsu.yukhnina">Sender</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Receiver.html#startWork()">startWork()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Receiver.html" title="class in ru.nsu.yukhnina">Receiver</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">получает сообщение для соединеия,
+ соединяется,
+ ждёт таску для подсчёта,
+ считается.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Sender.html#startWorkSender()">startWorkSender()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Sender.html" title="class in ru.nsu.yukhnina">Sender</a></dt>
 <dd>&nbsp;</dd>
 </dl>

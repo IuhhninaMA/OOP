@@ -68,7 +68,7 @@ class BigTest {
     }
 
     @Test
-    void bigPrimeArray() throws InterruptedException {
+    void bigPrimeArrayInterruptThread() throws InterruptedException {
         Thread thread = new Thread(() -> {
             Receiver r = new Receiver(12345, "230.0.0.0");
         });
@@ -81,6 +81,8 @@ class BigTest {
             Receiver r = new Receiver(12345, "230.0.0.0");
         });
         thread3.start();
+        thread2.interrupt();
+        thread3.interrupt();
         Thread thread4 = new Thread(() -> {
             Receiver r = new Receiver(12345, "230.0.0.0");
         });
@@ -89,6 +91,49 @@ class BigTest {
         ArrayList<Integer> testArray = new ArrayList<>();
         for (int i = 0; i < 1000000; i++) {
             testArray.add(i);
+        }
+        Sender s = new Sender(testArray,
+                8888,
+                1234,
+                12345,
+                "230.0.0.0");
+        assertFalse(s.isArrayPrime());
+        thread.join();
+        thread2.join();
+        thread3.join();
+        thread4.join();
+    }
+
+    @Test
+    void bigPrimeArrayInterruptThread2() throws InterruptedException {
+        Thread thread = new Thread(() -> {
+            Receiver r = new Receiver(12345, "230.0.0.0");
+        });
+        thread.start();
+        Thread thread2 = new Thread(() -> {
+            Receiver r = new Receiver(12345, "230.0.0.0");
+        });
+        thread2.start();
+        Thread thread3 = new Thread(() -> {
+            Receiver r = new Receiver(12345, "230.0.0.0");
+        });
+        thread3.start();
+        //Не уверена что сосвсем правильно использовать stop,
+        //но как будто это самый просто й и действенный способ
+        thread2.stop();
+        thread3.stop();
+        Thread thread4 = new Thread(() -> {
+            Receiver r = new Receiver(12345, "230.0.0.0");
+        });
+        thread4.start();
+        Thread.sleep(3000);
+        ArrayList<Integer> testArray = new ArrayList<>();
+        for (int i = 0; i < 1000000; i++) {
+            testArray.add(3);
+        }
+        testArray.add(45);
+        for (int i = 0; i < 1000000; i++) {
+            testArray.add(3);
         }
         Sender s = new Sender(testArray,
                 8888,
@@ -120,16 +165,17 @@ class BigTest {
 
     @Test
     void countPrime3() throws InterruptedException {
+        String serverSocketHost = "230.0.0.1";
         Thread thread = new Thread(() -> {
-            Receiver r = new Receiver(12345, "230.0.0.0");
+            Receiver r = new Receiver(12377, serverSocketHost);
         });
         thread.start();
         Thread.sleep(3000);
         Sender s = new Sender(new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2)),
                 8888,
-                1234,
-                12345,
-                "230.0.0.0");
+                1236,
+                12377,
+                serverSocketHost);
         thread.join();
         assertTrue(s.isArrayPrime());
     }

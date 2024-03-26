@@ -71,9 +71,7 @@ public class Planer extends Thread {
                 q = null;
             } catch (IOException e) {
                 System.out.println("Проблемы с accept socket");
-                if (q != null) {
-                    tasksQueue.add(q);
-                }
+                tasksQueue.add(q);
                 try {
                     acceptSocket.close();
                 } catch (IOException ex) {

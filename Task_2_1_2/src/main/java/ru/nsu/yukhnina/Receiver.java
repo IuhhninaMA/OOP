@@ -53,6 +53,7 @@ public class Receiver {
             try {
                 assert socket != null;
                 socket.close();
+
             } catch (IOException ex) {
                 System.out.println();
             }

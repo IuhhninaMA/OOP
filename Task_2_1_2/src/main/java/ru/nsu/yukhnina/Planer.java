@@ -1,6 +1,5 @@
 package ru.nsu.yukhnina;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
@@ -28,13 +27,14 @@ public class Planer extends Thread {
 
     @Override
     public void run() {
+        QueueElement q = null;
         while (!tasksQueue.isEmpty()) {
             try {
                 BufferedReader in = new BufferedReader(new InputStreamReader(acceptSocket.getInputStream()));
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(acceptSocket.getOutputStream()));
                 ObjectMapper objectMapper = new ObjectMapper();
-                QueueElement q = tasksQueue.poll();
-                if(q == null) {
+                q = tasksQueue.poll();
+                if (q == null) {
                     break;
                 }
                 out.write(objectMapper.writeValueAsString(q.getArrayList()) + "\n");
@@ -45,19 +45,25 @@ public class Planer extends Thread {
                     acceptSocket.close();
                     break;
                 }
+                q = null;
             } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                serverSocket.close();
-                acceptSocket.close();
-            } catch (IOException e) {
+                System.out.println("Проблемы с accept socket");
+                if (q != null) {
+                    tasksQueue.add(q);
+                }
+                try {
+                    acceptSocket.close();
+                } catch (IOException ex) {
+                    System.out.println("Не получилось закрыть accept socket, всё плохо");
+                    throw new RuntimeException(ex);
+                }
             }
         }
         try {
-            serverSocket.close();
             acceptSocket.close();
+            serverSocket.close();
         } catch (IOException e) {
+            System.out.println("Не получилось закрыть");
             throw new RuntimeException(e);
         }
     }

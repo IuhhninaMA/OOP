@@ -32,15 +32,19 @@ public class Sender {
             ArrayList<Integer> numbers,
             int serverSocketPort,
             int datagrammSocketPort,
-            int DATAGRAMM_PACKET_PORT,
+            int datagrammPacketPort,
             String serverSocketHost) {
         this.numbers = numbers;
         this.serverSocketPort = serverSocketPort;
         this.datagrammSocketPort = datagrammSocketPort;
-        this.datagrammPacketPort = DATAGRAMM_PACKET_PORT;
+        this.datagrammPacketPort = datagrammPacketPort;
         this.serverSocketHost = serverSocketHost;
         startWorkSender();
     }
+
+    /**
+     * @return result of counting.
+     */
     public boolean isArrayPrime() {
         return isPrime;
     }
@@ -76,7 +80,9 @@ public class Sender {
             if (numbers.size() % 5 != 0) {
                 taskQueue.add(QueueElement.createQueueElement(
                         new ArrayList<>(
-                                numbers.subList(numbers.size() - numbers.size() % 5, numbers.size()))));
+                                numbers.subList(numbers.size()
+                                        - numbers.size()
+                                        % 5, numbers.size()))));
 
             }
             while (true) {

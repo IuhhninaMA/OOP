@@ -1,12 +1,11 @@
 package ru.nsu.yukhnina;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -44,7 +43,6 @@ public class Receiver {
      * Заканчивает работу когда планер закрывает соединение.
      */
         public void startWork() {
-
         Socket socket = null;
         try (MulticastSocket datagrammSocket = new MulticastSocket(port)) {
             NetworkInterface netIf = NetworkInterface.getByName("bge0");
@@ -75,7 +73,7 @@ public class Receiver {
                 ArrayList<Integer> numbers = objectMapper.readValue(
                         message, ArrayList.class);
                 Boolean result = new Counter(numbers).countPrime();
-                out.write(objectMapper.writeValueAsString(result) +"\n");
+                out.write(objectMapper.writeValueAsString(result) + "\n");
                 out.flush();
 
             }

@@ -1,11 +1,11 @@
 package ru.nsu.yukhnina;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 
@@ -34,7 +34,10 @@ class BigTest {
         });
         thread.start();
         Thread.sleep(3000);
-        Sender s = new Sender(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 55, 8889898, 3, 2, 1, 3, 4, 1)),
+        Sender s = new Sender(
+                new ArrayList<>(
+                        Arrays.asList(
+                                1, 2, 3, 4, 55, 8889898, 3, 2, 1, 3, 4, 1)),
                 8888,
                 1234,
                 12345,
@@ -92,11 +95,11 @@ class BigTest {
                 1234,
                 12345,
                 "230.0.0.0");
+        assertFalse(s.isArrayPrime());
         thread.join();
         thread2.join();
         thread3.join();
         thread4.join();
-        assertFalse(s.isArrayPrime());
     }
 
     @Test

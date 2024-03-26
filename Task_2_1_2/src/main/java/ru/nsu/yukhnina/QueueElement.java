@@ -2,6 +2,9 @@ package ru.nsu.yukhnina;
 
 import java.util.ArrayList;
 
+/**
+ * One task.
+ */
 public class QueueElement {
     private ArrayList<Integer> numbers;
 

@@ -1,12 +1,11 @@
 package ru.nsu.yukhnina;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Queue;
@@ -52,17 +51,17 @@ public class Planer extends Thread {
         QueueElement q = null;
         while (!tasksQueue.isEmpty()) {
             try {
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(acceptSocket.getInputStream()));
-                BufferedWriter out = new BufferedWriter(
-                        new OutputStreamWriter(acceptSocket.getOutputStream()));
-                ObjectMapper objectMapper = new ObjectMapper();
                 q = tasksQueue.poll();
                 if (q == null) {
                     break;
                 }
+                BufferedWriter out = new BufferedWriter(
+                        new OutputStreamWriter(acceptSocket.getOutputStream()));
+                ObjectMapper objectMapper = new ObjectMapper();
                 out.write(objectMapper.writeValueAsString(q.getArrayList()) + "\n");
                 out.flush();
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(acceptSocket.getInputStream()));
                 result = objectMapper.readValue(in.readLine(), Boolean.class);
                 if (!result) {
                     serverSocket.close();

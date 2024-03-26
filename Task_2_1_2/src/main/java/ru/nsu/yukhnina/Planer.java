@@ -2,18 +2,34 @@ package ru.nsu.yukhnina;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Queue;
 
+/**
+ * Планер нить получает соединённый с сервером сокет,
+ * отправляет задачу на Reciver.
+ * Ждёт ответ и если очередь не пустая даёт подключённому ресиверу задачу.
+ */
 public class Planer extends Thread {
     private final ServerSocket serverSocket;
     private Queue<QueueElement> tasksQueue;
     private final Socket acceptSocket;
     private boolean result;
 
-    public Planer(Queue<QueueElement> tasksQueue, ServerSocket serverSocket, Socket acceptSocket) {
+    /**
+     * Хранит 2 сокета, accept чтобы отправлять данные,
+     * сервер чтобы закрыть при косяках с подключением;
+     * или когда все таски посчитались.
+     */
+    public Planer(Queue<QueueElement> tasksQueue,
+                  ServerSocket serverSocket,
+                  Socket acceptSocket) {
         this.acceptSocket = acceptSocket;
         this.tasksQueue = tasksQueue;
         this.serverSocket = serverSocket;
@@ -21,17 +37,25 @@ public class Planer extends Thread {
         start();
     }
 
+    /**
+     * Если хотя бы один раз сервер выдал false, он выдаст false.
+     */
     public boolean getResult() {
         return result;
     }
 
+    /**
+     * Отправляет на сервер данные которые нужно посчитать и ждёт ответ.
+     */
     @Override
     public void run() {
         QueueElement q = null;
         while (!tasksQueue.isEmpty()) {
             try {
-                BufferedReader in = new BufferedReader(new InputStreamReader(acceptSocket.getInputStream()));
-                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(acceptSocket.getOutputStream()));
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(acceptSocket.getInputStream()));
+                BufferedWriter out = new BufferedWriter(
+                        new OutputStreamWriter(acceptSocket.getOutputStream()));
                 ObjectMapper objectMapper = new ObjectMapper();
                 q = tasksQueue.poll();
                 if (q == null) {

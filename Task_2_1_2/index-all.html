@@ -108,6 +108,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Считает массивчик.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/QueueElement.html#createQueueElement(java.util.ArrayList)">createQueueElement(ArrayList&lt;Integer&gt;)</a></span> - Static method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/QueueElement.html" title="class in ru.nsu.yukhnina">QueueElement</a></dt>
+<dd>
+<div class="block">Retunt new task.</div>
+</dd>
 </dl>
 <a id="I:G">
 <!--   -->
@@ -115,7 +119,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">G</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/QueueElement.html#getArrayList()">getArrayList()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/QueueElement.html" title="class in ru.nsu.yukhnina">QueueElement</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">arrayList from task.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Planer.html#getResult()">getResult()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Planer.html" title="class in ru.nsu.yukhnina">Planer</a></dt>
 <dd>
 <div class="block">Если хотя бы один раз сервер выдал false, он выдаст false.</div>
@@ -153,8 +159,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><a href="ru/nsu/yukhnina/QueueElement.html" title="class in ru.nsu.yukhnina"><span class="typeNameLink">QueueElement</span></a> - Class in <a href="ru/nsu/yukhnina/package-summary.html">ru.nsu.yukhnina</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/QueueElement.html#%3Cinit%3E(java.util.ArrayList)">QueueElement(ArrayList&lt;Integer&gt;)</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/QueueElement.html" title="class in ru.nsu.yukhnina">QueueElement</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <a id="I:R">
 <!--   -->
@@ -189,8 +193,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  отправляет широковещательный запрос на соединение,
  ждёт соединившихся и для каждого запускает нить для подсчётов.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Sender.html#%3Cinit%3E(java.util.ArrayList,int,int)">Sender(ArrayList&lt;Integer&gt;, int, int)</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Sender.html" title="class in ru.nsu.yukhnina">Sender</a></dt>
-<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Sender.html#%3Cinit%3E(java.util.ArrayList,int,int,int,java.lang.String)">Sender(ArrayList&lt;Integer&gt;, int, int, int, String)</a></span> - Constructor for class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Sender.html" title="class in ru.nsu.yukhnina">Sender</a></dt>
+<dd>
+<div class="block">Хранит все штучки для соединения,
+ делит большой массив numbers на кусочки-таски.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Receiver.html#startWork()">startWork()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Receiver.html" title="class in ru.nsu.yukhnina">Receiver</a></dt>
 <dd>
 <div class="block">получает сообщение для соединеия,
@@ -199,7 +206,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  считается.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/yukhnina/Sender.html#startWorkSender()">startWorkSender()</a></span> - Method in class ru.nsu.yukhnina.<a href="ru/nsu/yukhnina/Sender.html" title="class in ru.nsu.yukhnina">Sender</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Создаёт таски,
+ соединяется со всеми,
+ отправляет тасочки соединённым.</div>
+</dd>
 </dl>
 <a href="#I:C">C</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:Q">Q</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
 </main>

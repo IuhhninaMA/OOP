@@ -155,10 +155,15 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.ArrayList,int,int)">Sender</a></span>&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;numbers,
-      int&nbsp;SERVER_SOCKET_PORT,
-      int&nbsp;DATAGRAMM_SOCKET_PORT)</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.ArrayList,int,int,int,java.lang.String)">Sender</a></span>&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;numbers,
+      int&nbsp;serverSocketPort,
+      int&nbsp;datagrammSocketPort,
+      int&nbsp;DATAGRAMM_PACKET_PORT,
+      java.lang.String&nbsp;serverSocketHost)</code></th>
+<td class="colLast">
+<div class="block">Хранит все штучки для соединения,
+ делит большой массив numbers на кусочки-таски.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -186,7 +191,11 @@ extends java.lang.Object</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startWorkSender()">startWorkSender</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Создаёт таски,
+ соединяется со всеми,
+ отправляет тасочки соединённым.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -212,15 +221,19 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.util.ArrayList,int,int)">
+<a id="&lt;init&gt;(java.util.ArrayList,int,int,int,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Sender</h4>
 <pre>public&nbsp;Sender&#8203;(java.util.ArrayList&lt;java.lang.Integer&gt;&nbsp;numbers,
-              int&nbsp;SERVER_SOCKET_PORT,
-              int&nbsp;DATAGRAMM_SOCKET_PORT)</pre>
+              int&nbsp;serverSocketPort,
+              int&nbsp;datagrammSocketPort,
+              int&nbsp;DATAGRAMM_PACKET_PORT,
+              java.lang.String&nbsp;serverSocketHost)</pre>
+<div class="block">Хранит все штучки для соединения,
+ делит большой массив numbers на кусочки-таски.</div>
 </li>
 </ul>
 </li>
@@ -249,6 +262,9 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>startWorkSender</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;startWorkSender()</pre>
+<div class="block">Создаёт таски,
+ соединяется со всеми,
+ отправляет тасочки соединённым.</div>
 </li>
 </ul>
 </li>

@@ -7,12 +7,12 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
-import java.net.Socket;
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
 import java.net.NetworkInterface;
-import java.net.InetSocketAddress;
-import java.net.InetAddress;
-import java.net.DatagramPacket;
+import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 
@@ -43,7 +43,7 @@ public class Receiver {
      * считается.
      * Заканчивает работу когда планер закрывает соединение.
      */
-        public void startWork(){
+        public void startWork() {
 
         Socket socket = null;
         try (MulticastSocket datagrammSocket = new MulticastSocket(port)) {

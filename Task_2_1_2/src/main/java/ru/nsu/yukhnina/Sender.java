@@ -1,11 +1,11 @@
 package ru.nsu.yukhnina;
 
 import java.io.IOException;
-import java.net.Socket;
+import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.DatagramPacket;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -18,47 +18,65 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 @SuppressWarnings("ALL")
 public class Sender {
     private ArrayList<Integer> numbers;
-    private int SERVER_SOCKET_PORT;
-    private int DATAGRAMM_SOCKET_PORT;
+    private int serverSocketPort;
+    private int datagrammSocketPort;
+    int datagrammPacketPort;
+    String serverSocketHost;
     private boolean isPrime;
+
+    /**
+     * Хранит все штучки для соединения,
+     * делит большой массив numbers на кусочки-таски.
+     */
     public Sender(
             ArrayList<Integer> numbers,
-            int SERVER_SOCKET_PORT,
-            int DATAGRAMM_SOCKET_PORT) {
+            int serverSocketPort,
+            int datagrammSocketPort,
+            int DATAGRAMM_PACKET_PORT,
+            String serverSocketHost) {
         this.numbers = numbers;
-        this.SERVER_SOCKET_PORT = SERVER_SOCKET_PORT;
-        this.DATAGRAMM_SOCKET_PORT = DATAGRAMM_SOCKET_PORT;
+        this.serverSocketPort = serverSocketPort;
+        this.datagrammSocketPort = datagrammSocketPort;
+        this.datagrammPacketPort = DATAGRAMM_PACKET_PORT;
+        this.serverSocketHost = serverSocketHost;
         startWorkSender();
     }
     public boolean isArrayPrime() {
         return isPrime;
     }
 
+    /**
+     * Создаёт таски,
+     * соединяется со всеми,
+     * отправляет тасочки соединённым.
+     */
     public void startWorkSender() {
-        final int STEP = 5;
+        final int step = 5;
         ServerSocket serverSocket = null;
         ArrayList<Planer> threads = new ArrayList<>();
         try {
             serverSocket = new ServerSocket(
-                    SERVER_SOCKET_PORT,
+                    serverSocketPort,
                     50,
                     InetAddress.getByName("localhost"));
-            DatagramSocket datagramSocket = new DatagramSocket(DATAGRAMM_SOCKET_PORT);
+            DatagramSocket datagramSocket = new DatagramSocket(datagrammSocketPort);
             byte[] sendDataPort = "8888".getBytes();
             DatagramPacket packet = new DatagramPacket(
                     sendDataPort, sendDataPort.length,
-                    InetAddress.getByName("230.0.0.0"),
-                    12345);
+                    InetAddress.getByName(serverSocketHost),
+                    datagrammPacketPort);
             datagramSocket.send(packet);
             datagramSocket.close();
             ConcurrentLinkedQueue<QueueElement> taskQueue = new ConcurrentLinkedQueue<>();
             int i;
-            for (i = 0; i <= numbers.size() - STEP; i+=STEP) {
-                taskQueue.add(new QueueElement(new ArrayList<>(numbers.subList(i, i+STEP))));
+            for (i = 0; i <= numbers.size() - step; i += step) {
+                taskQueue.add(QueueElement.createQueueElement(
+                        new ArrayList<>(numbers.subList(i, i + step))));
             }
-            if (numbers.size()%5 != 0) {
-                taskQueue.add(new QueueElement(
-                        new ArrayList<>(numbers.subList(numbers.size() - numbers.size()%5, numbers.size()))));
+            if (numbers.size() % 5 != 0) {
+                taskQueue.add(QueueElement.createQueueElement(
+                        new ArrayList<>(
+                                numbers.subList(numbers.size() - numbers.size() % 5, numbers.size()))));
 
             }
             while (true) {

@@ -33,7 +33,11 @@ public class Planer extends Thread {
                 BufferedReader in = new BufferedReader(new InputStreamReader(acceptSocket.getInputStream()));
                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(acceptSocket.getOutputStream()));
                 ObjectMapper objectMapper = new ObjectMapper();
-                out.write(objectMapper.writeValueAsString(tasksQueue.poll().getArrayList()) + "\n");
+                QueueElement q = tasksQueue.poll();
+                if(q == null) {
+                    break;
+                }
+                out.write(objectMapper.writeValueAsString(q.getArrayList()) + "\n");
                 out.flush();
                 result = objectMapper.readValue(in.readLine(), Boolean.class);
                 if (!result) {

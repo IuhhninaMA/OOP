@@ -60,7 +60,6 @@ public class Sender {
                     return;
                 }
             }
-            System.out.println("Массив простой");
             isPrime = true;
         }
     }

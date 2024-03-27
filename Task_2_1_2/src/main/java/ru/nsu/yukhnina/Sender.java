@@ -43,7 +43,7 @@ public class Sender {
     }
 
     /**
-     * @return result of counting.
+     * Return esult of counting.
      */
     public boolean isArrayPrime() {
         return isPrime;

@@ -1,11 +1,12 @@
 package ru.nsu.yukhnina;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 
@@ -166,15 +167,16 @@ class BigTest {
     @Test
     void countPrime3() throws InterruptedException {
         String serverSocketHost = "230.0.0.1";
+        int datagrammPacketPort = 12377;
         Thread thread = new Thread(() -> {
-            Receiver r = new Receiver(12377, serverSocketHost);
+            Receiver r = new Receiver(datagrammPacketPort, serverSocketHost);
         });
         thread.start();
         Thread.sleep(3000);
         Sender s = new Sender(new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2)),
                 8888,
                 1236,
-                12377,
+                datagrammPacketPort,
                 serverSocketHost);
         thread.join();
         assertTrue(s.isArrayPrime());

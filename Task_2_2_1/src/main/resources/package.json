@@ -1,0 +1,113 @@
+{ "bakers": [
+  {
+    "name": "Charlie",
+    "time": 12
+  },
+  {
+    "name": "Diana",
+    "time": 12
+  },
+  {
+    "name": "Elizabeth",
+    "time": 100
+  },
+  {
+    "name": "Julia",
+    "time": 10
+  },
+  {
+    "name": "Justin",
+    "time": 11
+  },
+  {
+    "name": "Jojik",
+    "time": 1
+  }
+],
+  "couriers": [
+    {
+      "name": "David",
+      "capacity": 12
+    },
+    {
+      "name": "Slavik",
+      "capacity": 12
+    },
+    {
+      "name": "Maksim",
+      "capacity": 100
+    },
+    {
+      "name": "Denchik",
+      "capacity": 10
+    },
+    {
+      "name": "Yurets",
+      "capacity": 11
+    }
+  ],
+  "pizzas": [
+    {
+      "name": "Margarita",
+      "address": "Tentykovskaya 87",
+      "time": 15
+    },
+    {
+      "name": "Pepperoni",
+      "address": "Gorkogo 15",
+      "time": 10
+    },
+    {
+      "name": "4 chees",
+      "address": "Tentykovskaya 87",
+      "time": 15
+    },
+    {
+      "name": "Origano",
+      "address": "Gorkogo 15",
+      "time": 10
+    },
+    {
+      "name": "Originals",
+      "address": "Tentykovskaya 87",
+      "time": 15
+    },
+    {
+      "name": "Vegan pepperoni",
+      "address": "Gorkogo 15",
+      "time": 10
+    },
+    {
+      "name": "Margarita2",
+      "address": "Tentykovskaya 87",
+      "time": 15
+    },
+    {
+      "name": "Pepperoni2",
+      "address": "Gorkogo 15",
+      "time": 10
+    },
+    {
+      "name": "4 chees 2",
+      "address": "Tentykovskaya 87",
+      "time": 15
+    },
+    {
+      "name": "Origano 2",
+      "address": "Gorkogo 15",
+      "time": 10
+    },
+    {
+      "name": "Originals 3",
+      "address": "Tentykovskaya 87",
+      "time": 15
+    },
+    {
+      "name": "Vegan pepperoni 6",
+      "address": "Gorkogo 15",
+      "time": 10
+    }
+  ]
+}
+
+

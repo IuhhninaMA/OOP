@@ -27,23 +27,23 @@
   "couriers": [
     {
       "name": "David",
-      "capacity": 12
+      "capacity": 1
     },
     {
       "name": "Slavik",
-      "capacity": 12
+      "capacity": 2
     },
     {
       "name": "Maksim",
-      "capacity": 100
+      "capacity": 3
     },
     {
       "name": "Denchik",
-      "capacity": 10
+      "capacity": 5
     },
     {
       "name": "Yurets",
-      "capacity": 11
+      "capacity": 4
     }
   ],
   "pizzas": [
@@ -103,7 +103,22 @@
       "time": 15
     },
     {
-      "name": "Vegan pepperoni 6",
+      "name": "Hawai",
+      "address": "Gorkogo 15",
+      "time": 10
+    },
+    {
+      "name": "Mario",
+      "address": "Gorkogo 15",
+      "time": 10
+    },
+    {
+      "name": "Milano",
+      "address": "Tentykovskaya 87",
+      "time": 15
+    },
+    {
+      "name": "Fish pizza",
       "address": "Gorkogo 15",
       "time": 10
     }

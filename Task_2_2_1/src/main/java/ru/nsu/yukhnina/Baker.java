@@ -1,55 +1,50 @@
 package ru.nsu.yukhnina;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
-import static ru.nsu.yukhnina.Baker.BakerState.FREE;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Baker extends Thread {
-    public enum BakerState {
-        FREE,
-        COOKING,
-        WAITQUEUE
-    };
-    long timeToCook;
-    BakerState state;
-    TaskQueue tasks;
-    TaskQueue warehouse;
-    String name;
-    volatile boolean bakerStop;
-
-    public Baker(long timeToCook, TaskQueue bakersTasks, TaskQueue courierTasks, String name, boolean bakerStop) {
-        this.state = FREE;
+    private long timeToCook;
+    private TaskQueue tasks;
+    private volatile TaskQueue warehouse;
+    private String name;
+    int cookedPizzas;
+    public Baker(long timeToCook,
+                 TaskQueue bakersTasks,
+                 TaskQueue courierTasks,
+                 String name) {
         this.timeToCook = timeToCook;
         this.tasks = bakersTasks;
         this.name = name;
         this.warehouse = courierTasks;
-        this.bakerStop = bakerStop;
+        this.cookedPizzas = 0;
         start();
     }
 
     @Override
     public void run() {
-        boolean stop = true;
-        while (stop) {
+        while (!isInterrupted()) {
             Task currentTask;
-            synchronized (tasks) {
+            try {
                 currentTask = tasks.getTask();
+            } catch (InterruptedException e) {
+                System.out.println(name+" завершил работу");
+                return;
             }
-            if (currentTask != null) {
-                try {
-                    Thread.sleep(timeToCook);
-                    System.out.println(name + " приготовил " + currentTask.getPizza());
-                    warehouse.addTaskToCourier(currentTask);
-                    System.out.println(name + " отправил на склад " + currentTask.getPizza());
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            synchronized (tasks) {
-                stop = tasks.isEmpty();
+            try {
+                Thread.sleep(timeToCook);
+                System.out.println(name + " приготовил " + currentTask.getPizza());
+                cookedPizzas++;
+                warehouse.addTaskToCourier(currentTask);
+                System.out.println(name + " отправил на склад " + currentTask.getPizza());
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
-        System.out.println(name + " закончила работу");
+        System.out.println(name+" завершил работу");
+    }
+
+    public int howPizzas() {
+        return cookedPizzas;
     }
 }

@@ -1,19 +1,12 @@
 package ru.nsu.yukhnina;
 
-import static ru.nsu.yukhnina.Courier.CourierState.HAVENTWORK;
-
 public class Courier extends Thread {
-    public enum CourierState {
-        HAVENTWORK,
-        WORK
-    };
     long capacity;
-    CourierState state;
     TaskQueue tasks;
     String name;
+    private int deliveredPizzas;
 
     public Courier(long capacity, TaskQueue tasks, String name) {
-        this.state = HAVENTWORK;
         this.capacity = capacity;
         this.tasks = tasks;
         this.name = name;
@@ -21,15 +14,19 @@ public class Courier extends Thread {
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
         int weight = 0;
         long time = 0;
-        boolean stop = true;
         System.out.println("Начал работать");
-        while (stop) {
+        while (!isInterrupted()) {
             Task currentTask;
-            synchronized (tasks) {
+            try {
                 currentTask = tasks.getTask();
+            } catch (InterruptedException e) {
+                deliveredPizzas += weight;
+                System.out.println("Заказ доставлен");
+                System.out.println(name+" завершил работу");
+                return;
             }
             if (currentTask != null) {
                 System.out.println(name + " взял" + currentTask.getPizza());
@@ -38,26 +35,22 @@ public class Courier extends Thread {
             }
             if (weight == capacity) {
                 try {
+                    deliveredPizzas += weight;
                     System.out.println("Заказ доставлен");
                     Thread.sleep(time);
                     time = 0;
                     weight = 0;
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    System.out.println("упси вупси работаем без сна");
                 }
             }
-            synchronized (tasks) {
-                stop = tasks.isEmpty();
-            }
         }
-        if (weight != 0) {
-            try {
-                Thread.sleep(time);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println("Заказ доставлен");
-        }
-        System.out.println("Курьер уехал домой");
+        deliveredPizzas += weight;
+        System.out.println("Заказ доставлен");
+        System.out.println(name+" завершил работу");
+    }
+
+    public int howPizzas() {
+        return deliveredPizzas;
     }
 }

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"ru.nsu.yukhnina","l":"Baker"},{"p":"ru.nsu.yukhnina","l":"Courier"},{"p":"ru.nsu.yukhnina","l":"Task"},{"p":"ru.nsu.yukhnina","l":"TaskManager"},{"p":"ru.nsu.yukhnina","l":"TaskQueue"}]

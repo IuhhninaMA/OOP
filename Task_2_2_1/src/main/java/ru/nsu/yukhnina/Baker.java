@@ -38,7 +38,8 @@ public class Baker extends Thread {
                 warehouse.addTaskToCourier(currentTask);
                 System.out.println(name + " отправил на склад " + currentTask.getPizza());
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                System.out.println(name+" завершил работу");
+                return;
             }
         }
         System.out.println(name+" завершил работу");

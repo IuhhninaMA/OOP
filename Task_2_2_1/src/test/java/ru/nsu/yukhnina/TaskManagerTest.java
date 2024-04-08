@@ -1,10 +1,6 @@
 package ru.nsu.yukhnina;
 
-import org.json.simple.parser.ParseException;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
 
 class TaskManagerTest {
 
@@ -22,6 +18,6 @@ class TaskManagerTest {
     void countPizzas() {
         TaskManager p = new TaskManager("src/main/resources/package2.json", 500);
         p.openPizzeria();
-
     }
+
 }

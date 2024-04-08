@@ -39,41 +39,41 @@ public class TaskManager {
 
         try {
             jsonObject = (JSONObject) parser.parse(new FileReader(inputFile));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            System.out.println("Ой ой ой а файлика то нету");
-        }
-        warehouseLimit = (long) jsonObject.get("warehouse");
-        courierTasks = new TaskQueue(warehouseLimit);
-        bakersTasks = new TaskQueue(warehouseLimit);
-        for (Object pizzaObj : (JSONArray) jsonObject.get("pizzas")) {
-            countPizzas++;
-            JSONObject pizza = (JSONObject) pizzaObj;
-            bakersTasks.addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time")));
-        }
-        for (Object bakerObj : (JSONArray) jsonObject.get("bakers")) {
-            JSONObject baker = (JSONObject) bakerObj;
-            bakers.add(new Baker((Long) baker.get("time"), bakersTasks, courierTasks, (String) baker.get("name")));
-        }
-        for (Object courierObj : (JSONArray) jsonObject.get("couriers")) {
-            JSONObject courier = (JSONObject) courierObj;
-            couriers.add(new Courier((Long) courier.get("capacity"), courierTasks, (String) courier.get("name")));
-        }
-        try {
-            Thread.sleep(workTime);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        pizzeriaClose = true;
+            warehouseLimit = (long) jsonObject.get("warehouse");
+            courierTasks = new TaskQueue(warehouseLimit);
+            bakersTasks = new TaskQueue(warehouseLimit);
+            for (Object pizzaObj : (JSONArray) jsonObject.get("pizzas")) {
+                countPizzas++;
+                JSONObject pizza = (JSONObject) pizzaObj;
+                bakersTasks.addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time")));
+            }
+            for (Object bakerObj : (JSONArray) jsonObject.get("bakers")) {
+                JSONObject baker = (JSONObject) bakerObj;
+                bakers.add(new Baker((Long) baker.get("time"), bakersTasks, courierTasks, (String) baker.get("name")));
+            }
+            for (Object courierObj : (JSONArray) jsonObject.get("couriers")) {
+                JSONObject courier = (JSONObject) courierObj;
+                couriers.add(new Courier((Long) courier.get("capacity"), courierTasks, (String) courier.get("name")));
+            }
+            try {
+                Thread.sleep(workTime);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            pizzeriaClose = true;
 
-        for (Baker baker: bakers) {
-            baker.interrupt();
-            countCookedPizzas += baker.howPizzas();
-        }
-        for (Courier courier: couriers) {
-            courier.interrupt();
-            deliveredPizzas += courier.howPizzas();
+            for (Baker baker: bakers) {
+                baker.interrupt();
+                countCookedPizzas += baker.howPizzas();
+            }
+            for (Courier courier: couriers) {
+                courier.interrupt();
+                deliveredPizzas += courier.howPizzas();
+            }
+        } catch (IOException e) {
+            System.out.println("Ой ой ой а файлика то нету");
+        } catch (ParseException e) {
+            System.out.println("Ой ой ой а файлик то кривой");
         }
         //добавить сохранение оставшихся заказов в json
         System.out.println("Всего заказов: " + countPizzas

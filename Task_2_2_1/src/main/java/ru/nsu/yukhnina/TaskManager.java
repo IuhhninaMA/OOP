@@ -19,21 +19,34 @@ public class TaskManager {
     ArrayList<Baker> bakers;
     ArrayList<Courier> couriers;
     String inputFile;
+    long warehouseLimit;
     public TaskManager(String input, int workTime) {
-        courierTasks = new TaskQueue();
-        bakersTasks = new TaskQueue();
+        courierTasks = null;
+        bakersTasks = null;
         bakers = new ArrayList<>();
         couriers = new ArrayList<>();
         inputFile = input;
         this.workTime = workTime;
         countPizzas = 0;
         countCookedPizzas = 0;
+        warehouseLimit = 0;
     }
 
-    public void openPizzeria() throws IOException, ParseException {
+    public void openPizzeria() {
         JSONParser parser = new JSONParser();
         //добавить чтение из ресурса
-        JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(inputFile));
+        JSONObject jsonObject = null;
+
+        try {
+            jsonObject = (JSONObject) parser.parse(new FileReader(inputFile));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            System.out.println("Ой ой ой а файлика то нету");
+        }
+        warehouseLimit = (long) jsonObject.get("warehouse");
+        courierTasks = new TaskQueue(warehouseLimit);
+        bakersTasks = new TaskQueue(warehouseLimit);
         for (Object pizzaObj : (JSONArray) jsonObject.get("pizzas")) {
             countPizzas++;
             JSONObject pizza = (JSONObject) pizzaObj;
@@ -53,17 +66,14 @@ public class TaskManager {
             throw new RuntimeException(e);
         }
         pizzeriaClose = true;
-        if (bakersTasks.isEmpty()) {
-            for (Baker baker: bakers) {
-                baker.interrupt();
-                countCookedPizzas += baker.howPizzas();
-            }
+
+        for (Baker baker: bakers) {
+            baker.interrupt();
+            countCookedPizzas += baker.howPizzas();
         }
-        if (courierTasks.isEmpty()) {
-            for (Courier courier: couriers) {
-                courier.interrupt();
-                deliveredPizzas += courier.howPizzas();
-            }
+        for (Courier courier: couriers) {
+            courier.interrupt();
+            deliveredPizzas += courier.howPizzas();
         }
         //добавить сохранение оставшихся заказов в json
         System.out.println("Всего заказов: " + countPizzas

@@ -8,7 +8,7 @@ public class Baker extends Thread {
     private TaskQueue tasks;
     private volatile TaskQueue warehouse;
     private String name;
-    int cookedPizzas;
+    private int cookedPizzas;
     public Baker(long timeToCook,
                  TaskQueue bakersTasks,
                  TaskQueue courierTasks,

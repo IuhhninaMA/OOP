@@ -3,12 +3,13 @@ package ru.nsu.yukhnina;
 import java.util.*;
 
 public class TaskQueue {
-    private List<Task> taskQueue;
+    private final List<Task> taskQueue;
     int countTask;
 
-    private final int warehouseLimit = 20;
-    public TaskQueue() {
-        taskQueue = new LinkedList();
+    private final Long warehouseLimit;
+    public TaskQueue(Long warehouseLimit) {
+        taskQueue = new LinkedList<>();
+        this.warehouseLimit = warehouseLimit;
     }
 
     public synchronized Task getTask() throws InterruptedException {
@@ -34,9 +35,5 @@ public class TaskQueue {
             notifyAll();
         }
         taskQueue.add(task);
-    }
-
-    public boolean isEmpty() {
-        return taskQueue.isEmpty();
     }
 }

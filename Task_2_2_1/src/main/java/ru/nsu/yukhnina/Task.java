@@ -1,9 +1,9 @@
 package ru.nsu.yukhnina;
 
 public class Task {
-    String pizza;
-    String address;
-    long timeToDelivery;
+    private String pizza;
+    private String address;
+    private long timeToDelivery;
     public Task(String pizza, String address, long time) {
         this.pizza = pizza;
         this.address = address;

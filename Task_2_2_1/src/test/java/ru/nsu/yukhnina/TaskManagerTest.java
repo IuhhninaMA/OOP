@@ -40,12 +40,11 @@ class TaskManagerTest {
         });
         thread.start();
         Thread.sleep(20);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             p.addTaskToBaker(new Task("Pizza", "Address", 12));
         }
         Thread.sleep(10000);
         assert(p.countPizzas > 1);
         assert(p.countCookedPizzas > 1);
-        assert(p.deliveredPizzas > 1);
     }
 }

@@ -8,6 +8,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class TaskManager {
     final int workTime;
     int countPizzas;
@@ -20,6 +24,7 @@ public class TaskManager {
     ArrayList<Courier> couriers;
     String inputFile;
     long warehouseLimit;
+    private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
     public TaskManager(String input, int workTime) {
         courierTasks = null;
         bakersTasks = null;
@@ -33,11 +38,12 @@ public class TaskManager {
     }
 
     public void openPizzeria() {
+        LOGGER.info("Pizzeria start work");
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = null;
-
         try {
             jsonObject = (JSONObject) parser.parse(new FileReader(inputFile));
+            LOGGER.info("File " + inputFile + " open");
             warehouseLimit = (long) jsonObject.get("warehouse");
             courierTasks = new TaskQueue(warehouseLimit);
             bakersTasks = new TaskQueue(warehouseLimit);
@@ -46,6 +52,7 @@ public class TaskManager {
                 JSONObject pizza = (JSONObject) pizzaObj;
                 addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time")));
             }
+            LOGGER.info("Get " + countPizzas + " tasks");
             for (Object bakerObj : (JSONArray) jsonObject.get("bakers")) {
                 JSONObject baker = (JSONObject) bakerObj;
                 bakers.add(new Baker((Long) baker.get("time"), bakersTasks, courierTasks, (String) baker.get("name")));
@@ -81,6 +88,7 @@ public class TaskManager {
     }
 
     public void addTaskToBaker(Task task) {
+        countPizzas++;
         bakersTasks.addTaskToBaker(task);
     }
 }

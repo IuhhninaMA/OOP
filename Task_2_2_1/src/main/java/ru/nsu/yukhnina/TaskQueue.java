@@ -3,7 +3,7 @@ package ru.nsu.yukhnina;
 import java.util.*;
 
 public class TaskQueue {
-    private final List<Task> taskQueue;
+    private volatile List<Task> taskQueue;
     int countTask;
 
     private final Long warehouseLimit;

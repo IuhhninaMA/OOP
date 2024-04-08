@@ -34,7 +34,6 @@ public class TaskManager {
 
     public void openPizzeria() {
         JSONParser parser = new JSONParser();
-        //добавить чтение из ресурса
         JSONObject jsonObject = null;
 
         try {
@@ -45,7 +44,7 @@ public class TaskManager {
             for (Object pizzaObj : (JSONArray) jsonObject.get("pizzas")) {
                 countPizzas++;
                 JSONObject pizza = (JSONObject) pizzaObj;
-                bakersTasks.addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time")));
+                addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time")));
             }
             for (Object bakerObj : (JSONArray) jsonObject.get("bakers")) {
                 JSONObject baker = (JSONObject) bakerObj;
@@ -79,5 +78,9 @@ public class TaskManager {
         System.out.println("Всего заказов: " + countPizzas
                 + "\nПриготовлено: " + countCookedPizzas
                 + "\nДоставлено: " + deliveredPizzas);
+    }
+
+    public void addTaskToBaker(Task task) {
+        bakersTasks.addTaskToBaker(task);
     }
 }

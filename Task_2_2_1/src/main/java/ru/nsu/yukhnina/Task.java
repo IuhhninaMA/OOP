@@ -5,6 +5,7 @@ public class Task {
     private String address;
     private long timeToDelivery;
     private int taskId;
+
     public Task(String pizza, String address, long time, int taskId) {
         this.pizza = pizza;
         this.address = address;

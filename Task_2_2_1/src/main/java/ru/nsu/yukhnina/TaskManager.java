@@ -3,13 +3,11 @@ package ru.nsu.yukhnina;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 public class TaskManager {
@@ -25,6 +23,7 @@ public class TaskManager {
     String inputFile;
     long warehouseLimit;
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
+
     public TaskManager(String input, int workTime) {
         courierTasks = null;
         bakersTasks = null;
@@ -50,16 +49,24 @@ public class TaskManager {
             bakersTasks = new TaskQueue();
             for (Object pizzaObj : (JSONArray) jsonObject.get("pizzas")) {
                 JSONObject pizza = (JSONObject) pizzaObj;
-                addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time"), countPizzas));
+                addTaskToBaker(new Task((String) pizza.get("name"),
+                        (String) pizza.get("address"),
+                        (Long) pizza.get("time"),
+                        countPizzas));
             }
             LOGGER.info("Get " + countPizzas + " tasks");
             for (Object bakerObj : (JSONArray) jsonObject.get("bakers")) {
                 JSONObject baker = (JSONObject) bakerObj;
-                bakers.add(new Baker((Long) baker.get("time"), bakersTasks, courierTasks, (String) baker.get("name")));
+                bakers.add(new Baker((Long) baker.get("time"),
+                        bakersTasks,
+                        courierTasks,
+                        (String) baker.get("name")));
             }
             for (Object courierObj : (JSONArray) jsonObject.get("couriers")) {
                 JSONObject courier = (JSONObject) courierObj;
-                couriers.add(new Courier((Long) courier.get("capacity"), courierTasks, (String) courier.get("name")));
+                couriers.add(new Courier((Long) courier.get("capacity"),
+                        courierTasks,
+                        (String) courier.get("name")));
             }
             try {
                 Thread.sleep(workTime);
@@ -68,11 +75,11 @@ public class TaskManager {
             }
             pizzeriaClose = true;
 
-            for (Baker baker: bakers) {
+            for (Baker baker : bakers) {
                 baker.interrupt();
                 countCookedPizzas += baker.howPizzas();
             }
-            for (Courier courier: couriers) {
+            for (Courier courier : couriers) {
                 courier.interrupt();
                 deliveredPizzas += courier.howPizzas();
             }

@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -152,9 +152,10 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,long)">Task</a></span>&#8203;(java.lang.String&nbsp;pizza,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,long,int)">Task</a></span>&#8203;(java.lang.String&nbsp;pizza,
     java.lang.String&nbsp;address,
-    long&nbsp;time)</code></th>
+    long&nbsp;time,
+    int&nbsp;taskId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -181,6 +182,11 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTaskId()">getTaskId</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeToDelivery()">getTimeToDelivery</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -209,7 +215,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,java.lang.String,long)">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,long,int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -217,7 +223,8 @@ extends java.lang.Object</pre>
 <h4>Task</h4>
 <pre>public&nbsp;Task&#8203;(java.lang.String&nbsp;pizza,
             java.lang.String&nbsp;address,
-            long&nbsp;time)</pre>
+            long&nbsp;time,
+            int&nbsp;taskId)</pre>
 </li>
 </ul>
 </li>
@@ -230,6 +237,15 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="getTaskId()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getTaskId</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getTaskId()</pre>
+</li>
+</ul>
 <a id="getTimeToDelivery()">
 <!--   -->
 </a>

@@ -34,6 +34,7 @@ public class TaskManager {
         this.workTime = workTime;
         countPizzas = 0;
         countCookedPizzas = 0;
+        deliveredPizzas = 0;
         warehouseLimit = 0;
     }
 
@@ -46,11 +47,10 @@ public class TaskManager {
             LOGGER.info("File " + inputFile + " open");
             warehouseLimit = (long) jsonObject.get("warehouse");
             courierTasks = new TaskQueue(warehouseLimit);
-            bakersTasks = new TaskQueue(warehouseLimit);
+            bakersTasks = new TaskQueue();
             for (Object pizzaObj : (JSONArray) jsonObject.get("pizzas")) {
-                countPizzas++;
                 JSONObject pizza = (JSONObject) pizzaObj;
-                addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time")));
+                addTaskToBaker(new Task((String) pizza.get("name"), (String) pizza.get("address"), (Long) pizza.get("time"), countPizzas));
             }
             LOGGER.info("Get " + countPizzas + " tasks");
             for (Object bakerObj : (JSONArray) jsonObject.get("bakers")) {
@@ -89,6 +89,10 @@ public class TaskManager {
 
     public void addTaskToBaker(Task task) {
         countPizzas++;
-        bakersTasks.addTaskToBaker(task);
+        try {
+            bakersTasks.addTask(task);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

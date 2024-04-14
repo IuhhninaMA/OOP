@@ -38,9 +38,13 @@ public class Baker extends Thread {
             }
             try {
                 Thread.sleep(timeToCook);
-                LOGGER.info("Baker " + name + " cooked " + currentTask.getPizza());
+                LOGGER.info("Baker " + name
+                        + " cooked " + currentTask.getPizza()
+                        + "ID: " + currentTask.getTaskId());
                 cookedPizzas++;
-                LOGGER.info("Baker " + name + " put to warehouse " + currentTask.getPizza());
+                LOGGER.info("Baker " + name
+                        + " put to warehouse " + currentTask.getPizza()
+                        + "ID: " + currentTask.getTaskId());
             } catch (InterruptedException e) {
                 LOGGER.info("Baker " + name + " end work");
                 return;

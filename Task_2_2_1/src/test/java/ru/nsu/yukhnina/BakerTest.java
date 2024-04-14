@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class BakerTest {
     @Test
     void cook() throws InterruptedException {
-        TaskQueue tasks = new TaskQueue(100L);
+        TaskQueue tasks = new TaskQueue();
         TaskQueue tasksC = new TaskQueue(100L);
         for (int i = 0; i < 200; i++) {
-            tasks.addTaskToBaker(new Task("Pizza", "Address", 1));
+            tasks.addTask(new Task("Pizza", "Address", 1, i));
         }
         Baker baker = new Baker(1, tasks, tasksC, "Barbie");
         Thread.sleep(400);
         baker.interrupt();
-        assertEquals(101, baker.howPizzas());
+        assertEquals(200, baker.howPizzas());
     }
 }

@@ -15,6 +15,7 @@ public class Courier extends Thread {
         this.capacity = capacity;
         this.tasks = tasks;
         this.name = name;
+        this.deliveredPizzas = 0;
         start();
     }
 
@@ -29,19 +30,21 @@ public class Courier extends Thread {
                 currentTask = tasks.getTask();
             } catch (InterruptedException e) {
                 deliveredPizzas += weight;
-                LOGGER.info("Courier " + name + " delvered");
+                LOGGER.info("Courier " + name + " delivered");
                 LOGGER.info("Courier " + name + " end work");
                 return;
             }
             if (currentTask != null) {
-                LOGGER.info("Courier " + name + " get " + currentTask.getPizza());
+                LOGGER.info("Courier " + name
+                        + " get " + currentTask.getPizza()
+                        + "ID: " + currentTask.getTaskId());
                 weight += 1;
                 time += currentTask.getTimeToDelivery();
             }
             if (weight == capacity) {
                 try {
                     deliveredPizzas += weight;
-                    LOGGER.info("Courier " + name + " delvered");
+                    LOGGER.info("Courier " + name + " delivered");
                     Thread.sleep(time);
                     time = 0;
                     weight = 0;
@@ -51,7 +54,6 @@ public class Courier extends Thread {
             }
         }
         deliveredPizzas += weight;
-        LOGGER.info("Courier " + name + " delvered");
         LOGGER.info("Courier " + name + " end work");
     }
 

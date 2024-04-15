@@ -14,6 +14,7 @@ public class Task {
      * @param address - addres to deliver.
      * @param time - time to deliver.
      * @param taskId - id task to check it in logger.
+     *               Described task.
      */
     public Task(String pizza, String address, long time, int taskId) {
         this.pizza = pizza;

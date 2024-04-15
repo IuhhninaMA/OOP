@@ -118,6 +118,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * To correct end work write not cooking order to cook it next day.
+     */
     public void pizzeriaEnd() {
         JSONObject remainingTasks = new JSONObject();
         JSONArray remainingPizzas = new JSONArray();

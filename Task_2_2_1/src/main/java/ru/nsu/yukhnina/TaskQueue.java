@@ -62,7 +62,6 @@ public class TaskQueue {
     }
 
     /**
-     * @return allTasks.
      * I need it to end work pizzeria.
      */
     public List<Task> getAllTasks() {

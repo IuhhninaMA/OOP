@@ -19,10 +19,10 @@ public class Baker extends Thread {
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
 
     /**
-     * @param timeToCook - time thaht baker cook pizza(sleep).
-     * @param bakersTasks - taskQueue from baker got tasks.
-     * @param courierTasks - warehouse or queue with tasks for courier.
-     * @param name - baker name.
+     * timeToCook - time thaht baker cook pizza(sleep).
+     * bakersTasks - taskQueue from baker got tasks.
+     * courierTasks - warehouse or queue with tasks for courier.
+     * name - baker name.
      * Baker has this fields and counter how pizzas he cooked to check it at the end.
      */
     public Baker(long timeToCook,
@@ -72,7 +72,7 @@ public class Baker extends Thread {
     }
 
     /**
-     * @return count cooked pizza to check how good my pizzeria work.
+     * Return count cooked pizza to check how good my pizzeria work.
      */
     public int howPizzas() {
         return cookedPizzas;

@@ -141,6 +141,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Baker</span>
 extends java.lang.Thread</pre>
+<div class="block">Class described baker and how he work.
+ Baker has task queue and get task from it,
+ next he is cooking pizza(sleep) and put pizza to warehouse.</div>
 </li>
 </ul>
 </div>
@@ -227,7 +230,11 @@ extends java.lang.Thread</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#run()">run</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">All bakers it is threads,
+ baker get task from queue if he can do it else he waits,
+ cook it and got another task.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -270,6 +277,14 @@ extends java.lang.Thread</pre>
              <a href="TaskQueue.html" title="class in ru.nsu.yukhnina">TaskQueue</a>&nbsp;bakersTasks,
              <a href="TaskQueue.html" title="class in ru.nsu.yukhnina">TaskQueue</a>&nbsp;courierTasks,
              java.lang.String&nbsp;name)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>timeToCook</code> - - time thaht baker cook pizza(sleep).</dd>
+<dd><code>bakersTasks</code> - - taskQueue from baker got tasks.</dd>
+<dd><code>courierTasks</code> - - warehouse or queue with tasks for courier.</dd>
+<dd><code>name</code> - - baker name.
+ Baker has this fields and counter how pizzas he cooked to check it at the end.</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -289,6 +304,9 @@ extends java.lang.Thread</pre>
 <li class="blockList">
 <h4>run</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;run()</pre>
+<div class="block">All bakers it is threads,
+ baker get task from queue if he can do it else he waits,
+ cook it and got another task.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>run</code>&nbsp;in interface&nbsp;<code>java.lang.Runnable</code></dd>
@@ -304,6 +322,10 @@ extends java.lang.Thread</pre>
 <li class="blockList">
 <h4>howPizzas</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;howPizzas()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>count cooked pizza to check how good my pizzeria work.</dd>
+</dl>
 </li>
 </ul>
 </li>

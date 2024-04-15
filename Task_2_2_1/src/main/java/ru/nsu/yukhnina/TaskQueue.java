@@ -60,4 +60,12 @@ public class TaskQueue {
         taskQueue.add(task);
         LOGGER.info("Add task  " + task.getPizza());
     }
+
+    /**
+     * @return allTasks.
+     * I need it to end work pizzeria.
+     */
+    public List<Task> getAllTasks() {
+        return taskQueue;
+    }
 }

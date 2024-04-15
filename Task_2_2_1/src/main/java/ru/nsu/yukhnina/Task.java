@@ -37,9 +37,16 @@ public class Task {
     }
 
     /**
-     * @return Getter to pizza name.
+     * Getter to pizza name.
      */
     public String getPizza() {
         return pizza;
+    }
+
+    /**
+     * Getter to order address.
+     */
+    public String getAddress() {
+        return address;
     }
 }

@@ -1,6 +1,7 @@
 package ru.nsu.yukhnina;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -98,6 +99,7 @@ public class TaskManager {
         } catch (ParseException e) {
             System.out.println("Ой ой ой а файлик то кривой");
         }
+        pizzeriaEnd();
         //добавить сохранение оставшихся заказов в json
         System.out.println("Всего заказов: " + countPizzas
                 + "\nПриготовлено: " + countCookedPizzas
@@ -113,6 +115,26 @@ public class TaskManager {
             bakersTasks.addTask(task);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void pizzeriaEnd() {
+        JSONObject remainingTasks = new JSONObject();
+        JSONArray remainingPizzas = new JSONArray();
+        for (Task task : bakersTasks.getAllTasks()) {
+            JSONObject pizza = new JSONObject();
+            pizza.put("name", task.getPizza());
+            pizza.put("address", task.getAddress());
+            pizza.put("time", task.getTimeToDelivery());
+            remainingPizzas.add(pizza);
+        }
+        remainingTasks.put("remainingPizzas", remainingPizzas);
+
+        try (FileWriter file = new FileWriter("remaining_tasks.json")) {
+            file.write(remainingTasks.toJSONString());
+            LOGGER.info("Remaining tasks saved to remaining_tasks.json");
+        } catch (IOException e) {
+            System.out.println("Failed to save remaining tasks: " + e.getMessage());
         }
     }
 }

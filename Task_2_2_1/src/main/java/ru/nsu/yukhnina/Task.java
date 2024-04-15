@@ -10,11 +10,11 @@ public class Task {
     private int taskId;
 
     /**
-     * @param pizza - pizza name.
-     * @param address - addres to deliver.
-     * @param time - time to deliver.
-     * @param taskId - id task to check it in logger.
-     *               Described task.
+     * pizza - pizza name.
+     * address - addres to deliver.
+     * time - time to deliver.
+     * taskId - id task to check it in logger.
+     * Described task.
      */
     public Task(String pizza, String address, long time, int taskId) {
         this.pizza = pizza;

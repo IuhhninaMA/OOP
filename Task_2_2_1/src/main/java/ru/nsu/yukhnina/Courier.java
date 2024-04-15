@@ -3,6 +3,9 @@ package ru.nsu.yukhnina;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Courier got task from werwhouse while he can and delivered order.
+ */
 public class Courier extends Thread {
     long capacity;
     TaskQueue tasks;
@@ -10,6 +13,9 @@ public class Courier extends Thread {
     private int deliveredPizzas;
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
 
+    /**
+     * Described courier and start work.
+     */
     public Courier(long capacity, TaskQueue tasks, String name) {
         LOGGER.setLevel(Level.INFO);
         this.capacity = capacity;
@@ -19,6 +25,9 @@ public class Courier extends Thread {
         start();
     }
 
+    /**
+     * Courirer work while not interrupted.
+     */
     @Override
     public void run() {
         LOGGER.info("Courier " + name + " start work");
@@ -57,6 +66,9 @@ public class Courier extends Thread {
         LOGGER.info("Courier " + name + " end work");
     }
 
+    /**
+     * Return how pizzas he deliveret to check how pizzeria work.
+     */
     public int howPizzas() {
         return deliveredPizzas;
     }

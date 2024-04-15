@@ -10,6 +10,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
+/**
+ * Main class. Read tasks, bakers and courier, start work pizzeria,
+ * and interrupt it when pizzeria close.
+ */
 public class TaskManager {
     final int workTime;
     int countPizzas;
@@ -24,6 +28,9 @@ public class TaskManager {
     long warehouseLimit;
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
 
+    /**
+     * described pizzeria.
+     */
     public TaskManager(String input, int workTime) {
         courierTasks = null;
         bakersTasks = null;
@@ -37,6 +44,9 @@ public class TaskManager {
         warehouseLimit = 0;
     }
 
+    /**
+     * Work pizzeria.
+     */
     public void openPizzeria() {
         LOGGER.info("Pizzeria start work");
         JSONParser parser = new JSONParser();
@@ -94,6 +104,9 @@ public class TaskManager {
                 + "\nДоставлено: " + deliveredPizzas);
     }
 
+    /**
+     * Method to tests wow pizzeria processes tasks.
+     */
     public void addTaskToBaker(Task task) {
         countPizzas++;
         try {

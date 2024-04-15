@@ -5,6 +5,11 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Class described baker and how he work.
+ * Baker has task queue and get task from it,
+ * next he is cooking pizza(sleep) and put pizza to warehouse.
+ */
 public class Baker extends Thread {
     private long timeToCook;
     private TaskQueue tasks;
@@ -13,6 +18,13 @@ public class Baker extends Thread {
     private int cookedPizzas;
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
 
+    /**
+     * @param timeToCook - time thaht baker cook pizza(sleep).
+     * @param bakersTasks - taskQueue from baker got tasks.
+     * @param courierTasks - warehouse or queue with tasks for courier.
+     * @param name - baker name.
+     * Baker has this fields and counter how pizzas he cooked to check it at the end.
+     */
     public Baker(long timeToCook,
                  TaskQueue bakersTasks,
                  TaskQueue courierTasks,
@@ -26,6 +38,11 @@ public class Baker extends Thread {
         start();
     }
 
+    /**
+     * All bakers it is threads,
+     * baker get task from queue if he can do it else he waits,
+     * cook it and got another task.
+     */
     @Override
     public void run() {
         LOGGER.info("Baker " + name + " start work");
@@ -54,6 +71,9 @@ public class Baker extends Thread {
         LOGGER.info("Baker " + name + " end work");
     }
 
+    /**
+     * @return count cooked pizza to check how good my pizzeria work.
+     */
     public int howPizzas() {
         return cookedPizzas;
     }

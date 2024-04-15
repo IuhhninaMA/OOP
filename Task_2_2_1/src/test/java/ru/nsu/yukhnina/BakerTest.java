@@ -2,8 +2,6 @@ package ru.nsu.yukhnina;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class BakerTest {
     @Test
     void cook() throws InterruptedException {
@@ -15,6 +13,6 @@ class BakerTest {
         Baker baker = new Baker(1, tasks, tasksC, "Barbie");
         Thread.sleep(400);
         baker.interrupt();
-        assert(baker.howPizzas() > 0);
+        assert (baker.howPizzas() > 0);
     }
 }

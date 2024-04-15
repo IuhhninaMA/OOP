@@ -12,6 +12,7 @@ public class Baker extends Thread {
     private String name;
     private int cookedPizzas;
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
+
     public Baker(long timeToCook,
                  TaskQueue bakersTasks,
                  TaskQueue courierTasks,

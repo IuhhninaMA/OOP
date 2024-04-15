@@ -1,6 +1,7 @@
 package ru.nsu.yukhnina;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -8,6 +9,7 @@ public class TaskQueue {
     private final List<Task> taskQueue;
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
     private final Long warehouseLimit;
+
     public TaskQueue(Long warehouseLimit) {
         LOGGER.setLevel(Level.INFO);
         taskQueue = new LinkedList<>();

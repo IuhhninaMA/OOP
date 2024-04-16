@@ -13,7 +13,7 @@ public class Task {
      * pizza - pizza name.
      * address - addres to deliver.
      * time - time to deliver.
-     * taskId - id task to check it in logger.
+     * taskId - id task to check it in logger;
      * Described task.
      */
     public Task(String pizza, String address, long time, int taskId) {

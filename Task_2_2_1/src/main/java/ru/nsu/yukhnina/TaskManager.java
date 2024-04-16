@@ -12,7 +12,7 @@ import org.json.simple.parser.ParseException;
 
 
 /**
- * Main class. Read tasks, bakers and courier, start work pizzeria,
+ * Main class. Read tasks, bakers and courier, start work pizzeria;
  * and interrupt it when pizzeria close.
  */
 public class TaskManager {

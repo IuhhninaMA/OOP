@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 /**
  * Class described baker and how he work.
- * Baker has task queue and get task from it,
+ * Baker has task queue and get task from it;
  * next he is cooking pizza(sleep) and put pizza to warehouse.
  */
 public class Baker extends Thread {

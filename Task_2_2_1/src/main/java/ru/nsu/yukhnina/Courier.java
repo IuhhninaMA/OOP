@@ -7,9 +7,9 @@ import java.util.logging.Logger;
  * Courier got task from werwhouse while he can and delivered order.
  */
 public class Courier extends Thread {
-    long capacity;
-    TaskQueue tasks;
-    String name;
+    private long capacity;
+    private TaskQueue tasks;
+    private String name;
     private int deliveredPizzas;
     private static final Logger LOGGER = Logger.getLogger(TaskManager.class.getName());
 

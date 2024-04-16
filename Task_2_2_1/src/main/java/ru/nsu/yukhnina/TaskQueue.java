@@ -14,7 +14,7 @@ public class TaskQueue {
     private final Long warehouseLimit;
 
     /**
-     * I have 2 constructors because first to courier task list,
+     * I have 2 constructors because first to courier task list;
      * second baker task list, because baker hasnt limit.
      */
     public TaskQueue(Long warehouseLimit) {

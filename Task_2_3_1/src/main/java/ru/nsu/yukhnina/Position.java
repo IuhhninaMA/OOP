@@ -6,6 +6,12 @@ public class Position {
     private int width;
     private int height;
 
+    /**
+     * @param xPos
+     * @param yPos
+     * @param width
+     * @param height
+     */
     public Position(double xPos, double yPos, int width, int height) {
         this.xPos = xPos;
         this.yPos = yPos;

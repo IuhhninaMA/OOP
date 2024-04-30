@@ -1,4 +1,4 @@
-module hellofx {
+module ru.nsu.yukhnina {
     requires javafx.controls;
     requires javafx.fxml;
     

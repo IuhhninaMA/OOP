@@ -1,4 +1,4 @@
-package ru.nsu.yukhnina;
+package ru.nsu.yukhnina.controls;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import ru.nsu.yukhnina.Food;
+import ru.nsu.yukhnina.Position;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;

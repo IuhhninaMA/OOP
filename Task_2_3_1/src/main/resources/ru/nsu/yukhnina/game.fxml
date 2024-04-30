@@ -15,7 +15,7 @@
             style="-fx-background-color: #EAF4D3;"
             xmlns="http://javafx.com/javafx/15.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ru.nsu.yukhnina.Controller">
+            fx:controller="ru.nsu.yukhnina.controls.Controller">
     <children>
         <Button fx:id="startButton"
                 layoutX="32.0"

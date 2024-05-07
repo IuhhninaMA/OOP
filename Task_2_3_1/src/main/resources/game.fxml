@@ -4,6 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
 <AnchorPane fx:id="anchorPane"
             maxHeight="-Infinity"
             maxWidth="-Infinity"
@@ -15,14 +18,25 @@
             style="-fx-background-color: #EAF4D3;"
             xmlns="http://javafx.com/javafx/15.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ru.nsu.yukhnina.controls.Controller">
-    <children>
-        <Button fx:id="startButton"
+            fx:controller="ru.nsu.yukhnina.snake.controls.Controller">
+        <HBox>
+                <padding>
+                        <Insets top="10" bottom="10" left="10" right="10"/>
+                </padding>
+        <Canvas fx:id="canvas"
+                height="400.0"
+                layoutX="100.0"
+                layoutY="100.0"
+                width="400.0"
+                AnchorPane.leftAnchor="10"
+                AnchorPane.topAnchor="10"/>
+        <Button
+                fx:id="startButton"
                 layoutX="32.0"
                 layoutY="34.0"
                 mnemonicParsing="false"
                 onKeyPressed="#moveSquareKeyPressed"
-                onMouseClicked="#start"
+                onMouseClicked="#startGame"
                 text="Start new game" />
-    </children>
+        </HBox>
 </AnchorPane>

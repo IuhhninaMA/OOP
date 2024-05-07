@@ -8,12 +8,20 @@ import ru.nsu.yukhnina.snake.models.Food;
 import ru.nsu.yukhnina.snake.models.SnakeBody;
 import ru.nsu.yukhnina.snake.models.SnakeCell;
 
+/**
+ * Визуализация моделек.
+ */
 public class ViewGame {
     SnakeBody snakeBody;
     Food food;
     int cellSize;
     Canvas canvas;
 
+    /**
+     * Конструктор для поля с моделями змейки,
+     * еды,
+     * размером ячейки и полем.
+     */
     public ViewGame(SnakeBody snake,
                     Food food,
                     int cellSize,
@@ -24,6 +32,9 @@ public class ViewGame {
         this.canvas = canvas;
     }
 
+    /**
+     * Визуализация моделей на поле.
+     */
     public void view() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -38,6 +49,9 @@ public class ViewGame {
         gc.fillRect(food.getCoordinates().getX(), food.getCoordinates().getY(), cellSize, cellSize);
     }
 
+    /**
+     * Завершение игры.
+     */
     public void gameOver() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());

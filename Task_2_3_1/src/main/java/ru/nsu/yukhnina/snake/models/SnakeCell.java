@@ -3,6 +3,9 @@ package ru.nsu.yukhnina.snake.models;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
+/**
+ * Описание ячейки тельца змейки.
+ */
 public class SnakeCell {
     private int x;
     private int y;
@@ -10,6 +13,9 @@ public class SnakeCell {
     int width;
     int height;
 
+    /**
+     * Конструктор класса.
+     */
     public SnakeCell(int x, int y, Color color, int width, int height) {
         this.x = x % width;
         this.y = y % height;
@@ -24,14 +30,23 @@ public class SnakeCell {
         }
     }
 
+    /**
+     * Геттер для координаты x.
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Геттер для координаты y.
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Геттер для цвета.
+     */
     public Paint getColor() {
         return color;
     }

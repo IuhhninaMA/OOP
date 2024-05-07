@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import ru.nsu.yukhnina.snake.models.*;
@@ -14,6 +15,7 @@ import ru.nsu.yukhnina.snake.presentation.ViewGame;
  * Коннектит управление с визуализацией.
  */
 public class Controller {
+    public Label score;
     private Direction.MyDirection direction = Direction.MyDirection.UP;
     public Canvas canvas;
     public Button startButton;
@@ -74,6 +76,7 @@ public class Controller {
         @Override
         public void handle(long now) {
             updateInterval -= 10;
+            score.setText("" +(snake.getBody().size() - 1));
             if (now - lastUpdateTime >= updateInterval) {
                 lastUpdateTime = now;
                 game.updateGame(direction);

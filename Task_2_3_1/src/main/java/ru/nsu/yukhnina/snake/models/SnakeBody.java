@@ -4,6 +4,9 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayDeque;
 
+/**
+ * Класс для описания змейки.
+ */
 public class SnakeBody {
     public ArrayDeque<SnakeCell> body = new ArrayDeque<>();
     private Direction.MyDirection direction;
@@ -11,6 +14,12 @@ public class SnakeBody {
     int fieldWidth;
     int fieldHeight;
 
+    /**
+     * Тут тельце змейки,
+     * размеры поля на котором она ползает,
+     * направление куда она ползёт,
+     * размер ячейки.
+     */
     public SnakeBody(Direction.MyDirection direction,
                      int cellSize,
                      int fieldWidth,
@@ -21,15 +30,24 @@ public class SnakeBody {
         this.cellSize = cellSize;
     }
 
+    /**
+     * Инициализация новой змейки.
+     */
     public void newSnake() {
         body.clear();
         body.add(new SnakeCell(0, 0, Color.GREEN, fieldWidth, fieldHeight));
     }
 
+    /**
+     * Возвращает тельце змейки.
+     */
     public ArrayDeque<SnakeCell> getBody() {
         return body;
     }
 
+    /**
+     * увеличение тельца змейки.
+     */
     public void addBody() {
         SnakeCell c = body.getLast();
         switch (direction) {
@@ -40,6 +58,9 @@ public class SnakeBody {
         }
     }
 
+    /**
+     * Движение змейки.
+     */
     public void moveSnake(Direction.MyDirection direction) {
         System.out.println(body.size());
         switch (direction) {
@@ -54,6 +75,9 @@ public class SnakeBody {
         body.pollLast();
     }
 
+    /**
+     * проверка того, что змейка ударилас в себя.
+     */
     public boolean SnakeHitItself() {
         for (SnakeCell cell1 : body) {
             int k = 0;

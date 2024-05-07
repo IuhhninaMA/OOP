@@ -4,6 +4,9 @@ import javafx.scene.paint.Color;
 
 import java.util.Random;
 
+/**
+ * класс который управляет обновлением механики игры.
+ */
 public class Game {
     private final Random random = new Random();
     SnakeBody snake;
@@ -15,6 +18,12 @@ public class Game {
     double fieldWidth;
     double fieldHeight;
 
+    /**
+     * тут собраны тело змейки,
+     * еда,
+     * направление для начала игры,
+     * размеры ячейки и поля.
+     */
     public Game(SnakeBody snake,
                 Food food,
                 Direction.MyDirection direction,
@@ -29,12 +38,18 @@ public class Game {
         this.fieldWidth = fieldWidth;
     }
 
+    /**
+     * запускается с каждым тиком игры для обновления моделей змейки и еды.
+     */
     public void updateGame(Direction.MyDirection direction) {
         this.direction = direction;
         eatFood();
         snake.moveSnake(direction);
     }
 
+    /**
+     * рандомный спавн яблок.
+     */
     public void spawnApple() {
         int positionX = random.nextInt((int)fieldWidth/cellSize)*cellSize;
         foodX = positionX;
@@ -43,6 +58,9 @@ public class Game {
         food = new Food(new Coordinates(positionX, positionY, cellSize, (int)fieldWidth, (int)fieldHeight), Color.RED);
     }
 
+    /**
+     * Проверка съела ли змейка еду.
+     */
     public void eatFood(){
         if(snake.getBody().getFirst().getX() == foodX && snake.getBody().getFirst().getY() == foodY){
             spawnApple();
@@ -50,10 +68,16 @@ public class Game {
         }
     }
 
+    /**
+     * Геттер для визуализации.
+     */
     public Food getFood() {
         return food;
     }
 
+    /**
+     * Геттер для визуализации.
+     */
     public SnakeBody getSnake() {
         return snake;
     }

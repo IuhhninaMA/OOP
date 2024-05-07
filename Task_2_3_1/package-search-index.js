@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"ru.nsu.yukhnina.snake","l":"ru.nsu.yukhnina.snake"},{"m":"ru.nsu.yukhnina.snake","l":"ru.nsu.yukhnina.snake.controls"},{"m":"ru.nsu.yukhnina.snake","l":"ru.nsu.yukhnina.snake.models"},{"m":"ru.nsu.yukhnina.snake","l":"ru.nsu.yukhnina.snake.presentation"}];updateSearchResults();

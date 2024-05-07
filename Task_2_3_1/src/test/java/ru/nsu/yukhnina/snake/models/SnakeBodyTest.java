@@ -7,9 +7,10 @@ class SnakeBodyTest {
     @Test
     void createSnake() {
         //проверка того, что при использовании newsnake создаётся маленькая змейка
-        SnakeBody snake = new SnakeBody(Direction.MyDirection.UP, 10, 200, 200);
+        SnakeBody snake = new SnakeBody(Direction.MyDirection.LEFT, 10, 200, 200);
         snake.newSnake();
         Assertions.assertTrue(snake.getBody().size() == 1);
+        snake.addBody();
     }
 
     @Test
@@ -26,6 +27,7 @@ class SnakeBodyTest {
         snake.moveSnake(Direction.MyDirection.RIGHT);
         newPositionX = snake.getBody().getFirst().getCoordinateX();
         Assertions.assertTrue(newPositionX - positionX == 10);
+        snake.addBody();
     }
 
     @Test
@@ -36,6 +38,7 @@ class SnakeBodyTest {
         Assertions.assertTrue(!snake.snakeHitItself());
         snake.moveSnake(Direction.MyDirection.LEFT);
         snake.addBody();
+        Assertions.assertTrue(!snake.snakeHitItself());
         snake.moveSnake(Direction.MyDirection.UP);
         snake.addBody();
         snake.moveSnake(Direction.MyDirection.RIGHT);

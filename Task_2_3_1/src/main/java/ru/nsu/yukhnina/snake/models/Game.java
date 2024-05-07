@@ -41,21 +41,7 @@ public class Game {
         int positionY = random.nextInt((int)fieldHeight/cellSize)*cellSize;
         foodY = positionY;
         food = new Food(new Coordinates(positionX, positionY, cellSize, (int)fieldWidth, (int)fieldHeight), Color.RED);
-//        do {
-//            spawnApple();
-//            System.out.println("Нровое яблоко");
-//        } while (isFoodInsideSnake(positionX, positionY));
-//        System.out.println();
     }
-//
-//    public boolean isFoodInsideSnake(int x, int y) {
-//        for (SnakeCell c : snake.getBody()) {
-//            if (c.getX() == x && c.getY() == y) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
     public void eatFood(){
         if(snake.getBody().getFirst().getX() == foodX && snake.getBody().getFirst().getY() == foodY){

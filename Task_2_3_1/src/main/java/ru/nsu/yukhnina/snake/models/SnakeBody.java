@@ -45,7 +45,10 @@ public class SnakeBody {
     public void moveSnake(Direction.MyDirection direction) {
         System.out.println(body.size());
         switch (direction) {
-            case UP -> body.addFirst(new SnakeCell(body.getFirst().getX(), body.getFirst().getY()-cellSize, Color.GREEN, fieldWidth, fieldHeight));
+            case UP ->
+                body.addFirst(new SnakeCell(body.getFirst().getX(),
+                        body.getFirst().getY()-cellSize,
+                        Color.GREEN, fieldWidth, fieldHeight));
             case DOWN -> body.addFirst(new SnakeCell(body.getFirst().getX(), body.getFirst().getY()+cellSize, Color.GREEN, fieldWidth, fieldHeight));
             case LEFT -> body.addFirst(new SnakeCell(body.getFirst().getX()-cellSize, body.getFirst().getY(), Color.GREEN, fieldWidth, fieldHeight));
             case RIGHT -> body.addFirst(new SnakeCell(body.getFirst().getX()+cellSize,body.getFirst().getY(), Color.GREEN, fieldWidth, fieldHeight ));

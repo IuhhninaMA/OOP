@@ -3,16 +3,36 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'ru.nsu.yukhnina'
+version = '1.0-SNAPSHOT'
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
 javafx {
     version = "21"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
 }
 
 mainClassName = 'ru.nsu.yukhnina.snake.MainApp'

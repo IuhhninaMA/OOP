@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class SnakeBodyTest {
     @Test
-    void test1() {
+    void createSnake() {
         //проверка того, что при использовании newsnake создаётся маленькая змейка
         SnakeBody snake = new SnakeBody(Direction.MyDirection.UP, 10, 200, 200);
         snake.newSnake();
@@ -13,8 +13,7 @@ class SnakeBodyTest {
     }
 
     @Test
-    void test2() {
-        //проверка того, что при использовании newsnake создаётся маленькая змейка
+    void moveSnake() {
         SnakeBody snake = new SnakeBody(Direction.MyDirection.DOWN, 10, 200, 200);
         snake.newSnake();
         int positionX = snake.getBody().getFirst().getCoordinateX();
@@ -30,14 +29,21 @@ class SnakeBodyTest {
     }
 
     @Test
-    void test3() {
+    void hitItself() {
         //проверка самоуничтожения
         SnakeBody snake = new SnakeBody(Direction.MyDirection.UP, 10, 200, 200);
         snake.newSnake();
+        snake.moveSnake(Direction.MyDirection.LEFT);
+        snake.addBody();
+        snake.moveSnake(Direction.MyDirection.UP);
+        snake.addBody();
+        snake.moveSnake(Direction.MyDirection.RIGHT);
+        snake.addBody();
+        snake.moveSnake(Direction.MyDirection.DOWN);
         snake.addBody();
         snake.addBody();
         snake.addBody();
-        snake.addBody();
+        snake.moveSnake(Direction.MyDirection.LEFT);
         snake.moveSnake(Direction.MyDirection.UP);
         snake.moveSnake(Direction.MyDirection.RIGHT);
         snake.moveSnake(Direction.MyDirection.DOWN);

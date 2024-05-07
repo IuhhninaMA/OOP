@@ -19,6 +19,10 @@ import ru.nsu.yukhnina.snake.presentation.ViewGame;
  */
 public class Controller {
     public Label score;
+    public Button hardLevel;
+    public Button mediumLevel;
+    public Button setSmallSize;
+    public Button setBigSize;
     private Direction.MyDirection direction = Direction.MyDirection.UP;
     public Canvas canvas;
     public Button startButton;
@@ -97,4 +101,20 @@ public class Controller {
             }
         }
     };
+
+    public void mediumLevel() {
+        updateInterval = 1_000_000_000 / 2;
+    }
+
+    public void hardLevel() {
+        updateInterval = 1_000_000_000 / 5;
+    }
+
+    public void smallSize(MouseEvent mouseEvent) {
+        cellSize = 10;
+    }
+
+    public void bigSize(MouseEvent mouseEvent) {
+        cellSize = 40;
+    }
 }

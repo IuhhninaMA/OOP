@@ -1,6 +1,5 @@
 package ru.nsu.yukhnina.snake.controls;
 
-
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -10,6 +9,10 @@ import javafx.scene.input.MouseEvent;
 import ru.nsu.yukhnina.snake.models.*;
 import ru.nsu.yukhnina.snake.presentation.ViewGame;
 
+/**
+ * Ну контроллер и контроллер...
+ * Коннектит управление с визуализацией.
+ */
 public class Controller {
     private Direction.MyDirection direction = Direction.MyDirection.UP;
     public Canvas canvas;
@@ -21,6 +24,9 @@ public class Controller {
     int cellSize = 20;
     Game game;
 
+    /**
+     * Ловит нажатия кнопок.
+     */
     @FXML
     void moveSquareKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
@@ -47,6 +53,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Подготовка всех моделей для начала игры.
+     */
     public void startGame(MouseEvent mouseEvent) {
         snake = new SnakeBody(direction, cellSize, (int)canvas.getWidth(), (int)canvas.getHeight());
         snake.newSnake();

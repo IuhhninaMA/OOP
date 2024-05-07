@@ -32,18 +32,8 @@ public class SnakeCell {
         return y;
     }
 
-    public void setX(int x) {
-        this.x = x % width;
-        if (x < 0) {
-            this.x = width;
-        }
-    }
-
     public Paint getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
 }

@@ -1,5 +1,9 @@
 package ru.nsu.yukhnina.snake.models;
 
+/**
+ * Класс описывающий кольцо координат
+ * в пространстве игрового поля.
+ */
 public class Coordinates {
     private int x;
     private int y;
@@ -7,6 +11,12 @@ public class Coordinates {
     int width;
     int height;
 
+    /**
+     * X - координата по x,
+     * Y - координата по y,
+     * cellSize - размер ячейки на экране,
+     * widthб height - ширина высота поля.
+     */
     public Coordinates(int x,
                        int y,
                        int cellSize,
@@ -25,10 +35,16 @@ public class Coordinates {
         }
     }
 
+    /**
+     * Getter x.
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Getter y.
+     */
     public int getY() {
         return y;
     }

@@ -25,16 +25,24 @@ public class Controller {
     void moveSquareKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
             case UP:
-                direction = Direction.MyDirection.UP;
+                if (direction != Direction.MyDirection.DOWN) {
+                    direction = Direction.MyDirection.UP;
+                }
                 break;
             case DOWN:
-                direction = Direction.MyDirection.DOWN;
+                if (direction != Direction.MyDirection.UP) {
+                    direction = Direction.MyDirection.DOWN;
+                }
                 break;
             case RIGHT:
-                direction = Direction.MyDirection.RIGHT;
+                if (direction != Direction.MyDirection.LEFT) {
+                    direction = Direction.MyDirection.RIGHT;
+                }
                 break;
             case LEFT:
-                direction = Direction.MyDirection.LEFT;
+                if (direction != Direction.MyDirection.RIGHT) {
+                    direction = Direction.MyDirection.LEFT;
+                }
                 break;
         }
     }

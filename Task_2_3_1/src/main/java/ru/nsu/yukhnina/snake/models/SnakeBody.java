@@ -3,8 +3,6 @@ package ru.nsu.yukhnina.snake.models;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
 
 public class SnakeBody {
     public ArrayDeque<SnakeCell> body = new ArrayDeque<>();
@@ -69,11 +67,5 @@ public class SnakeBody {
             }
         }
         return false;
-    }
-
-    public void redSnake() {
-        for (SnakeCell c : body) {
-            c.setColor(Color.RED);
-        }
     }
 }

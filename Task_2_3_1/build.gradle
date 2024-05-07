@@ -35,4 +35,10 @@ jacocoTestReport {
     }
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 mainClassName = 'ru.nsu.yukhnina.snake.MainApp'

@@ -17,6 +17,12 @@ public class Coordinates {
         this.cellSize = cellSize;
         this.width = width;
         this.height = height;
+        if (x < 0) {
+            this.x = width;
+        }
+        if (y < 0) {
+            this.y = height;
+        }
     }
 
     public int getX() {

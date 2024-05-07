@@ -33,6 +33,7 @@ class SnakeBodyTest {
         //проверка самоуничтожения
         SnakeBody snake = new SnakeBody(Direction.MyDirection.UP, 10, 200, 200);
         snake.newSnake();
+        Assertions.assertTrue(!snake.snakeHitItself());
         snake.moveSnake(Direction.MyDirection.LEFT);
         snake.addBody();
         snake.moveSnake(Direction.MyDirection.UP);

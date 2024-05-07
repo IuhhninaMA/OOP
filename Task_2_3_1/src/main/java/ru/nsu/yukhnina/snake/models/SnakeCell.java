@@ -7,8 +7,8 @@ import javafx.scene.paint.Paint;
  * Описание ячейки тельца змейки.
  */
 public class SnakeCell {
-    private int xCoordinate;
-    private int yCoordinate;
+    private int coordinateX;
+    private int coordinateY;
     private Color color;
     int width;
     int height;
@@ -17,31 +17,31 @@ public class SnakeCell {
      * Конструктор класса.
      */
     public SnakeCell(int x, int y, Color color, int width, int height) {
-        this.xCoordinate = x % width;
-        this.yCoordinate = y % height;
+        this.coordinateX = x % width;
+        this.coordinateY = y % height;
         this.color = color;
         this.width = width;
         this.height = height;
         if (x < 0) {
-            this.xCoordinate = width;
+            this.coordinateX = width;
         }
         if (y < 0) {
-            this.yCoordinate = height;
+            this.coordinateY = height;
         }
     }
 
     /**
      * Геттер для координаты x.
      */
-    public int getxCoordinate() {
-        return xCoordinate;
+    public int getCoordinateX() {
+        return coordinateX;
     }
 
     /**
      * Геттер для координаты y.
      */
-    public int getyCoordinate() {
-        return yCoordinate;
+    public int getCoordinateY() {
+        return coordinateY;
     }
 
     /**

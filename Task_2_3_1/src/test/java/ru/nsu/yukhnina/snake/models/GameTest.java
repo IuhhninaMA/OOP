@@ -15,9 +15,9 @@ class GameTest {
         Game game = new Game(snake, food, Direction.MyDirection.UP, 10, 300, 300);
         game.spawnApple();
         //значение еды изменилось, она рандомно заспавнилась
-        Assertions.assertTrue(game.getFood().getCoordinates().getxCoordinate() != 200);
-        int positionY = snake.body.getFirst().getyCoordinate();
+        Assertions.assertTrue(game.getFood().getCoordinates().getCoordinateX() != 200);
+        int positionY = snake.body.getFirst().getCoordinateY();
         game.updateGame(Direction.MyDirection.DOWN);
-        Assertions.assertTrue(snake.body.getFirst().getyCoordinate() - positionY == 10);
+        Assertions.assertTrue(snake.body.getFirst().getCoordinateY() - positionY == 10);
     }
 }

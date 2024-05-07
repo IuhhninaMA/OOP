@@ -51,19 +51,20 @@ public class SnakeBody {
         SnakeCell c = body.getLast();
         switch (direction) {
             case UP -> body.add(
-                    new SnakeCell(c.getxCoordinate(),
-                            c.getyCoordinate() - cellSize,
+                    new SnakeCell(c.getCoordinateX(),
+                            c.getCoordinateY() - cellSize,
                             Color.GREEN, fieldWidth, fieldHeight));
             case DOWN -> body.add(
-                    new SnakeCell(c.getxCoordinate(),
-                            c.getyCoordinate() + cellSize,
+                    new SnakeCell(c.getCoordinateX(),
+                            c.getCoordinateY() + cellSize,
                             Color.GREEN, fieldWidth, fieldHeight));
             case LEFT -> body.add(
-                    new SnakeCell(c.getxCoordinate() + cellSize,
-                            c.getyCoordinate(), Color.GREEN, fieldWidth, fieldHeight));
+                    new SnakeCell(c.getCoordinateX() + cellSize,
+                            c.getCoordinateY(), Color.GREEN, fieldWidth, fieldHeight));
             case RIGHT -> body.add(
-                    new SnakeCell(c.getxCoordinate() - cellSize,
-                            c.getyCoordinate(), Color.GREEN, fieldWidth, fieldHeight));
+                    new SnakeCell(c.getCoordinateX() - cellSize,
+                            c.getCoordinateY(), Color.GREEN, fieldWidth, fieldHeight));
+            default -> direction = direction;
         }
     }
 
@@ -76,32 +77,33 @@ public class SnakeBody {
             case UP ->
                 body.addFirst(
                         new SnakeCell(
-                            body.getFirst().getxCoordinate(),
-                            body.getFirst().getyCoordinate() - cellSize,
+                            body.getFirst().getCoordinateX(),
+                            body.getFirst().getCoordinateY() - cellSize,
                             Color.GREEN,
                             fieldWidth,
                             fieldHeight));
             case DOWN -> body.addFirst(
                     new SnakeCell(
-                            body.getFirst().getxCoordinate(),
-                            body.getFirst().getyCoordinate() + cellSize,
+                            body.getFirst().getCoordinateX(),
+                            body.getFirst().getCoordinateY() + cellSize,
                             Color.GREEN,
                             fieldWidth,
                             fieldHeight));
             case LEFT -> body.addFirst(
                     new SnakeCell(
-                            body.getFirst().getxCoordinate() - cellSize,
-                            body.getFirst().getyCoordinate(),
+                            body.getFirst().getCoordinateX() - cellSize,
+                            body.getFirst().getCoordinateY(),
                             Color.GREEN,
                             fieldWidth,
                             fieldHeight));
             case RIGHT -> body.addFirst(
                     new SnakeCell(
-                            body.getFirst().getxCoordinate() + cellSize,
-                            body.getFirst().getyCoordinate(),
+                            body.getFirst().getCoordinateX() + cellSize,
+                            body.getFirst().getCoordinateY(),
                             Color.GREEN,
                             fieldWidth,
                             fieldHeight));
+            default -> direction = direction;
         }
         body.pollLast();
     }
@@ -113,7 +115,8 @@ public class SnakeBody {
         for (SnakeCell cell1 : body) {
             int k = 0;
             for (SnakeCell cell2 : body) {
-                if (cell1.getxCoordinate() == cell2.getxCoordinate() && cell1.getyCoordinate() == cell2.getyCoordinate()) {
+                if (cell1.getCoordinateX() == cell2.getCoordinateX()
+                        && cell1.getCoordinateY() == cell2.getCoordinateY()) {
                     k++;
                 }
                 if (k > 1) {

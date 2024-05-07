@@ -11,21 +11,21 @@ class CoordinatesTest {
     @Test
     void test1() {
         Coordinates c = new Coordinates(-300, 900, 0, 200, 300);
-        Assertions.assertTrue(c.getxCoordinate() >= 0);
-        Assertions.assertTrue(c.getyCoordinate() <= 300);
+        Assertions.assertTrue(c.getCoordinateX() >= 0);
+        Assertions.assertTrue(c.getCoordinateY() <= 300);
     }
 
     @Test
     void test2() {
         Coordinates c = new Coordinates(1000, 10, 0, 200, 300);
-        Assertions.assertTrue(c.getxCoordinate() == 0);
-        Assertions.assertTrue(c.getyCoordinate() == 10);
+        Assertions.assertTrue(c.getCoordinateX() == 0);
+        Assertions.assertTrue(c.getCoordinateY() == 10);
     }
 
     @Test
     void test3() {
         Coordinates c = new Coordinates(10, 10, 0, 200, 300);
-        Assertions.assertTrue(c.getxCoordinate() == 10);
-        Assertions.assertTrue(c.getyCoordinate() == 10);
+        Assertions.assertTrue(c.getCoordinateX() == 10);
+        Assertions.assertTrue(c.getCoordinateY() == 10);
     }
 }

@@ -61,7 +61,7 @@ public class Game {
                 positionY,
                 cellSize,
                 (int) fieldWidth,
-                (int)fieldHeight),
+                (int) fieldHeight),
                 Color.RED);
     }
 
@@ -69,8 +69,8 @@ public class Game {
      * Проверка съела ли змейка еду.
      */
     public void eatFood() {
-        if (snake.getBody().getFirst().getxCoordinate() == foodX
-                && snake.getBody().getFirst().getyCoordinate() == foodY) {
+        if (snake.getBody().getFirst().getCoordinateX() == foodX
+                && snake.getBody().getFirst().getCoordinateY() == foodY) {
             spawnApple();
             snake.addBody();
         }

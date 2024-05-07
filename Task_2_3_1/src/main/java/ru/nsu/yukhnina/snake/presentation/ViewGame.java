@@ -41,11 +41,15 @@ public class ViewGame {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         for (SnakeCell cell : snakeBody.getBody()) {
             gc.setFill(cell.getColor());
-            gc.fillRect(cell.getxCoordinate(), cell.getyCoordinate(), cellSize, cellSize);
-            System.out.println("Змейка" + cell.getxCoordinate() + " " + cell.getyCoordinate());
+            gc.fillRect(cell.getCoordinateX(), cell.getCoordinateY(), cellSize, cellSize);
+            System.out.println("Змейка"
+                    + cell.getCoordinateX()
+                    + " " + cell.getCoordinateY());
         }
         gc.setFill(food.getColor());
-        gc.fillRect(food.getCoordinates().getxCoordinate(), food.getCoordinates().getyCoordinate(), cellSize, cellSize);
+        gc.fillRect(food.getCoordinates().getCoordinateX(),
+                food.getCoordinates().getCoordinateY(),
+                cellSize, cellSize);
     }
 
     /**

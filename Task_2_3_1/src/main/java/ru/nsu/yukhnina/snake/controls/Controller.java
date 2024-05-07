@@ -55,6 +55,8 @@ public class Controller {
                     direction = Direction.MyDirection.LEFT;
                 }
                 break;
+            default:
+                direction = direction;
         }
     }
 

@@ -5,8 +5,8 @@ package ru.nsu.yukhnina.snake.models;
  * в пространстве игрового поля.
  */
 public class Coordinates {
-    private int x;
-    private int y;
+    private int xCoordinate;
+    private int yCoordinate;
     private int cellSize;
     int width;
     int height;
@@ -22,30 +22,30 @@ public class Coordinates {
                        int cellSize,
                        int width,
                        int height) {
-        this.x = x % width;
-        this.y = y % height;
+        this.xCoordinate = x % width;
+        this.yCoordinate = y % height;
         this.cellSize = cellSize;
         this.width = width;
         this.height = height;
         if (x < 0) {
-            this.x = width;
+            this.xCoordinate = width;
         }
         if (y < 0) {
-            this.y = height;
+            this.yCoordinate = height;
         }
     }
 
     /**
      * Getter x.
      */
-    public int getX() {
-        return x;
+    public int getxCoordinate() {
+        return xCoordinate;
     }
 
     /**
      * Getter y.
      */
-    public int getY() {
-        return y;
+    public int getyCoordinate() {
+        return yCoordinate;
     }
 }

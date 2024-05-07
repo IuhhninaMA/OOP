@@ -11,13 +11,13 @@ class GameTest {
     void testGame() {
         SnakeBody snake = new SnakeBody(Direction.MyDirection.UP, 10, 200, 200);
         snake.newSnake();
-        int positionY = snake.body.getFirst().getY();
         Food food = new Food(new Coordinates(200, 200, 10, 300, 300), Color.GREEN);
         Game game = new Game(snake, food, Direction.MyDirection.UP, 10, 300, 300);
         game.spawnApple();
         //значение еды изменилось, она рандомно заспавнилась
-        Assertions.assertTrue(game.getFood().getCoordinates().getX() != 200);
+        Assertions.assertTrue(game.getFood().getCoordinates().getxCoordinate() != 200);
+        int positionY = snake.body.getFirst().getyCoordinate();
         game.updateGame(Direction.MyDirection.DOWN);
-        Assertions.assertTrue(snake.body.getFirst().getY() - positionY == 10);
+        Assertions.assertTrue(snake.body.getFirst().getyCoordinate() - positionY == 10);
     }
 }

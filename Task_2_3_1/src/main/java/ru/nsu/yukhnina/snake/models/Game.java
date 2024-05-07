@@ -1,8 +1,9 @@
 package ru.nsu.yukhnina.snake.models;
 
+import java.util.Random;
 import javafx.scene.paint.Color;
 
-import java.util.Random;
+
 
 /**
  * класс который управляет обновлением механики игры.
@@ -51,18 +52,25 @@ public class Game {
      * рандомный спавн яблок.
      */
     public void spawnApple() {
-        int positionX = random.nextInt((int)fieldWidth/cellSize)*cellSize;
+        int positionX = random.nextInt((int) fieldWidth / cellSize) * cellSize;
         foodX = positionX;
-        int positionY = random.nextInt((int)fieldHeight/cellSize)*cellSize;
+        int positionY = random.nextInt((int) fieldHeight / cellSize) * cellSize;
         foodY = positionY;
-        food = new Food(new Coordinates(positionX, positionY, cellSize, (int)fieldWidth, (int)fieldHeight), Color.RED);
+        food = new Food(new Coordinates(
+                positionX,
+                positionY,
+                cellSize,
+                (int) fieldWidth,
+                (int)fieldHeight),
+                Color.RED);
     }
 
     /**
      * Проверка съела ли змейка еду.
      */
-    public void eatFood(){
-        if(snake.getBody().getFirst().getX() == foodX && snake.getBody().getFirst().getY() == foodY){
+    public void eatFood() {
+        if (snake.getBody().getFirst().getxCoordinate() == foodX
+                && snake.getBody().getFirst().getyCoordinate() == foodY) {
             spawnApple();
             snake.addBody();
         }

@@ -1,8 +1,7 @@
 package ru.nsu.yukhnina.snake.models;
 
-import javafx.scene.paint.Color;
-
 import java.util.ArrayDeque;
+import javafx.scene.paint.Color;
 
 /**
  * Класс для описания змейки.
@@ -51,10 +50,20 @@ public class SnakeBody {
     public void addBody() {
         SnakeCell c = body.getLast();
         switch (direction) {
-            case UP -> body.add(new SnakeCell(c.getX(), c.getY()-cellSize, Color.GREEN, fieldWidth, fieldHeight));
-            case DOWN -> body.add(new SnakeCell(c.getX(), c.getY()+cellSize, Color.GREEN, fieldWidth, fieldHeight));
-            case LEFT -> body.add(new SnakeCell(c.getX()+cellSize, c.getY(), Color.GREEN, fieldWidth, fieldHeight));
-            case RIGHT -> body.add(new SnakeCell(c.getX()-cellSize, c.getY(), Color.GREEN, fieldWidth, fieldHeight));
+            case UP -> body.add(
+                    new SnakeCell(c.getxCoordinate(),
+                            c.getyCoordinate() - cellSize,
+                            Color.GREEN, fieldWidth, fieldHeight));
+            case DOWN -> body.add(
+                    new SnakeCell(c.getxCoordinate(),
+                            c.getyCoordinate() + cellSize,
+                            Color.GREEN, fieldWidth, fieldHeight));
+            case LEFT -> body.add(
+                    new SnakeCell(c.getxCoordinate() + cellSize,
+                            c.getyCoordinate(), Color.GREEN, fieldWidth, fieldHeight));
+            case RIGHT -> body.add(
+                    new SnakeCell(c.getxCoordinate() - cellSize,
+                            c.getyCoordinate(), Color.GREEN, fieldWidth, fieldHeight));
         }
     }
 
@@ -65,12 +74,34 @@ public class SnakeBody {
         System.out.println(body.size());
         switch (direction) {
             case UP ->
-                body.addFirst(new SnakeCell(body.getFirst().getX(),
-                        body.getFirst().getY()-cellSize,
-                        Color.GREEN, fieldWidth, fieldHeight));
-            case DOWN -> body.addFirst(new SnakeCell(body.getFirst().getX(), body.getFirst().getY()+cellSize, Color.GREEN, fieldWidth, fieldHeight));
-            case LEFT -> body.addFirst(new SnakeCell(body.getFirst().getX()-cellSize, body.getFirst().getY(), Color.GREEN, fieldWidth, fieldHeight));
-            case RIGHT -> body.addFirst(new SnakeCell(body.getFirst().getX()+cellSize,body.getFirst().getY(), Color.GREEN, fieldWidth, fieldHeight ));
+                body.addFirst(
+                        new SnakeCell(
+                            body.getFirst().getxCoordinate(),
+                            body.getFirst().getyCoordinate() - cellSize,
+                            Color.GREEN,
+                            fieldWidth,
+                            fieldHeight));
+            case DOWN -> body.addFirst(
+                    new SnakeCell(
+                            body.getFirst().getxCoordinate(),
+                            body.getFirst().getyCoordinate() + cellSize,
+                            Color.GREEN,
+                            fieldWidth,
+                            fieldHeight));
+            case LEFT -> body.addFirst(
+                    new SnakeCell(
+                            body.getFirst().getxCoordinate() - cellSize,
+                            body.getFirst().getyCoordinate(),
+                            Color.GREEN,
+                            fieldWidth,
+                            fieldHeight));
+            case RIGHT -> body.addFirst(
+                    new SnakeCell(
+                            body.getFirst().getxCoordinate() + cellSize,
+                            body.getFirst().getyCoordinate(),
+                            Color.GREEN,
+                            fieldWidth,
+                            fieldHeight));
         }
         body.pollLast();
     }
@@ -78,11 +109,11 @@ public class SnakeBody {
     /**
      * проверка того, что змейка ударилас в себя.
      */
-    public boolean SnakeHitItself() {
+    public boolean snakeHitItself() {
         for (SnakeCell cell1 : body) {
             int k = 0;
             for (SnakeCell cell2 : body) {
-                if (cell1.getX() == cell2.getX() && cell1.getY() == cell2.getY()) {
+                if (cell1.getxCoordinate() == cell2.getxCoordinate() && cell1.getyCoordinate() == cell2.getyCoordinate()) {
                     k++;
                 }
                 if (k > 1) {

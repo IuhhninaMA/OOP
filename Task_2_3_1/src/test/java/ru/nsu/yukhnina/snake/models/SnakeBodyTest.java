@@ -3,8 +3,6 @@ package ru.nsu.yukhnina.snake.models;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SnakeBodyTest {
     @Test
     void test1() {
@@ -19,15 +17,15 @@ class SnakeBodyTest {
         //проверка того, что при использовании newsnake создаётся маленькая змейка
         SnakeBody snake = new SnakeBody(Direction.MyDirection.DOWN, 10, 200, 200);
         snake.newSnake();
-        int positionX = snake.getBody().getFirst().getX();
-        int positionY = snake.getBody().getFirst().getY();
+        int positionX = snake.getBody().getFirst().getxCoordinate();
+        int positionY = snake.getBody().getFirst().getyCoordinate();
         snake.moveSnake(Direction.MyDirection.DOWN);
-        int newPositionY = snake.getBody().getFirst().getY();
-        int newPositionX = snake.getBody().getFirst().getX();
+        int newPositionY = snake.getBody().getFirst().getyCoordinate();
+        int newPositionX = snake.getBody().getFirst().getxCoordinate();
         Assertions.assertTrue(newPositionY - positionY == 10);
         Assertions.assertTrue(newPositionX == positionX);
         snake.moveSnake(Direction.MyDirection.RIGHT);
-        newPositionX = snake.getBody().getFirst().getX();
+        newPositionX = snake.getBody().getFirst().getxCoordinate();
         Assertions.assertTrue(newPositionX - positionX == 10);
     }
 
@@ -43,6 +41,6 @@ class SnakeBodyTest {
         snake.moveSnake(Direction.MyDirection.UP);
         snake.moveSnake(Direction.MyDirection.RIGHT);
         snake.moveSnake(Direction.MyDirection.DOWN);
-        Assertions.assertTrue(snake.SnakeHitItself());
+        Assertions.assertTrue(snake.snakeHitItself());
     }
 }

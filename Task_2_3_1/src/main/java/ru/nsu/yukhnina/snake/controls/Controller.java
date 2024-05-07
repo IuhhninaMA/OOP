@@ -7,7 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import ru.nsu.yukhnina.snake.models.*;
+import ru.nsu.yukhnina.snake.models.Direction;
+import ru.nsu.yukhnina.snake.models.Food;
+import ru.nsu.yukhnina.snake.models.Game;
+import ru.nsu.yukhnina.snake.models.SnakeBody;
 import ru.nsu.yukhnina.snake.presentation.ViewGame;
 
 /**
@@ -59,7 +62,8 @@ public class Controller {
      * Подготовка всех моделей для начала игры.
      */
     public void startGame(MouseEvent mouseEvent) {
-        snake = new SnakeBody(direction, cellSize, (int)canvas.getWidth(), (int)canvas.getHeight());
+        snake = new SnakeBody(direction, cellSize,
+                (int) canvas.getWidth(), (int) canvas.getHeight());
         snake.newSnake();
         game = new Game(snake,
                 food,
@@ -76,7 +80,7 @@ public class Controller {
         @Override
         public void handle(long now) {
             updateInterval -= 10;
-            score.setText("" +(snake.getBody().size() - 1));
+            score.setText("" + (snake.getBody().size() - 1));
             if (now - lastUpdateTime >= updateInterval) {
                 lastUpdateTime = now;
                 game.updateGame(direction);
@@ -84,7 +88,7 @@ public class Controller {
                 paint.view();
                 System.out.println(direction);
             }
-            if (snake.SnakeHitItself()) {
+            if (snake.snakeHitItself()) {
                 ViewGame paint = new ViewGame(game.getSnake(), game.getFood(), cellSize, canvas);
                 paint.gameOver();
                 timer.stop();

@@ -2,7 +2,6 @@ package ru.nsu.yukhnina.snake.presentation;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Cell;
 import javafx.scene.paint.Color;
 import ru.nsu.yukhnina.snake.models.Food;
 import ru.nsu.yukhnina.snake.models.SnakeBody;
@@ -42,11 +41,11 @@ public class ViewGame {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         for (SnakeCell cell : snakeBody.getBody()) {
             gc.setFill(cell.getColor());
-            gc.fillRect(cell.getX(), cell.getY(), cellSize, cellSize);
-            System.out.println("Змейка" + cell.getX() + " " + cell.getY());
+            gc.fillRect(cell.getxCoordinate(), cell.getyCoordinate(), cellSize, cellSize);
+            System.out.println("Змейка" + cell.getxCoordinate() + " " + cell.getyCoordinate());
         }
         gc.setFill(food.getColor());
-        gc.fillRect(food.getCoordinates().getX(), food.getCoordinates().getY(), cellSize, cellSize);
+        gc.fillRect(food.getCoordinates().getxCoordinate(), food.getCoordinates().getyCoordinate(), cellSize, cellSize);
     }
 
     /**

@@ -104,7 +104,7 @@ public class Controller {
                 paint.view();
                 System.out.println(direction);
             }
-            if (snake.snakeHitItself() || game.SnakesHits()) {
+            if (snake.snakeHitItself() || game.snakesHits()) {
                 ViewGame paint = new ViewGame(game.getSnake(), game.getFood(), cellSize, canvas, snakes);
                 paint.gameOver();
                 timer.stop();

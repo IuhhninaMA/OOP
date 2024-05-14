@@ -1,10 +1,8 @@
 package ru.nsu.yukhnina.snake.models;
 
-import javafx.scene.paint.Color;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Random;
+import javafx.scene.paint.Color;
 
 public class BadSnake {
     public ArrayDeque<SnakeCell> body = new ArrayDeque<>();
@@ -15,7 +13,7 @@ public class BadSnake {
     int goalX;
     int goalY;
 
-    public BadSnake( int cellSize,
+    public BadSnake (int cellSize,
                      int fieldWidth,
                      int fieldHeight,
                      int goalX,
@@ -43,6 +41,9 @@ public class BadSnake {
         return body;
     }
 
+    /**
+     * Добавление кусочка в тельце.
+     */
     public void addBody() {
         SnakeCell c = body.getLast();
         switch (direction) {
@@ -77,6 +78,9 @@ public class BadSnake {
         }
     }
 
+    /**
+     * В зависимости от направления движения обсчитываю новые координаты движения.
+     */
     private void moveSnake() {
         switch (direction) {
             case UP ->
@@ -113,6 +117,9 @@ public class BadSnake {
         body.pollLast();
     }
 
+    /**
+     * ывбор направления движения в зависимости от положения цели.
+     */
     private void choiceDirection() {
         this.direction = Direction.MyDirection.UP;
         ArrayList<Direction.MyDirection> directions = new ArrayList<>();
@@ -128,14 +135,16 @@ public class BadSnake {
         if (goalY > body.getFirst().getCoordinateY()) {
             directions.add(Direction.MyDirection.DOWN);
         }
-        Random randomGenerator = new Random();
         int index = (int)(Math.random() * directions.size());
         this.direction = directions.get(index);
     }
 
-    public void snakeGo(int newFoodX, int newFoodY) {
-        goalX = newFoodX;
-        goalY = newFoodY;
+    /**
+     * Пермещение змейки.
+     */
+    public void snakeGo(int newGoalX, int newGoalY) {
+        goalX = newGoalX;
+        goalY = newGoalY;
         choiceDirection();
         moveSnake();
         System.out.println("Bad snake ");

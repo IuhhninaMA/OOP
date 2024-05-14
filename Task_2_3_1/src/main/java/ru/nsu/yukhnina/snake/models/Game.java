@@ -108,16 +108,15 @@ public class Game {
         return snake;
     }
 
-    public ArrayList<BadSnake> getBadSnake() {
-        return badSnake;
-    }
-
-    public boolean SnakesHits() {
+    /**
+     * Проверка что пользовательская змейка и змейка-робот столкнулись.
+     */
+    public boolean snakesHits() {
         for (BadSnake badSnake : badSnake) {
             for (SnakeCell badCell : badSnake.getBody()) {
                 for (SnakeCell snakeCell : snake.getBody()) {
-                    if (snakeCell.getCoordinateX() == badCell.getCoordinateX() &&
-                            snakeCell.getCoordinateY() == badCell.getCoordinateY()) {
+                    if (snakeCell.getCoordinateX() == badCell.getCoordinateX()
+                            && snakeCell.getCoordinateY() == badCell.getCoordinateY()) {
                         return true;
                     }
                 }

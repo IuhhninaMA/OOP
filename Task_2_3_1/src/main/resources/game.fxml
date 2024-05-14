@@ -60,20 +60,6 @@
                         onKeyPressed="#moveSquareKeyPressed"
                         onMouseClicked="#hardLevel"
                         text="Set hard level" />
-                <Button
-                        fx:id="setSmallSize"
-                        layoutX="32.0"
-                        layoutY="34.0"
-                        onKeyPressed="#moveSquareKeyPressed"
-                        onMouseClicked="#smallSize"
-                        text="Set big size" />
-                <Button
-                        fx:id="setBigSize"
-                        layoutX="32.0"
-                        layoutY="34.0"
-                        onKeyPressed="#moveSquareKeyPressed"
-                        onMouseClicked="#bigSize"
-                        text="Set small size" />
                 <HBox>
                 <Label text="Score: "/>
                 <Label fx:id="score" layoutX="681.0" layoutY="145.0" prefHeight="32.0" prefWidth="34.0">

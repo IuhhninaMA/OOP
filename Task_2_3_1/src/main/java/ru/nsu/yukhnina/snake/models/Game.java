@@ -1,5 +1,6 @@
 package ru.nsu.yukhnina.snake.models;
 
+import java.util.ArrayList;
 import java.util.Random;
 import javafx.scene.paint.Color;
 
@@ -18,6 +19,7 @@ public class Game {
     int cellSize;
     double fieldWidth;
     double fieldHeight;
+    ArrayList<BadSnake> badSnake;
 
     /**
      * тут собраны тело змейки,
@@ -26,12 +28,14 @@ public class Game {
      * размеры ячейки и поля.
      */
     public Game(SnakeBody snake,
+                ArrayList<BadSnake> badSnake,
                 Food food,
                 Direction.MyDirection direction,
                 int cellSize,
                 double fieldHeight,
                 double fieldWidth) {
         this.snake = snake;
+        this.badSnake = badSnake;
         this.food = food;
         this.direction = direction;
         this.cellSize = cellSize;
@@ -46,6 +50,10 @@ public class Game {
         this.direction = direction;
         eatFood();
         snake.moveSnake(direction);
+        badSnakeEatFood();
+        badSnake.get(0).snakeGo(foodX, foodY);
+        badSnake.get(1).snakeGo(snake.getBody().getFirst().getCoordinateX(),
+                snake.getBody().getFirst().getCoordinateX());
     }
 
     /**
@@ -76,6 +84,16 @@ public class Game {
         }
     }
 
+    public void badSnakeEatFood() {
+        for (BadSnake badsnake : badSnake) {
+            if (badsnake.getBody().getFirst().getCoordinateX() == foodX
+                    && badsnake.getBody().getFirst().getCoordinateY() == foodY) {
+                spawnApple();
+                badsnake.addBody();
+            }
+        }
+    }
+
     /**
      * Геттер для визуализации.
      */
@@ -90,4 +108,21 @@ public class Game {
         return snake;
     }
 
+    public ArrayList<BadSnake> getBadSnake() {
+        return badSnake;
+    }
+
+    public boolean SnakesHits() {
+        for (BadSnake badSnake : badSnake) {
+            for (SnakeCell badCell : badSnake.getBody()) {
+                for (SnakeCell snakeCell : snake.getBody()) {
+                    if (snakeCell.getCoordinateX() == badCell.getCoordinateX() &&
+                            snakeCell.getCoordinateY() == badCell.getCoordinateY()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }

@@ -3,9 +3,12 @@ package ru.nsu.yukhnina.snake.presentation;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import ru.nsu.yukhnina.snake.models.BadSnake;
 import ru.nsu.yukhnina.snake.models.Food;
 import ru.nsu.yukhnina.snake.models.SnakeBody;
 import ru.nsu.yukhnina.snake.models.SnakeCell;
+
+import java.util.ArrayList;
 
 /**
  * Визуализация моделек.
@@ -15,6 +18,7 @@ public class ViewGame {
     Food food;
     int cellSize;
     Canvas canvas;
+    ArrayList<BadSnake> snakes;
 
     /**
      * Конструктор для поля с моделями змейки,
@@ -24,11 +28,13 @@ public class ViewGame {
     public ViewGame(SnakeBody snake,
                     Food food,
                     int cellSize,
-                    Canvas canvas) {
+                    Canvas canvas,
+                    ArrayList<BadSnake> badSnake) {
         this.snakeBody = snake;
         this.food = food;
         this.cellSize = cellSize;
         this.canvas = canvas;
+        this.snakes = badSnake;
     }
 
     /**
@@ -45,6 +51,15 @@ public class ViewGame {
             System.out.println("Змейка"
                     + cell.getCoordinateX()
                     + " " + cell.getCoordinateY());
+        }
+        for (BadSnake snake : snakes) {
+            for (SnakeCell cell : snake.getBody()) {
+                gc.setFill(cell.getColor());
+                gc.fillRect(cell.getCoordinateX(), cell.getCoordinateY(), cellSize, cellSize);
+                System.out.println("Злая Змейка"
+                        + cell.getCoordinateX()
+                        + " " + cell.getCoordinateY());
+            }
         }
         gc.setFill(food.getColor());
         gc.fillRect(food.getCoordinates().getCoordinateX(),

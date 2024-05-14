@@ -7,10 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import ru.nsu.yukhnina.snake.models.*;
-import ru.nsu.yukhnina.snake.presentation.ViewGame;
-
 import java.util.ArrayList;
+import ru.nsu.yukhnina.snake.models.BadSnake;
+import ru.nsu.yukhnina.snake.models.Direction;
+import ru.nsu.yukhnina.snake.models.Food;
+import ru.nsu.yukhnina.snake.models.Game;
+import ru.nsu.yukhnina.snake.models.SnakeBody;
+import ru.nsu.yukhnina.snake.presentation.ViewGame;
 
 /**
  * Ну контроллер и контроллер...
@@ -76,7 +79,10 @@ public class Controller {
         snake.newSnake();
         badSnake = new BadSnake(cellSize, (int) canvas.getWidth(), (int) canvas.getHeight(), 0, 0);
         badSnake.newSnake();
-        badSnakeHeadHunter = new BadSnake(cellSize, (int) canvas.getWidth(), (int) canvas.getHeight(), 500, 500);
+        badSnakeHeadHunter = new BadSnake(cellSize,
+                (int) canvas.getWidth(),
+                (int) canvas.getHeight(),
+                500, 500);
         badSnakeHeadHunter.newSnake();
         snakes.add(badSnake);
         snakes.add(badSnakeHeadHunter);
@@ -100,12 +106,14 @@ public class Controller {
             if (now - lastUpdateTime >= updateInterval) {
                 lastUpdateTime = now;
                 game.updateGame(direction);
-                ViewGame paint = new ViewGame(game.getSnake(), game.getFood(), cellSize, canvas, snakes);
+                ViewGame paint = new ViewGame(game.getSnake(),
+                        game.getFood(), cellSize, canvas, snakes);
                 paint.view();
                 System.out.println(direction);
             }
             if (snake.snakeHitItself() || game.snakesHits()) {
-                ViewGame paint = new ViewGame(game.getSnake(), game.getFood(), cellSize, canvas, snakes);
+                ViewGame paint = new ViewGame(game.getSnake(),
+                        game.getFood(), cellSize, canvas, snakes);
                 paint.gameOver();
                 timer.stop();
             }

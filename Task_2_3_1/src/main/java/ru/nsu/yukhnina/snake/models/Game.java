@@ -84,6 +84,9 @@ public class Game {
         }
     }
 
+    /**
+     * Проверка того что змейка-робот съела еду.
+     */
     public void badSnakeEatFood() {
         for (BadSnake badsnake : badSnake) {
             if (badsnake.getBody().getFirst().getCoordinateX() == foodX

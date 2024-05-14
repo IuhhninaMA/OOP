@@ -4,6 +4,9 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
+/**
+ * Змейка-робот.
+ */
 public class BadSnake {
     public ArrayDeque<SnakeCell> body = new ArrayDeque<>();
     private Direction.MyDirection direction;
@@ -13,7 +16,11 @@ public class BadSnake {
     int goalX;
     int goalY;
 
-    public BadSnake (int cellSize,
+    /**
+     * Класс, который описывает змейку робота принимает на вход размер ячейки,
+     * размеры поля и координаты цели.
+     */
+    public BadSnake ( int cellSize,
                      int fieldWidth,
                      int fieldHeight,
                      int goalX,
@@ -135,7 +142,7 @@ public class BadSnake {
         if (goalY > body.getFirst().getCoordinateY()) {
             directions.add(Direction.MyDirection.DOWN);
         }
-        int index = (int)(Math.random() * directions.size());
+        int index = (int) (Math.random() * directions.size());
         this.direction = directions.get(index);
     }
 

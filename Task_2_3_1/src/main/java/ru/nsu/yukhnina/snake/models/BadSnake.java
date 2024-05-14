@@ -20,7 +20,7 @@ public class BadSnake {
      * Класс, который описывает змейку робота принимает на вход размер ячейки,
      * размеры поля и координаты цели.
      */
-    public BadSnake ( int cellSize,
+    public BadSnake(int cellSize,
                      int fieldWidth,
                      int fieldHeight,
                      int goalX,

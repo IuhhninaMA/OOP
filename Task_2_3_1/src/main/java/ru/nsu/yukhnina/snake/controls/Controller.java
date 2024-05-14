@@ -1,5 +1,6 @@
 package ru.nsu.yukhnina.snake.controls;
 
+import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -7,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import java.util.ArrayList;
 import ru.nsu.yukhnina.snake.models.BadSnake;
 import ru.nsu.yukhnina.snake.models.Direction;
 import ru.nsu.yukhnina.snake.models.Food;

@@ -1,11 +1,11 @@
 package ru.nsu.yukhnina.snake.presentation;
 
+import java.util.ArrayList;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import ru.nsu.yukhnina.snake.models.BadSnake;
 import ru.nsu.yukhnina.snake.models.Food;
-import java.util.ArrayList;
 import ru.nsu.yukhnina.snake.models.SnakeBody;
 import ru.nsu.yukhnina.snake.models.SnakeCell;
 

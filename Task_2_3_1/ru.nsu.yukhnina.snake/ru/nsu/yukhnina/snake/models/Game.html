@@ -90,7 +90,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.nsu.yukhnina.snake.models.SnakeBody,ru.nsu.yukhnina.snake.models.Food,ru.nsu.yukhnina.snake.models.Direction.MyDirection,int,double,double)" class="member-name-link">Game</a><wbr>(<a href="SnakeBody.html" title="class in ru.nsu.yukhnina.snake.models">SnakeBody</a>&nbsp;snake,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.nsu.yukhnina.snake.models.SnakeBody,java.util.ArrayList,ru.nsu.yukhnina.snake.models.Food,ru.nsu.yukhnina.snake.models.Direction.MyDirection,int,double,double)" class="member-name-link">Game</a><wbr>(<a href="SnakeBody.html" title="class in ru.nsu.yukhnina.snake.models">SnakeBody</a>&nbsp;snake,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BadSnake.html" title="class in ru.nsu.yukhnina.snake.models">BadSnake</a>&gt;&nbsp;badSnake,
  <a href="Food.html" title="class in ru.nsu.yukhnina.snake.models">Food</a>&nbsp;food,
  <a href="Direction.MyDirection.html" title="enum class in ru.nsu.yukhnina.snake.models">Direction.MyDirection</a>&nbsp;direction,
  int&nbsp;cellSize,
@@ -117,10 +118,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eatFood()" class="member-name-link">eatFood</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#badSnakeEatFood()" class="member-name-link">badSnakeEatFood</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eatFood()" class="member-name-link">eatFood</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Проверка съела ли змейка еду.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BadSnake.html" title="class in ru.nsu.yukhnina.snake.models">BadSnake</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBadSnake()" class="member-name-link">getBadSnake</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Food.html" title="class in ru.nsu.yukhnina.snake.models">Food</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFood()" class="member-name-link">getFood</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -131,14 +138,17 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Геттер для визуализации.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#spawnApple()" class="member-name-link">spawnApple</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#SnakesHits()" class="member-name-link">SnakesHits</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#spawnApple()" class="member-name-link">spawnApple</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">рандомный спавн яблок.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateGame(ru.nsu.yukhnina.snake.models.Direction.MyDirection)" class="member-name-link">updateGame</a><wbr>(<a href="Direction.MyDirection.html" title="enum class in ru.nsu.yukhnina.snake.models">Direction.MyDirection</a>&nbsp;direction)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateGame(ru.nsu.yukhnina.snake.models.Direction.MyDirection)" class="member-name-link">updateGame</a><wbr>(<a href="Direction.MyDirection.html" title="enum class in ru.nsu.yukhnina.snake.models">Direction.MyDirection</a>&nbsp;direction)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">запускается с каждым тиком игры для обновления моделей змейки и еды.</div>
 </div>
 </div>
@@ -159,9 +169,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(ru.nsu.yukhnina.snake.models.SnakeBody,ru.nsu.yukhnina.snake.models.Food,ru.nsu.yukhnina.snake.models.Direction.MyDirection,int,double,double)">
+<section class="detail" id="&lt;init&gt;(ru.nsu.yukhnina.snake.models.SnakeBody,java.util.ArrayList,ru.nsu.yukhnina.snake.models.Food,ru.nsu.yukhnina.snake.models.Direction.MyDirection,int,double,double)">
 <h3>Game</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Game</span><wbr><span class="parameters">(<a href="SnakeBody.html" title="class in ru.nsu.yukhnina.snake.models">SnakeBody</a>&nbsp;snake,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BadSnake.html" title="class in ru.nsu.yukhnina.snake.models">BadSnake</a>&gt;&nbsp;badSnake,
  <a href="Food.html" title="class in ru.nsu.yukhnina.snake.models">Food</a>&nbsp;food,
  <a href="Direction.MyDirection.html" title="enum class in ru.nsu.yukhnina.snake.models">Direction.MyDirection</a>&nbsp;direction,
  int&nbsp;cellSize,
@@ -203,6 +214,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="badSnakeEatFood()">
+<h3>badSnakeEatFood</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">badSnakeEatFood</span>()</div>
+</section>
+</li>
+<li>
 <section class="detail" id="getFood()">
 <h3>getFood</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Food.html" title="class in ru.nsu.yukhnina.snake.models">Food</a></span>&nbsp;<span class="element-name">getFood</span>()</div>
@@ -214,6 +231,18 @@ loadScripts(document, 'script');</script>
 <h3>getSnake</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SnakeBody.html" title="class in ru.nsu.yukhnina.snake.models">SnakeBody</a></span>&nbsp;<span class="element-name">getSnake</span>()</div>
 <div class="block">Геттер для визуализации.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBadSnake()">
+<h3>getBadSnake</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="BadSnake.html" title="class in ru.nsu.yukhnina.snake.models">BadSnake</a>&gt;</span>&nbsp;<span class="element-name">getBadSnake</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SnakesHits()">
+<h3>SnakesHits</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">SnakesHits</span>()</div>
 </section>
 </li>
 </ul>
